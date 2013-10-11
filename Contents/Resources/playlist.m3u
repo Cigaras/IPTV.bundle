@@ -1,0 +1,280 @@
+#EXTM3U
+#EXTINF:0 tvg-name="Al Jazeera" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/7/71/Aljazeera.svg/2000px-Aljazeera.svg.png",Al Jazeera
+http://192.168.1.1:4000/udp/233.136.41.0:1234
+#EXTINF:0 tvg-name="Discovery World" tvg-logo="http://upload.wikimedia.org/wikipedia/en/e/e4/Discovery_world_channel.png",Discovery World
+http://192.168.1.1:4000/udp/233.136.41.1:1234
+#EXTINF:0 tvg-name="TLC" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/1/1d/TLC_LA.png",TLC
+http://192.168.1.1:4000/udp/233.136.41.2:1234
+#EXTINF:0 tvg-name="Discovery Science" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/6d/Discovery_Science_Canada_2011.png",Discovery Science
+http://192.168.1.1:4000/udp/233.136.41.3:1234
+#EXTINF:0 tvg-name="Discovery Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/4/46/Discovery_Channel_International.svg/2000px-Discovery_Channel_International.svg.png",Discovery Channel
+http://192.168.1.1:4000/udp/233.136.41.4:1234
+#EXTINF:0 tvg-name="Da Vinci Learning" tvg-logo="http://upload.wikimedia.org/wikipedia/en/4/44/Dvl_logo_01.jpg",Da Vinci Learning
+http://192.168.1.1:4000/udp/233.136.41.5:1234
+#EXTINF:0 tvg-name="Cartoon Network" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cartoon_Network_logo.svg/2000px-Cartoon_Network_logo.svg.png",Cartoon Network
+http://192.168.1.1:4000/udp/233.136.41.6:1234
+#EXTINF:0 tvg-name="Cartoonito" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/4/42/Cartoonito_logo.svg/2000px-Cartoonito_logo.svg.png",Cartoonito
+http://192.168.1.1:4000/udp/233.136.41.7:1234
+#EXTINF:0 tvg-name="Animal Planet" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/2000px-Animal_Planet_logo.svg.png",Animal Planet
+http://192.168.1.1:4000/udp/233.136.41.8:1234
+#EXTINF:0 tvg-name="24 Техно" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/9/93/24t-green.jpg",24 Tehno
+http://192.168.1.1:4000/udp/233.136.41.9:1234
+#EXTINF:0 tvg-name="Первый Балтийский Музыкальный" tvg-logo="http://data.mw.penki.tv/Icons/120px-PBMK2.GIF",Pirmasis Baltijos muzikinis kanalas
+http://192.168.1.1:4000/udp/233.136.41.10:1234
+#EXTINF:0 tvg-name="Eurosport" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Eurosport_Logo.svg/2000px-Eurosport_Logo.svg.png",Eurosport
+http://192.168.1.1:4000/udp/233.136.41.11:1234
+#EXTINF:0 tvg-name="LRT Televizija" tvg-logo="http://upload.wikimedia.org/wikipedia/en/b/bf/LRT_Televizija.png",LRT Televizija
+http://192.168.1.1:4000/udp/233.136.41.12:1234
+#EXTINF:0 tvg-name="LNK" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/6a/Lnklogo.jpg",LNK
+http://192.168.1.1:4000/udp/233.136.41.13:1234
+#EXTINF:0 tvg-name="Liuks!" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/f/f9/Liuks.jpg",Liuks!
+http://192.168.1.1:4000/udp/233.136.41.14:1234
+#EXTINF:0 tvg-name="Lietuvos Rytas TV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/6b/Lrytas_tv_logo.svg.png",Lietuvos Rytas TV
+http://192.168.1.1:4000/udp/233.136.41.15:1234
+#EXTINF:0 tvg-name="JimJam" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/62/JimJam.png",JimJam
+http://192.168.1.1:4000/udp/233.136.41.16:1234
+#EXTINF:0 tvg-name="Info TV" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/c/cb/Infotv_logo.png",Info TV
+http://192.168.1.1:4000/udp/233.136.41.17:1234
+#EXTINF:0 tvg-name="Extreme Sports Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Extreme_Sports_Channel.svg/2000px-Extreme_Sports_Channel.svg.png",Extreme Sports Channel
+http://192.168.1.1:4000/udp/233.136.41.18:1234
+#EXTINF:0 tvg-name="Eurosport 2" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Eurosport_2_Logo.svg/2000px-Eurosport_2_Logo.svg.png",Eurosport 2
+http://192.168.1.1:4000/udp/233.136.41.19:1234
+#EXTINF:0 tvg-name="BTV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/5/56/BTV_Lithuania_logo_%28new%29.png",BTV (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.20:1234
+#EXTINF:0 tvg-name="Balticum TV" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/a/af/Balticum_naujas.jpg",Balticum TV
+http://192.168.1.1:4000/udp/233.136.41.21:1234
+#EXTINF:0 tvg-name="RTVi" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/0/0a/RTVI.svg/2000px-RTVI.svg.png",RTVi
+http://192.168.1.1:4000/udp/233.136.41.22:1234
+#EXTINF:0 tvg-name="РТР Планета" tvg-logo="http://upload.wikimedia.org/wikipedia/en/7/77/Rtr_planeta_logo2.png",RTR Planeta
+http://192.168.1.1:4000/udp/233.136.41.23:1234
+#EXTINF:0 tvg-name="РЕН ТВ" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/7/7d/REN.svg/2000px-REN.svg.png",REN TV
+http://192.168.1.1:4000/udp/233.136.41.24:1234
+#EXTINF:0 tvg-name="Первый Балтийский канал" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChannelOneRussia.svg/2000px-ChannelOneRussia.svg.png",Pervyj Baltijskij kanal
+http://192.168.1.1:4000/udp/233.136.41.25:1234
+#EXTINF:0 tvg-name="Охота и рыбалка" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/6/62/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8_%D0%A1%D1%82%D1%80%D0%B8%D0%BC.jpg",Ohota i Rybalka
+http://192.168.1.1:4000/udp/233.136.41.26:1234
+#EXTINF:0 tvg-name="НТВ Мир" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/9/9e/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%9D%D0%A2%D0%92_%D0%9C%D0%98%D0%A0.png",NTV Mir
+http://192.168.1.1:4000/udp/233.136.41.27:1234
+
+#EXTINF:0 tvg-name="National Geographic Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/1/13/National_Geographic_Channel.svg/2000px-National_Geographic_Channel.svg.png",National Geographic Channel
+http://192.168.1.1:4000/udp/233.136.41.29:1234
+#EXTINF:0 tvg-name="MTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/MTV_Logo_2010.svg/2000px-MTV_Logo_2010.svg.png",MTV
+http://192.168.1.1:4000/udp/233.136.41.30:1234
+#EXTINF:0 tvg-name="LRT Kurtūra" tvg-logo="http://upload.wikimedia.org/wikipedia/en/0/0e/LRT_Kult%C5%ABra.png",LRT Kultura
+http://192.168.1.1:4000/udp/233.136.41.31:1234
+#EXTINF:0 tvg-name="VH1" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/VH1_logonew.svg/2000px-VH1_logonew.svg.png",VH1
+http://192.168.1.1:4000/udp/233.136.41.32:1234
+#EXTINF:0 tvg-name="24 Док" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/4/4b/24_DOC_logo.png",24 Doc
+http://192.168.1.1:4000/udp/233.136.41.33:1234
+#EXTINF:0 tvg-name="Viasat History" tvg-logo="http://upload.wikimedia.org/wikipedia/en/0/0d/Viasat_history.png",Viasat History
+http://192.168.1.1:4000/udp/233.136.41.34:1234
+#EXTINF:0 tvg-name="A-One" tvg-logo="http://aonehiphop.ru/static/images/logo.png",A-One
+http://192.168.1.1:4000/udp/233.136.41.35:1234
+#EXTINF:0 tvg-name="Viasat Sport Baltic" tvg-logo="http://upload.wikimedia.org/wikipedia/en/2/23/Viasat_Sport_Baltic_logo.png",Viasat Sport Baltic
+http://192.168.1.1:4000/udp/233.136.41.36:1234
+#EXTINF:0 tvg-name="Viasat Explorer" tvg-logo="http://upload.wikimedia.org/wikipedia/en/5/59/Viasat_explorer.png",Viasat Explorer
+http://192.168.1.1:4000/udp/233.136.41.37:1234
+#EXTINF:0 tvg-name="TV6" tvg-logo="http://upload.wikimedia.org/wikipedia/en/4/40/TV6_resolved_Logo.jpg",TV6 (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.38:1234
+#EXTINF:0 tvg-name="TV3" tvg-logo="http://upload.wikimedia.org/wikipedia/en/0/05/TV3_logo_2011.png",TV3 (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.39:1234
+#EXTINF:0 tvg-name="ТВ1000 Русское Кино" tvg-logo="http://upload.wikimedia.org/wikipedia/en/1/1c/Viasat_tv1000_russian_kino.png",TV1000 Russkoe Kino
+http://192.168.1.1:4000/udp/233.136.41.40:1234
+#EXTINF:0 tvg-name="TV1000" tvg-logo="http://upload.wikimedia.org/wikipedia/en/3/36/TV1000_logga.png",TV1000
+http://192.168.1.1:4000/udp/233.136.41.41:1234
+#EXTINF:0 tvg-name="TV1" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/8/84/TV1_Lithuania.svg/2000px-TV1_Lithuania.svg.png",TV1 (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.42:1234
+#EXTINF:0 tvg-name="TV XXI" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/a/a7/TV21Logo.jpg",TV XXI
+http://192.168.1.1:4000/udp/233.136.41.43:1234
+#EXTINF:0 tvg-name="Travel Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/en/f/f1/Travel_Channel_%28International%29_logo.png",Travel Channel
+http://192.168.1.1:4000/udp/233.136.41.44:1234
+#EXTINF:0 tvg-name="Sport1" tvg-name="http://upload.wikimedia.org/wikipedia/en/b/bb/Sport1_%28Lithuania%29_logo.jpg",Sport1 (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.45:1234
+#EXTINF:0 tvg-name="Наше Кино" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/7/7e/%D0%9D%D0%A2%D0%92-%D0%9F%D0%BB%D1%8E%D1%81_%D0%9D%D0%B0%D1%88%D0%B5_%D0%BA%D0%B8%D0%BD%D0%BE.jpg",Nashe Kino
+http://192.168.1.1:4000/udp/233.136.41.46:1234
+#EXTINF:0 tvg-name="Беларусь-24" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/d/df/Belarus-24.jpg",Belarus-24
+http://192.168.1.1:4000/udp/233.136.41.47:1234
+#EXTINF:0 tvg-name="DuckTV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/5/53/Ducktv-logo.jpg",DuckTV
+http://192.168.1.1:4000/udp/233.136.41.48:1234
+#EXTINF:0 tvg-name="Bloomberg" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bloomberg_Television_logo.svg/2000px-Bloomberg_Television_logo.svg.png",Bloomberg
+http://192.168.1.1:4000/udp/233.136.41.49:1234
+#EXTINF:0 tvg-name="Blue Hustler" tvg-logo="http://upload.wikimedia.org/wikipedia/en/7/70/Blue_hustler.png",Blue Hustler
+http://192.168.1.1:4000/udp/233.136.41.50:1234
+#EXTINF:0 tvg-name="Боец" tvg-logo="http://red-media.ru/wp-content/uploads/2011/02/boets.gif",Boec
+http://192.168.1.1:4000/udp/233.136.41.51:1234
+#EXTINF:0 tvg-name="CNN" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cnn.svg/2000px-Cnn.svg.png",CNN
+http://192.168.1.1:4000/udp/233.136.41.52:1234
+#EXTINF:0 tvg-name="DW" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Deutsche_Welle_Logo.svg/2000px-Deutsche_Welle_Logo.svg.png",Deutsche Welle
+http://192.168.1.1:4000/udp/233.136.41.53:1234
+#EXTINF:0 tvg-name="Discovery HD Showcase" tvg-logo="http://upload.wikimedia.org/wikipedia/en/8/88/Discovery_HD_Showcase_2012.png",Discovery HD Showcase
+http://192.168.1.1:4000/udp/233.136.41.54:1234
+#EXTINF:0 tvg-name="Investigation Discovery" tvg-logo="http://upload.wikimedia.org/wikipedia/en/4/41/InvestigationDiscovery.png",Investigation Discovery
+http://192.168.1.1:4000/udp/233.136.41.55:1234
+#EXTINF:0 tvg-name="Euronews" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/9/93/Euronews_logo.svg/2000px-Euronews_logo.svg.png",Euronews
+http://192.168.1.1:4000/udp/233.136.41.56:1234
+#EXTINF:0 tvg-name="FashionTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fashion_TV_logo.svg/2000px-Fashion_TV_logo.svg.png",FashionTV
+http://192.168.1.1:4000/udp/233.136.41.57:1234
+#EXTINF:0 tvg-name="France 24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/6/65/FRANCE_24_logo.svg/2000px-FRANCE_24_logo.svg.png",France 24
+http://192.168.1.1:4000/udp/233.136.41.58:1234
+#EXTINF:0 tvg-name="iConcerts" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/6/61/Logo_iConcerts.png",iConcerts
+http://192.168.1.1:4000/udp/233.136.41.59:1234
+#EXTINF:0 tvg-name="Интересное ТВ" tvg-logo="http://red-media.ru/wp-content/uploads/2011/02/InteresTv.gif",Interesnoe TV
+http://192.168.1.1:4000/udp/233.136.41.60:1234
+#EXTINF:0 tvg-name="Ля-минор" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/1/1e/Laminor.jpg",La Minor
+http://192.168.1.1:4000/udp/233.136.41.61:1234
+
+#EXTINF:0 tvg-name="MCM Top" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/1/1d/Logo-mcm-top_2011.jpg",MCM Top 63
+http://192.168.1.1:4000/udp/233.136.41.63:1234
+#EXTINF:0 tvg-name="Mezzo" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Mezzo_Logo.svg/2000px-Mezzo_Logo.svg.png",Mezzo
+http://192.168.1.1:4000/udp/233.136.41.64:1234
+#EXTINF:0 tvg-name="MGM" tvg-logo="http://upload.wikimedia.org/wikipedia/en/2/29/MGM_Channel.png",MGM
+http://192.168.1.1:4000/udp/233.136.41.65:1234
+#EXTINF:0 tvg-name="Моя Планета" tvg-logo="http://upload.wikimedia.org/wikipedia/en/c/c3/Moya_planeta.jpg",Moya Planeta
+http://192.168.1.1:4000/udp/233.136.41.66:1234
+
+#EXTINF:0 tvg-name="ProSieben" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Pro7-Logo.svg/2000px-Pro7-Logo.svg.png",ProSieben
+http://192.168.1.1:4000/udp/233.136.41.69:1234
+#EXTINF:0 tvg-name="Rai 1" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Rai_1_logo.svg/2000px-Rai_1_logo.svg.png",Rai 1
+http://192.168.1.1:4000/udp/233.136.41.70:1234
+#EXTINF:0 tvg-name="RTL" tvg-logo="http://upload.wikimedia.org/wikipedia/en/7/76/LogoRTL.png",RTL
+http://192.168.1.1:4000/udp/233.136.41.71:1234
+#EXTINF:0 tvg-name="Русский Иллюзион" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/9/96/Russkiy_illuzion_logo.jpg",Russkij Illusion
+http://192.168.1.1:4000/udp/233.136.41.72:1234
+#EXTINF:0 tvg-name="Sat.1" tvg-logo="http://upload.wikimedia.org/wikipedia/en/4/40/Sat_1_logo.png",Sat.1
+http://192.168.1.1:4000/udp/233.136.41.73:1234
+#EXTINF:0 tvg-name="Silver" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/1/19/Silver_logo.svg/2000px-Silver_logo.svg.png",Silver
+http://192.168.1.1:4000/udp/233.136.41.74:1234
+#EXTINF:0 tvg-name="Sony Entertainment Television" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Sony_Portugal.svg/2000px-Sony_Portugal.svg.png",Sony Entertainment Television (Baltic)
+http://192.168.1.1:4000/udp/233.136.41.75:1234
+#EXTINF:0 tvg-name="Splius" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/9/9e/Splius.png",Splius
+http://192.168.1.1:4000/udp/233.136.41.76:1234
+#EXTINF:0 tvg-name="Star!" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Star_TV.svg/2000px-Star_TV.svg.png",Star!
+http://192.168.1.1:4000/udp/233.136.41.77:1234
+#EXTINF:0 tvg-name="ТДК" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/0/0c/TDKtvlogo.jpg",TDK
+http://192.168.1.1:4000/udp/233.136.41.78:1234
+#EXTINF:0 tvg-name="Индия ТВ" tvg-logo="http://red-media.ru/wp-content/uploads/2011/02/IndiaTV.gif",India TV
+http://192.168.1.1:4000/udp/233.136.41.79:1234
+#EXTINF:0 tvg-name="STV" tvg-logo="http://red-media.ru/wp-content/uploads/2011/02/logo_new2.jpg",STV
+http://192.168.1.1:4000/udp/233.136.41.80:1234
+#EXTINF:0 tvg-name="TVP Polonia" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/TVP_Polonia_logo.svg/2000px-TVP_Polonia_logo.svg.png",TVP Polonia
+http://192.168.1.1:4000/udp/233.136.41.81:1234
+#EXTINF:0 tvg-name="TV5Monde" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/7/77/TV5MONDE.svg/2000px-TV5MONDE.svg.png",TV5Monde
+http://192.168.1.1:4000/udp/233.136.41.82:1234
+#EXTINF:0 tvg-name="ТВ Центр" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/b/bb/TV_Tsentr_2012_Logo.png",TV Tsentr
+http://192.168.1.1:4000/udp/233.136.41.83:1234
+#EXTINF:0 tvg-name="Televisión Española" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/TVE.svg/2000px-TVE.svg.png",Television Espanola
+http://192.168.1.1:4000/udp/233.136.41.84:1234
+#EXTINF:0 tvg-name="Viasat Golf" tvg-logo="http://upload.wikimedia.org/wikipedia/en/c/ce/Viasatgolf.png",Viasat Golf
+http://192.168.1.1:4000/udp/233.136.41.85:1234
+
+#EXTINF:0 tvg-name="Deluxe Music" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/DeluxeMusic2013.svg/2000px-DeluxeMusic2013.svg.png",Deluxe Music
+http://192.168.1.1:4000/udp/233.136.41.87:1234
+#EXTINF:0 tvg-name="CBS Reality" tvg-logo="http://upload.wikimedia.org/wikipedia/en/8/80/CBS_Reality.png",CBS Reality
+http://192.168.1.1:4000/udp/233.136.41.88:1234
+#EXTINF:0 tvg-name="CBS Drama" tvg-logo="http://upload.wikimedia.org/wikipedia/en/b/b9/CBS_Drama.png",CBS Drama
+http://192.168.1.1:4000/udp/233.136.41.89:1234
+#EXTINF:0 tvg-name="Disney Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/en/1/15/DisneyChannel2010.png",Disney Channel
+http://192.168.1.1:4000/udp/233.136.41.90:1234
+#EXTINF:0 tvg-name="Disney XD" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Logo_Disney_XD.svg/2000px-Logo_Disney_XD.svg.png" group-title="Favorites",Disney XD
+http://192.168.1.1:4000/udp/233.136.41.91:1234
+#EXTINF:0 tvg-name="Disney Junior" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/LogoDisneyJunior.svg/2000px-LogoDisneyJunior.svg.png",Disney Junior
+http://192.168.1.1:4000/udp/233.136.41.92:1234
+#EXTINF:0 tvg-name="Авто Плюс" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/c/c2/2-%D0%B9_%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%90%D0%B2%D1%82%D0%BE_%D0%9F%D0%BB%D1%8E%D1%81.png",Avto Plius
+http://192.168.1.1:4000/udp/233.136.41.93:1234
+
+#EXTINF:0 tvg-name="Šiaulių Televizija" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/2/27/STV_logo.jpg",Siauliu Televizija
+http://192.168.1.1:4000/udp/233.136.41.95:1234
+#EXTINF:0 tvg-name="Deluxe Music HD" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/DeluxeMusicHD.svg/2000px-DeluxeMusicHD.svg.png",Deluxe Music HD
+http://192.168.1.1:4000/udp/233.136.41.96:1234
+#EXTINF:0 tvg-name="BBC News" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/2000px-BBC_News.svg.png",BBC News
+http://192.168.1.1:4000/udp/233.136.41.97:1234
+#EXTINF:0 tvg-name="RT" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/2000px-Russia-today-logo.svg.png",RT
+http://192.168.1.1:4000/udp/233.136.41.98:1234
+#EXTINF:0 tvg-name="РБК" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/7/71/RBC.jpg",RBC
+http://192.168.1.1:4000/udp/233.136.41.99:1234
+#EXTINF:0 tvg-name="History HD" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/History_HD_Logo.svg/2000px-History_HD_Logo.svg.png",History HD
+http://192.168.1.1:4000/udp/233.136.41.100:1234
+#EXTINF:0 tvg-name="Nat Geo Wild" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Logo_Nat_Geo_Wild.svg/2000px-Logo_Nat_Geo_Wild.svg.png",Nat Geo Wild
+http://192.168.1.1:4000/udp/233.136.41.101:1234
+
+#EXTINF:0 tvg-name="Universal Channel" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/2/22/Universal_Channel_2013.png",Universal Channel
+http://192.168.1.1:4000/udp/233.136.41.103:1234
+#EXTINF:0 tvg-name="Eurosport HD" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Eurosport_HD_Logo.svg/2000px-Eurosport_HD_Logo.svg.png",Eurosport HD
+http://192.168.1.1:4000/udp/233.136.41.104:1234
+#EXTINF:0 tvg-name="Balticum Auksinis" tvg-logo="http://upload.wikimedia.org/wikipedia/lt/e/e3/Auksinis_naujas.jpg",Balticum Auksinis
+http://192.168.1.1:4000/udp/233.136.41.105:1234
+
+#EXTINF:0 tvg-name="Diva Universal" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Diva_Universal.svg/2000px-Diva_Universal.svg.png",Diva Universal
+http://192.168.1.1:4000/udp/233.136.41.107:1234
+#EXTINF:0 tvg-name="DuckTV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/5/53/Ducktv-logo.jpg",DuckTV HD
+http://192.168.1.1:4000/udp/233.136.41.108:1234
+#EXTINF:0 tvg-name="History" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/2000px-History_Logo.svg.png",History
+http://192.168.1.1:4000/udp/233.136.41.109:1234
+#EXTINF:0 tvg-name="FOX Life" tvg-logo="http://upload.wikimedia.org/wikipedia/en/4/44/Fox-Life.png",FOX Life
+http://192.168.1.1:4000/udp/233.136.41.110:1234
+#EXTINF:0 tvg-name="FOX" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/9/96/FOX_wordmark-orange.svg/2000px-FOX_wordmark-orange.svg.png",FOX
+http://192.168.1.1:4000/udp/233.136.41.111:1234
+#EXTINF:0 tvg-name="Sky News" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_News.svg/2000px-Sky_News.svg.png",Sky News
+http://192.168.1.1:4000/udp/233.136.41.112:1234
+#EXTINF:0 tvg-name="RU Music" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/5/51/RuMusicLogo2.png",RU Music
+http://192.168.1.1:4000/udp/233.136.41.113:1234
+#EXTINF:0 tvg-name="MTV Music 24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/7/7b/MTV_Music_24_logo.jpg",MTV Music 24
+http://192.168.1.1:4000/udp/233.136.41.114:1234
+#EXTINF:0 tvg-name="Pingviniukas" tvg-logo="Pingviniukas",Pingviniukas
+http://192.168.1.1:4000/udp/233.136.41.115:1234
+#EXTINF:0 tvg-name="TV8" tvg-logo="http://upload.wikimedia.org/wikipedia/en/d/df/TV8_Lietuva_logo.jpg",TV8 (Lithuania)
+http://192.168.1.1:4000/udp/233.136.41.116:1234
+
+#EXTINF:0 tvg-name="TV1000 Premium" tvg-logo="http://upload.wikimedia.org/wikipedia/en/3/36/TV1000_logga.png",TV1000 Premium
+http://192.168.1.1:4000/udp/233.136.41.119:1234
+#EXTINF:0 tvg-name="TV1000 Action" tvg-logo="http://upload.wikimedia.org/wikipedia/en/0/0b/Tv1000action.gif",TV1000 Action
+http://192.168.1.1:4000/udp/233.136.41.120:1234
+
+#EXTINF:0 tvg-name="Viasat Motor" tvg-logo="http://upload.wikimedia.org/wikipedia/en/5/51/Viasat_Motor.png",Viasat Motor
+http://192.168.1.1:4000/udp/233.136.41.125:1234
+
+#EXTINF:0 tvg-name="КХЛ-ТВ" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/0/0d/KHL_TV.jpg",KHL TV 41.127
+http://192.168.1.1:4000/udp/233.136.41.127:1234
+#EXTINF:0 tvg-name="Россия-24" tvg_logo="http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/2000px-Rossiya-24_Logo.svg.png",Rossiya 24 41.128
+http://192.168.1.1:4000/udp/233.136.41.128:1234
+
+#EXTINF:0 tvg-name="Penki TV" tvg-logo="http://www.penki.tv/Images/logo.png",Penki TV 12.23
+http://192.168.1.1:4000/udp/239.255.12.23:1234
+#EXTINF:0 tvg-name="Penki TV" tvg-logo="http://www.penki.tv/Images/logo.png",Penki TV 12.24
+http://192.168.1.1:4000/udp/239.255.12.24:1234
+
+#EXTINF:0,N/A 12.26
+http://192.168.1.1:4000/udp/239.255.12.26:1234
+
+#EXTINF:0 tvg-name="Žvaigždė" tvg-logo="http://www.zvaigzde.tv/images/icon.jpg",Zvaigzde
+http://192.168.1.1:4000/udp/239.255.12.42:1234
+
+#EXTINF:0,Virtuali Kino Sale 13.148
+http://192.168.1.1:4000/udp/239.255.13.148:1234
+#EXTINF:0,Virtuali Kino Sale 13.149
+http://192.168.1.1:4000/udp/239.255.13.149:1234
+#EXTINF:0 tvg-name="Sony Turbo" tvg-logo="http://ak.cdn.sptdigital.com/sites/lt.turbo/files/turbo-logo.png",Sony Turbo
+http://192.168.1.1:4000/udp/239.255.13.150:1234
+#EXTINF:0 tvg-name="КХЛ-ТВ" tvg-logo="http://upload.wikimedia.org/wikipedia/ru/0/0d/KHL_TV.jpg",KHL TV 13.151
+http://192.168.1.1:4000/udp/239.255.13.151:1234
+#EXTINF:0 tvg-name="Россия-24" tvg_logo="http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/2000px-Rossiya-24_Logo.svg.png",Rossiya 24 13.152
+http://192.168.1.1:4000/udp/239.255.13.152:1234
+
+#EXTINF:0 tvg-name="Penki TV" tvg-logo="http://www.penki.tv/Images/logo.png",Penki TV anonsai
+http://192.168.1.1:4000/udp/239.255.13.182:1234
+
+#EXTINF:0 tvg-name="Kobra TV" tvg-logo="http://itv.kobra.ktu.lt/logo/KobraTV_Logo_black.jpg",Kobra TV HD
+http://192.168.1.1:4000/udp/239.255.13.184:1234
+#EXTINF:0 tvg-name="Penki TV" tvg-logo="http://www.penki.tv/Images/logo.png",Penki TV 13.185
+http://192.168.1.1:4000/udp/239.255.13.185:1234
+
+#EXTINF:0 tvg-name="Silver" tvg-logo="http://upload.wikimedia.org/wikipedia/en/thumb/1/19/Silver_logo.svg/2000px-Silver_logo.svg.png",Silver
+http://192.168.1.1:4000/udp/239.255.13.231:1234
+#EXTINF:0 tvg-name="TNT Film" tvg-logo="http://upload.wikimedia.org/wikipedia/en/3/3d/TNT_Film_logo.png",TNT Film
+http://192.168.1.1:4000/udp/239.255.13.232:1234
+
+#EXTINF:0,Virtuali Kino Sale 13.245
+http://192.168.1.1:4000/udp/239.255.13.245:1234
+
+#EXTINF:0,N/A 13.253
+http://192.168.1.1:4000/udp/239.255.13.253:1234
