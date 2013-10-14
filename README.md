@@ -5,6 +5,7 @@ version 1.0 RC1
 Playlist must be generated using M3U standarts (http://en.wikipedia.org/wiki/M3U), stored in Contents\Resources folder and named playlist.m3u, there are some additional attributes supported:
 * tvg-logo;
 * group-title.
+
 Included sample playlist may not work, but should serve well as an example.
 
 
