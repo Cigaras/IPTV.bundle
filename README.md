@@ -14,7 +14,7 @@ Planned for the future:
 * [EPG](http://en.wikipedia.org/wiki/Electronic_program_guide).
 
 
-Please keep in mind that Plex does not has a native support for IPTV so it is possible that your stream just wont play, however I tested many streams on a PC version and LG TV and was unable to find one that would not work. If you have any questions or suggestions, please feel free to contact me via GitHub. If you find this plugin usefull, please concider a small [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted).
+Please keep in mind that Plex does not has a native support for IPTV so it is possible that your stream just wont play, however I tested many streams on a PC version and LG TV and was unable to find one that would not work. If you have any questions or suggestions, please feel free to contact me via GitHub. If you find my work usefull, please concider a small [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted).
 
 - - -
 Copyright (c) 2013 Valdas Vaitiekaitis, a.k.a. [Cigaras](http://forums.plexapp.com/index.php/user/107872-cigaras/). All rights reserved.
