@@ -1,4 +1,4 @@
-#### Plex Media Server plugin to play IPTV streams from M3U playlist ####
+#### Plex Media Server plugin to play IPTV streams from a M3U playlist ####
 version 1.0 RC1
 
 - - -
