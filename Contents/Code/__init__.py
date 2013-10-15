@@ -9,8 +9,8 @@ def Start():
     # Default icon for directories (groups)
     DirectoryObject.thumb = R('icon-default.png')
 
-    # I don't know what it is
-    HTTP.CacheTime = CACHE_1HOUR
+    # Not sure if this is needed
+    #HTTP.CacheTime = CACHE_1HOUR
 
 @handler(PREFIX, TITLE)
 def MainMenu():
