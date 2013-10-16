@@ -6,15 +6,9 @@ Playlist must be generated using M3U standarts (http://en.wikipedia.org/wiki/M3U
 * tvg-logo;
 * group-title.
 
-Included sample playlist may not work, but should serve well as an example.
-
-Should work on any client that is capable of playing desired network streams;
-
-
-Tested on:
+Included sample playlist may not work, but should serve well as an example. Should work on any client that is capable of playing desired network streams. Tested on:
 * Plex Media Center for PC v.0.9.5.4
 * LG 42LW650s TV
-
 
 Planned for the future:
 * multi language support;
