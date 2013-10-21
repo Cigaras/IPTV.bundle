@@ -6,11 +6,18 @@ Playlist must be generated using M3U standarts (http://en.wikipedia.org/wiki/M3U
 * tvg-logo;
 * group-title.
 
-Included sample playlist may not work, but should serve well as an example. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) or just use Google. Should work on any client that is capable of playing desired network streams. Tested on:
+Working/not working streams:
+* HTTP - working;
+* [RTSP](http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) - working;
+* [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - some work, some do not;
+* [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server)/MMSH - not working;
+
+In included sample playlist some streams may not work, but should serve well as an example. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) or just use Google. Should work on any client that is capable of playing desired network streams. Tested on:
 * Plex Media Center for PC v.0.9.5.4
 * LG 42LW650s TV
 
 Planned for the future:
+* RTMP fixes and MMS/MMSh support;
 * multi language support;
 * configurable playlist name, possibility to use online playlist;
 * [EPG](http://en.wikipedia.org/wiki/Electronic_program_guide).
