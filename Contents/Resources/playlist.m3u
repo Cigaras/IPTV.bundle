@@ -17,6 +17,8 @@ rtmp://cp114761.live.edgefcs.net:443/live/tpc-live_1@44263
 rtmp://81.177.35.218/rtp/2
 #EXTINF:0 tvg-name="TOUR TV" tvg-logo="" group-title="Lifestyle",TOUR TV (rtmp)
 rtmp://www.planeta-online.tv:1936/live/channel_2
+#EXTINF:0 tvg-name="Sitel Tv MKD" tvg-logo="" group-title="Entertainment",Sitel Tv MKD (rtsp)
+rtsp://fms.zulu.mk/zulu/sitel_1
 #EXTINF:0 tvg-name="NOA 4 Hamburg" tvg-logo="" group-title="Entertainment",NOA 4 Hamburg (mmsh)
 mmsh://wt-wm1.wtnet.de/noa4hh-stream-hi?MSWMExt=.asf
 #EXTINF:0 tvg-name="VRF Voigtland" tvg-logo="" group-title="Entertainment",VRF Voigtland (mms)
