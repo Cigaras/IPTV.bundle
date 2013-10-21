@@ -6,7 +6,7 @@ Playlist must be generated using M3U standarts (http://en.wikipedia.org/wiki/M3U
 * tvg-logo;
 * group-title.
 
-Working/not working streams:
+Working/not working streaming protocols:
 * HTTP - working;
 * [RTSP](http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) - working;
 * [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - some work, but mostly not;
