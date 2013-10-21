@@ -12,7 +12,7 @@ Working/not working streaming protocols:
 * [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - some work, but mostly not;
 * [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server)/MMSH - not working;
 
-In included sample playlist some streams may not work, but should serve well as an example. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) or just use Google. Should work on any client that is capable of playing desired network streams. Tested on:
+In included sample playlist some streams may not work, but should serve well as an example. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) and [iptv-player.com](http://iptv-player.com/?id=database) or just use Google. Should work on any client that is capable of playing desired network streams. Tested on:
 * Plex Media Center for PC v.0.9.5.4
 * LG 42LW650s TV
 
