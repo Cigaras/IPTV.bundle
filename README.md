@@ -15,6 +15,7 @@ Working/not working protocols:
 * [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - using [Plex's hosted RTMP player](http://www.plexapp.com/player/player.php), works on [desktop clients](http://www.plexapp.com/desktop/), but plugin becomes incompatible with most other devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol (some streams work this way), You can enable it using plugins menu item Preferences and additionally You need to uncomment a line <string>UseRealRTMP</string> in Info.plist file.
 * [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server) - using [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work on tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it using plugins menu item Preferences;
 
+
 Planned for the future:
 * online playlist;
 * custom players for RTMP support;
