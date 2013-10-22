@@ -1,29 +1,29 @@
 #### Plex Media Server plugin to play network streams (a.k.a. IPTV) from a M3U playlist ####
-version beta1
+version beta2
 
 - - -
-Playlist must be generated using M3U standarts (http://en.wikipedia.org/wiki/M3U), stored in Contents\Resources folder and named playlist.m3u, there are some additional attributes supported:
+Playlist must be generated using M3U standards (http://en.wikipedia.org/wiki/M3U), stored in Contents\Resources folder and named playlist.m3u, there are some additional attributes supported:
 * tvg-logo;
 * group-title.
 
-Working/not working streaming protocols:
-* HTTP - working;
-* [RTSP](http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) - working;
-* [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - some work, but mostly not;
-* [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server)/MMSH - not working;
-
-In included sample playlist some streams may not work, but should serve well as an example. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) and [iptv-player.com](http://iptv-player.com/?id=database) or just use Google. Should work on any client that is capable of playing desired network streams. Tested on:
+In included sample playlist some streams may not work, but should serve well as an example on how to fill Your own playlist. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) and [iptv-player.com](http://iptv-player.com/?id=database) or just use Google. Plugin tested on:
 * Plex Media Center for PC v.0.9.5.4
 * LG 42LW650s TV
+Working/not working protocols:
+* [HTTP](http://en.wikipedia.org/wiki/HTTP_Live_Streaming) - should work on all devices;
+* [RTSP](http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) - should work on all devices;
+* [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - using [Plex's hosted RTMP player](http://www.plexapp.com/player/player.php), works on [desktop clients](http://www.plexapp.com/desktop/), but plugin becomes incompatible with most other devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol (some streams work this way), You can enable it using plugins menu item Preferences and additionally You need to uncomment a line <string>UseRealRTMP</string> in Info.plist file.
+* [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server) - using [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work on tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it using plugins menu item Preferences;
 
 Planned for the future:
-* RTMP fixes and MMS/MMSh support;
+* online playlist;
+* custom players for RTMP support;
 * multi language support;
-* configurable playlist name, possibility to use online playlist;
-* [EPG](http://en.wikipedia.org/wiki/Electronic_program_guide).
+* [EPG](http://en.wikipedia.org/wiki/Electronic_program_guide);
+* MMS support.
 
 
-If you have any questions or suggestions, please feel free to contact me via GitHub or [PlexApp forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/). If you find my work usefull, please concider a small [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted).
+If You have any questions or suggestions, please feel free to contact me via GitHub or [PlexApp forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/). If You find my work usefull, please concider a small [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted).
 
 - - -
 Copyright (c) 2013 Valdas Vaitiekaitis, a.k.a. [Cigaras](http://forums.plexapp.com/index.php/user/107872-cigaras/). All rights reserved.

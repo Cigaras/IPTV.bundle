@@ -4,21 +4,14 @@
 <dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.plexapp.plugins.iptv</string>
-	<key>PlexAudioCodec</key>
-	<array>
-		<string>AAC</string>
-	</array>
 	<key>PlexClientPlatforms</key>
 	<string>*</string>
 	<key>PlexFrameworkVersion</key>
 	<string>2</string>
-	<key>PlexMediaContainer</key>
-	<array>
-		<string>MP4</string>
-	</array>
-	<key>PlexVideoCodec</key>
-	<array>
-		<string>H.264</string>
-	</array>
+    <key>PlexFrameworkFlags</key>
+    <array>
+        <!-- Uncomment following line to play RTMP streams on a desktop clients, but be warned, plugin will become incompatible with most other devices. Also enable RTMP SWF player in Preferences. -->
+        <!--<string>UseRealRTMP</string>-->
+    </array>
 </dict>
 </plist>
