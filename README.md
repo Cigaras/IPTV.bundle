@@ -1,5 +1,5 @@
 #### Plex Media Server plugin to play network streams (a.k.a. IPTV) from a M3U playlist ####
-version beta2
+Version Beta2
 
 - - -
 Playlist must be generated using M3U standards (http://en.wikipedia.org/wiki/M3U), stored in Contents\Resources folder and named playlist.m3u (name can be changed in Preferences), there are some additional attributes supported:
