@@ -9,12 +9,12 @@ Playlist must be generated using M3U standards (http://en.wikipedia.org/wiki/M3U
 In included sample playlist some streams may not work, but should serve well as an example on how to fill Your own playlist. You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/) and [iptv-player.com](http://iptv-player.com/?id=database) or just use Google. Plugin tested on:
 * Plex Media Center for PC v.0.9.5.4
 * LG 42LW650s TV
+
 Working/not working protocols:
 * [HTTP](http://en.wikipedia.org/wiki/HTTP_Live_Streaming) - should work on all devices;
 * [RTSP](http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) - should work on all devices;
 * [RTMP](http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol) - using [Plex's hosted RTMP player](http://www.plexapp.com/player/player.php), works on [desktop clients](http://www.plexapp.com/desktop/), but plugin becomes incompatible with most other devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol (some streams work this way), You can enable it using plugins menu item Preferences and additionally You need to uncomment a line <string>UseRealRTMP</string> in Info.plist file.
 * [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server) - using [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work on tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it using plugins menu item Preferences;
-
 
 Planned for the future:
 * online playlist;
