@@ -62,6 +62,8 @@ def ItemsMenu(items_list, group):
 
 @route(PREFIX + '/createvideoclipobject')
 def CreateVideoClipObject(url, title, thumb, include_container = False):
+    Log.Debug('*' * 80)
+    Log.Debug('* url before: %s' % url)
     vco = VideoClipObject(
         key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
         rating_key = title,
@@ -78,6 +80,8 @@ def CreateVideoClipObject(url, title, thumb, include_container = False):
             )
         ]
     )
+    Log.Debug('* url after:  %s' % url)
+    Log.Debug('*' * 80)
     if include_container:
         return ObjectContainer(objects=[vco])
     else:

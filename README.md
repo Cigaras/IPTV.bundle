@@ -20,7 +20,12 @@ Planned for the future:
 * online playlist;
 * custom SWF players support;
 * [EPG](http://en.wikipedia.org/wiki/Electronic_program_guide);
+<<<<<<< HEAD
+* MMS support;
+* Use Services.
+=======
 * [MMS](http://en.wikipedia.org/wiki/Microsoft_Media_Server) protocol support.
+>>>>>>> 87b80a5bccbcbc00868ad34620394bc580d845b3
 
 
 If You have any questions or suggestions, please feel free to contact me via GitHub or [PlexApp forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/). If You find my work usefull, please concider a small [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted).
