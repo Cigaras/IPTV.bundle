@@ -2,7 +2,7 @@
 Version Beta2
 
 - - -
-For those who do not know what Plex is - it is a media server solution allowing You to access Your media from multiple different devices, and my addon pushes it even further - it lets You watch network streams from all over the world! All You need is a [Plex Server](http://www.plexapp.com/getplex/), a device with [Plex App](http://www.plexapp.com/getplex/) on it and a playlyst of Your favorite streams (Some limitations apply, please read below).
+For those who do not know what Plex is - it is a media server solution allowing You to access Your media from multiple different devices, and my addon pushes it even further - it lets You watch network streams from all over the world! All You need is a [Plex Server](http://www.plexapp.com/getplex/), a device with [Plex App](http://www.plexapp.com/getplex/) on it and a playlist of Your favorite streams (Some limitations apply, please read below).
 
 Playlist must be generated using M3U standards (http://en.wikipedia.org/wiki/M3U), stored in Contents\Resources folder and named playlist.m3u (name can be changed in Preferences), there are some additional attributes supported:
 * tvg-logo;
