@@ -23,12 +23,11 @@ Playlist supports additional attributes that can be optionaly defined inline aft
 You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) and Google, read further for more information about supported protocols and required configurations.
 
 ### Supported protocols ###
-1. **[HTTP]**
-    should work on most devices natively, no specific configuration required.
-2. **[RTSP]**
-    should work on most devices natively, no specific configuration required.
-3. **[RTMP]**
-    requires special Framework Flag that makes plugin incompatible with most devices (like my TV) except [desktop clients](http://www.plexapp.com/desktop/) and is disabled by default. You can enable it in Preferences, but You need to manualy uncomment 14th line in *Info.plist* file for RTMP streams to work: find ```<!--<string>UseRealRTMP</string>-->``` and change it to ```<string>UseRealRTMP</string>```.
+1. **[HTTP]** should work on most devices natively, no specific configuration required.
+
+2. **[RTSP]** should work on most devices natively, no specific configuration required.
+
+3. **[RTMP]** requires special Framework Flag that makes plugin incompatible with most devices (like my TV) except [desktop clients](http://www.plexapp.com/desktop/) and is disabled by default. You can enable it in Preferences, but You need to manualy uncomment 14th line in *Info.plist* file for RTMP streams to work: find ```<!--<string>UseRealRTMP</string>-->``` and change it to ```<string>UseRealRTMP</string>```.
 
     There are two ways of writing RTMP url in the playlist, full address with attributes playpath, swfurl and pageurl, then Plex will use provided SWF player, for example:
 
@@ -43,8 +42,8 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
     ```
 
     Note that in first example playpath is separete attribute, and in second ecample it is combinet into url. If SWF player for RTMP is disabled in preferences, plugin will try to play 
-4. **[MMS]**
-    uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
+
+4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
 ### To Do list ###
 * Possibility to choose audio track if stream has multiple;
