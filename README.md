@@ -5,7 +5,7 @@ by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version Beta3
 2. [Installation](#installation)
 3. [Playlist structure](#playlist=structure)
 4. [Supported protocols](#supported-protocols)
-5. [To Do list](#to-do-list)
+5. [To do list](#to-do-list)
 6. [Contacts](#contacts)
 7. [License](#license)
 
@@ -55,7 +55,7 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
 
 Keep in mind that all streams are unique and plugin will not be able to play all of them, but not neccesary because of plugins fault. Please try playing stream with [VLC] and using \*.strm file method before blaming this plugin. If \*.strm method works and plugin does not, please contact me as described below.
 
-### To Do list ###
+### To do list ###
 * Possibility to choose audio track if stream has multiple;
 * [EPG];
 * [MMS] protocol troubleshooting;
@@ -71,8 +71,8 @@ This program is free software: you can redistribute it and/or modify it under th
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the [GNU General Public License](http://www.gnu.org/copyleft/gpl.html) for more details.
 
-  [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras/
-  [Plex Media Server]: http://www.plexapp.com/getplex/
+  [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras
+  [Plex Media Server]: http://www.plexapp.com/getplex
   [MediaLink]: http://www.plexapp.com/medialink/files/index.html
   [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
   [IPTV]: http://en.wikipedia.org/wiki/IPTV
