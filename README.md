@@ -17,7 +17,7 @@ My [ISP] provides a [IPTV] service to its users and I can watch it over [VLC] on
 2. Download the [zip archive](https://github.com/afedchin/xbmc-addon-iptvsimple/archive/master.zip) and extract it to Plex plugin folder:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
-3. Edit the playlist, read below for instructions;
+3. Edit the playlist, read [below for instructions](#playlist-structure);
 5. Launch any of [Plex Apps](http://www.plexapp.com/getplex/) (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels.
 
 ### Playlist structure ###
@@ -53,7 +53,7 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
-Keep in mind that all streams are unique and plugin will not be able to play all of them, but not neccesary because of plugins fault. Please try playing stream with [VLC] and using \*.strm file method before blaming this plugin. If \*.strm method works and plugin does not, please contact me as described below.
+Keep in mind that all streams are unique and plugin will not be able to play all of them, but not neccesary because of plugins fault. Please try playing stream with [VLC] and using \*.strm file method before blaming this plugin. If \*.strm method works and plugin does not, please [contact me](#contacts).
 
 ### To do list ###
 * Possibility to choose audio track if stream has multiple;
