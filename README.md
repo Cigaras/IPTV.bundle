@@ -1,5 +1,5 @@
 ## Plex Media Server plugin to play network streams (a.k.a. IPTV) from a M3U playlist ##
-by **Valdas Vaitiekaitis**, a.k.a. [Cigaras](http://forums.plexapp.com/index.php/user/107872-cigaras/), version beta3
+by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version Beta3
 
 ### Introduction ###
 My [ISP] provides a [IPTV] service to its users and I can watch it over [VLC] on PC without any problems, but if I want to watch it on my TV, I need a [Set-top box] that is both expensive and inconvenient because of separate remote. [MediaLink], that is supported by my TV, is able to play [IPTV] streams with the help of [Plex Media Server], but it does not have a native support for them. One simple solution is to put every single stream url into a separate \*.strm file, load them into library as Home Videos and assign logos and descriptions by hand, not very convenient. If You are lucky, You might find a Video Channel with predefined playlist that suits Your needs or even broadcasts [IPTV] from Your [ISP], but as my [ISP] is barely known to anyone, but as I was not lucky enough, I decided to take matters into my own hands and created this plugin, that allows to watch network streams from a customisable playlist, thus allowing to **watch any [IPTV] without a [Set-top box]**. Please read further for instructions on how to install and configure this plugin, and if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
@@ -56,8 +56,13 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
 If You have any questions or suggestions, please feel free to contact me via GitHub or [PlexApp forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk).
 
 ### Licence ###
-This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](http://www.gnu.org/copyleft/gpl.html) as published by the Free Software Foundation.
+Copyright 2013 Valdas Vaitiekaitis
 
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the [GNU General Public License](http://www.gnu.org/copyleft/gpl.html) for more details.
+
+  [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras/
   [Plex Media Server]: http://www.plexapp.com/getplex/
   [MediaLink]: http://www.plexapp.com/medialink/files/index.html
   [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
