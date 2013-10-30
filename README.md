@@ -10,19 +10,21 @@ by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version Beta3
 7. [License](#license)
 
 ### Introduction ###
-My [ISP] provides a [IPTV] service to its users and I can watch it over [VLC] on PC without any problems, but if I want to watch it on my TV, I need a [Set-top box] that is both expensive and inconvenient because of separate remote. [MediaLink], that is supported by my TV, is able to play [IPTV] streams with the help of [Plex Media Server], but it does not have a native support for them. One simple solution is to put every single stream url into a separate \*.strm file, load them into library as Home Videos and assign logos and descriptions by hand, not very convenient. If You are lucky, You might find a Video Channel with predefined playlist that suits Your needs or even broadcasts [IPTV] from Your [ISP], but as my [ISP] is barely known to anyone, but as I was not lucky enough, I decided to take matters into my own hands and created this plugin, that allows to watch network streams from a customisable playlist, thus allowing to **watch any [IPTV] without a [Set-top box]**. Please read further for instructions on how to install and configure this plugin, and if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
+Some [ISP] provide their users with [IPTV] services, free or paid, that can be watched over [VLC] on PC or on TV sets, bot for TV a [Set-top box] is usualy required that is both expensive and inconvenient because of separate remote. [MediaLink], that is preinstaled on most LG TVs, is able to play [IPTV] streams with the help of [Plex Media Server], but it does not have native support for them. One simple solution is to put every single stream url into a separate \*.strm file, load them into Plex library as Home Videos and assign logos and descriptions by hand. Or, if You are lucky, You might find a Video Channel with predefined playlist that suits Your needs or even broadcasts [IPTV] from Your [ISP], but as I was not lucky enough, I decided to take matters into my own hands and created this plugin, that allows to watch network streams from a customisable playlist, thus allowing to **watch [IPTV] without a [Set-top box]!**
+
+Please read further for instructions on how to [install](#installation) and [configure](#playlist-structure) this plugin, and if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### Installation ###
 1. Must have [Plex Media Server] installed, obviously;
 2. Download the [zip archive](https://github.com/afedchin/xbmc-addon-iptvsimple/archive/master.zip) and extract it to Plex plugin folder:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
-3. Edit the playlist, read [below for instructions](#playlist-structure);
+3. Edit the playlist, read below for [instructions](#playlist-structure) and [limitations](#supported-protocols);
 5. Launch any of [Plex Apps](http://www.plexapp.com/getplex/) (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels.
 
 ### Playlist structure ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link, so [Dropbox](http://dropbox.com) will not work.
-Playlist supports additional attributes that can be optionaly defined inline after #EXTINF:0 and before name of the stream (see included sample playlist as example):
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link, so [Dropbox](http://dropbox.com) will not work (unless You find a way to link directly to m3u file, if You do, please share).
+Playlist supports additional attributes that can be optionaly defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
 * **tvg-logo** - a link to logo, if not specified default icon will be used;
 * **tvg-id** - not used at the moment, will be used for [EPG];
