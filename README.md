@@ -47,13 +47,13 @@ rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
 Note that in first example playpath is separete attribute, and in second ecample it is combinet into url.
 
 #### [MMS] ####
-Uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences;
+Uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devices so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
 ### To Do list ###
 * Possibility to choose audio track if stream has multiple;
 * [EPG];
-* [MMS] protocol/player troubleshooting;
-* Use Plex Services;
+* [MMS] protocol troubleshooting;
+* Use Plex Services.
 
 ### Contacts ###
 If You have any questions or suggestions, please feel free to contact me via GitHub or [PlexApp forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk).
