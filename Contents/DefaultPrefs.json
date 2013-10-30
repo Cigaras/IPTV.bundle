@@ -1,13 +1,13 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name (if using online file, url must include http://)",
+        "label":    "Playlist file name or URL",
         "type":     "text",
         "default":  "playlist.m3u"
     },
     {
         "id":       "rtmp",
-        "label":    "Use SWF player for RTMP (neet to edit Info.plist manualy)",
+        "label":    "Use SWF player for RTMP (neet to edit file Info.plist manually)",
         "type":     "bool",
         "default":  "false"
     },
