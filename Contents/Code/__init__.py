@@ -1,5 +1,3 @@
-# Copyright (c) 2013 Valdas Vaitiekaitis, a.k.a. Cigaras. All rights reserved.
-
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 ICON = 'icon-default.png'
