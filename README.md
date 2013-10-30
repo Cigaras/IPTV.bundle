@@ -16,7 +16,7 @@ Please read further for instructions on how to [install](#installation) and [con
 
 ### Installation ###
 1. Must have [Plex Media Server] installed, obviously;
-2. Download the [zip archive](https://github.com/afedchin/xbmc-addon-iptvsimple/archive/master.zip) and extract it to Plex plugin folder:
+2. Download the [zip archive](https://github.com/Cigaras/IPTV.bundle/archive/master.zip) and extract it to Plex plugin folder:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
 3. Edit the playlist, read below for [instructions](#playlist-structure) and [limitations](#supported-protocols);
