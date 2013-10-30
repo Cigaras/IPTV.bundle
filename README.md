@@ -58,6 +58,8 @@ If You have any questions or suggestions, please feel free to contact me via Git
 ### Licence ###
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](http://www.gnu.org/copyleft/gpl.html) as published by the Free Software Foundation.
 
+Copyright (c) 2013 Valdas Vaitiekaitis, a.k.a. [Cigaras](http://forums.plexapp.com/index.php/user/107872-cigaras/)
+
   [Plex Media Server]: http://www.plexapp.com/getplex/
   [MediaLink]: http://www.plexapp.com/medialink/files/index.html
   [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
