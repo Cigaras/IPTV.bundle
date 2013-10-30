@@ -19,6 +19,7 @@ Please read further for instructions on how to [install](#installation) and [con
 2. Download the [zip archive](https://github.com/Cigaras/IPTV.bundle/archive/master.zip) and extract it to Plex plugin folder:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
+3. Rename folder from *IPTV.bundle-master* to *IPTV.bundle*;
 3. Edit the playlist, read below for [instructions](#playlist-structure) and [limitations](#supported-protocols);
 5. Launch any of [Plex Apps](http://www.plexapp.com/getplex/) (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels.
 
