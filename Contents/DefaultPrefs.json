@@ -1,7 +1,7 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name (no url at the moment)",
+        "label":    "Playlist file name (if using online file, url must include http://)",
         "type":     "text",
         "default":  "playlist.m3u"
     },

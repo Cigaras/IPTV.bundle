@@ -27,3 +27,13 @@ mms://stream.vrf.de/VRF
 rtsp://live240.impek.com/soleiltv
 #EXTINF:0 tvg-name="Dance TV" tvg-logo="" group-title="Music",Dance TV (mms)
 mms://onstreaming01.de.gtk.hu/dancetv
+#EXTINF:0,NBC Shop (rtmp full)
+rtmp://shopnbc.fmsls.entriq.net:443/live/ playpath=live_01@13361 swfurl=http://shopnbc.img.entriq.net/img/ShopNBCLivePlayer/main.swf pageurl=http://www.shopnbc.com/
+#EXTINF:0,NBC Shop (rtmp simple)
+rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
+#EXTINF:0,Lietuvas rytas (rtmp simple)
+rtmp://live.lrtc.net:80/X8a7MmK/live
+#EXTINF:0,LRT Lituanica (rtsp)
+rtsp://lrt-live.data.lt:1935/World/world
+#EXTINF:0,OTV (rtmp full)
+rtmp://livestreaming4.itworkscdn.com/otv playpath=otvlive_360p swfurl=http://www.otv.com.lb/otvent/jwplayer.flash.swf pageurl=http://www.otv.com.lb/otvent/live.php

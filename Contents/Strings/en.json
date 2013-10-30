@@ -1,5 +1,5 @@
-{  
-    "all":          "All",
-    "no_category":  "No Category",
-    "preferences":  "Preferences",
+{
+    "All": "All",
+    "No Category": "No Category",
+    "Preferences": "Preferences"
 }
