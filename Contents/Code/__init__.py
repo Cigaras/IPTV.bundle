@@ -10,6 +10,8 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
+# Version 0.9 RC1
+
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 ICON = 'icon-default.png'
@@ -56,46 +58,63 @@ def MainMenu():
     oc = ObjectContainer()
     for group in groups_list:
         oc.add(DirectoryObject(
-            key = Callback(ItemsMenu, items_list = items_list, group = group),
+            key = Callback(ListItems, items_list = items_list, group = group),
             title = L(group)
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R(ICON)))
     return oc
 
-@route(PREFIX + '/itemsmenu', items_list = list)
-def ItemsMenu(items_list, group):
+@route(PREFIX + '/listitems', items_list = list)
+def ListItems(items_list, group):
     oc = ObjectContainer(title1 = L(group))
     for item in items_list:
         if item['group'] == group or group == 'All':
-            oc.add(CreateVideoClipObject(
+            #oc.add(CreateVideoClipObject(
+            #    url = item['url'],
+            #    title = item['title'],
+            #    thumb = item['thumb']
+            #))
+            oc.add(VideoClipObject(
                 url = item['url'],
                 title = item['title'],
-                thumb = item['thumb']
+                thumb = GetThumb(item['thumb']),
+                items = [
+                    MediaObject(
+                        #container = Container.MP4,     # MP4, MKV, MOV, AVI
+                        #video_codec = VideoCodec.H264, # H264
+                        #audio_codec = AudioCodec.AAC,  # ACC, MP3
+                        #audio_channels = 2,            # 2, 6
+                        parts = [PartObject(key = GetVideoURL(url = item['url']))],
+                        optimized_for_streaming = True
+                    )
+                ]
             ))
     return oc
 
-@route(PREFIX + '/createvideoclipobject')
-def CreateVideoClipObject(url, title, thumb, include_container = False):
-    vco = VideoClipObject(
-        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
-        rating_key = title,
-        title = title,
-        thumb = thumb,
-        items = [
-            MediaObject(
+#@route(PREFIX + '/createvideoclipobject')
+#def CreateVideoClipObject(url, title, thumb, include_container = False):
+#    vco = VideoClipObject(
+        #key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
+        #rating_key = title,
+#        url = url,
+#        title = title,
+#        thumb = GetThumb(thumb),
+#        items = [
+#            MediaObject(
                 #container = Container.MP4,     # MP4, MKV, MOV, AVI
                 #video_codec = VideoCodec.H264, # H264
                 #audio_codec = AudioCodec.AAC,  # ACC, MP3
                 #audio_channels = 2,            # 2, 6
-                parts = [PartObject(key = GetVideoURL(url = url))],
-                optimized_for_streaming = True
-            )
-        ]
-    )
-    if include_container:
-        return ObjectContainer(objects = [vco])
-    else:
-        return vco
+#                parts = [PartObject(key = GetVideoURL(url = url))],
+#                optimized_for_streaming = True
+#            )
+#        ]
+#    )
+#    if include_container:
+#        return ObjectContainer(objects = [vco])
+#    else:
+#        return vco
+#    return vco
 
 def GetVideoURL(url, live = True):
     if url.startswith('rtmp') and Prefs['rtmp']:
@@ -118,6 +137,14 @@ def GetVideoURL(url, live = True):
         return WindowsMediaVideoURL(url = url)
     else:
         return HTTPLiveStreamURL(url = url)
+
+def GetThumb(thumb):
+    if thumb.startswith('http'):
+        return thumb
+    elif thumb <> '':
+        return R(thumb)
+    else:
+        return R(ICON)
 
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
     x = text.find(attribute)
