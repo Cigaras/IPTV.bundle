@@ -84,7 +84,15 @@ def ListItems(items_list, group):
                         #video_codec = VideoCodec.H264, # H264
                         #audio_codec = AudioCodec.AAC,  # ACC, MP3
                         #audio_channels = 2,            # 2, 6
-                        parts = [PartObject(key = GetVideoURL(url = item['url']))],
+                        parts = [
+                            PartObject(
+                                key = GetVideoURL(url = item['url']),
+                                #streams = [
+                                #    AudioStreamObject(language_code = Locale.Language.Russian),
+                                #    AudioStreamObject(language_code = Locale.Language.English)
+                                #]
+                            )
+                        ],
                         optimized_for_streaming = True
                     )
                 ]
@@ -94,8 +102,8 @@ def ListItems(items_list, group):
 #@route(PREFIX + '/createvideoclipobject')
 #def CreateVideoClipObject(url, title, thumb, include_container = False):
 #    vco = VideoClipObject(
-        #key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
-        #rating_key = title,
+#        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
+#        rating_key = url,
 #        url = url,
 #        title = title,
 #        thumb = GetThumb(thumb),
@@ -121,14 +129,15 @@ def GetVideoURL(url, live = True):
         Log.Debug('*' * 80)
         Log.Debug('* url_before: %s' % url)
         if url.find(' ') > -1:
-            # There is no need to split the url into separate attributes, passing everything as url attribute works fine, this is left here for testing
-            playpath = GetAttribute(url, 'playpath', '=', ' ')
-            swfurl = GetAttribute(url, 'swfurl', '=', ' ')
-            pageurl = GetAttribute(url, 'pageurl', '=', ' ')
-            url = url[0:url.find(' ')]
-            Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live))
+            #playpath = GetAttribute(url, 'playpath', '=', ' ')
+            #swfurl = GetAttribute(url, 'swfurl', '=', ' ')
+            #pageurl = GetAttribute(url, 'pageurl', '=', ' ')
+            #url = url[0:url.find(' ')]
+            #Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live))
+            Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, live = live))
             Log.Debug('*' * 80)
-            return RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live)
+            #return RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live)
+            return RTMPVideoURL(url = url, live = live)
         else:
             Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, live = live))
             Log.Debug('*' * 80)

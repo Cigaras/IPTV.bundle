@@ -3,19 +3,19 @@
 http://109.68.46.67/live/sport1-1.stream/playlist.m3u8?wowzasessionid=429788342
 #EXTINF:0 tvg-name="Спорт 2" tvg-logo="http://futsal.sport.ua/images/news/0/5/14/orig_202851.jpg" group-title="Sports",Sport 2 (http)
 http://109.68.46.67/live/sport2-1.stream/playlist.m3u8?wowzasessionid=1511349995
-#EXTINF:0 tvg-name="Jim" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/6/62/JIMlogo.png" group-title="Music",Jim (rtmp)
+#EXTINF:0 tvg-name="Jim" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/6/62/JIMlogo.png" group-title="Music",Jim (rtmp simple)
 rtmp://rtmp.jim.stream.vmmacdn.be/vmma-jim-rtmplive-live/jim
-#EXTINF:0 tvg-name="Sky TG24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/9/91/SKY_TG24.png" group-title="News",Sky TG24 (rtmp)
+#EXTINF:0 tvg-name="Sky TG24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/9/91/SKY_TG24.png" group-title="News",Sky TG24 (rtmp simple)
 rtmp://cp49989.live.edgefcs.net:1935/live/streamRM1@2564
 #EXTINF:0 tvg-name="Information TV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/f/fd/InfoTVlogo.jpg" group-title="Lifestyle",Information TV (rtsp)
 rtsp://109.169.29.6/InformationTV/livestream/livestream
 #EXTINF:0 tvg-name="NDTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/2000px-NDTV_logo.svg.png" group-title="News",NDTV (http)
 http://bglive-a.bitgravity.com/ndtv/247hi/live/native
-#EXTINF:0 tvg-name="Pentagon CH" tvg-logo="" group-title="Entertainment",Pentagon CH (rtmp)
+#EXTINF:0 tvg-name="Pentagon CH" tvg-logo="" group-title="Entertainment",Pentagon CH (rtmp simple)
 rtmp://cp114761.live.edgefcs.net:443/live/tpc-live_1@44263
-#EXTINF:0 tvg-name="Vsegda s Toboy" tvg-logo="" group-title="Entertainment",Vsegda s Toboy (rtmp)
+#EXTINF:0 tvg-name="Vsegda s Toboy" tvg-logo="" group-title="Entertainment",Vsegda s Toboy (rtmp simple)
 rtmp://81.177.35.218/rtp/2
-#EXTINF:0 tvg-name="TOUR TV" tvg-logo="" group-title="Lifestyle",TOUR TV (rtmp)
+#EXTINF:0 tvg-name="TOUR TV" tvg-logo="" group-title="Lifestyle",TOUR TV (rtmp simple)
 rtmp://www.planeta-online.tv:1936/live/channel_2
 #EXTINF:0 tvg-name="Sitel Tv MKD" tvg-logo="" group-title="Entertainment",Sitel Tv MKD (rtsp)
 rtsp://fms.zulu.mk/zulu/sitel_1
@@ -37,3 +37,5 @@ rtmp://live.lrtc.net:80/X8a7MmK/live
 rtsp://lrt-live.data.lt:1935/World/world
 #EXTINF:0,OTV (rtmp full)
 rtmp://livestreaming4.itworkscdn.com/otv playpath=otvlive_360p swfurl=http://www.otv.com.lb/otvent/jwplayer.flash.swf pageurl=http://www.otv.com.lb/otvent/live.php
+#EXTINF:0 tvg-name="Cartoon Network" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cartoon_Network_logo.svg/2000px-Cartoon_Network_logo.svg.png" group-title="Favourites",Cartoon Network (http, multiple audio tracks)
+http://84.240.5.215:4000/udp/233.136.41.6:1234

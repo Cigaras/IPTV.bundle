@@ -60,7 +60,7 @@ It is a [known fact](http://forums.plexapp.com/index.php/topic/84637-problems-ge
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
-Keep in mind that all streams are unique and plugin will not be able to play all of them, but not necessary because of plugins fault. Please try playing stream with [VLC] and using \*.strm file method [described above](#compatible-devices) before blaming this plugin. If \*.strm method works and plugin does not, please [contact me](#contacts).
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault. Please try playing stream with [VLC] and using \*.strm file method [described above](#compatible-devices) before blaming this plugin. If \*.strm method works and plugin does not, please [contact me](#contacts).
 
 ### To do list ###
 * Possibility to choose audio track if stream has multiple;
