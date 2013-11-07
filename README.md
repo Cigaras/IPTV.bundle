@@ -54,13 +54,13 @@ Read [further][5] for specific configuration required for some streaming protoco
     rtmp://shopnbc.fmsls.entriq.net:443/live/ playpath=live_01@13361 swfurl=http://shopnbc.img.entriq.net/img/ShopNBCLivePlayer/main.swf pageurl=http://www.shopnbc.com/
     ```
 
-    or You can use single URL address without attributes, then Plex will use [its own hosted SWF player](http://www.plexapp.com/player/player.php) (some streams require own player and will not playu this way), for example:
+    or You can use single URL address without attributes, then Plex will use [its own hosted SWF player](http://www.plexapp.com/player/player.php) (some streams require own player and will not play this way), for example:
 
     ```
     rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
     ```
 
-    Note that in first example playpath is a separete attribute, but in second example it is combinet into url. If SWF player for RTMP is disabled in preferences, plugin will try to play stream over HTTP protocol, some streams work that way.
+    Note that in first example playpath is a separate attribute, but in second example it is combined into url. If SWF player for RTMP is disabled in preferences, plugin will try to play stream over HTTP protocol, some streams work that way.
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
