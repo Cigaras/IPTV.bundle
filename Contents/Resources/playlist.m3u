@@ -25,15 +25,15 @@ mmsh://wt-wm1.wtnet.de/noa4hh-stream-hi?MSWMExt=.asf
 mms://stream.vrf.de/VRF
 #EXTINF:0 tvg-name="Tele Antilles" tvg-logo="http://images.wikia.com/boboiboy/images/7/7b/Logo_teleantillas.jpg" group-title="Music",Tele Antilles (rtsp)
 rtsp://live240.impek.com/soleiltv
-#EXTINF:0 tvg-name="Dance TV" tvg-logo="" group-title="Music",Dance TV (mms)
+#EXTINF:0 tvg-name="Dance TV" group-title="Music",Dance TV (mms)
 mms://onstreaming01.de.gtk.hu/dancetv
 #EXTINF:0,NBC Shop (rtmp full)
 rtmp://shopnbc.fmsls.entriq.net:443/live/ playpath=live_01@13361 swfurl=http://shopnbc.img.entriq.net/img/ShopNBCLivePlayer/main.swf pageurl=http://www.shopnbc.com/
 #EXTINF:0,NBC Shop (rtmp simple)
 rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
-#EXTINF:0,Lietuvas rytas (rtmp simple)
+#EXTINF:0 tvg-name="Lietuvos rytas TV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/6b/Lrytas_tv_logo.svg.png" group-title="Lifestyle",Lietuvos rytas TV (rtmp simple, plays over http)
 rtmp://live.lrtc.net:80/X8a7MmK/live
-#EXTINF:0,LRT Lituanica (rtsp)
+#EXTINF:0 tvg-name="LRT Lituanica" tvg-logo="http://upload.wikimedia.org/wikipedia/en/b/bf/LRT_Lituanica.png" group-title="Lifestyle",LRT Lituanica (rtsp)
 rtsp://lrt-live.data.lt:1935/World/world
 #EXTINF:0,OTV (rtmp full)
 rtmp://livestreaming4.itworkscdn.com/otv playpath=otvlive_360p swfurl=http://www.otv.com.lb/otvent/jwplayer.flash.swf pageurl=http://www.otv.com.lb/otvent/live.php
