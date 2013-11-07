@@ -7,7 +7,7 @@ by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 0.9 RC1
 4. [Compatible devices and limitations][4]
 5. [Supported protocols][5]
 6. [To do list][6]
-7. [Contacts][7]
+7. [Credits and contacts][7]
 8. [License][8]
 
 ### Introduction ###
@@ -68,11 +68,17 @@ Keep in mind that all streams are unique and Plex will not be able to play all o
 
 ### To do list ###
 * [EPG];
-* Possibility to predefine audio track, if ever becomnes possible;
+* Possibility to predefine audio track, if ever becomes possible;
 * [MMS] protocol troubleshooting;
 * Use Plex Services.
 
-### Contacts ###
+### Credits and contacts ###
+* Developed by Valdas Vaitiekaitis, also known as [Cigaras], with help of:
+  * [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/)
+  * [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/)
+* [Artwork] by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), available under [Creative Commons Attribution 2.0 Generic license].
+* [Icons] by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), available under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license].
+
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or, if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk). If You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### License ###
@@ -88,7 +94,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [4]: #compatible-devices-and-limitations "Compatible devices and limitations"
   [5]: #supported-protocols "Supported protocols"
   [6]: #to-do-list "To do list"
-  [7]: #contacts "Contacts"
+  [7]: #credits-and-contacts "Credits and contacts"
   [8]: #license "License"
   [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras
   [GetPlex]: http://www.plexapp.com/getplex
@@ -102,3 +108,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [RTMP]: http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol
   [MMS]: http://en.wikipedia.org/wiki/Microsoft_Media_Server
   [EPG]: http://en.wikipedia.org/wiki/Electronic_program_guide
+  [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143)
+  [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html)
+  [Creative Commons Attribution 2.0 Generic license]: http://creativecommons.org/licenses/by/2.0
+  [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license]: http://creativecommons.org/licenses/by-nc-sa/3.0

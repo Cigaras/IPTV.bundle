@@ -14,16 +14,16 @@
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
-ICON = 'icon-default.png'
-ART = 'art-default.jpg'
+#ICON = 'icon-default.png'
+#ART = 'art-default.jpg'
 
 def Start():
     ObjectContainer.title1 = TITLE
-    ObjectContainer.art = R(ART)
-    DirectoryObject.thumb = R(ICON)
-    DirectoryObject.art = R(ART)
-    VideoClipObject.thumb = R(ICON)
-    VideoClipObject.art = R(ART)
+    ObjectContainer.art = R('art-default.jpg')
+    DirectoryObject.thumb = R('icon-folder.png')
+    DirectoryObject.art = R('art-default.jpg')
+    #VideoClipObject.thumb = R('icon-default.png')
+    VideoClipObject.art = R('art-default.jpg')
 
 @handler(PREFIX, TITLE)
 def MainMenu():
@@ -61,7 +61,7 @@ def MainMenu():
             key = Callback(ListItems, items_list = items_list, group = group),
             title = L(group)
         ))
-    oc.add(PrefsObject(title = L('Preferences'), thumb = R(ICON)))
+    oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
 
 @route(PREFIX + '/listitems', items_list = list)
@@ -153,7 +153,7 @@ def GetThumb(thumb):
     elif thumb <> '':
         return R(thumb)
     else:
-        return R(ICON)
+        return R('icon-default.png')
 
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
     x = text.find(attribute)
