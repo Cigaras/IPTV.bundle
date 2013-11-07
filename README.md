@@ -108,7 +108,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [RTMP]: http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol
   [MMS]: http://en.wikipedia.org/wiki/Microsoft_Media_Server
   [EPG]: http://en.wikipedia.org/wiki/Electronic_program_guide
-  [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143)
-  [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html)
+  [Artwork]: http://www.flickr.com/photos/purplesherbet/10579021143
+  [Icons]: http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html
   [Creative Commons Attribution 2.0 Generic license]: http://creativecommons.org/licenses/by/2.0
   [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license]: http://creativecommons.org/licenses/by-nc-sa/3.0
