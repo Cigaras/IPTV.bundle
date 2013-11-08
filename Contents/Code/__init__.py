@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0
+# Version 1.0.1
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -69,60 +69,66 @@ def ListItems(items_list, group):
     oc = ObjectContainer(title1 = L(group))
     for item in items_list:
         if item['group'] == group or group == 'All':
-            #oc.add(CreateVideoClipObject(
+            #oc.add(VideoClipObject(
             #    url = item['url'],
             #    title = item['title'],
-            #    thumb = item['thumb']
+            #    thumb = GetThumb(item['thumb']),
+            #    items = [
+            #        MediaObject(
+            #            parts = [
+            #                PartObject(
+            #                    key = GetVideoURL(url = item['url']),
+            #                )
+            #            ],
+            #            optimized_for_streaming = True
+            #        )
+            #    ]
             #))
-            oc.add(VideoClipObject(
+
+            # Simply adding VideoClipObject does not work on older clients (like LG SmartTV),
+            # so there is an endless recursion - function CreateVideoClipObject calling itself -
+            # and I have no idea why and how it works...
+            oc.add(CreateVideoClipObject(
                 url = item['url'],
                 title = item['title'],
-                thumb = GetThumb(item['thumb']),
-                items = [
-                    MediaObject(
-                        #container = Container.MP4,     # MP4, MKV, MOV, AVI
-                        #video_codec = VideoCodec.H264, # H264
-                        #audio_codec = AudioCodec.AAC,  # ACC, MP3
-                        #audio_channels = 2,            # 2, 6
-                        parts = [
-                            PartObject(
-                                key = GetVideoURL(url = item['url']),
-                                #streams = [
-                                #    AudioStreamObject(language_code = Locale.Language.Russian),
-                                #    AudioStreamObject(language_code = Locale.Language.English)
-                                #]
-                            )
-                        ],
-                        optimized_for_streaming = True
-                    )
-                ]
+                thumb = item['thumb']
             ))
+
     return oc
 
-#@route(PREFIX + '/createvideoclipobject')
-#def CreateVideoClipObject(url, title, thumb, include_container = False):
-#    vco = VideoClipObject(
-#        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, include_container = True),
-#        rating_key = url,
-#        url = url,
-#        title = title,
-#        thumb = GetThumb(thumb),
-#        items = [
-#            MediaObject(
+@route(PREFIX + '/createvideoclipobject')
+def CreateVideoClipObject(url, title, thumb, container = False):
+    vco = VideoClipObject(
+        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, container = True),
+        #rating_key = url,
+        url = url,
+        title = title,
+        thumb = GetThumb(thumb),
+        items = [
+            MediaObject(
                 #container = Container.MP4,     # MP4, MKV, MOV, AVI
                 #video_codec = VideoCodec.H264, # H264
                 #audio_codec = AudioCodec.AAC,  # ACC, MP3
                 #audio_channels = 2,            # 2, 6
-#                parts = [PartObject(key = GetVideoURL(url = url))],
-#                optimized_for_streaming = True
-#            )
-#        ]
-#    )
-#    if include_container:
-#        return ObjectContainer(objects = [vco])
-#    else:
-#        return vco
-#    return vco
+                parts = [
+                    PartObject(
+                        key = GetVideoURL(url = url),
+                        #streams = [
+                        #    AudioStreamObject(language_code = Locale.Language.Russian),
+                        #    AudioStreamObject(language_code = Locale.Language.English)
+                        #]
+                    )
+                ],
+                optimized_for_streaming = True
+            )
+        ]
+    )
+
+    if container:
+        return ObjectContainer(objects = [vco])
+    else:
+        return vco
+    return vco
 
 def GetVideoURL(url, live = True):
     if url.startswith('rtmp') and Prefs['rtmp']:
