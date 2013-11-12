@@ -1,7 +1,7 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name or URL",
+        "label":    "Playlist file name or URL (requires restart)",
         "type":     "text",
         "default":  "playlist.m3u"
     },
