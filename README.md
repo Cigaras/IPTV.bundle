@@ -6,9 +6,10 @@ by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 1.0.3
 3. [Playlist structure][3]
 4. [Compatible devices and limitations][4]
 5. [Supported protocols][5]
-6. [To do list][6]
-7. [Credits and contacts][7]
-8. [License][8]
+6. [Troubleshooting][6]
+6. [To do list][7]
+7. [Credits and contacts][8]
+8. [License][9]
 
 ### Introduction ###
 Some [ISP] provide their users [IPTV] services, that can be watched over [VLC] on PC or on TV sets, but for TV a [Set-top box] is usualy required that is both expensive and inconvenient because of separate remote. [MediaLink], that is preinstaled on most LG TVs, is able to play [IPTV] streams with the help of [Plex Media Server], but it does not has native support for it. One simple solution is to put every single stream url into a separate \*.strm file, load them into Plex library as Home Videos and assign logos and descriptions manualy. Or, if You are lucky, You might find a Video Channel with predefined playlist that suits Your needs or even broadcasts [IPTV] from Your [ISP], but as I was not lucky enough, I decided to take matters into my own hands and created this plugin, that allows to watch network streams from a customisable playlist, thus allowing You to **watch [IPTV] without a [Set-top box]!**
@@ -25,7 +26,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels, read below for [compatibility and limitations][4].
 
 ### Playlist structure ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link to it, so [Dropbox](http://dropbox.com) will not work (unless You find a way to link directly to m3u file, if You do, please [share][7]).
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link to it, so [Dropbox](http://dropbox.com) will not work (unless You find a way to link directly to m3u file, if You do, please [share][8]).
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
 * **tvg-logo** - stream logo or icon, can use remote media (url must include http part) or stored images from \IPTV.bundle\Content\Resources folder (filename must include extension);
@@ -64,7 +65,20 @@ Read [further][5] for specific configuration required for some streaming protoco
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
-Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method [described above][4] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][7].
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method [described above][4] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
+
+### Troubleshooting ###
+IF You encaunter errors or some streams do not work please do the following:
+
+1. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
+
+2. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client, if it fails, Your client is unable to play this stream, try alternatives; if it works, continue to next step:
+
+3. Check plugin log file *com.plexapp.plugins.iptv.log* located in the folowing folder:
+  * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Logs\PMS Plugin Logs\*
+  * on Mac: *~Library/Application Support/Plex Media Server/Logs/PMS Plugin Logs/*
+
+4. If you can not understand the contents of the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), I will try to help you as soon as possible.
 
 ### To do list ###
 * [EPG];
@@ -93,9 +107,10 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [3]: #playlist-structure "Playlist structure"
   [4]: #compatible-devices-and-limitations "Compatible devices and limitations"
   [5]: #supported-protocols "Supported protocols"
-  [6]: #to-do-list "To do list"
-  [7]: #credits-and-contacts "Credits and contacts"
-  [8]: #license "License"
+  [6]: #troubleshooting "Troubleshooting"
+  [7]: #to-do-list "To do list"
+  [8]: #credits-and-contacts "Credits and contacts"
+  [9]: #license "License"
   [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras
   [GetPlex]: http://www.plexapp.com/getplex
   [MediaLink]: http://www.plexapp.com/medialink/files/index.html
