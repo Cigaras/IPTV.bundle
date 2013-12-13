@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.2
+# Version 1.0.3
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -153,10 +153,10 @@ def GetVideoURL(url, live = True):
     else:
         return HTTPLiveStreamURL(url = url)
 
-def GetThumb(thumb = ''):
-    if thumb.startswith('http'):
+def GetThumb(thumb):
+    if thumb and thumb.startswith('http'):
         return thumb
-    elif thumb <> '':
+    elif thumb and thumb <> '':
         return R(thumb)
     else:
         return R('icon-default.png')
