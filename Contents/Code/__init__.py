@@ -10,12 +10,13 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.3
+# Version 1.0.4
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 #ICON = 'icon-default.png'
 #ART = 'art-default.jpg'
+ITEMS_LIST = [] # global variable because Plex has problems passing list to a procedure
 
 def Start():
     ObjectContainer.title1 = TITLE
@@ -29,7 +30,6 @@ def Start():
 def MainMenu():
     empty_group = False
     groups_list = []
-    items_list = []
     if Prefs['playlist'].startswith('http://'):
         playlist = HTTP.Request(Prefs['playlist']).content
     else:
@@ -48,8 +48,8 @@ def MainMenu():
                     group = 'No Category'
                 elif not group in groups_list:
                     groups_list.append(group)
-                items_list.append({'url': url, 'title': title, 'thumb': thumb, 'group': group})
-        items_list.sort(key = lambda dict: dict['title'].lower())
+                ITEMS_LIST.append({'url': url, 'title': title, 'thumb': thumb, 'group': group})
+        ITEMS_LIST.sort(key = lambda dict: dict['title'].lower())
         groups_list.sort(key = lambda str: str.lower())
         groups_list.insert(0, 'All')
         if empty_group:
@@ -58,16 +58,16 @@ def MainMenu():
     oc = ObjectContainer()
     for group in groups_list:
         oc.add(DirectoryObject(
-            key = Callback(ListItems, items_list = items_list, group = group),
+            key = Callback(ListItems, group = group),
             title = L(group)
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
 
-@route(PREFIX + '/listitems', items_list = list)
-def ListItems(items_list, group):
+@route(PREFIX + '/listitems')
+def ListItems(group):
     oc = ObjectContainer(title1 = L(group))
-    for item in items_list:
+    for item in ITEMS_LIST:
         if item['group'] == group or group == 'All':
             #oc.add(VideoClipObject(
             #    url = item['url'],

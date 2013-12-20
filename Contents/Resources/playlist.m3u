@@ -37,5 +37,5 @@ rtmp://live.lrtc.net:80/X8a7MmK/live
 rtsp://lrt-live.data.lt:1935/World/world
 #EXTINF:0,OTV (rtmp full)
 rtmp://livestreaming4.itworkscdn.com/otv playpath=otvlive_360p swfurl=http://www.otv.com.lb/otvent/jwplayer.flash.swf pageurl=http://www.otv.com.lb/otvent/live.php
-#EXTINF:0 tvg-name="Cartoon Network" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cartoon_Network_logo.svg/2000px-Cartoon_Network_logo.svg.png" group-title="Favourites",Cartoon Network (http, multiple audio tracks)
-http://84.240.5.215:4000/udp/233.136.41.6:1234
+#EXTINF:0 tvg-name="NDTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/2000px-NDTV_logo.svg.png" group-title="News",NDTV 24x7 (http)
+http://ndtv.live.cdn.bitgravity.com/ndtv/live/ndtv247live512
