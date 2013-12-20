@@ -36,7 +36,7 @@ Playlist supports additional attributes that can be optionally defined inline af
 You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) and Google, read further for more information about [supported protocols and required configurations][5].
 
 ### Compatible devices and limitations ###
-It is a [known fact](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) that Plex Media Server does not transcode live streams and leaves this job for clients, so streams **will play only on clients that are able to handle the stream natively**, leaving most Android users out of luck. I am unable to provide a list of such devices because Plex developers are constantly working and updating their software and I do not have the resources to test them all, but You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6].
+It is a [known fact](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) that Plex Media Server does not transcode live streams and leaves this job for clients, so streams **will play only on clients that are able to handle the stream natively**, leaving most Android and Samsung users out of luck. I am unable to provide a list of such devices because Plex developers are constantly working and updating their software and I do not have the resources to test them all, but You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6].
 
 One more flaw of this plugin is that it has no control over audio tracks if stream has multiple. Some clients can change the track, some can not, but plugin can not predefine one and I have [no solution](http://forums.plexapp.com/index.php/topic/85178-help-request-how-to-change-audio-track-of-a-video/) at the moment.
 
@@ -78,7 +78,7 @@ IF You encaunter errors or some streams do not work please do the following:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Logs\PMS Plugin Logs\*
   * on Mac: *~Library/Application Support/Plex Media Server/Logs/PMS Plugin Logs/*
 
-4. If you can not understand the contents of the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), I will try to help you as soon as possible.
+4. If You can not understand the contents of the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
 
 ### To do list ###
 * [EPG];
