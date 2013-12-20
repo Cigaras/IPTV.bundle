@@ -29,7 +29,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link to it, so [Dropbox](http://dropbox.com) will not work (unless You find a way to link directly to m3u file, if You do, please [share][8]).
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
-* **tvg-logo** - stream logo or icon, can use remote media (url must include http part) or stored images from \IPTV.bundle\Content\Resources folder (filename must include extension);
+* **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from \IPTV.bundle\Content\Resources folder (filename must include extension);
 * **tvg-id** - not used at the moment, will be used for [EPG];
 * **tvg-name** - not used at the moment, will be used for [EPG].
 
