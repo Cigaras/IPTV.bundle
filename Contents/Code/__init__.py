@@ -59,7 +59,7 @@ def MainMenu():
     for group in groups_list:
         oc.add(DirectoryObject(
             key = Callback(ListItems, group = group),
-            title = L(group)
+            title = unicode(L(group))
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
