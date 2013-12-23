@@ -41,7 +41,7 @@ def MainMenu():
             if line.startswith('#EXTINF'):
                 url = lines[i + 1].strip()
                 title = line[line.rfind(',') + 1:len(line)].strip()
-                thumb = GetAttribute(line, 'tvg-logo')
+                thumb = GetAttribute(line, 'logo')
                 group = GetAttribute(line, 'group-title')
                 if group == '':
                     empty_group = True

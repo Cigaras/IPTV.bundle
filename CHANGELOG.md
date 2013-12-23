@@ -1,5 +1,6 @@
 Version 1.0.5 (2013-12-23):
 * Cyrilic group-title fix by Serge
+* Logo attribute support
 
 Version 1.0.4 (2013-12-20):
 * Items list array moved from local variable to global because of compatibility issues with some devices
