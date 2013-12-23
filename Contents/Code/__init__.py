@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.4
+# Version 1.0.5
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'

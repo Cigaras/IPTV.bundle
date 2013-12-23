@@ -1,5 +1,5 @@
 ## Plex Media Server plugin to play network streams (a.k.a. IPTV) from a M3U playlist ##
-by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 1.0.4
+by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 1.0.5
 
 1. [Introduction][1]
 2. [Installation][2]
