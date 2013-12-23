@@ -90,6 +90,7 @@ IF You encaunter errors or some streams do not work please do the following:
 * Developed by Valdas Vaitiekaitis, also known as [Cigaras], with help of:
   * [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/)
   * [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/)
+  * [mdenisov](https://forums.plexapp.com/index.php/user/182340-mdenisov/)
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0).
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0).
 
