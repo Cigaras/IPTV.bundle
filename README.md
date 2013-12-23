@@ -65,7 +65,7 @@ Read [further][5] for specific configuration required for some streaming protoco
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
-Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method [described above][4] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method described [above][4] and [below][6] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
 
 ### Troubleshooting ###
 IF You encaunter errors or some streams do not work please do the following:
@@ -78,7 +78,7 @@ IF You encaunter errors or some streams do not work please do the following:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Logs\PMS Plugin Logs\*
   * on Mac: *~Library/Application Support/Plex Media Server/Logs/PMS Plugin Logs/*
 
-4. If You can not understand the contents of the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
+4. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
 
 ### To do list ###
 * [EPG];
