@@ -59,14 +59,14 @@ def MainMenu():
     for group in groups_list:
         oc.add(DirectoryObject(
             key = Callback(ListItems, group = group),
-            title = unicode(L(group))
+            title = group
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
 
 @route(PREFIX + '/listitems')
 def ListItems(group):
-    oc = ObjectContainer(title1 = L(group))
+    oc = ObjectContainer(title1 = group)
     for item in ITEMS_LIST:
         if item['group'] == group or group == 'All':
             #oc.add(VideoClipObject(
@@ -168,6 +168,6 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
         z = text.find(delimiter2, y)
         if z == -1:
             z = len(text)
-        return text[y:z].strip()
+        return unicode(text[y:z].strip())
     else:
         return ''
