@@ -39,20 +39,20 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
 It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
 
 * **Desktop Clients**:
-  * **Plex Media Center** - no longer in production and it is hard to find where to [download one](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), but plays [most streams][5] without problems;
-  * **[Plex Home Theater][Plex]** - the new Plex Media Center replacement, does not play live streams at all;
-  * **[Plex Web]** - some streams work, some do not, needs [testing][6];
+  * **Plex Media Center** - no longer in production and it is hard to find where to [download one](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), but plays [most streams][5] without problems, latest known version 0.9.8.18;
+  * **[Plex Home Theater][GetPlex]** - the [new](http://www.theverge.com/2012/12/24/3801306/plex-desktop-app-rebranded-as-plex-home-theater-adds-airplay-in) Plex Media Center, does not play live streams at all;
+  * **[Plex Web](https://my.plexapp.com/servers)** - some streams work, some do not, needs [testing][6];
 * **Connected Devices**:
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
   * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that it dos work, You just need to alternate between transcoding options;
-  * **[Plex for Roku][Plex]** - [for some it works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), [for some it does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
-  * **[Plex for Chromecast][Plex]** - not tested;
-  * **[Plex for Google TV][Plex]** - not tested;
-  * **[Plex for Samsung][Plex]** - not tested;
+  * **[Plex for Roku][GetPlex]** - [for some it works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), [for some it does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
+  * **[Plex for Chromecast][GetPlex]** - not tested;
+  * **[Plex for Google TV][GetPlex]** - not tested;
+  * **[Plex for Samsung][GetPlex]** - not tested;
 * **Mobile Devices**:
-  * **[Plex for Android][Plex]** - does not work (should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad) but it looks like Plex does not allow to use external players);
-  * **[Plex for iOS][Plex]** - does not work (should work with external player, same problems like Android);
-  * **[Plex for Windows Phone][Plex]** - not tested;
+  * **[Plex for Android][GetPlex]** - does not work (should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad) but it looks like Plex does not allow to use external players);
+  * **[Plex for iOS][GetPlex]** - does not work (should work with external player, same problems like Android);
+  * **[Plex for Windows Phone][GetPlex]** - not tested;
 
 Keep in mind that following list is not full because Plex developers are constantly working and updating their software and I do not have the resources to test them all, You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6], please [contact me][8] if it happens to work on Your device that is listed as not working or unknown.
 
