@@ -38,25 +38,23 @@ You can find many public streams at [freetuxtv.net](http://database.freetuxtv.ne
 ### Compatible devices and limitations ###
 It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
 
-* Desktop Clients:
-  * Plex Home Theater - does not play live streams;
-  * Plex Media Center - the old version of Plex Home Theater, no longer in production and it is hard to find where to [download one](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), but plays most streams without problems;
-  * Plex Web - some streams work, some do not, needs [testing][6];
-* Connected Devices:
-  * Plex for LG TV (MediaLink) plays [HTTP] and [RTSP] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem;
-  * [PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING) - [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that it dos work, You just need to alternate between transcoding options;
-  * Plex for Roku - [for some it works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), [for some it does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
-  * Plex for Chromecast - do not know;
-  * Plex for Google TV - do not know;
-  * Plex for Samsung - do not know;
-* Mobile Devices:
-  * Plex for Android - does not work (should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad) but it looks like Plex does not allow to use external players);
-  * Plex for iOS - does not work (should work with external player, same problems like Android);
-  * Plex for Windows Phone - do not know;
+* **Desktop Clients**:
+  * **Plex Media Center** - no longer in production and it is hard to find where to [download one](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), but plays [most streams][5] without problems;
+  * **[Plex Home Theater][Plex]** - the new Plex Media Center replacement, does not play live streams at all;
+  * **[Plex Web]** - some streams work, some do not, needs [testing][6];
+* **Connected Devices**:
+  * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
+  * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that it dos work, You just need to alternate between transcoding options;
+  * **[Plex for Roku][Plex]** - [for some it works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), [for some it does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
+  * **[Plex for Chromecast][Plex]** - not tested;
+  * **[Plex for Google TV][Plex]** - not tested;
+  * **[Plex for Samsung][Plex]** - not tested;
+* **Mobile Devices**:
+  * **[Plex for Android][Plex]** - does not work (should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad) but it looks like Plex does not allow to use external players);
+  * **[Plex for iOS][Plex]** - does not work (should work with external player, same problems like Android);
+  * **[Plex for Windows Phone][Plex]** - not tested;
 
 Keep in mind that following list is not full because Plex developers are constantly working and updating their software and I do not have the resources to test them all, You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6], please [contact me][8] if it happens to work on Your device that is listed as not working or unknown.
-
-leaving most Android and Samsung users out of luck, however [Plex Media Center](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html) (not the new [Plex Home Theater app][GetPlex], it does not work at the moment) and LG TV work great, also [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that [PlexConnect for AppleTV](http://plexconnect.org/) is able to transcode streams into needed format. I am unable to provide a full list of compatible/incompatible devices because Plex developers are constantly working and updating their software and I do not have the resources to test them all, but You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6].
 
 One more flaw of this plugin is that it has no control over audio tracks if stream has multiple. Some clients can change the track, some can not, but plugin can not predefine one and I have [no solution](http://forums.plexapp.com/index.php/topic/85178-help-request-how-to-change-audio-track-of-a-video/) at the moment.
 
@@ -108,18 +106,12 @@ If You encounter errors or some streams do not work please do the following:
 * Use Plex Services.
 
 ### Credits and contacts ###
-* Developer:
-  * [Valdas Vaitiekaitis], also known as [Cigaras]
-* Contributors:
-  * [supergivi](https://github.com/supergivi)
-* Advisers:
-  * [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/)
-  * [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/)
-* Testers:
-  * [mdenisov](https://forums.plexapp.com/index.php/user/182340-mdenisov/)
-* Resources:
-  * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0).
-  * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0).
+* Developer: [Valdas Vaitiekaitis], also known as [Cigaras];
+* Contributors: [supergivi](https://github.com/supergivi);
+* [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0);
+* [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
+* Advisers: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/);
+* Testers: [mdenisov](https://forums.plexapp.com/index.php/user/182340-mdenisov/).
 
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or, if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk). If You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
@@ -143,6 +135,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras
   [Valdas Vaitiekaitis]: https://plus.google.com/+ValdasVaitiekaitis
   [GetPlex]: https://www.plex.tv/downloads
+  [Plex Web]: https://my.plexapp.com/servers
   [MediaLink]: http://www.plexapp.com/medialink
   [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
   [IPTV]: http://en.wikipedia.org/wiki/IPTV
