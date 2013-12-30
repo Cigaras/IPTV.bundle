@@ -10,15 +10,13 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.4
+# Version 1.0.5
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 #ICON = 'icon-default.png'
 #ART = 'art-default.jpg'
-ITEMS_LIST = []  # global variable because Plex has problems passing list to a procedure
-GROUPS_LIST = []
-
+ITEMS_LIST = [] # global variable because Plex has problems passing list to a procedure
 
 def Start():
     ObjectContainer.title1 = TITLE
@@ -30,22 +28,45 @@ def Start():
 
 @handler(PREFIX, TITLE)
 def MainMenu():
-    if not GROUPS_LIST:
-        ParsePlaylist()
+    empty_group = False
+    groups_list = []
+    if Prefs['playlist'].startswith('http://'):
+        playlist = HTTP.Request(Prefs['playlist']).content
+    else:
+        playlist = Resource.Load(Prefs['playlist'], binary = True)
+    if playlist <> None:
+        lines = playlist.splitlines()
+        for i in range(len(lines) - 1):
+            line = lines[i].strip()
+            if line.startswith('#EXTINF'):
+                url = lines[i + 1].strip()
+                title = line[line.rfind(',') + 1:len(line)].strip()
+                thumb = GetAttribute(line, 'logo')
+                group = GetAttribute(line, 'group-title')
+                if group == '':
+                    empty_group = True
+                    group = 'No Category'
+                elif not group in groups_list:
+                    groups_list.append(group)
+                ITEMS_LIST.append({'url': url, 'title': title, 'thumb': thumb, 'group': group})
+        ITEMS_LIST.sort(key = lambda dict: dict['title'].lower())
+        groups_list.sort(key = lambda str: str.lower())
+        groups_list.insert(0, 'All')
+        if empty_group:
+            groups_list.append('No Category')
+
     oc = ObjectContainer()
-    for group in GROUPS_LIST:
+    for group in groups_list:
         oc.add(DirectoryObject(
             key = Callback(ListItems, group = group),
-            title = group
+            title = unicode(L(group))
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
 
 @route(PREFIX + '/listitems')
 def ListItems(group):
-    if not ITEMS_LIST:
-        ParsePlaylist()
-    oc = ObjectContainer(title1 = group)
+    oc = ObjectContainer(title1 = L(group))
     for item in ITEMS_LIST:
         if item['group'] == group or group == 'All':
             #oc.add(VideoClipObject(
@@ -147,34 +168,6 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
         z = text.find(delimiter2, y)
         if z == -1:
             z = len(text)
-        return unicode(text[y:z].strip())
+        return text[y:z].strip()
     else:
         return ''
-
-def ParsePlaylist():
-    empty_group = False
-    if Prefs['playlist'].startswith('http://'):
-        playlist = HTTP.Request(Prefs['playlist']).content
-    else:
-        playlist = Resource.Load(Prefs['playlist'], binary = True)
-    if playlist <> None:
-        lines = playlist.splitlines()
-        for i in range(len(lines) - 1):
-            line = lines[i].strip()
-            if line.startswith('#EXTINF'):
-                url = lines[i + 1].strip()
-                title = line[line.rfind(',') + 1:len(line)].strip()
-                thumb = GetAttribute(line, 'tvg-logo')
-                group = GetAttribute(line, 'group-title')
-                if group == '':
-                    empty_group = True
-                    group = 'No Category'
-                elif not group in GROUPS_LIST:
-                    GROUPS_LIST.append(group)
-                ITEMS_LIST.append({'url': url, 'title': title, 'thumb': thumb, 'group': group})
-        ITEMS_LIST.sort(key = lambda dict: dict['title'].lower())
-        GROUPS_LIST.sort(key = lambda str: str.lower())
-        GROUPS_LIST.insert(0, 'All')
-        if empty_group:
-            GROUPS_LIST.append('No Category')
-    return
