@@ -1,5 +1,5 @@
 ## Plex Media Server plugin to play network streams (a.k.a. IPTV) from a M3U playlist ##
-by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 1.0.4
+by **Valdas Vaitiekaitis**, also known as **[Cigaras]**, version 1.0.5
 
 1. [Introduction][1]
 2. [Installation][2]
@@ -36,7 +36,7 @@ Playlist supports additional attributes that can be optionally defined inline af
 You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) and Google, read further for more information about [supported protocols and required configurations][5].
 
 ### Compatible devices and limitations ###
-It is a [known fact](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) that Plex Media Server does not transcode live streams and leaves this job for clients, so streams **will play only on clients that are able to handle the stream natively**, leaving most Android and Samsung users out of luck, however desktop clients and LG TV work great. I am unable to provide a full list of compatible/incompatible devices because Plex developers are constantly working and updating their software and I do not have the resources to test them all, but You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6].
+It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**, leaving most Android and Samsung users out of luck, however desktop clients and LG TV work great, also [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that [PlexConnect for AppleTV](http://plexconnect.org/) is able to transcode streams into needed format. I am unable to provide a full list of compatible/incompatible devices because Plex developers are constantly working and updating their software and I do not have the resources to test them all, but You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6].
 
 One more flaw of this plugin is that it has no control over audio tracks if stream has multiple. Some clients can change the track, some can not, but plugin can not predefine one and I have [no solution](http://forums.plexapp.com/index.php/topic/85178-help-request-how-to-change-audio-track-of-a-video/) at the moment.
 
@@ -65,7 +65,7 @@ Read [further][5] for specific configuration required for some streaming protoco
 
 4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
 
-Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method [described above][4] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method described [above][4] and [below][6] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
 
 ### Troubleshooting ###
 IF You encaunter errors or some streams do not work please do the following:
@@ -78,7 +78,7 @@ IF You encaunter errors or some streams do not work please do the following:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Logs\PMS Plugin Logs\*
   * on Mac: *~Library/Application Support/Plex Media Server/Logs/PMS Plugin Logs/*
 
-4. If You can not understand the contents of the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
+4. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
 
 ### To do list ###
 * [EPG];
@@ -90,6 +90,7 @@ IF You encaunter errors or some streams do not work please do the following:
 * Developed by Valdas Vaitiekaitis, also known as [Cigaras], with help of:
   * [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/)
   * [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/)
+  * [mdenisov](https://forums.plexapp.com/index.php/user/182340-mdenisov/)
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0).
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0).
 
