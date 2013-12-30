@@ -50,8 +50,8 @@ It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting
   * **[Plex for Google TV][GetPlex]** - not tested;
   * **[Plex for Samsung][GetPlex]** - not tested;
 * **Mobile Devices**:
-  * **[Plex for Android][GetPlex]** - does not work (should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad) but it looks like Plex does not allow to use external players);
-  * **[Plex for iOS][GetPlex]** - does not work (should work with external player, same problems like Android);
+  * **[Plex for Android][GetPlex]** - usualy does not work, should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad), needs [testing][6];
+  * **[Plex for iOS][GetPlex]** - usualy does not work, should work with external player, needs [testing][6];
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
 Keep in mind that following list is not full because Plex developers are constantly working and updating their software and I do not have the resources to test them all, You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6], please [contact me][8] if it happens to work on Your device that is listed as not working or unknown.
