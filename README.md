@@ -44,8 +44,8 @@ It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting
   * **[Plex Web](https://my.plexapp.com/servers)** - some streams work, some do not, needs [testing][6];
 * **Connected Devices**:
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
-  * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some users report](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) that it dos work, You just need to alternate between transcoding options;
-  * **[Plex for Roku][GetPlex]** - [for some it works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), [for some it does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
+  * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) [users](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=538729) report that it does work, You just need to alternate between transcoding options;
+  * **[Plex for Roku][GetPlex]** - for some it [works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), for some it [does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
   * **[Plex for Chromecast][GetPlex]** - not tested;
   * **[Plex for Google TV][GetPlex]** - not tested;
   * **[Plex for Samsung][GetPlex]** - not tested;
