@@ -44,7 +44,7 @@ It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting
   * **[Plex Web](https://my.plexapp.com/servers)** - some streams work, some do not, needs [testing][6];
 * **Connected Devices**:
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
-  * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) [users](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=538729) report that it does work, You just need to alternate between transcoding options;
+  * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING)** - [some](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) [users](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=538729) [report](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=545983) that it does work, You just need to alternate between transcoding options;
   * **[Plex for Roku][GetPlex]** - for some it [works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), for some it [does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), needs [testing][6];
   * **[Plex for Chromecast][GetPlex]** - not tested;
   * **[Plex for Google TV][GetPlex]** - not tested;
@@ -55,6 +55,8 @@ It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
 Keep in mind that following list is not full because Plex developers are constantly working and updating their software and I do not have the resources to test them all, You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][6], please [contact me][8] if it happens to work on Your device that is listed as not working or unknown.
+
+Also You can try running a dedicated transcoding service and get desired streams in preferable format from it, [VODServer] is a good and free example.
 
 One more flaw of this plugin is that it has no control over audio tracks if stream has multiple. Some clients can change the track, some can not, but plugin can not predefine one and I have [no solution](http://forums.plexapp.com/index.php/topic/85178-help-request-how-to-change-audio-track-of-a-video/) at the moment.
 
@@ -134,11 +136,12 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [Changelog]: https://github.com/Cigaras/IPTV.bundle/blob/master/CHANGELOG.md
   [Cigaras]: http://forums.plexapp.com/index.php/user/107872-cigaras
   [Valdas Vaitiekaitis]: https://plus.google.com/+ValdasVaitiekaitis
+  [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
+  [IPTV]: http://en.wikipedia.org/wiki/IPTV
   [GetPlex]: https://www.plex.tv/downloads
   [Plex Web]: https://my.plexapp.com/servers
   [MediaLink]: http://www.plexapp.com/medialink
-  [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
-  [IPTV]: http://en.wikipedia.org/wiki/IPTV
+  [VODServer]: http://vodserver.sourceforge.net/
   [VLC]: http://www.videolan.org/vlc/index.html
   [ISP]: http://en.wikipedia.org/wiki/Internet_service_provider
   [HTTP]: http://en.wikipedia.org/wiki/HTTP_Live_Streaming
