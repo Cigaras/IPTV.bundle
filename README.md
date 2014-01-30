@@ -34,7 +34,9 @@ Playlist supports additional attributes that can be optionally defined inline af
 * **tvg-id** - not used at the moment, will be used for [EPG];
 * **tvg-name** - not used at the moment, will be used for [EPG].
 
-You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) and Google, read further for more information about [supported protocols and required configurations][5].
+You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database), some people share their playlists on [Plex forums](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=556960), I am not sure how legal they are so try them at Your own risk.
+
+Read further for more information about [supported protocols and required configurations][5].
 
 ### Compatible devices and limitations ###
 It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
