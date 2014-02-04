@@ -1,3 +1,6 @@
+Version 1.0.7 (2014-02-01)
+* HTTPS playlist fix, dropbox playlists work now
+
 Version 1.0.6 (2013-12-30)
 * More fixes by [supergivi](https://github.com/supergivi):
   * Duplicate playlist entries fix

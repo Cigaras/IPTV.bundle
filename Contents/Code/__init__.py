@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.6
+# Version 1.0.7
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -30,7 +30,7 @@ def MainMenu():
     empty_group = False
     groups_list = []
     items_dict = {} # using dictionary because Plex sometimes has issues when passing list to a procedure
-    if Prefs['playlist'].startswith('http://'):
+    if Prefs['playlist'].startswith('http://') or Prefs['playlist'].startswith('https://'):
         playlist = HTTP.Request(Prefs['playlist']).content
     else:
         playlist = Resource.Load(Prefs['playlist'], binary = True)

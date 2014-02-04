@@ -1,5 +1,5 @@
 ## Plex Media Server plugin that plays live streams (a.k.a. IPTV) from a M3U playlist ##
-by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.0.6][Changelog]
+by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.0.7][Changelog]
 
 1. [Introduction][1]
 2. [Installation][2]
@@ -27,7 +27,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
 ### Playlist structure ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, but you must specify a direct link to it, so [Dropbox](http://dropbox.com) will not work (unless You find a way to link directly to m3u file, if You do, please [share][8]).
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included, like *http://cigaras.tk/test.m3u*.
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
 * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
