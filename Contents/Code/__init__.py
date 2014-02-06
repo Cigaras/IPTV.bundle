@@ -1,4 +1,4 @@
-# Copyright 2013 Valdas Vaitiekaitis
+# Copyright © 2013-2014 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
