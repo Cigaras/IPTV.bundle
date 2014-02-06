@@ -1,3 +1,6 @@
+Version 1.0.8 (2014-02-06)
+* Disable/enable sorting in preferences
+
 Version 1.0.7 (2014-02-01)
 * HTTPS playlist fix, dropbox playlists work now
 

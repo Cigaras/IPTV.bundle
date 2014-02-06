@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.7
+# Version 1.0.8
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -49,7 +49,8 @@ def MainMenu():
                 elif not group in groups_list:
                     groups_list.append(group)
                 items_dict[i] = {'url': url, 'title': title, 'thumb': thumb, 'group': group}
-        groups_list.sort(key = lambda str: str.lower())
+        if Prefs['sort_groups']:
+            groups_list.sort(key = lambda str: str.lower())
         groups_list.insert(0, 'All')
         if empty_group:
             groups_list.append('No Category')
@@ -65,12 +66,16 @@ def MainMenu():
 
 @route(PREFIX + '/listitems', items_dict = dict)
 def ListItems(items_dict, group):
-    oc = ObjectContainer(title1 = group)
+    oc = ObjectContainer(title1 = L(group))
     items_list = []
     for i in items_dict:
         if items_dict[i]['group'] == group or group == 'All':
             items_list.append(items_dict[i])
-    items_list.sort(key = lambda dict: dict['title'].lower())
+    if Prefs['sort_lists']:
+        Log.Debug('**** sorting yes')
+        items_list.sort(key = lambda dict: dict['title'].lower())
+    else:
+        Log.Debug('**** sorting not')
     for item in items_list:
         #oc.add(VideoClipObject(
         #    url = item['url'],

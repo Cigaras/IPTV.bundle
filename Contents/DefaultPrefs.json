@@ -6,6 +6,18 @@
         "default":  "playlist.m3u"
     },
     {
+        "id":       "sort_groups",
+        "label":    "Sort groups by name",
+        "type":     "bool",
+        "default":  "true"
+    },
+    {
+        "id":       "sort_lists",
+        "label":    "Sort streams by name",
+        "type":     "bool",
+        "default":  "true"
+    },
+    {
         "id":       "rtmp",
         "label":    "Use SWF player for RTMP (neet to edit file Info.plist manually)",
         "type":     "bool",
