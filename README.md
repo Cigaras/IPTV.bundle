@@ -27,14 +27,15 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
 ### Playlist structure ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included, like *http://cigaras.tk/test.m3u*.
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*).
+
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
 * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
 * **tvg-id** - not used at the moment, will be used for [EPG];
 * **tvg-name** - not used at the moment, will be used for [EPG].
 
-You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database), some people share their playlists on [Plex forums](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=556960), however I am not responsible for their content so try them at Your own risk.
+You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google, some users share their playlists on Plex forums (for example [almost daily updated playlist with lots of channels by sergrusur](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=556960)), however I am not responsible for their content so try them at Your own risk.
 
 Read further for more information about [supported protocols and required configurations][5].
 
