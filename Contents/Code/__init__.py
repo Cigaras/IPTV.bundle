@@ -10,7 +10,9 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.8
+# Version 1.0.9
+
+#from collections import OrderedDict
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -22,7 +24,6 @@ def Start():
     ObjectContainer.art = R('art-default.jpg')
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
-    #VideoClipObject.thumb = R('icon-default.png')
     VideoClipObject.art = R('art-default.jpg')
 
 @handler(PREFIX, TITLE)
@@ -36,6 +37,7 @@ def MainMenu():
         playlist = Resource.Load(Prefs['playlist'], binary = True)
     if playlist <> None:
         lines = playlist.splitlines()
+        count = 0
         for i in range(len(lines) - 1):
             line = lines[i].strip()
             if line.startswith('#EXTINF'):
@@ -48,9 +50,16 @@ def MainMenu():
                     group = 'No Category'
                 elif not group in groups_list:
                     groups_list.append(group)
-                items_dict[i] = {'url': url, 'title': title, 'thumb': thumb, 'group': group}
+                count = count + 1
+                items_dict[count] = {'url': url, 'title': title, 'thumb': thumb, 'group': group, 'order': count}
+                i = i + 1 # skip the url line fot next cycle
         if Prefs['sort_groups']:
-            groups_list.sort(key = lambda str: str.lower())
+            groups_list.sort(key = lambda s: s.lower())
+        #if Prefs['sort_lists']:
+        #    items_dict = OrderedDict(sorted(items_dict.items(), key = lambda d: d[1]['title']))
+        #else:
+        #    items_dict = OrderedDict(sorted(items_dict.items(), key = lambda d: d[1]['order']))
+        # OrderedDict passes to other procedures unordered and required reordering, no need for this
         groups_list.insert(0, 'All')
         if empty_group:
             groups_list.append('No Category')
@@ -72,10 +81,9 @@ def ListItems(items_dict, group):
         if items_dict[i]['group'] == group or group == 'All':
             items_list.append(items_dict[i])
     if Prefs['sort_lists']:
-        Log.Debug('**** sorting yes')
         items_list.sort(key = lambda dict: dict['title'].lower())
     else:
-        Log.Debug('**** sorting not')
+        items_list.sort(key = lambda dict: dict['order'])
     for item in items_list:
         #oc.add(VideoClipObject(
         #    url = item['url'],
@@ -135,7 +143,7 @@ def CreateVideoClipObject(url, title, thumb, container = False):
 def GetVideoURL(url, live = True):
     if url.startswith('rtmp') and Prefs['rtmp']:
         Log.Debug('*' * 80)
-        Log.Debug('* url_before: %s' % url)
+        Log.Debug('* url before processing: %s' % url)
         #if url.find(' ') > -1:
         #    playpath = GetAttribute(url, 'playpath', '=', ' ')
         #    swfurl = GetAttribute(url, 'swfurl', '=', ' ')
@@ -148,7 +156,7 @@ def GetVideoURL(url, live = True):
         #    Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, live = live))
         #    Log.Debug('*' * 80)
         #    return RTMPVideoURL(url = url, live = live)
-        Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, live = live))
+        Log.Debug('* url after processing: %s' % RTMPVideoURL(url = url, live = live))
         Log.Debug('*' * 80)
         return RTMPVideoURL(url = url, live = live)
     elif url.startswith('mms') and Prefs['mms']:

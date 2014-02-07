@@ -1,3 +1,7 @@
+Version 1.0.9 (2014-02-07)
+* Sorting fix
+* Minor optimization
+
 Version 1.0.8 (2014-02-06)
 * Disable/enable sorting in preferences
 
@@ -35,7 +39,7 @@ Version 1.0 (2013-11-07):
 Version 0.9 RC1 (2013-11-04):
 * Local logos
 * Code clean up
-* Better documentation ([README.MD]);
+* Better documentation ([README.MD])
 
 Version Beta3 (2013-10-30):
 * Online playlist
