@@ -35,7 +35,7 @@ Playlist supports additional attributes that can be optionally defined inline af
 * **tvg-id** - not used at the moment, will be used for [EPG];
 * **tvg-name** - not used at the moment, will be used for [EPG].
 
-You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google, some users share their playlists on Plex forums (for example [almost daily updated playlist with lots of channels by sergrusur](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=556960)), however I am not responsible for their content so try them at Your own risk.
+You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google, there is [almost daily updated playlist](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=556960) by [sergrusur](https://forums.plex.tv/index.php/user/178199-sergrusur/) on Plex forums or a [dedicated](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=583511) [blog](http://iptv-tv.blogspot.com/) by [duaa Khan](https://plus.google.com/+duaaKhan), however I am not responsible for their content so try them at Your own risk.
 
 Read further for more information about [supported protocols and required configurations][5].
 
@@ -121,7 +121,7 @@ If You encounter errors or some streams do not work please do the following:
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or, if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk). If You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### License ###
-Copyright © 2013-2014 Valdas Vaitiekaitis
+Copyright ï¿½ 2013-2014 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
