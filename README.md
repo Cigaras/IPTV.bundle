@@ -27,7 +27,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
 ### Playlist structure ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*).
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
@@ -93,16 +93,17 @@ Keep in mind that all streams are unique and Plex will not be able to play all o
 
 ### Troubleshooting ###
 If You encounter errors or some streams do not work please do the following:
+1. Make sure the playlist file is [encoded in UTF-8 without BOM][5];
 
-1. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
+2. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
 
-2. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client, if it fails, Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
+3. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client, if it fails, Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
-3. Check plugin log file *com.plexapp.plugins.iptv.log* located in the folowing folder:
+4. Check plugin log file *com.plexapp.plugins.iptv.log* located in the folowing folder:
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Logs\PMS Plugin Logs\*
   * on Mac: *~Library/Application Support/Plex Media Server/Logs/PMS Plugin Logs/*
 
-4. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
+5. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) with log and playlist files attached and I will try to help You.
 
 ### To do list ###
 * [EPG];
@@ -121,7 +122,7 @@ If You encounter errors or some streams do not work please do the following:
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or, if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk). If You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### License ###
-Copyright � 2013-2014 Valdas Vaitiekaitis
+Copyright © 2013-2014 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
