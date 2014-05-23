@@ -93,6 +93,7 @@ Keep in mind that all streams are unique and Plex will not be able to play all o
 
 ### Troubleshooting ###
 If You encounter errors or some streams do not work please do the following:
+
 1. Make sure the playlist file is [encoded in UTF-8 without BOM][5];
 
 2. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
