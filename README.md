@@ -29,13 +29,13 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 ### Playlist structure ###
 Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
+Sample playlist is provided by [MOCAICO](https://github.com/MOCAICO) and I am in any way responsible or even aware of its content (it has over 8000 channels) so try it at Your own risk. You can find more public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google. There is also a Spanish a forum [tv-nation.eu](http://tv-nation.eu/) by [sergrusur](https://forums.plex.tv/index.php/user/178199-sergrusur/) (not very English users friendly, [but usable](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-11#entry644834)), a [blog](http://iptv-tv.blogspot.com/) by [duaa Khan](https://plus.google.com/+duaaKhan), and some playlists scatered along [Plex forum thread](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) like the one by [isawred2](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-14#entry670128), however as already mentioned, I am not responsible for their content in any way.
+
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media (see included sample playlist for an example):
 * **group-title** - category name;
 * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
 * **tvg-id** - not used at the moment, will be used for [EPG];
 * **tvg-name** - not used at the moment, will be used for [EPG].
-
-You can find many public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google. There is also a Spanish a forum [tv-nation.eu](http://tv-nation.eu/) by [sergrusur](https://forums.plex.tv/index.php/user/178199-sergrusur/) (not very English users friendly, [but usable](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-11#entry644834)), a [blog](http://iptv-tv.blogspot.com/) by [duaa Khan](https://plus.google.com/+duaaKhan), and some playlist scatered along [Plex forum thread](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) like the one by [isawred2](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-14#entry670128), however keep in mind that I am not responsible for their content so try them at Your own risk.
 
 Read further for more information about [supported protocols and required configurations][5].
 
@@ -115,7 +115,7 @@ If You encounter errors or some streams do not work please do the following:
 
 ### Credits and contacts ###
 * Developer: [Valdas Vaitiekaitis], also known as [Cigaras];
-* Contributors: [supergivi](https://github.com/supergivi);
+* Contributors: [supergivi](https://github.com/supergivi), [MOCAICO](https://github.com/MOCAICO) ([playlist][3]);
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0);
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
 * Advisors: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/).
