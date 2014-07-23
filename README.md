@@ -43,7 +43,7 @@ Read further for more information about [supported protocols and required config
 It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
 
 * **Desktop Clients**:
-  * **Plex Media Center** - no longer in production and it is hard to find where to [download one](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), but plays [most streams][5] without problems, latest known version 0.9.8.18;
+  * **Plex Media Center** - no longer in production but you can get one from [old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29) or [download.cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][5] without problems, latest known version 0.9.5.4;
   * **[Plex Home Theater][GetPlex]** - the [new](http://www.theverge.com/2012/12/24/3801306/plex-desktop-app-rebranded-as-plex-home-theater-adds-airplay-in) Plex Media Center, does not play any streams at all;
   * **[Plex Web](https://my.plexapp.com/servers)** - some streams work, some do not, needs [testing][6];
 * **Connected Devices**:
