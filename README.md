@@ -53,9 +53,9 @@ Read further for more information about [supported protocols and required config
 It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting-live-http-stream-into-channel/?p=488511) [fact](https://forums.plexapp.com/index.php/topic/82477-reanimating-kartinatv-plugin-just-started-with-plex/?p=475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
 
 * **Desktop Clients**:
-  * **Plex Media Center** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~ [Plex Downloads Archive](https://support.plex.tv/hc/en-us/articles/201142378--Deprecated-Plex-Media-Center-Windows-OS-X) or [download.cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][5] without problems, latest known version 0.9.5.4;
+  * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~ [Plex Downloads Archive][Plex Media Center] or [download.cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][5] without problems, latest known version 0.9.5.4;
   * **[Plex Home Theater][GetPlex]** - the [new](http://www.theverge.com/2012/12/24/3801306/plex-desktop-app-rebranded-as-plex-home-theater-adds-airplay-in) Plex Media Center, does not play any streams at all;
-  * **[Plex Web](https://my.plexapp.com/servers)** - most streams do not work, needs [testing][6];
+  * **[Plex Web]** - most streams do not work, needs [testing][6];
 * **Connected Devices**:
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
   * **[PlexConnect](https://forums.plex.tv/index.php?/topic/69410-READ-BEFORE-POSTING) (Apple TV)** - [many](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=496660) [users](https://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-4#entry496683) [report](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=538729) [that it](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=545983) does work, You just need to alternate between transcoding options, or [use third party transcoding service](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=539331);
@@ -154,7 +154,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
   [IPTV]: http://en.wikipedia.org/wiki/IPTV
   [GetPlex]: https://www.plex.tv/downloads
-  [Plex Web]: https://my.plexapp.com/servers
+  [Plex Web]: https://support.plex.tv/hc/en-us/articles/200288666-Opening-Plex-Web-App
+  [Plex Media Center]: https://support.plex.tv/hc/en-us/articles/201142378--Deprecated-Plex-Media-Center-Windows-OS-X
   [MediaLink]: http://www.plexapp.com/medialink
   [VODServer]: http://vodserver.sourceforge.net/
   [VLC]: http://www.videolan.org/vlc/index.html
