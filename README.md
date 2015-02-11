@@ -125,7 +125,7 @@ If You encounter errors or some streams do not work please do the following:
 
 ### Credits and contacts ###
 * Developer: [Valdas Vaitiekaitis], also known as [Cigaras];
-* Contributors: [supergivi](https://github.com/supergivi), [MOCAICO](https://github.com/MOCAICO) ([playlist][3]);
+* Contributors: [supergivi](https://github.com/supergivi), [MOCAICO](https://github.com/MOCAICO) ([playlist][3]), [sander1](https://github.com/sander1);
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0);
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
 * Advisors: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/).
