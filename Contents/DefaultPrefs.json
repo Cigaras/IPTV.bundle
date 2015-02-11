@@ -16,5 +16,11 @@
         "label":    "Sort streams by name",
         "type":     "bool",
         "default":  "true"
+    },
+    {
+        "id":       "rtmp",
+        "label":    "Use Real RTMP (need to edit file Info.plist manually)",
+        "type":     "bool",
+        "default":  "false"
     }
 ]

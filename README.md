@@ -1,5 +1,5 @@
 ## Plex Media Server plugin that plays live streams (a.k.a. IPTV) from a M3U playlist ##
-by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.0.9][Changelog]
+by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.0.10][Changelog]
 
 1. [Introduction][1]
 2. [Installation][2]
@@ -81,23 +81,23 @@ Read [further][5] for specific configuration required for some streaming protoco
 
 2. **[RTSP]** should work on most devices natively, no specific configuration required.
 
-3. **[RTMP]** requires special Framework Flag that makes plugin incompatible with some devices (like my TV) and is disabled by default. You can enable it in Preferences, but You need to manually uncomment 14th line in *Info.plist* file for RTMP streams to work: find ```<!--<string>UseRealRTMP</string>-->``` and change it to ```<string>UseRealRTMP</string>```.
+3. **[RTMP]** requires special Framework Flag that makes plugin incompatible with some older devices/clients (like my TV) and is disabled by default. You can enable it in Preferences, but You need to manually uncomment 14th line in *Info.plist* file for RTMP streams to work: find ```<!--<string>UseRealRTMP</string>-->``` and change it to ```<string>UseRealRTMP</string>```.
 
-    There are two ways of writing RTMP url in the playlist: You can define full address with attributes *playpath*, *swfurl* and *pageurl*, then Plex will use provided SWF player, for example:
+    As Plex no longer supports webkit players, You can no longer use full RTMP urls like this:
 
     ```
     rtmp://shopnbc.fmsls.entriq.net:443/live/ playpath=live_01@13361 swfurl=http://shopnbc.img.entriq.net/img/ShopNBCLivePlayer/main.swf pageurl=http://www.shopnbc.com/
     ```
 
-    or You can use single URL address without attributes, then Plex will use [its own hosted SWF player](http://www.plexapp.com/player/player.php) (some streams require own player and will not play this way), for example:
+    You can only use single URL address without attributes, for example:
 
     ```
     rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
     ```
 
-    Note that in first example playpath is a separate attribute, but in second example it is combined into url. If SWF player for RTMP is disabled in preferences, plugin will try to play stream over HTTP protocol, some streams work that way.
+    If Real RTMP option in preferences is disabled, plugin will try to play stream over HTTP protocol, some streams work that way. If Real RTMP option is enabled, but ```UseRealRTMP``` flag in *Info.plist* file is disabled, then Plex will try to use [its own hosted SWF player](http://www.plexapp.com/player/player.php) and will fail.
 
-4. **[MMS]** uses [Plex's hosted Silverlight player](http://www.plexapp.com/player/silverlight.php), did not work for me on any tested devise so functionality is disabled by default and plugin will try to play MMS videos over HTTP protocol, You can enable it in Preferences.
+4. **[MMS]** did not work for me on any tested devise, but plugin will try to play MMS videos over HTTP protocol.
 
 Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][4]). Please try playing stream with [VLC] and using \*.strm file method described [above][4] and [below][6] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][8].
 
@@ -133,7 +133,7 @@ If You encounter errors or some streams do not work please do the following:
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](http://forums.plexapp.com/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/), or, if You are Lithuanian, please visit my personal blog at [www.Cigaras.tk](http://Cigaras.tk). If You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### License ###
-Copyright © 2013-2014 Valdas Vaitiekaitis
+Copyright © 2013-2015 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

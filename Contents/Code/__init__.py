@@ -1,4 +1,4 @@
-# Copyright © 2013-2014 Valdas Vaitiekaitis
+# Copyright © 2013-2015 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.9
+# Version 1.0.10
 
 #from collections import OrderedDict
 
@@ -141,7 +141,7 @@ def CreateVideoClipObject(url, title, thumb, container = False):
     return vco
 
 def GetVideoURL(url, live = True):
-    if url.startswith('rtmp'):
+    if url.startswith('rtmp') and Prefs['rtmp']:
         Log.Debug('*' * 80)
         Log.Debug('* url before processing: %s' % url)
         #if url.find(' ') > -1:
@@ -159,8 +159,8 @@ def GetVideoURL(url, live = True):
         Log.Debug('* url after processing: %s' % RTMPVideoURL(url = url, live = live))
         Log.Debug('*' * 80)
         return RTMPVideoURL(url = url, live = live)
-#    elif url.startswith('mms') and Prefs['mms']:
-#        return WindowsMediaVideoURL(url = url)
+    #elif url.startswith('mms') and Prefs['mms']:
+    #    return WindowsMediaVideoURL(url = url)
     else:
         return HTTPLiveStreamURL(url = url)
 
