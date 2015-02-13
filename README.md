@@ -3,7 +3,7 @@ by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.0.10][Changelog]
 
 1. [Introduction][1]
 2. [Installation][2]
-3. [Playlist structure][3]
+3. [Playlist structure and examples][3]
 4. [Compatible devices and limitations][4]
 5. [Supported protocols][5]
 6. [Troubleshooting][6]
@@ -27,10 +27,17 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 3. Edit the playlist, read below for [instructions][3] and [limitations][5];
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
-### Playlist structure ###
+### Playlist structure and examples ###
 Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
-Sample playlist is provided by [MOCAICO](https://github.com/MOCAICO) and I am not responsible or even aware of its content (it has over 4000 channels) and many of the streams might be dead by now, so try it at Your own risk. Also it can be too big for some clients to handle, so it is advisable to trim it down or use your own playlist with working channels, check [troubleshooting][6] for more details. You can find more public streams at [freetuxtv.net](http://database.freetuxtv.net/), [iptv-player.com](http://iptv-player.com/?id=database) or google. There is also a Spanish a forum [tv-nation.eu](http://tv-nation.eu/) by [sergrusur](https://forums.plex.tv/index.php/user/178199-sergrusur/) (not very English users friendly, [but usable](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-11#entry644834)), a [blog](http://iptv-tv.blogspot.com/) by [duaa Khan](https://plus.google.com/+duaaKhan), and some playlists scatered along [Plex forum thread](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/) like the one by [isawred2](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/page-14#entry670128), however as already mentioned, I am not responsible for their content in any way.
+Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
+  * [FreeTuxTv.net](http://database.freetuxtv.net)
+  * [IPTV-Player.com](http://iptv-player.com/?id=database)
+  * [HasBahCaIPTV.com](http://hasbahcaiptv.com/index.php?dir=m3u)
+  * [IPTV-Tv.blogspot.com](http://iptv-tv.blogspot.com)
+  * [TvOnlineStreams.com](http://www.tvonlinestreams.com)
+  * [Plex forums](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/)
+  * [Google.com](http://lmgtfy.com/?q=iptv+m3u)
 
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media:
   * **group-title** - category name;
@@ -125,7 +132,7 @@ If You encounter errors or some streams do not work please do the following:
 
 ### Credits and contacts ###
 * Developer: [Valdas Vaitiekaitis], also known as [Cigaras];
-* Contributors: [supergivi](https://github.com/supergivi), [MOCAICO](https://github.com/MOCAICO) ([playlist][3]), [sander1](https://github.com/sander1);
+* Contributors: [supergivi](https://github.com/supergivi), [sander1](https://github.com/sander1), and many others;
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0);
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
 * Advisors: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/).
@@ -141,7 +148,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
   [1]: #introduction "Introduction"
   [2]: #installation "Installation"
-  [3]: #playlist-structure "Playlist structure"
+  [3]: #playlist-structure-and-examples "Playlist structure and examples"
   [4]: #compatible-devices-and-limitations "Compatible devices and limitations"
   [5]: #supported-protocols "Supported protocols"
   [6]: #troubleshooting "Troubleshooting"
