@@ -28,7 +28,9 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
 ### Playlist structure and examples ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences. Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not change the path to it, only name can be changed.
+
+Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
