@@ -29,3 +29,5 @@ mmsh://wt-wm1.wtnet.de/noa4hh-stream-hi?MSWMExt=.asf
 mms://stream.vrf.de/VRF
 #EXTINF:0 tvg-name="Lietuvos rytas TV" tvg-logo="http://upload.wikimedia.org/wikipedia/en/6/6b/Lrytas_tv_logo.svg.png" group-title="Lifestyle",Lietuvos rytas TV (rtmp plays over http)
 rtmp://live.lrtc.net:80/X8a7MmK/live
+#EXTINF:0 tvg-name="SWR3-Livestream" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/SWR3_Logo.svg/320px-SWR3_Logo.svg.png" group-title="Music", SWR3
+http://swr-mp3-m-swr3.akacast.akamaistream.net/7/720/137136/v1/gnl.akacast.akamaistream.net/swr-mp3-m-swr3
