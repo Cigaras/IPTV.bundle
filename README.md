@@ -25,6 +25,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
   * on FreeBSD *usr/pbi/plexmediaserver-amd64/plexdata/Plex\ Media\ Server/Plug-ins/*
 3. Rename folder from *IPTV.bundle-master* to *IPTV.bundle*;
 3. Edit the playlist, read below for [instructions][3] and [limitations][5];
+4. Restart the Plex Media Server;
 5. Launch any of [Plex Apps][GetPlex] (that is connected to the server, obviously) and you should see a new category in Your media library called Video Channels or similar, read below for [compatibility and limitations][4].
 
 ### Playlist structure and examples ###
