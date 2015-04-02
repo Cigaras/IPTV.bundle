@@ -18,7 +18,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 
 ### Installation ###
 1. Must have [Plex Media Server][GetPlex] installed, obviously;
-2. Download the [zip archive](https://github.com/Cigaras/IPTV.bundle/archive/master.zip) and extract it to Plex plugin folder:
+2. Download the [zip archive](https://github.com/Cigaras/IPTV.bundle/archive/master.zip) and extract it to Plex plugin folder, for more details read the [official channel installation guide](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-):
   * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
   * on Linux: */usr/lib/plexmediaserver/Resources/Plug-ins* or */var/lib/plex/Plex Media Server/Plug-ins*
