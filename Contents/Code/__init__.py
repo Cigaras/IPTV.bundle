@@ -14,7 +14,7 @@
 # Version 1.0
 
 #from collections import OrderedDict
-
+RTM
 TITLE = 'Freebox TV'
 PREFIX = '/video/freeboxtv'
 #ICON = 'icon-default.png'
@@ -142,28 +142,7 @@ def CreateVideoClipObject(url, title, thumb, container = False):
     return vco
 
 def GetVideoURL(url, live = True):
-    if url.startswith('rtmp') and Prefs['rtmp']:
-        Log.Debug('*' * 80)
-        Log.Debug('* url before processing: %s' % url)
-        #if url.find(' ') > -1:
-        #    playpath = GetAttribute(url, 'playpath', '=', ' ')
-        #    swfurl = GetAttribute(url, 'swfurl', '=', ' ')
-        #    pageurl = GetAttribute(url, 'pageurl', '=', ' ')
-        #    url = url[0:url.find(' ')]
-        #    Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live))
-        #    Log.Debug('*' * 80)
-        #    return RTMPVideoURL(url = url, playpath = playpath, swfurl = swfurl, pageurl = pageurl, live = live)
-        #else:
-        #    Log.Debug('* url_after: %s' % RTMPVideoURL(url = url, live = live))
-        #    Log.Debug('*' * 80)
-        #    return RTMPVideoURL(url = url, live = live)
-        Log.Debug('* url after processing: %s' % RTMPVideoURL(url = url, live = live))
-        Log.Debug('*' * 80)
-        return RTMPVideoURL(url = url, live = live)
-    #elif url.startswith('mms') and Prefs['mms']:
-    #    return WindowsMediaVideoURL(url = url)
-    else:
-        return HTTPLiveStreamURL(url = url)
+    return HTTPLiveStreamURL(url = url)
 
 def GetThumb(thumb):
     if thumb and thumb.startswith('http'):
