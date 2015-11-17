@@ -1,25 +1,25 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name or URL (requires restart)",
+        "label":    "Nom ou URL du fichier de la playlist FreeboxTV (nécessite un redémarrage)",
         "type":     "text",
-        "default":  "playlist.m3u"
+        "default":  "http://mafreebox.freebox.fr/freeboxtv/playlist.m3u"
     },
     {
         "id":       "sort_groups",
-        "label":    "Sort groups by name",
+        "label":    "Trier les thèmes par nom",
         "type":     "bool",
         "default":  "true"
     },
     {
         "id":       "sort_lists",
-        "label":    "Sort streams by name",
+        "label":    "Trier les chaînes par nom",
         "type":     "bool",
         "default":  "true"
     },
     {
         "id":       "rtmp",
-        "label":    "Use Real RTMP (need to edit file Info.plist manually)",
+        "label":    "Utiliser RTMP (nécessite d'éditer le fichier Info.plist manuellement)",
         "type":     "bool",
         "default":  "false"
     }
