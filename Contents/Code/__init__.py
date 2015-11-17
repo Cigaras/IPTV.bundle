@@ -1,3 +1,4 @@
+# Copyright © 2015-20xx DjMomo
 # Copyright © 2013-2015 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
@@ -10,12 +11,12 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.10
+# Version 1.0
 
 #from collections import OrderedDict
 
-TITLE = 'IPTV'
-PREFIX = '/video/iptv'
+TITLE = 'Freebox TV'
+PREFIX = '/video/freeboxtv'
 #ICON = 'icon-default.png'
 #ART = 'art-default.jpg'
 
