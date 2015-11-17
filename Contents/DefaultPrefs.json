@@ -17,10 +17,4 @@
         "type":     "bool",
         "default":  "true"
     },
-    {
-        "id":       "rtmp",
-        "label":    "Utiliser RTMP (nécessite d'éditer le fichier Info.plist manuellement)",
-        "type":     "bool",
-        "default":  "false"
-    }
 ]
