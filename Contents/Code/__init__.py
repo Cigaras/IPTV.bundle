@@ -75,7 +75,7 @@ def MainMenu():
 
 @route(PREFIX + '/listitems', items_dict = dict)
 def ListItems(items_dict, group):
-    oc = ObjectContainer(title1 = L(group))
+    oc = ObjectContainer(title1 = group)
     items_list = []
     for i in items_dict:
         if items_dict[i]['group'] == group or group == 'All':
