@@ -172,7 +172,7 @@ def GetThumb(thumb):
     else:
         return R('icon-default.png')
 
-def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
+def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
     x = text.find(attribute)
     if x > -1:
         y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
@@ -181,4 +181,4 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
             z = len(text)
         return unicode(text[y:z].strip())
     else:
-        return ''
+        return default
