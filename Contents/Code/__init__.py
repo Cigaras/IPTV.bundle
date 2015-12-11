@@ -18,6 +18,7 @@ TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 #ICON = 'icon-default.png'
 #ART = 'art-default.jpg'
+IPTVMENU = {'All':{}}
 
 def Start():
     ObjectContainer.title1 = TITLE
@@ -26,11 +27,9 @@ def Start():
     DirectoryObject.art = R('art-default.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-@handler(PREFIX, TITLE)
-def MainMenu():
-    empty_group = False
-    groups_list = []
-    items_dict = {} # using dictionary because Plex sometimes has issues when passing list to a procedure
+def LoadPlaylist():
+    global IPTVMENU
+    IPTVMENU = {'All':{}}
     if Prefs['playlist'].startswith('http://') or Prefs['playlist'].startswith('https://'):
         playlist = HTTP.Request(Prefs['playlist']).content
     else:
@@ -44,42 +43,33 @@ def MainMenu():
                 url = lines[i + 1].strip()
                 title = line[line.rfind(',') + 1:len(line)].strip()
                 thumb = GetAttribute(line, 'tvg-logo')
-                group = GetAttribute(line, 'group-title')
-                if group == '':
-                    empty_group = True
-                    group = 'No Category'
-                elif not group in groups_list:
-                    groups_list.append(group)
+                group = GetAttribute(line, 'group-title', default = unicode(L('No Category')))
                 count = count + 1
-                items_dict[count] = {'url': url, 'title': title, 'thumb': thumb, 'group': group, 'order': count}
+                channel = {'url': url, 'title': title, 'thumb': thumb, 'group': group, 'order': count}
+                IPTVMENU.setdefault(unicode(L('All')), {})[count] = channel
+                IPTVMENU.setdefault(group, {})[count] = channel
                 i = i + 1 # skip the url line fot next cycle
-        if Prefs['sort_groups']:
-            groups_list.sort(key = lambda s: s.lower())
-        #if Prefs['sort_lists']:
-        #    items_dict = OrderedDict(sorted(items_dict.items(), key = lambda d: d[1]['title']))
-        #else:
-        #    items_dict = OrderedDict(sorted(items_dict.items(), key = lambda d: d[1]['order']))
-        # OrderedDict passes to other procedures unordered and required reordering, no need for this
-        groups_list.insert(0, 'All')
-        if empty_group:
-            groups_list.append('No Category')
+    return None
 
+@handler(PREFIX, TITLE)
+def MainMenu():
+    LoadPlaylist()
+    groups_list = IPTVMENU.keys()
+    if Prefs['sort_groups']:
+        groups_list.sort(key = lambda s: s.lower())
     oc = ObjectContainer()
     for group in groups_list:
         oc.add(DirectoryObject(
-            key = Callback(ListItems, items_dict = items_dict, group = group),
+            key = Callback(ListItems, group = group),
             title = group
         ))
     oc.add(PrefsObject(title = L('Preferences'), thumb = R('icon-prefs.png')))
     return oc
 
-@route(PREFIX + '/listitems', items_dict = dict)
-def ListItems(items_dict, group):
-    oc = ObjectContainer(title1 = L(group))
-    items_list = []
-    for i in items_dict:
-        if items_dict[i]['group'] == group or group == 'All':
-            items_list.append(items_dict[i])
+@route(PREFIX + '/groups/{group}')
+def ListItems(group):
+    oc = ObjectContainer(title1 = group)
+    items_list = IPTVMENU[group].values()
     if Prefs['sort_lists']:
         items_list.sort(key = lambda dict: dict['title'].lower())
     else:
@@ -172,7 +162,7 @@ def GetThumb(thumb):
     else:
         return R('icon-default.png')
 
-def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
+def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
     x = text.find(attribute)
     if x > -1:
         y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
@@ -181,4 +171,4 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"'):
             z = len(text)
         return unicode(text[y:z].strip())
     else:
-        return ''
+        return default
