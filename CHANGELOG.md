@@ -1,3 +1,9 @@
+Version 1.0.11 (2015-12-11)
+* Optimization by Funtic
+  * Moved playlist loading to separate method and optimized menu creation process
+  * Added ability to return custom default value if Attribute is not set
+  * Cleared duplicate group names localization
+
 Version 1.0.10 (2015-02-11)
 * Partialy disabled webkit players by [sander1](https://github.com/sander1), RTMP webkit player still will be used if Real RTMP is enabled in Preferences but disabled in Info.plist file, by default both are disabled for compatibility with older clients, please refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#supported-protocols) file for more details
 * Updated documentation ([README.MD])
