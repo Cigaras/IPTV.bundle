@@ -72,7 +72,7 @@ It is a [known](http://forums.plexapp.com/index.php/topic/84637-problems-getting
   * **[Plex for Roku][GetPlex]** - for some it [works](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=502904), for some it [does not](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=482524), [wheezycheezel](https://forums.plex.tv/index.php/user/203736-wheezycheezel/) posted [step by step guide](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=544372) for [TVHeadend](https://tvheadend.org/) streams on [Plex forums](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=544372), needs more [testing][6];
   * **[Plex for Chromecast][GetPlex]** - not tested;
   * **[Plex for Google TV][GetPlex]** - not tested;
-  * **[Plex for Samsung][GetPlex]** - not tested;
+  * **[Plex for Samsung][GetPlex]** - works, tested by [MACE-Zer0](https://github.com/Cigaras/IPTV.bundle/issues/29);
 * **Mobile Devices**:
   * **[Plex for Android][GetPlex]** - usualy does not work, should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad), needs [testing][6];
   * **[Plex for iOS][GetPlex]** - [at the moment does not play any streams at all](https://forums.plex.tv/index.php/topic/83083-iptvbundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/?p=536311);
