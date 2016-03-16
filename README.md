@@ -19,7 +19,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 ### Installation ###
 1. Must have [Plex Media Server][GetPlex] installed, obviously;
 2. Download the [zip archive](https://github.com/Cigaras/IPTV.bundle/archive/master.zip) and extract it to Plex plugin folder, for more details read the [official channel installation guide](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-):
-  * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins*
+  * on Windows: *C:\Users\USERNAME\AppData\Local\Plex Media Server\Plug-ins* or *C:\Program Files (x86)\Plex\Plex Media Server\Resources\Plug-ins-...*
   * on Mac: *~Library/Application Support/Plex Media Server/Plug-ins*
   * on Linux: */usr/lib/plexmediaserver/Resources/Plug-ins* or */var/lib/plex/Plex Media Server/Plug-ins*
   * on FreeBSD *usr/pbi/plexmediaserver-amd64/plexdata/Plex\ Media\ Server/Plug-ins/*
@@ -31,7 +31,7 @@ Please read further for instructions on how to [install][2] and [configure][3] t
 ### Playlist structure and examples ###
 Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not change the path to it, only name can be changed.
 
-Online playlist is also supported, You just need to specify a direct link to it, with http part included (like *http://cigaras.tk/test.m3u*). Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
+Online playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
