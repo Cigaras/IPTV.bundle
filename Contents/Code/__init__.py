@@ -1,4 +1,4 @@
-# Copyright © 2013-2015 Valdas Vaitiekaitis
+# Copyright © 2013-2016 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.0.10
+# Version 1.0.11
 
 #from collections import OrderedDict
 
