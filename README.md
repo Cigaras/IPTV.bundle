@@ -64,7 +64,7 @@ It is a [known](http://forums.plex.tv/discussion/84637/problems-getting-live-htt
 
 * **Desktop Clients**:
   * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [download.cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][5] without problems, latest known version 0.9.5.4;
-  * **[Plex Home Theater][GetPlex]** - the [new](http://www.theverge.com/2012/12/24/3801306/plex-desktop-app-rebranded-as-plex-home-theater-adds-airplay-in) Plex Media Center, does not play any streams at all;
+  * **[Plex Home Theater][GetPlex]** - the [new](http://www.theverge.com/2012/12/24/3801306/plex-desktop-app-rebranded-as-plex-home-theater-adds-airplay-in) Plex Media Center, ~~does not play any streams at all~~ works, tested version 1.4.1;
   * **[Plex Web]** - most streams do not work, needs [testing][6];
 * **Connected Devices**:
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][5] streams, however MediaLink is not included in most 2013 years TV models so it can be a problem, [Simon J. Hogan](https://forums.plex.tv/index.php/topic/89004-simonjhogans-plex-client-for-lg-smart-tv/) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
