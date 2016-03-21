@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tv generator-info-name="WebGrab+Plus/w MDB &amp; REX Postprocess -- version 1.1.1/55.27 -- Jan van Straaten" generator-info-url="http://www.webgrabplus.com">
+  <programme start="20160321080000 +0200" stop="20191231235900 +0200" channel="Dummy">
+    <title>Dummy programme title</title>
+    <desc>Just a dummy programme desctription</desc>
+  </programme>
+</tv>

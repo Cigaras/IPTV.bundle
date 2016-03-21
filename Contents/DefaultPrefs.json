@@ -22,5 +22,17 @@
         "label":    "Use Real RTMP (need to edit file Info.plist manually)",
         "type":     "bool",
         "default":  "false"
+    },
+    {
+        "id":       "xmltv",
+        "label":    "XMLTV file name or URL",
+        "type":     "text",
+        "default":  "guide.xml"
+    },
+    {
+        "id":       "guide_hours",
+        "label":    "Ammount of hours to look forward when fetching program guide (default 8)",
+        "type":     "text",
+        "default":  "8"
     }
 ]

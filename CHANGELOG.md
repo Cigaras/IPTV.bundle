@@ -1,3 +1,6 @@
+Version 1.1.0 Beta (2013-03-21)
+* Added program guide support, please refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#program-guide) file for more details
+
 Version 1.0.11 (2015-12-11)
 * Optimization by Funtic
   * Moved playlist loading to separate method and optimized menu creation process
