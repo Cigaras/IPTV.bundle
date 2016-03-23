@@ -1,5 +1,5 @@
 ## Plex Media Server plugin that plays live streams (a.k.a. IPTV) from a M3U playlist ##
-by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.1.0 Beta][Changelog]
+by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.1.1][Changelog]
 
 1. [Introduction][1]
 2. [Installation][2]
@@ -33,14 +33,15 @@ Included sample playlist is for testing purposes only, some streams might be dea
   * [Google.com](http://lmgtfy.com/?q=iptv+m3u)
 
 Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media:
-  * **group-title** - category name;
+  * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4];
   * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
-  * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4].
+  * **group-title** - category name;
+  * **group-logo** - category logo, only usable in first line where specific category is defined, in example if You have two channels with same category name, logo supplied in first line of those two will be used.
 
 A simple example (see included sample playlist for more):
 ```
 #EXTM3U
-#EXTINF:0 tvg-id="Cartoon Network" tvg-logo="icon-default.png" group-title="Cartoons",Cartoon Network
+#EXTINF:0 tvg-id="Cartoon Network" tvg-logo="icon-default.png" group-title="Cartoons" group-logo="icon-folder.png",Cartoon Network
 http://80.87.146.133:1111/udp/230.3.3.112:5678
 #EXTINF:-1 tvg-logo="http://www.lyngsat-logo.com/hires/mm/mtv_dance_us.png" group-title="Music",MTV Dance
 http://80.87.146.133:1111/udp/230.3.3.115:5678
@@ -50,8 +51,6 @@ Read further for more information about [supported protocols and required config
 
 ### Program guide ###
 As of version 1.2 and further this plugin supports [program guide](http://en.wikipedia.org/wiki/Electronic_program_guide) in [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format, there is a sample located in *IPTV.bundle\Content\Resources\guide.xml*, you can specify other filename in preferences, but You can not specifify a path outside resources forder because Plex prohibits it. Online guide is also supported (as long as it matches the [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format), You just need to specify a direct link to it, with http part included.
-
-**Please note, program guide is in beta stage becase at the moment [Pythons XML parser](https://docs.python.org/2/library/xml.etree.elementtree.html) works very slow and it might time out, do not use a XMLTV file with more that one day of data and try to keep ammount of streams in every category and overall amount of streams in playlist as small as possible.**
 
 Plugin will try to match the program guide with playlist streams by the stream title, but to make things easier **tvg-id** atribute might be used to represent the exact XMLTV channel, for example if XMLTV looks something like this:
 ```
@@ -72,6 +71,8 @@ http://80.87.146.133:1111/udp/230.3.3.112:5678
 ```
 
 Recomended software for XMLTV generation would be [**WebGrab+Plus**](http://www.webgrabplus.com/), please refer to its [documentation](http://www.webgrabplus.com/documentation/quick-start) on how to set it up.
+
+Please note, program guide is quite demanding on resources and I do not recomend using XMLTV file that has more channels than You actualy need and the shorter the period its generated for the better.
 
 ### Compatible devices and limitations ###
 It is a [known](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [fact](https://forums.plex.tv/discussion/comment/475261#Comment_475261) that Plex Media Server does not transcode live streams and leaves this job for clients and streaming sources, so streams **will play only on clients that are able to handle the stream natively**:
@@ -140,7 +141,6 @@ If You encounter errors or some streams do not work please do the following:
 
 ### To do list ###
 * Improve the program guide;
-* Group logos;
 * Possibility to predefine audio track, if ever becomes possible.
 
 ### Credits and contacts ###
