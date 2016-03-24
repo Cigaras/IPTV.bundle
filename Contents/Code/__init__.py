@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.1.1
+# Version 1.2.1
 
 from datetime import datetime, timedelta # https://docs.python.org/2/library/datetime.html
 import xml.etree.ElementTree # https://docs.python.org/2/library/xml.etree.elementtree.html
@@ -33,7 +33,7 @@ def LoadPlaylist():
         playlist = HTTP.Request(Prefs['playlist']).content
     else:
         playlist = Resource.Load(Prefs['playlist'], binary = True)
-    if playlist <> None:
+    if playlist != None:
         lines = playlist.splitlines()
         groups_count = 0
         streams_count = 0
@@ -41,23 +41,24 @@ def LoadPlaylist():
             line = lines[i].strip()
             if line.startswith('#EXTINF'):
                 url = lines[i + 1].strip()
-                title = line[line.rfind(',') + 1:len(line)].strip()
-                id = GetAttribute(line, 'tvg-id')
-                name = GetAttribute(line, 'tvg-name')
-                thumb = GetAttribute(line, 'tvg-logo')
-                if thumb == '':
-                    thumb = GetAttribute(line, 'logo')
-                group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category')))
-                if group_title not in GROUPS.keys():
-                    group_thumb = GetAttribute(line, 'group-logo')
-                    groups_count = groups_count + 1
-                    group = {'title': group_title, 'thumb': group_thumb, 'order': groups_count}
-                    GROUPS[group_title] = group
-                streams_count = streams_count + 1
-                stream = {'url': url, 'title': title, 'id': id, 'name': name, 'thumb': thumb, 'group': group_title, 'order': streams_count}
-                STREAMS.setdefault(unicode(L('All')), {})[streams_count] = stream
-                STREAMS.setdefault(group_title, {})[streams_count] = stream
-                i = i + 1 # skip the url line fot next cycle
+                if url != '' and not url.startswith('#'):
+                    title = line[line.rfind(',') + 1:len(line)].strip()
+                    id = GetAttribute(line, 'tvg-id')
+                    name = GetAttribute(line, 'tvg-name')
+                    thumb = GetAttribute(line, 'tvg-logo')
+                    if thumb == '':
+                        thumb = GetAttribute(line, 'logo')
+                    group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category')))
+                    if group_title not in GROUPS.keys():
+                        group_thumb = GetAttribute(line, 'group-logo')
+                        groups_count = groups_count + 1
+                        group = {'title': group_title, 'thumb': group_thumb, 'order': groups_count}
+                        GROUPS[group_title] = group
+                    streams_count = streams_count + 1
+                    stream = {'url': url, 'title': title, 'id': id, 'name': name, 'thumb': thumb, 'group': group_title, 'order': streams_count}
+                    STREAMS.setdefault(unicode(L('All')), {})[streams_count] = stream
+                    STREAMS.setdefault(group_title, {})[streams_count] = stream
+                    i = i + 1 # skip the url line fot next cycle
     return None
 
 def LoadGuide():
@@ -65,7 +66,7 @@ def LoadGuide():
         xmltv = HTTP.Request(Prefs['xmltv']).content
     else:
         xmltv = Resource.Load(Prefs['xmltv'], binary = True)
-    if xmltv <> None:
+    if xmltv != None:
         root = xml.etree.ElementTree.fromstring(xmltv)
         count = 0
         for programme in root.findall("./programme"):
@@ -112,11 +113,11 @@ def ListItems(group):
     else:
         items_list.sort(key = lambda dict: dict['order'])
     for item in items_list:
-        if item['id'] <> '':
+        if item['id'] != '':
             summary = GetGuide(channel = item['id'])
-        if summary == '' and item['name'] <> '':
+        if summary == '' and item['name'] != '':
             summary = GetGuide(channel = item['name'])
-        if summary == '' and item['title'] <> '':
+        if summary == '' and item['title'] != '':
             summary = GetGuide(channel = item['title'])
         #oc.add(VideoClipObject(
         #    url = item['url'],
@@ -202,7 +203,7 @@ def GetVideoURL(url, live = True):
 def GetThumb(thumb, default = 'icon-default.png'):
     if thumb and thumb.startswith('http'):
         return thumb
-    elif thumb and thumb <> '':
+    elif thumb and thumb != '':
         return R(thumb)
     else:
         return R(default)
@@ -224,7 +225,7 @@ def GetGuide(channel):
     #    xmltv = HTTP.Request(Prefs['xmltv']).content
     #else:
     #    xmltv = Resource.Load(Prefs['xmltv'], binary = True)
-    #if xmltv <> '':
+    #if xmltv != '':
     if channel in GUIDE.keys():
         current_time = datetime.today()
         try:

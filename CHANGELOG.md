@@ -1,9 +1,12 @@
-Version 1.1.1 (2013-03-21)
+Version 1.2.1 (2016-03-24)
+* Fixed issue [#22](https://github.com/Cigaras/IPTV.bundle/issues/22)
+
+Version 1.2.0 (2016-03-23)
 * Rewritten program guides parsing, now should work much faster, but still quite demanding
 * Group logo, refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#program-guide) file for more details
 * Group sorting fix
 
-Version 1.1.0 Beta (2013-03-21)
+Version 1.1.0 (2016-03-21)
 * Added program guide support, please refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#program-guide) file for more details
 
 Version 1.0.11 (2015-12-11)
