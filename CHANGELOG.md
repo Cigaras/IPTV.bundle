@@ -3,7 +3,7 @@ Version 1.2.1 (2016-03-24)
 
 Version 1.2.0 (2016-03-23)
 * Rewritten program guides parsing, now should work much faster, but still quite demanding
-* Group logo, refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#program-guide) file for more details
+* Added group logo, refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#program-guide) file for more details
 * Group sorting fix
 
 Version 1.1.0 (2016-03-21)
