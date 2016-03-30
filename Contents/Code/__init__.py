@@ -115,6 +115,8 @@ def ListItems(group):
     for item in items_list:
         if item['id'] != '':
             summary = GetGuide(channel = item['id'])
+        else:
+            summary = ''
         if summary == '' and item['name'] != '':
             summary = GetGuide(channel = item['name'])
         if summary == '' and item['title'] != '':
