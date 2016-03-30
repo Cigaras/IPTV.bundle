@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.2.1
+# Version 1.2.2
 
 from datetime import datetime, timedelta # https://docs.python.org/2/library/datetime.html
 import xml.etree.ElementTree # https://docs.python.org/2/library/xml.etree.elementtree.html

@@ -1,3 +1,6 @@
+Version 1.2.2 (2016-03-30)
+* Fixed issue [#39](https://github.com/Cigaras/IPTV.bundle/issues/39) by [skyglow](https://github.com/skyglow)
+
 Version 1.2.1 (2016-03-24)
 * Fixed issue [#22](https://github.com/Cigaras/IPTV.bundle/issues/22)
 
