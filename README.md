@@ -78,8 +78,9 @@ Please note, program guide is quite demanding on resources and I do not recomend
 In theory this plugin should work on any device supported by Plex, but in reality things are a bit complicated: as I know Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job streaming sources and clients, so streams **will play only on clients that are able to handle the stream natively**:
 
 * **Desktop apps**:
-  * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [download.cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][6] without problems, latest known version 0.9.5.4;
-  * **[Plex Home Theater][GetPlex]** - [HTTP][6] streams work, tested on Plex Home Theater version 1.4.1, not sure about other [protocols][6];
+  * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][6] without problems, latest known version 0.9.5.4;
+  * **[Plex Home Theater][GetPlex]** - [HTTP][6] streams work, tested on version 1.4.1, not sure about other [protocols][6];
+  * **[Plex Media Player](https://blog.plex.tv/2015/10/20/introducing-the-plex-media-player/)** - [HTTP][6] streams [work](https://github.com/Cigaras/IPTV.bundle/issues/41), tested by [Codehhh](https://github.com/Codehhh), not sure about other [protocols][6];
   * **[Plex Web]** - most streams do not work, needs [testing][7];
 * **Connected devices**:
   * **[Plex for Xbox][GetPlex]** - not tested;
