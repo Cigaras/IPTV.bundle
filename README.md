@@ -75,7 +75,7 @@ Recomended software for XMLTV generation would be [**WebGrab+Plus**](http://www.
 Please note, program guide is quite demanding on resources and I do not recomend using XMLTV file that has more channels than You actualy need and the shorter the period its generated for the better.
 
 ### Compatible devices and limitations ###
-In theory this plugin should work on any device supported by Plex, but in reality things are a bit complicated: as I know Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job streaming sources and clients, so streams **will play only on clients that are able to handle the stream natively**:
+In theory this plugin should work on any device supported by Plex, but in reality things are a bit complicated: as I know Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job streaming sources and clients, so streams **will play only on clients that are able to handle the stream natively**, keep in mind that apps are beeing updated constantly and folowing list might (and usualy will) be outdated:
 
 * **Desktop apps**:
   * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][6] without problems, latest known version 0.9.5.4;
@@ -83,7 +83,7 @@ In theory this plugin should work on any device supported by Plex, but in realit
   * **[Plex Media Player](https://blog.plex.tv/2015/10/20/introducing-the-plex-media-player/)** - [HTTP][6] streams [work](https://github.com/Cigaras/IPTV.bundle/issues/41), tested by [Codehhh](https://github.com/Codehhh), not sure about other [protocols][6];
   * **[Plex Web]** - most streams do not work, needs [testing][7];
 * **Connected devices**:
-  * **[Plex for Xbox][GetPlex]** - not tested;
+  * **[Plex for Xbox][GetPlex]** - did not work for [Be4stElectrjc](https://github.com/Cigaras/IPTV.bundle/commit/3f420423e2c02d3fe86d0b1eb99527a4af0e57b6#commitcomment-17536080);
   * **[Plex for PlayStation][GetPlex]** - not tested;
   * **[Plex for Apple TV][GetPlex]** - not tested;
   * **[PlexConnect](https://forums.plex.tv/categories/appletv-plexconnect) (old Apple TV)** - [many](https://forums.plex.tv/discussion/comment/496660#Comment_496660) [users](https://forums.plex.tv/discussion/comment/496683#Comment_496683) [report](https://forums.plex.tv/discussion/comment/538729#Comment_538729) [that it](https://forums.plex.tv/discussion/comment/545983#Comment_545983) does work, You just need to alternate between transcoding options, or [use third party transcoding service](https://forums.plex.tv/discussion/comment/539331#Comment_539331);
@@ -100,7 +100,7 @@ In theory this plugin should work on any device supported by Plex, but in realit
   * **[Plex for iOS][GetPlex]** - [at the moment does not play any streams at all](https://forums.plex.tv/discussion/comment/536311#Comment_536311);
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
-Keep in mind that following list is not full because Plex developers are constantly working and updating their software and I do not have the resources to test them all, You can easily test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][7], please [contact me][9] if it happens to work on Your device that is listed as not working or unknown.
+You can test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][7].
 
 Also You can try running a dedicated transcoding service and get Your streams in [preferable format](https://forums.plex.tv/discussion/comment/539331#Comment_539331), [VODServer] is a good and free example.
 
