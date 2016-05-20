@@ -75,13 +75,15 @@ Recomended software for XMLTV generation would be [**WebGrab+Plus**](http://www.
 Please note, program guide is quite demanding on resources and I do not recomend using XMLTV file that has more channels than You actualy need and the shorter the period its generated for the better.
 
 ### Compatible devices and limitations ###
-In theory this plugin should work on any device supported by Plex, but in reality things are a bit complicated: as I know Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job streaming sources and clients, so streams **will play only on clients that are able to handle the stream natively**, keep in mind that apps are beeing updated constantly and folowing list might (and usualy will) be outdated:
+By default Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job to clients. In some clients it is possible to **switch [Direct Play and Direct Streaming](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) off** and then server will do the heavy lifting, but some clients are out of luck and will only play streams they are able to handle natively.
+
+Here is a bunch of Plex clients and some testing results, keep in mind that apps are beeing updated constantly and folowing list might (and usualy will) be outdated:
 
 * **Desktop apps**:
   * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][6] without problems, latest known version 0.9.5.4;
   * **[Plex Home Theater][GetPlex]** - [HTTP][6] streams work, tested on version 1.4.1, not sure about other [protocols][6];
   * **[Plex Media Player](https://blog.plex.tv/2015/10/20/introducing-the-plex-media-player/)** - [HTTP][6] streams [work](https://github.com/Cigaras/IPTV.bundle/issues/41), tested by [Codehhh](https://github.com/Codehhh), not sure about other [protocols][6];
-  * **[Plex Web]** - most streams do not work, needs [testing][7];
+  * **[Plex Web]** - most streams require turning off [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in [Settings->Web->Player](https://github.com/Cigaras/IPTV.bundle/commit/cd0b1b35921c80993856d2a0d2ef42a119a84565#commitcomment-17552365));
 * **Connected devices**:
   * **[Plex for Xbox][GetPlex]** - did not work for [Be4stElectrjc](https://github.com/Cigaras/IPTV.bundle/commit/3f420423e2c02d3fe86d0b1eb99527a4af0e57b6#commitcomment-17536080);
   * **[Plex for PlayStation][GetPlex]** - not tested;
@@ -136,15 +138,17 @@ Keep in mind that all streams are unique and Plex will not be able to play all o
 ### Troubleshooting ###
 If You encounter errors or some streams do not work please do the following:
 
-1. Make sure the playlist file is [encoded in UTF-8 without BOM][6];
+1. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times. However some clients do not have these settings, if You're the unlucky one or this does not help, continue to next step:
 
-2. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
+2. Make sure the playlist file is [encoded in UTF-8 without BOM][6];
 
-3. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usualy Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
+3. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
 
-4. Check plugin log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for log file location.
+4. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usualy Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
-5. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
+5. Check plugin log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for log file location.
+
+6. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
 
 ### To do list ###
 * Improve the program guide;
