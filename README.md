@@ -47,6 +47,8 @@ http://80.87.146.133:1111/udp/230.3.3.112:5678
 http://80.87.146.133:1111/udp/230.3.3.115:5678
 ```
 
+At the moment this plugin is [unable to handle multiple playlists][8], but it is possible to have [multiple instances of this plugin](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each, not the prettiest way but it is a solution.
+
 Read further for more information about [supported protocols and required configurations][6].
 
 ### Program guide ###
@@ -151,6 +153,7 @@ If You encounter errors or some streams do not work please do the following:
 6. If You do not have a solution after checking the log file, submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
 
 ### To do list ###
+* Support multiple playlists (for the moments it is possible to make [multiple instances of this plugin](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each);
 * Improve the program guide;
 * Possibility to predefine audio track, if ever becomes possible.
 
