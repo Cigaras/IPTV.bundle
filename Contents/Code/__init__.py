@@ -140,6 +140,8 @@ def ListItems(group):
         # Simply adding VideoClipObject does not work on some clients (like LG SmartTV),
         # so there is an endless recursion - function CreateVideoClipObject calling itself -
         # and I have no idea why and how it works...
+        if not summary:
+                summary = item['title']
         oc.add(CreateVideoClipObject(
             url = item['url'],
             title = item['title'],
