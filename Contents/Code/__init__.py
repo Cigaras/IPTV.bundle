@@ -14,6 +14,8 @@
 
 from datetime import datetime, timedelta # https://docs.python.org/2/library/datetime.html
 import xml.etree.ElementTree # https://docs.python.org/2/library/xml.etree.elementtree.html
+import time
+import calendar
 
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
@@ -71,13 +73,35 @@ def LoadGuide():
         count = 0
         for programme in root.findall("./programme"):
             channel = programme.get('channel')
-            start = datetime.strptime(programme.get('start')[:12], '%Y%m%d%H%M')
-            stop = datetime.strptime(programme.get('stop')[:12], '%Y%m%d%H%M')
+            start = datetime_from_utc_to_local(programme.get('start'))
+            stop = datetime_from_utc_to_local(programme.get('stop'))
             title = programme.find('title').text
             count = count + 1
             item = {'start': start, 'stop': stop, 'title': title, 'order': count}
             GUIDE.setdefault(channel, {})[count] = item
     return None
+
+def datetime_from_utc_to_local(input_datetime):
+
+    #Get local offset from UTC in seconds
+    local_offset_in_seconds = calendar.timegm(time.localtime()) - calendar.timegm(time.gmtime(time.mktime(time.localtime())))
+    #split time from offset
+    input_datetime_split = input_datetime.split(" ")
+    input_datetime_only = input_datetime_split[0]
+    # Convert input date to a proper date
+    input_datetime_only_dt = datetime.strptime(input_datetime_only, '%Y%m%d%H%M%S')
+    # If exists - convert input_offset_only to seconds otherwise set to 0
+    if len(input_datetime_split) > 1:
+        input_offset_only = input_datetime_split[1]
+        input_offset_mins, input_offset_hours = int(input_offset_only[3:]), int(input_offset_only[:-2])
+        input_offset_in_total_seconds = (input_offset_hours * 60 * 60) + (input_offset_mins * 60);
+    else:
+        input_offset_in_total_seconds = 0
+    #Get the true offset taking into account local offset
+    true_offset_in_seconds = local_offset_in_seconds + input_offset_in_total_seconds
+    # add the true_offset to input_datetime
+    local_dt = input_datetime_only_dt + timedelta(seconds=true_offset_in_seconds)
+    return local_dt
 
 @handler(PREFIX, TITLE)
 def MainMenu():
