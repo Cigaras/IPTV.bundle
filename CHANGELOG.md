@@ -1,3 +1,7 @@
+Version 1.2.3 (2016-07-19)
+* Implemented a method to correctly observe the timezone UTC offset in the XMLTV guide if it exists by [Lee](https://github.com/Cigaras/IPTV.bundle/commit/181169aeacfc5ee3af3e91a41cd12ad94afafb6f)
+* Fix for RasPlex issue by [Strux](https://github.com/Cigaras/IPTV.bundle/commit/40056ecbdcfc41de27d3ad36d287b4cc84a49345)
+
 Version 1.2.2 (2016-03-30)
 * Fixed issue [#39](https://github.com/Cigaras/IPTV.bundle/issues/39) by [skyglow](https://github.com/skyglow)
 
