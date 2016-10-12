@@ -175,7 +175,7 @@ def ListItems(group):
     return oc
 
 @route(PREFIX + '/createvideoclipobject')
-def CreateVideoClipObject(url, title, thumb, summary, container = False):
+def CreateVideoClipObject(url, title, thumb, summary = None, container = False):
     vco = VideoClipObject(
         key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, summary = summary, container = True),
         rating_key = title,
