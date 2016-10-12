@@ -1,3 +1,6 @@
+Version 1.2.4 (2016-10-12)
+* Fix HTTP routing if 'summary' field is missing (required for Chromecast) by [skaman](https://github.com/Cigaras/IPTV.bundle/commit/7d7a9d5727d94c785df94c836116f2ca39336142)
+
 Version 1.2.3 (2016-07-19)
 * Implemented a method to correctly observe the timezone UTC offset in the XMLTV guide if it exists by [Lee](https://github.com/Cigaras/IPTV.bundle/commit/181169aeacfc5ee3af3e91a41cd12ad94afafb6f)
 * Fix for RasPlex issue by [Strux](https://github.com/Cigaras/IPTV.bundle/commit/40056ecbdcfc41de27d3ad36d287b4cc84a49345)
