@@ -13,9 +13,11 @@ by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.2][Changelog]
 10. [License][10]
 
 ### Introduction ###
-Some [ISP] provide their users [IPTV] services, that can be watched over [VLC] on PC or on TV sets, but for TV a [Set-top box] is usually required that is both expensive and inconvenient because of separate remote. [MediaLink], that is pre-installed on most LG TVs, is able to play [IPTV] streams with the help of [Plex Media Server][GetPlex], but it does not has native support for it. One simple solution is to put every single stream url into a separate \*.strm file, load them into Plex library as Home Videos and assign logos and descriptions manually. Or, if You are lucky, You might find a Channel with predefined playlist that suits Your needs or even broadcasts [IPTV] from Your [ISP], but as I was not lucky enough, I decided to take matters into my own hands and created this Channel plugin, that allows to watch network streams from a customisable playlist, thus allowing You to **watch [IPTV] without a [Set-top box]!**
+A simple [Plex Media Servers][GetPlex] plugin that reads a live streams (like [IPTV]) urls from a [m3u](https://en.wikipedia.org/wiki/M3U) file and passes 'em to Plex in format understandable to Plex so it could try to play them.
 
-Please read further for instructions on how to [install][2] and [configure][3] this plugin, check [compatible devices][5] and [supported protocols][6], and, if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
+In short, as title states, it lets You watch IPTV in Plex.
+
+However playback is handled by Plex itself, not the plugin, and many strams are not playable by many Plex clients, please read [compatible devices and limitations][5], [supported protocols][6] and [troubleshooting][7] sections for more information and possible solutions if Your desired stream does not work.
 
 ### Installation ###
 Please refer to ofificial Plex support page [How do I manually install a channel?](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-)
@@ -104,9 +106,9 @@ Here is a bunch of Plex clients and some testing results, keep in mind that apps
   * **[Plex for iOS][GetPlex]** - [at the moment does not play any streams at all](https://forums.plex.tv/discussion/comment/536311#Comment_536311);
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
-You can test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as mentioned [above][1] and [below][7].
+You can test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as explained in [troubleshooting][7] section.
 
-Also You can try running a dedicated transcoding service and get Your streams in [preferable format](https://forums.plex.tv/discussion/comment/539331#Comment_539331), [VODServer] is a good and free example.
+Also You can try running a dedicated transcoding service and get Your streams in [preferable format](https://forums.plex.tv/discussion/comment/539331#Comment_539331), [VODServer] is a good and free example for Windows.
 
 One more flaw of this plugin is that it has no control over audio tracks if stream has multiple. Some clients can change the track, some can not, but plugin can not predefine one and I have [no solution](https://forums.plex.tv/discussion/85178) at the moment.
 
@@ -131,20 +133,20 @@ Read [further][6] for specific configuration required for some streaming protoco
     rtmp://shopnbc.fmsls.entriq.net:443/live/live_01@13361
     ```
 
-    If Real RTMP option in preferences is disabled, plugin will try to play stream over HTTP protocol, some streams work that way. If Real RTMP option is enabled, but ```UseRealRTMP``` flag in *Info.plist* file is disabled, then Plex will try to use [its own hosted SWF player](http://www.plexapp.com/player/player.php) and will fail.
+    If Real RTMP option in preferences is disabled, plugin will try to play stream over HTTP protocol, some streams work that way. If Real RTMP option is enabled, but ```UseRealRTMP``` flag in *Info.plist* file is disabled, then Plex will try to use [its own hosted SWF player](http://www.plexapp.com/player/player.php) and will fail because as mentioned above Plex no longer supports webkit players.
 
 4. **[MMS]** did not work for me on any tested devise, but plugin will try to play MMS videos over HTTP protocol.
 
-Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][5]). Please try playing stream with [VLC] and using \*.strm file method described [above][5] and [below][7] before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][9].
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plugins fault (read [Compatible devices and limitations][5]). Please try playing stream with [VLC] and using \*.strm file method described in [troubleshooting][7] section before blaming this plugin. If \*.strm method works and plugin does not, please [contact me][9].
 
 ### Troubleshooting ###
 If You encounter errors or some streams do not work please do the following:
 
-1. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times. However some clients do not have these settings, if You're the unlucky one or this does not help, continue to next step:
+1. Make sure the playlist file is [encoded in UTF-8 without BOM][6];
 
-2. Make sure the playlist file is [encoded in UTF-8 without BOM][6];
+2. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
 
-3. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
+3. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times. However some clients do not have these settings, if You're the unlucky one or this does not help, continue to next step:
 
 4. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usualy Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
@@ -167,7 +169,7 @@ If You encounter errors or some streams do not work please do the following:
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](https://forums.plex.tv/discussion/83083), or visit my personal blog at [cigaras.blogspot.lt](http://cigaras.blogspot.lt), but please keep in mind that I did this plugin voluntary and I have other priorities to do. However if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
 ### License ###
-Copyright © 2013-2016 Valdas Vaitiekaitis
+Copyright © 2013-2017 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
