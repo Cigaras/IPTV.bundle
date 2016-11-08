@@ -20,7 +20,9 @@ In short, as title states, it lets You watch IPTV in Plex.
 However playback is handled by Plex itself, not the plugin, and many strams are not playable by many Plex clients, please read [compatible devices and limitations][5], [supported protocols][6] and [troubleshooting][7] sections for more information and possible solutions if Your desired stream does not work.
 
 ### Installation ###
-Please refer to ofificial Plex support page [How do I manually install a channel?](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-)
+Please refer to official Plex support page [How do I manually install a channel](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-).
+
+If You do not have a Plex installed in the first place, there is an official manual for that too: [Quick-Start & Step by Step Guides](https://support.plex.tv/hc/en-us/articles/200264746-Quick-Start-Step-by-Step-Guides).
 
 ### Playlist structure and examples ###
 Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not specifify a path outside resources forder because Plex prohibits it. Online playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
