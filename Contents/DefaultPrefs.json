@@ -1,7 +1,7 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name or URL (requires restart)",
+        "label":    "Playlist file name or URL",
         "type":     "text",
         "default":  "playlist.m3u"
     },
@@ -16,6 +16,12 @@
         "label":    "Sort streams by name",
         "type":     "bool",
         "default":  "true"
+    },
+    {
+        "id":       "items_per_page",
+        "label":    "Streams per page",
+        "type":     "text",
+        "default":  "40"
     },
     {
         "id":       "rtmp",

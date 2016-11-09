@@ -1,3 +1,8 @@
+Version 1.2.5 (2016-11-09)
+* Added pagination so Plex wont choke on large playlists ([#57](https://github.com/Cigaras/IPTV.bundle/issues/57)), ammount of items per page can be changed in preferences
+* Fixed duplicate items in lists ([#60](https://github.com/Cigaras/IPTV.bundle/issues/60))
+* Hid empty "No Category" list
+
 Version 1.2.4 (2016-10-12)
 * Fix HTTP routing if 'summary' field is missing (required for Chromecast) by [skaman](https://github.com/Cigaras/IPTV.bundle/commit/7d7a9d5727d94c785df94c836116f2ca39336142)
 

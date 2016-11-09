@@ -1,5 +1,5 @@
 ## Plex Media Server plugin that plays live streams (a.k.a. IPTV) from a M3U playlist ##
-by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.2][Changelog]
+by [Valdas Vaitiekaitis], also known as [Cigaras], version [1.2.5][Changelog]
 
 1. [Introduction][1]
 2. [Installation][2]
@@ -29,26 +29,25 @@ Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you 
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
-  * [IPTV-Player.com](http://iptv-player.com/?id=database)
   * [HasBahCaIPTV.com](http://hasbahcaiptv.com/index.php?dir=m3u)
-  * [IPTV-Tv.blogspot.com](http://iptv-tv.blogspot.com)
   * [TvOnlineStreams.com](http://www.tvonlinestreams.com)
+  * [IPTVLinkss.blogspot.com](https://iptvlinkss.blogspot.com/)
   * [Plex forums](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1)
   * [Google.com](http://lmgtfy.com/?q=iptv+m3u)
 
 Playlist supports additional attributes that can be optionally defined in-line after #EXTINF:0 and before the name of the media:
   * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4];
   * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
-  * **group-title** - category name;
-  * **group-logo** - category logo, only usable in first line where specific category is defined, in example if You have two channels with same category name, logo supplied in first line of those two will be used.
+  * **group-title** - category name (for a channel to be visible in multiple categories [just make a copy of an entry in playlist and change the category name](https://github.com/Cigaras/IPTV.bundle/issues/60));
+  * **group-logo** - category logo, only usable in first line where specific category is first time defined, in example if You have two channels with same category name, logo supplied in first line of those two will be used.
 
 A simple example (see included sample playlist for more):
 ```
 #EXTM3U
 #EXTINF:0 tvg-id="Cartoon Network" tvg-logo="icon-default.png" group-title="Cartoons" group-logo="icon-folder.png",Cartoon Network
-http://80.87.146.133:1111/udp/230.3.3.112:5678
+http://192.168.1.1:1111/udp/224.3.3.112:1234
 #EXTINF:-1 tvg-logo="http://www.lyngsat-logo.com/hires/mm/mtv_dance_us.png" group-title="Music",MTV Dance
-http://80.87.146.133:1111/udp/230.3.3.115:5678
+http://192.168.1.1:1111/udp/224.3.3.113:1234
 ```
 
 At the moment this plugin is [unable to handle multiple playlists][8], but it is possible to have [multiple instances of this plugin](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each, not the prettiest way but it is a solution.
@@ -68,11 +67,11 @@ Plugin will try to match the program guide with playlist streams by the stream t
   ...
 </tv>
 ```
-then previously [mentioned][3] playlist should look like this:
+then previously [mentioned][3] playlist might look like this:
 ```
 #EXTM3U
-#EXTINF:0 tvg-id="Cartoon Network RSE" tvg-logo="icon-default.png" group-title="Cartoons",Cartoon Network
-http://80.87.146.133:1111/udp/230.3.3.112:5678
+#EXTINF:0 tvg-id="Cartoon Network RSE" tvg-logo="icon-default.png" group-title="Cartoons" group-logo="icon-folder.png",Cartoon Network
+http://192.168.1.1:1111/udp/224.3.3.112:1234
 ...
 ```
 

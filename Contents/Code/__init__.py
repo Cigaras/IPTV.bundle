@@ -1,4 +1,4 @@
-# Copyright © 2013-2016 Valdas Vaitiekaitis
+# Copyright © 2013-2017 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.2.2
+# Version 1.2.5
 
 from datetime import datetime, timedelta # https://docs.python.org/2/library/datetime.html
 import xml.etree.ElementTree # https://docs.python.org/2/library/xml.etree.elementtree.html
@@ -29,79 +29,6 @@ def Start():
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
     VideoClipObject.art = R('art-default.jpg')
-
-def LoadPlaylist():
-    if Prefs['playlist'].startswith('http://') or Prefs['playlist'].startswith('https://'):
-        playlist = HTTP.Request(Prefs['playlist']).content
-    else:
-        playlist = Resource.Load(Prefs['playlist'], binary = True)
-    if playlist != None:
-        lines = playlist.splitlines()
-        groups_count = 0
-        streams_count = 0
-        for i in range(len(lines) - 1):
-            line = lines[i].strip()
-            if line.startswith('#EXTINF'):
-                url = lines[i + 1].strip()
-                if url != '' and not url.startswith('#'):
-                    title = line[line.rfind(',') + 1:len(line)].strip()
-                    id = GetAttribute(line, 'tvg-id')
-                    name = GetAttribute(line, 'tvg-name')
-                    thumb = GetAttribute(line, 'tvg-logo')
-                    if thumb == '':
-                        thumb = GetAttribute(line, 'logo')
-                    group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category')))
-                    if group_title not in GROUPS.keys():
-                        group_thumb = GetAttribute(line, 'group-logo')
-                        groups_count = groups_count + 1
-                        group = {'title': group_title, 'thumb': group_thumb, 'order': groups_count}
-                        GROUPS[group_title] = group
-                    streams_count = streams_count + 1
-                    stream = {'url': url, 'title': title, 'id': id, 'name': name, 'thumb': thumb, 'group': group_title, 'order': streams_count}
-                    STREAMS.setdefault(unicode(L('All')), {})[streams_count] = stream
-                    STREAMS.setdefault(group_title, {})[streams_count] = stream
-                    i = i + 1 # skip the url line fot next cycle
-    return None
-
-def LoadGuide():
-    if Prefs['xmltv'].startswith('http://') or Prefs['xmltv'].startswith('https://'):
-        xmltv = HTTP.Request(Prefs['xmltv']).content
-    else:
-        xmltv = Resource.Load(Prefs['xmltv'], binary = True)
-    if xmltv != None:
-        root = xml.etree.ElementTree.fromstring(xmltv)
-        count = 0
-        for programme in root.findall("./programme"):
-            channel = programme.get('channel')
-            start = datetime_from_utc_to_local(programme.get('start'))
-            stop = datetime_from_utc_to_local(programme.get('stop'))
-            title = programme.find('title').text
-            count = count + 1
-            item = {'start': start, 'stop': stop, 'title': title, 'order': count}
-            GUIDE.setdefault(channel, {})[count] = item
-    return None
-
-def datetime_from_utc_to_local(input_datetime):
-
-    #Get local offset from UTC in seconds
-    local_offset_in_seconds = calendar.timegm(time.localtime()) - calendar.timegm(time.gmtime(time.mktime(time.localtime())))
-    #split time from offset
-    input_datetime_split = input_datetime.split(" ")
-    input_datetime_only = input_datetime_split[0]
-    # Convert input date to a proper date
-    input_datetime_only_dt = datetime.strptime(input_datetime_only, '%Y%m%d%H%M%S')
-    # If exists - convert input_offset_only to seconds otherwise set to 0
-    if len(input_datetime_split) > 1:
-        input_offset_only = input_datetime_split[1]
-        input_offset_mins, input_offset_hours = int(input_offset_only[3:]), int(input_offset_only[:-2])
-        input_offset_in_total_seconds = (input_offset_hours * 60 * 60) + (input_offset_mins * 60);
-    else:
-        input_offset_in_total_seconds = 0
-    #Get the true offset taking into account local offset
-    true_offset_in_seconds = local_offset_in_seconds + input_offset_in_total_seconds
-    # add the true_offset to input_datetime
-    local_dt = input_datetime_only_dt + timedelta(seconds=true_offset_in_seconds)
-    return local_dt
 
 @handler(PREFIX, TITLE)
 def MainMenu():
@@ -124,27 +51,95 @@ def MainMenu():
                 title = group['title'],
                 thumb = thumb
             ))
-    oc.add(DirectoryObject(key = Callback(ListItems, group = unicode(L('No Category'))), title = unicode(L('No Category'))))
+    if unicode(L('No Category')) in GROUPS.keys():
+        oc.add(DirectoryObject(key = Callback(ListItems, group = unicode(L('No Category'))), title = unicode(L('No Category'))))
     oc.add(PrefsObject(title = unicode(L('Preferences')), thumb = R('icon-prefs.png')))
     return oc
 
-@route(PREFIX + '/groups/{group}')
-def ListItems(group):
+def LoadPlaylist():
+    if Prefs['playlist'].startswith('http://') or Prefs['playlist'].startswith('https://'):
+        playlist = HTTP.Request(Prefs['playlist']).content
+    else:
+        playlist = Resource.Load(Prefs['playlist'], binary = True)
+    if playlist != None:
+        lines = playlist.splitlines()
+        groups_count = 0
+        streams_count = 0
+        for i in range(len(lines) - 1):
+            line = lines[i].strip()
+            if line.startswith('#EXTINF'):
+                url = lines[i + 1].strip()
+                if url != '' and not url.startswith('#'):
+                    title = line[line.rfind(',') + 1:len(line)].strip()
+                    id = GetAttribute(line, 'tvg-id')
+                    name = GetAttribute(line, 'tvg-name')
+                    thumb = GetAttribute(line, 'tvg-logo')
+                    if thumb == '':
+                        thumb = GetAttribute(line, 'logo')
+                    streams_count = streams_count + 1
+                    stream = {'url': url, 'title': title, 'id': id, 'name': name, 'thumb': thumb, 'order': streams_count}
+                    STREAMS.setdefault(unicode(L('All')), {})[streams_count] = stream
+                    group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category')))
+                    if group_title not in GROUPS.keys():
+                        group_thumb = GetAttribute(line, 'group-logo')
+                        groups_count = groups_count + 1
+                        group = {'title': group_title, 'thumb': group_thumb, 'order': groups_count}
+                        GROUPS[group_title] = group
+                    STREAMS.setdefault(group_title, {})[streams_count] = stream
+                    i = i + 1 # skip the url line fot next cycle
+    return None
+
+def LoadGuide():
+    if Prefs['xmltv'].startswith('http://') or Prefs['xmltv'].startswith('https://'):
+        xmltv = HTTP.Request(Prefs['xmltv']).content
+    else:
+        xmltv = Resource.Load(Prefs['xmltv'], binary = True)
+    if xmltv != None:
+        root = xml.etree.ElementTree.fromstring(xmltv)
+        count = 0
+        for programme in root.findall("./programme"):
+            channel = programme.get('channel')
+            start = datetime_from_utc_to_local(programme.get('start'))
+            stop = datetime_from_utc_to_local(programme.get('stop'))
+            title = programme.find('title').text
+            count = count + 1
+            item = {'start': start, 'stop': stop, 'title': title, 'order': count}
+            GUIDE.setdefault(channel, {})[count] = item
+    return None
+
+@route(PREFIX + '/groups/{group}', page = int)
+def ListItems(group, page = 1):
     oc = ObjectContainer(title1 = group)
     items_list = STREAMS[group].values()
+
+    try:
+        items_per_page = int(Prefs['items_per_page'])
+    except:
+        items_per_page = 40
+    
     if Prefs['sort_lists']:
         items_list.sort(key = lambda dict: dict['title'].lower())
     else:
         items_list.sort(key = lambda dict: dict['order'])
-    for item in items_list:
+
+    for item in items_list[page * items_per_page - items_per_page : page * items_per_page]:
+
+        # Get the program guide for the channel
         if item['id'] != '':
             summary = GetGuide(channel = item['id'])
         else:
             summary = ''
+
         if summary == '' and item['name'] != '':
             summary = GetGuide(channel = item['name'])
+
         if summary == '' and item['title'] != '':
             summary = GetGuide(channel = item['title'])
+
+        # Some clients fail if summary is left empty
+        if not summary:
+            summary = item['title']
+        
         #oc.add(VideoClipObject(
         #    url = item['url'],
         #    title = item['title'],
@@ -164,15 +159,77 @@ def ListItems(group):
         # Simply adding VideoClipObject does not work on some clients (like LG SmartTV),
         # so there is an endless recursion - function CreateVideoClipObject calling itself -
         # and I have no idea why and how it works...
-        if not summary:
-                summary = item['title']
         oc.add(CreateVideoClipObject(
             url = item['url'],
             title = item['title'],
             thumb = item['thumb'],
             summary = summary
         ))
-    return oc
+
+    if len(items_list) > page * items_per_page:
+        oc.add(NextPageObject(key = Callback(ListItems, group = group, page = page + 1), title = L("Next Page ...")))
+
+    if len(oc) < 1:
+        return ObjectContainer(header = "Empty", message = "There are no more items available") # this should not ever happen
+    else:
+        return oc
+
+def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
+    x = text.find(attribute)
+    if x > -1:
+        y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
+        z = text.find(delimiter2, y)
+        if z == -1:
+            z = len(text)
+        return unicode(text[y:z].strip())
+    else:
+        return default
+
+def datetime_from_utc_to_local(input_datetime):
+    # Get local offset from UTC in seconds
+    local_offset_in_seconds = calendar.timegm(time.localtime()) - calendar.timegm(time.gmtime(time.mktime(time.localtime())))
+    # Split time from offset
+    input_datetime_split = input_datetime.split(" ")
+    input_datetime_only = input_datetime_split[0]
+    # Convert input date to a proper date
+    input_datetime_only_dt = datetime.strptime(input_datetime_only, '%Y%m%d%H%M%S')
+    # If exists - convert input_offset_only to seconds otherwise set to 0
+    if len(input_datetime_split) > 1:
+        input_offset_only = input_datetime_split[1]
+        input_offset_mins, input_offset_hours = int(input_offset_only[3:]), int(input_offset_only[:-2])
+        input_offset_in_total_seconds = (input_offset_hours * 60 * 60) + (input_offset_mins * 60);
+    else:
+        input_offset_in_total_seconds = 0
+    # Get the true offset taking into account local offset
+    true_offset_in_seconds = local_offset_in_seconds + input_offset_in_total_seconds
+    # Add the true_offset to input_datetime
+    local_dt = input_datetime_only_dt + timedelta(seconds=true_offset_in_seconds)
+    return local_dt
+
+def GetGuide(channel):
+    summary = ''
+    #if Prefs['xmltv'].startswith('http://') or Prefs['xmltv'].startswith('https://'):
+    #    xmltv = HTTP.Request(Prefs['xmltv']).content
+    #else:
+    #    xmltv = Resource.Load(Prefs['xmltv'], binary = True)
+    #if xmltv != '':
+    if channel in GUIDE.keys():
+        current_time = datetime.today()
+        try:
+            guide_hours = int(Prefs['guide_hours'])
+        except:
+            guide_hours = 8
+        #root = xml.etree.ElementTree.fromstring(xmltv)
+        #for programme in root.findall("./programme[@channel='" + channel + "']"):
+        #    start_time = datetime.strptime(programme.get('start')[:12], '%Y%m%d%H%M')
+        #    stop_time = datetime.strptime(programme.get('stop')[:12], '%Y%m%d%H%M')
+        #    if start_time <= current_time + timedelta(hours = guide_hours) and stop_time > current_time:
+        #        summary = summary + '\n' + start_time.strftime('%H:%M') + ' ' + programme.find('title').text
+        items_list = GUIDE[channel].values()
+        for item in items_list:
+            if item['start'] <= current_time + timedelta(hours = guide_hours) and item['stop'] > current_time:
+                summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
+    return summary
 
 @route(PREFIX + '/createvideoclipobject')
 def CreateVideoClipObject(url, title, thumb, summary = None, container = False):
@@ -235,39 +292,3 @@ def GetThumb(thumb, default = 'icon-default.png'):
         return R(thumb)
     else:
         return R(default)
-
-def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
-    x = text.find(attribute)
-    if x > -1:
-        y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
-        z = text.find(delimiter2, y)
-        if z == -1:
-            z = len(text)
-        return unicode(text[y:z].strip())
-    else:
-        return default
-
-def GetGuide(channel):
-    summary = ''
-    #if Prefs['xmltv'].startswith('http://') or Prefs['xmltv'].startswith('https://'):
-    #    xmltv = HTTP.Request(Prefs['xmltv']).content
-    #else:
-    #    xmltv = Resource.Load(Prefs['xmltv'], binary = True)
-    #if xmltv != '':
-    if channel in GUIDE.keys():
-        current_time = datetime.today()
-        try:
-            guide_hours = int(Prefs['guide_hours'])
-        except:
-            guide_hours = 8
-        #root = xml.etree.ElementTree.fromstring(xmltv)
-        #for programme in root.findall("./programme[@channel='" + channel + "']"):
-        #    start_time = datetime.strptime(programme.get('start')[:12], '%Y%m%d%H%M')
-        #    stop_time = datetime.strptime(programme.get('stop')[:12], '%Y%m%d%H%M')
-        #    if start_time <= current_time + timedelta(hours = guide_hours) and stop_time > current_time:
-        #        summary = summary + '\n' + start_time.strftime('%H:%M') + ' ' + programme.find('title').text
-        items_list = GUIDE[channel].values()
-        for item in items_list:
-            if item['start'] <= current_time + timedelta(hours = guide_hours) and item['stop'] > current_time:
-                summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
-    return summary
