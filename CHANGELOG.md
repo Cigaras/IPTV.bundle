@@ -1,5 +1,5 @@
 Version 1.2.5 (2016-11-09)
-* Added pagination so Plex wont choke on large playlists ([#57](https://github.com/Cigaras/IPTV.bundle/issues/57)), ammount of items per page can be changed in preferences
+* Added pagination so Plex wont choke on large playlists ([#57](https://github.com/Cigaras/IPTV.bundle/issues/57)), amount of items per page can be changed in preferences
 * Fixed duplicate items in lists ([#60](https://github.com/Cigaras/IPTV.bundle/issues/60))
 * Hid empty "No Category" list
 
