@@ -17,7 +17,7 @@ A simple [Plex Media Servers][GetPlex] plugin that reads a live streams (like [I
 
 In short, as title states, it lets You watch IPTV in Plex.
 
-However playback is handled by Plex itself, not the plugin, and many strams are not playable by many Plex clients, please read [compatible devices and limitations][5], [supported protocols][6] and [troubleshooting][7] sections for more information and possible solutions if Your desired stream does not work.
+However playback is handled by Plex itself, not the plugin, and many streams are not playable by many Plex clients, please read [compatible devices and limitations][5], [supported protocols][6] and [troubleshooting][7] sections for more information and possible solutions if Your desired stream does not work.
 
 ### Installation ###
 Please refer to official Plex support page [How do I manually install a channel](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-).
@@ -25,7 +25,7 @@ Please refer to official Plex support page [How do I manually install a channel]
 If You do not have a Plex installed in the first place, there is an official manual for that too: [Quick-Start & Step by Step Guides](https://support.plex.tv/hc/en-us/articles/200264746-Quick-Start-Step-by-Step-Guides).
 
 ### Playlist structure and examples ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not specifify a path outside resources forder because Plex prohibits it. Online playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recomend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Online playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recommend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
@@ -36,7 +36,7 @@ Included sample playlist is for testing purposes only, some streams might be dea
   * [Plex forums](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1)
   * [Google.com](http://lmgtfy.com/?q=iptv+m3u)
 
-Playlist supports additional attributes that can be optionally defined inline after #EXTINF:0 and before the name of the media:
+Playlist supports additional attributes that can be optionally defined in-line after #EXTINF:0 and before the name of the media:
   * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4];
   * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
   * **group-title** - category name;
@@ -56,9 +56,9 @@ At the moment this plugin is [unable to handle multiple playlists][8], but it is
 Read further for more information about [supported protocols and required configurations][6].
 
 ### Program guide ###
-As of version 1.2 and further this plugin supports [program guide](http://en.wikipedia.org/wiki/Electronic_program_guide) in [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format, there is a sample located in *IPTV.bundle\Content\Resources\guide.xml*, you can specify other filename in preferences, but You can not specifify a path outside resources forder because Plex prohibits it. Online guide is also supported (as long as it matches the [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format), You just need to specify a direct link to it, with http part included.
+As of version 1.2 and further this plugin supports [program guide](http://en.wikipedia.org/wiki/Electronic_program_guide) in [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format, there is a sample located in *IPTV.bundle\Content\Resources\guide.xml*, you can specify other filename in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Online guide is also supported (as long as it matches the [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format), You just need to specify a direct link to it, with http part included.
 
-Plugin will try to match the program guide with playlist streams by the stream title, but to make things easier **tvg-id** atribute might be used to represent the exact XMLTV channel, for example if XMLTV looks something like this:
+Plugin will try to match the program guide with playlist streams by the stream title, but to make things easier **tvg-id** attribute might be used to represent the exact XMLTV channel, for example if XMLTV looks something like this:
 ```
 <tv>
   ...
@@ -76,14 +76,14 @@ http://80.87.146.133:1111/udp/230.3.3.112:5678
 ...
 ```
 
-Recomended software for XMLTV generation would be [**WebGrab+Plus**](http://www.webgrabplus.com/), please refer to its [documentation](http://www.webgrabplus.com/documentation/quick-start) on how to set it up.
+Recommended software for XMLTV generation would be [**WebGrab+Plus**](http://www.webgrabplus.com/), please refer to its [documentation](http://www.webgrabplus.com/documentation/quick-start) on how to set it up.
 
-Please note, program guide is quite demanding on resources and I do not recomend using XMLTV file that has more channels than You actualy need and the shorter the period its generated for the better.
+Please note, program guide is quite demanding on resources and I do not recommend using XMLTV file that has more channels than You actually need and the shorter the period its generated for the better.
 
 ### Compatible devices and limitations ###
 By default Plex Media Server [does](http://forums.plex.tv/discussion/84637/problems-getting-live-http-stream-into-channel) [not](https://forums.plex.tv/discussion/comment/475261#Comment_475261) transcode live streams and leaves this job to clients. In some clients it is possible to **switch [Direct Play and Direct Streaming](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) off** and then server will do the heavy lifting, but some clients are out of luck and will only play streams they are able to handle natively.
 
-Here is a bunch of Plex clients and some testing results, keep in mind that apps are beeing updated constantly and folowing list might (and usualy will) be outdated:
+Here is a bunch of Plex clients and some testing results, keep in mind that apps are being updated constantly and following list might (and usually will) be outdated:
 
 * **Desktop apps**:
   * **[Plex Media Center]** - no longer in production but you can get one from ~~[old Plex Wiki page](https://oldwiki.plexapp.com/index.php?title=Downloads#Plex_Media_Center_.28PMC_-_standalone_client.29)~~  [Plex Downloads Archive][Plex Media Center] or [cnet.com](http://download.cnet.com/Plex-Media-Center/3000-2139_4-75754342.html), plays [most streams][6] without problems, latest known version 0.9.5.4;
@@ -104,7 +104,7 @@ Here is a bunch of Plex clients and some testing results, keep in mind that apps
   * **[Plex for Opera TV][GetPlex]** - not tested;
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][6] streams, however MediaLink is no longer included LG products of year 2013 and later, [Simon J. Hogan](https://forums.plex.tv/discussion/89004) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
 * * **Mobile devices**:
-  * **[Plex for Android][GetPlex]** - usualy does not work, should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad), needs [testing][7];
+  * **[Plex for Android][GetPlex]** - usually does not work, should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad), needs [testing][7];
   * **[Plex for iOS][GetPlex]** - [at the moment does not play any streams at all](https://forums.plex.tv/discussion/comment/536311#Comment_536311);
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
@@ -150,7 +150,7 @@ If You encounter errors or some streams do not work please do the following:
 
 3. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times. However some clients do not have these settings, if You're the unlucky one or this does not help, continue to next step:
 
-4. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usualy Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
+4. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usually Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
 5. Check plugin log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for log file location.
 
@@ -166,7 +166,7 @@ If You encounter errors or some streams do not work please do the following:
 * Contributors: [supergivi](https://github.com/supergivi), [sander1](https://github.com/sander1), [Funtic](https://github.com/Funtic), [skyglow](https://github.com/skyglow) and many others;
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC Attribution 2.0](http://creativecommons.org/licenses/by/2.0);
 * [Icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
-* Advisors: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/).
+* Advisers: [shopgirl284](http://forums.plexapp.com/index.php/user/87889-shopgirl284/), [Mikedm139](http://forums.plexapp.com/index.php/user/14450-mikedm139/).
 
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](https://forums.plex.tv/discussion/83083), or visit my personal blog at [cigaras.blogspot.lt](http://cigaras.blogspot.lt), but please keep in mind that I did this plugin voluntary and I have other priorities to do. However if You find my work useful, please consider a small [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Cigaras%40gmail%2ecom&lc=LT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) as a sign of gratitude and support.
 
