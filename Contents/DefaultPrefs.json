@@ -24,6 +24,12 @@
         "default":  "40"
     },
     {
+        "id":       "optimized_for_streaming",
+        "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Streaming options are unavailable",
+        "type":     "bool",
+        "default":  "true"
+    },
+    {
         "id":       "rtmp",
         "label":    "Use Real RTMP (need to edit file Info.plist manually)",
         "type":     "bool",

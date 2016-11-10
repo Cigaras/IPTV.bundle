@@ -1,3 +1,7 @@
+Version 1.2.6 (2016-11-10)
+* Optimized for streaming option
+* Some grammar fixes
+
 Version 1.2.5 (2016-11-09)
 * Added pagination so Plex wont choke on large playlists ([#57](https://github.com/Cigaras/IPTV.bundle/issues/57)), amount of items per page can be changed in preferences
 * Fixed duplicate items in lists ([#60](https://github.com/Cigaras/IPTV.bundle/issues/60))
@@ -7,7 +11,7 @@ Version 1.2.4 (2016-10-12)
 * Fix HTTP routing if 'summary' field is missing (required for Chromecast) by [skaman](https://github.com/Cigaras/IPTV.bundle/commit/7d7a9d5727d94c785df94c836116f2ca39336142)
 
 Version 1.2.3 (2016-07-19)
-* Implemented a method to correctly observe the timezone UTC offset in the XMLTV guide if it exists by [Lee](https://github.com/Cigaras/IPTV.bundle/commit/181169aeacfc5ee3af3e91a41cd12ad94afafb6f)
+* Implemented a method to correctly observe the time zone UTC offset in the XMLTV guide if it exists by [Lee](https://github.com/Cigaras/IPTV.bundle/commit/181169aeacfc5ee3af3e91a41cd12ad94afafb6f)
 * Fix for RasPlex issue by [Strux](https://github.com/Cigaras/IPTV.bundle/commit/40056ecbdcfc41de27d3ad36d287b4cc84a49345)
 
 Version 1.2.2 (2016-03-30)
@@ -31,7 +35,7 @@ Version 1.0.11 (2015-12-11)
   * Cleared duplicate group names localization
 
 Version 1.0.10 (2015-02-11)
-* Partialy disabled webkit players by [sander1](https://github.com/sander1), RTMP webkit player still will be used if Real RTMP is enabled in Preferences but disabled in Info.plist file, by default both are disabled for compatibility with older clients, please refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#supported-protocols) file for more details
+* Partially disabled webkit players by [sander1](https://github.com/sander1), RTMP webkit player still will be used if Real RTMP is enabled in Preferences but disabled in Info.plist file, by default both are disabled for compatibility with older clients, please refer to [README.MD](https://github.com/Cigaras/IPTV.bundle#supported-protocols) file for more details
 * Updated documentation ([README.MD])
 
 Version 1.0.9 (2014-02-07)

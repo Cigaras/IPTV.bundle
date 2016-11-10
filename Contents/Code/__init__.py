@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.2.5
+# Version 1.2.6
 
 from datetime import datetime, timedelta # https://docs.python.org/2/library/datetime.html
 import xml.etree.ElementTree # https://docs.python.org/2/library/xml.etree.elementtree.html
@@ -251,7 +251,7 @@ def CreateVideoClipObject(url, title, thumb, summary = None, container = False):
                         key = GetVideoURL(url = url)
                     )
                 ],
-                optimized_for_streaming = True
+                optimized_for_streaming = Prefs['optimized_for_streaming'] # https://forums.plex.tv/discussion/comment/828497/#Comment_828497
             )
         ]
     )
