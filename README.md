@@ -1,4 +1,4 @@
-## Plex Media Server plug-in that plays live streams (a.k.a. IPTV) from a M3U playlist ##
+## Plex plug-in that plays live streams (a.k.a. IPTV) from a M3U playlist ##
 [![Current Release](https://img.shields.io/github/release/Cigaras/IPTV.bundle.svg "Current Release")](https://github.com/Cigaras/IPTV.bundle/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Cigaras/IPTV.bundle/total.svg "Downloads")](https://github.com/Cigaras/IPTV.bundle/releases)
 
@@ -14,7 +14,7 @@
 10. [License][10]
 
 ### Introduction ###
-A simple [Plex Media Servers][GetPlex] plug-in that reads a live streams (like [IPTV]) urls from a [m3u](https://en.wikipedia.org/wiki/M3U) file and passes 'em to Plex in format understandable to Plex so it could try to play them.
+A simple [Plex Media Servers][GetPlex] plug-in that reads live streams (like [IPTV]) urls from a [m3u](https://en.wikipedia.org/wiki/M3U) file and passes 'em to Plex in format understandable to Plex so it could try to play them.
 
 In short, as title states, it lets You watch IPTV in Plex.
 
