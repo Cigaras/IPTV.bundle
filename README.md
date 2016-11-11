@@ -192,10 +192,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   [8]: #to-do-list "To do list"
   [9]: #credits-and-contacts "Credits and contacts"
   [10]: #license "License"
-  [Changelog]: https://github.com/Cigaras/IPTV.bundle/blob/master/CHANGELOG.md
   [Cigaras]: http://forums.plex.tv/profile/Cigaras
   [Valdas Vaitiekaitis]: https://plus.google.com/+ValdasVaitiekaitis
-  [Set-top box]: http://en.wikipedia.org/wiki/Set-top_box
   [IPTV]: http://en.wikipedia.org/wiki/IPTV
   [GetPlex]: https://www.plex.tv/downloads
   [Plex Web]: https://support.plex.tv/hc/en-us/articles/200288666-Opening-Plex-Web-App
