@@ -232,7 +232,7 @@ def CreateVideoClipObject(url, title, thumb, summary = None, container = False):
                         key = GetVideoURL(url = url),
                         # iOS client shows permanent loading screen in the foreground if no duration is provided,
                         # smarter clients understand that it is a live stream and ignore this property
-                        duration = 1
+                        duration = 1000
                     )
                 ],
                 optimized_for_streaming = Prefs['optimized_for_streaming'] # https://forums.plex.tv/discussion/comment/828497/#Comment_828497
