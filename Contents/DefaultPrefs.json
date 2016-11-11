@@ -21,7 +21,7 @@
         "id":       "items_per_page",
         "label":    "Streams per page",
         "type":     "text",
-        "default":  "40"
+        "default":  "100"
     },
     {
         "id":       "optimized_for_streaming",
