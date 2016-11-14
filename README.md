@@ -140,7 +140,7 @@ Read [further][6] for specific configuration required for some streaming protoco
 
 4. **[MMS]** did not work for me on any tested devise, but plug-in will try to play MMS videos over HTTP protocol.
 
-Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plug-ins fault (read [Compatible devices and limitations][5]). Please try playing stream with [VLC] and using \*.strm file method described in [troubleshooting][7] section before blaming this plug-in. If \*.strm method works and plug-in does not, please [contact me][9].
+Keep in mind that all streams are unique and Plex will not be able to play all of them, but not necessary because of plug-ins fault (read [Compatible devices and limitations][5]). Please try playing stream with [VLC] and using `.strm` file method described in [troubleshooting][7] section before blaming this plug-in. If `.strm` method works and plug-in does not, please [contact me][9].
 
 ### Troubleshooting ###
 If You encounter errors or some streams do not work please do the following:
@@ -155,7 +155,7 @@ If You encounter errors or some streams do not work please do the following:
 
 5. If Your client does not have settings mentioned above or they do not work, try switching off option Optimized for streaming in plug-ins preferences. If it does not help either continue to next step:
 
-6. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usually Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
+6. Create a new file with notepad, write your desired streams url there and save it with `.strm` extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like `.strm` files), if it fails, then usually Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
 7. Check the plug-ins log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for files location.
 
