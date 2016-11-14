@@ -147,17 +147,19 @@ If You encounter errors or some streams do not work please do the following:
 
 1. Make sure the playlist file is [encoded in UTF-8 without BOM][6];
 
-2. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
+2. If urls in Your playlist end with `.ts` change it to `.m3u8` as suggested in issue [#40](https://github.com/Cigaras/IPTV.bundle/issues/40#issuecomment-243913047);
 
-3. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times.
+3. Try to play the stream in [VLC] player, if it fails Your stream is invalid and will not play on any device; if it works continue to next step:
 
-4. If Your client does not have settings mentioned above or they do not work, try switching off option Optimized for streaming in plug-ins preferences. If it does not help either continue to next step:
+4. Try disabling [Direct Play and Direct Stream](https://support.plex.tv/hc/en-us/articles/200250387-Streaming-Media-Direct-Play-and-Direct-Stream) in Your client settings, this helps 9 of 10 times.
 
-5. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usually Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
+5. If Your client does not have settings mentioned above or they do not work, try switching off option Optimized for streaming in plug-ins preferences. If it does not help either continue to next step:
 
-6. Check the plug-ins log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for files location.
+6. Create a new file with notepad, write your desired streams url there and save it with \*.strm extension, put it into a folder and load folder into Plex Server as Home Video, try to play it in Plex client (preferably [Plex Media Center][5] because Plex Home Theater as of version 1.4.1 does not like \*.strm files), if it fails, then usually Your client is unable to play this stream, try alternative clients; if it works, continue to next step:
 
-7. If You still were not able to resolve Your issue submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
+7. Check the plug-ins log file *com.plexapp.plugins.iptv.log*, refer to official Plex support page [Plex Media Server Log Files](https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files) for files location.
+
+8. If You still were not able to resolve Your issue submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
 
 ### To do list ###
 * Support multiple playlists (for the moments it is possible to make [multiple instances of this plug-in](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each);
