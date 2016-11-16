@@ -106,7 +106,7 @@ Here is a bunch of Plex clients and some testing results, keep in mind that apps
   * **Plex for LG TV ([MediaLink])** plays [HTTP and RTSP][6] streams, however MediaLink is no longer included LG products of year 2013 and later, [Simon J. Hogan](https://forums.plex.tv/discussion/89004) is working on a [Plex client for LG Smart TV](http://simonjhogan.github.io/plex.lg/), however I did not test it;
 * * **Mobile devices**:
   * **[Plex for Android][GetPlex]** - usually does not work, should work with external player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad), needs [testing][7];
-  * **[Plex for iOS][GetPlex]** - [at the moment does not play any streams at all](https://forums.plex.tv/discussion/comment/536311#Comment_536311);
+  * **[Plex for iOS][GetPlex]** - ~~[at the moment does not play any streams at all](https://forums.plex.tv/discussion/comment/536311#Comment_536311)~~ works with latest Plex app;
   * **[Plex for Windows Phone][GetPlex]** - not tested;
 
 You can test your client by putting stream url into a \*.strm file and loading it into Plex as Home Video as explained in [troubleshooting][7] section.
@@ -162,6 +162,7 @@ If You encounter errors or some streams do not work please do the following:
 8. If You still were not able to resolve Your issue submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
 
 ### To do list ###
+* Support compressed XMLTV files;
 * Support multiple playlists (for the moments it is possible to make [multiple instances of this plug-in](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each);
 * Improve the program guide;
 * Possibility to predefine audio track, if ever becomes possible.
