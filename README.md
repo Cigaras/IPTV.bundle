@@ -39,7 +39,7 @@ Playlist supports additional attributes that can be optionally defined in line a
   * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4];
   * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
   * **art** - stream background art, works same as logo;
-  * **group-title** - category name (for a channel to be visible in multiple categories [just make a copy of an entry in playlist and change the category name](https://github.com/Cigaras/IPTV.bundle/issues/60));
+  * **group-title** - category name (for a channel to be visible in multiple categories [just make a copy of an entry in the playlist and change the category name](https://github.com/Cigaras/IPTV.bundle/issues/60));
   * **group-logo** - category logo, only counts what is defined in first line where specific category is first time spotted, that means if You have two channels with same category name, logo and art supplied in first line of those two will be used;
   * **group-art** - category background art, works same as group-logo.
 
