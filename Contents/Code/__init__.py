@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.2.7
+# Version 1.2.8
 
 from urllib import urlopen
 from io import BytesIO
@@ -53,7 +53,7 @@ def MainMenu():
         for group in groups_list:
             if group['title'] not in [unicode(L('All')), unicode(L('No Category'))]:
                 thumb = GetThumb(group['thumb'], default = 'icon-folder.png')
-                alt = GetThumb(group['art'], default = 'art-default.png')
+                art = GetThumb(group['art'], default = 'art-default.png')
                 oc.add(DirectoryObject(
                     key = Callback(ListItems, group = group['title']),
                     title = group['title'],

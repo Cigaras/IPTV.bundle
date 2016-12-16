@@ -30,9 +30,6 @@ Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you 
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
-  * [HasBahCaIPTV.com](http://hasbahcaiptv.com/index.php?dir=m3u)
-  * [TvOnlineStreams.com](http://www.tvonlinestreams.com)
-  * [IPTVLinkss.blogspot.com](https://iptvlinkss.blogspot.com/)
   * [Google.com](http://lmgtfy.com/?q=iptv+m3u)
 
 Playlist supports additional attributes that can be optionally defined in line after #EXTINF:0 and before the name of the media:
@@ -164,9 +161,7 @@ If You encounter errors or some streams do not work please do the following:
 8. If You still were not able to resolve Your issue submit a [ticket on GitHub](https://github.com/Cigaras/IPTV.bundle/issues/new) or post on [Plex forum](http://forums.plex.tv/discussion/83083/rel-iptv-bundle-plugin-that-plays-iptv-streams-from-a-m3u-playlist/p1) with log and playlist files attached and I or other users will try to help You.
 
 ### To do list ###
-* Support compressed XMLTV files;
 * Support multiple playlists (for the moments it is possible to make [multiple instances of this plug-in](https://github.com/Cigaras/IPTV.bundle/issues/21#issuecomment-159568329) and use different playlist for each);
-* Improve the program guide;
 * Possibility to predefine audio track, if ever becomes possible.
 
 ### Credits and contacts ###
