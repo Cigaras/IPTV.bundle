@@ -155,13 +155,13 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
   [1]: #introduction "Introduction"
   [2]: #installation "Installation"
-  [3]: #playlist "Playlist structure and examples"
-  [4]: #guide "Program guide"
-  [5]: #limitations "Compatibility and limitations"
-  [6]: #protocols "Supported protocols"
+  [3]: #playlist-structure-and-examples "Playlist structure and examples"
+  [4]: #program-guide "Program guide"
+  [5]: #compatibility-and-limitations "Compatibility and limitations"
+  [6]: #supported-protocols "Supported protocols"
   [7]: #troubleshooting "Troubleshooting"
-  [8]: #to-do "To do list"
-  [9]: #contacts "Credits and contacts"
+  [8]: #to-do-list "To do list"
+  [9]: #credits-and-contacts "Credits and contacts"
   [10]: #license "License"
   [Cigaras]: http://forums.plex.tv/profile/Cigaras
   [Valdas Vaitiekaitis]: https://plus.google.com/+ValdasVaitiekaitis
