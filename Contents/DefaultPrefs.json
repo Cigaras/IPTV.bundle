@@ -43,8 +43,14 @@
     },
     {
         "id":       "guide_hours",
-        "label":    "Ammount of hours to look forward when fetching program guide (default 8)",
+        "label":    "Amount of hours to look forward when fetching program guide (default 8)",
         "type":     "text",
         "default":  "8"
+    },
+	{
+        "id":       "player_prefs",
+        "label":    "Show preferences in players (in most players plug-ins preferences are inaccessible either way)",
+        "type":     "bool",
+        "default":  "false"
     }
 ]

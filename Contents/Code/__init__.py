@@ -64,7 +64,8 @@ def MainMenu():
                 ))
         if unicode(L('No Category')) in GROUPS.keys():
             oc.add(DirectoryObject(key = Callback(ListItems, group = unicode(L('No Category'))), title = unicode(L('No Category'))))
-        oc.add(PrefsObject(title = unicode(L('Preferences')), thumb = R('icon-prefs.png')))
+        if Prefs['player_prefs']:
+            oc.add(PrefsObject(title = unicode(L('Preferences')), thumb = R('icon-prefs.png')))
         return oc
     else:
         return ListItems(unicode(L('All')))

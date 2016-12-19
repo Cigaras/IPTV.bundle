@@ -26,7 +26,7 @@ Please refer to official Plex support page [How do I manually install a channel]
 If You do not have a Plex installed in the first place, there is an official manual for that too: [Quick-Start & Step by Step Guides](https://support.plex.tv/hc/en-us/articles/200264746-Quick-Start-Step-by-Step-Guides).
 
 ### Playlist structure and examples ###
-Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other filename in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Remote playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recommend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
+Sample playlist is located in *IPTV.bundle\Content\Resources\playlist.m3u*, you can specify other file name in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Remote playlist is also supported, You just need to specify a direct link to it, with http part included. Playlist should be encoded in **[UTF-8](http://en.wikipedia.org/wiki/UTF-8) without [BOM](http://en.wikipedia.org/wiki/Byte_order_mark)**, I recommend using [Notepad++](http://notepad-plus-plus.org/) to check and convert if needed.
 
 Included sample playlist is for testing purposes only, some streams might be dead by now, here is a short list of resources to get started, however please keep in mind, I am not associated with them and not responsible for their content, try it at Your own risk:
   * [FreeTuxTv.net](http://database.freetuxtv.net)
@@ -34,7 +34,7 @@ Included sample playlist is for testing purposes only, some streams might be dea
 
 Playlist supports additional attributes that can be optionally defined in line after #EXTINF:0 and before the name of the media:
   * **tvg-id**, **tvg-name** - used to identify channel in [XMLTV][4];
-  * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (filename must include extension);
+  * **tvg-logo**, **logo** - stream logo or icon, can use remote media (url must include http part) or stored images from *\IPTV.bundle\Content\Resources* folder (file name must include extension);
   * **art** - stream background art, works same as logo;
   * **group-title** - category name (for a channel to be visible in multiple categories [just make a copy of an entry in the playlist with different category name](https://github.com/Cigaras/IPTV.bundle/issues/60));
   * **group-logo** - category logo, only counts what is defined in first line where specific category is first time spotted, that means if You have two channels with same category name, logo and art supplied in first line of those two will be used;
@@ -54,7 +54,7 @@ At the moment this plug-in is [unable to handle multiple playlists][8], but it i
 Read further for more information about [supported protocols and required configurations][6].
 
 ### Program guide ###
-As of version 1.2 and further this plug-in supports [program guide](http://en.wikipedia.org/wiki/Electronic_program_guide) in [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format, there is a sample located in *IPTV.bundle\Content\Resources\guide.xml*, you can specify other filename in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Remote guide is also supported (as long as it matches the [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format), You just need to specify a direct link to it, with http part included. Remote guide might be compressed in [GZIP](https://en.wikipedia.org/wiki/Gzip) format, filename should end with `.xml.gz` then, other compression algorithms and local compressed files are not supported at the moment.
+As of version 1.2 and further this plug-in supports [program guide](http://en.wikipedia.org/wiki/Electronic_program_guide) in [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format, there is a sample located in *IPTV.bundle\Content\Resources\guide.xml*, you can specify other file name in preferences, but You can not specify a path outside resources folder because Plex prohibits it. Remote guide is also supported (as long as it matches the [XMLTV](https://en.wikipedia.org/wiki/XMLTV) format), You just need to specify a direct link to it, with http part included. Remote guide might be compressed in [GZIP](https://en.wikipedia.org/wiki/Gzip) format, file name should end with `.xml.gz` then, other compression algorithms and local compressed files are not supported at the moment.
 
 Plug-in will try to match the program guide with playlist streams by the stream title, but to make things easier **tvg-id** attribute might be used to represent the exact XMLTV channel, for example if XMLTV looks something like this:
 ```
