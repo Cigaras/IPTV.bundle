@@ -32,8 +32,6 @@ def Start():
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
     VideoClipObject.art = R('art-default.jpg')
-    #NextPageObject.title = L('More...')
-    #NextPageObject.thumb = R('icon-next.png')
 
 @handler(PREFIX, TITLE)
 def MainMenu():
@@ -106,7 +104,10 @@ def ListItems(group, page = 1):
             summary = summary
         ))
     if len(items_list) > page * items_per_page:
-        oc.add(NextPageObject(key = Callback(ListItems, group = group, page = page + 1)))
+        oc.add(NextPageObject(
+            key = Callback(ListItems, group = group, page = page + 1),
+            #thumb = R('icon-next.png') # for unknown reason declaration at the Start() does not work, commented out because I do not like my image
+        ))
     if len(oc) < 1:
         return ObjectContainer(header = "Empty", message = "There are no more items available") # this should not ever happen
     else:
