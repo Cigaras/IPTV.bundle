@@ -10,9 +10,10 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 1.2.9
+# Version 1.2.10
 
-from urllib import urlopen
+from urllib import urlopen, addinfourl
+import urllib2
 from io import BytesIO
 from gzip import GzipFile
 import xml.etree.ElementTree
@@ -32,6 +33,8 @@ def Start():
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
     VideoClipObject.art = R('art-default.jpg')
+    #NextPageObject.title = L('More...')
+    #NextPageObject.thumb = R('icon-next.png')
 
 @handler(PREFIX, TITLE)
 def MainMenu():
@@ -104,19 +107,16 @@ def ListItems(group, page = 1):
             summary = summary
         ))
     if len(items_list) > page * items_per_page:
-        oc.add(NextPageObject(
-            key = Callback(ListItems, group = group, page = page + 1),
-            #thumb = R('icon-next.png') # for unknown reason declaration at the Start() does not work, commented out because I do not like my image
-        ))
+        oc.add(NextPageObject(key = Callback(ListItems, group = group, page = page + 1)))
     if len(oc) < 1:
         return ObjectContainer(header = "Empty", message = "There are no more items available") # this should not ever happen
     else:
         return oc
 
 @route(PREFIX + '/createvideoclipobject')
-def CreateVideoClipObject(url, title, thumb, art, summary = None, container = False):
+def CreateVideoClipObject(url, title, thumb, art, summary = None, container = False, includeExtras = 0, includeRelated = 0, includeRelatedCount = 0):
     vco = VideoClipObject(
-        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, container = True),
+        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, container = True, includeExtras = includeExtras, includeRelated = includeRelated, includeRelatedCount = includeRelatedCount),
         rating_key = title,
         url = url,
         title = title,
@@ -287,6 +287,8 @@ def GetVideoURL(url, live = True):
         return RTMPVideoURL(url = url, live = live)
     #elif url.startswith('mms') and Prefs['mms']:
     #    return WindowsMediaVideoURL(url = url)
+    elif url.startswith('http') and url.endswith('.m3u8'):
+        return HTTPLiveStreamURL(url = GetRedirectIfPresent(url))
     else:
         return HTTPLiveStreamURL(url = url)
 
@@ -297,6 +299,45 @@ def GetThumb(thumb, default = 'icon-default.png'):
         return R(thumb)
     else:
         return R(default)
+
+# https://forums.plex.tv/discussion/comment/112759/#Comment_112759
+
+class GetRedirectLocation(urllib2.HTTPRedirectHandler):
+    def http_error_301(self, req, fp, code, msg, headers):
+        return headers.get("Location")
+    http_error_300 = http_error_301
+    http_error_302 = http_error_301
+    http_error_303 = http_error_301
+    http_error_307 = http_error_301
+
+def GetRedirectIfPresent(url):
+    opener = urllib2.build_opener(GetRedirectLocation())
+    request = urllib2.Request(url)
+    redirect = opener.open(request)
+    if isinstance(redirect, str):
+        return redirect
+    return url
+
+# alternative redirect from http://svn.sd-xbmc.org/filedetails.php?repname=sd-xbmc&path=%2Ftrunk%2Fxbmc-addons%2Fsrc%2Fplugin.video.polishtv.live%2Fhosts%2Fpolwizjer.py
+
+#class NoRedirectHandler(urllib2.HTTPRedirectHandler):
+#    def http_error_302(self, req, fp, code, msg, headers):
+#        infourl = addinfourl(fp, headers, req.get_full_url())
+#        infourl.status = code
+#        infourl.code = code
+#        return infourl
+#    http_error_300 = http_error_302
+#    http_error_301 = http_error_302
+#    http_error_303 = http_error_302
+#    http_error_307 = http_error_302
+
+#def GetRedirectIfPresent(url):
+#    opener = urllib2.build_opener(NoRedirectHandler())
+#    urllib2.install_opener(opener)
+#    request = urllib2.Request(url)
+#    response = urllib2.urlopen(request)
+#    redirect = response.info().getheader('Location')
+#    return redirect
 
 try:
     any
