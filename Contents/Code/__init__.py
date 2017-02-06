@@ -144,6 +144,10 @@ def CreateVideoClipObject(url, title, thumb, art, summary = None, container = Fa
         return vco
     return vco
 
+@route(PREFIX + '/validateprefs')
+def ValidatePrefs():
+    return True
+
 def LoadPlaylist():
     if Prefs['playlist'].startswith('http://') or Prefs['playlist'].startswith('https://'):
         playlist = HTTP.Request(Prefs['playlist']).content
@@ -302,6 +306,7 @@ def GetThumb(thumb, default = 'icon-default.png'):
         return R(default)
 
 # https://forums.plex.tv/discussion/comment/112759/#Comment_112759
+# http://www.programcreek.com/python/example/1259/urllib2.HTTPRedirectHandler
 
 class GetRedirectLocation(urllib2.HTTPRedirectHandler):
     def http_error_301(self, req, fp, code, msg, headers):
@@ -314,7 +319,12 @@ class GetRedirectLocation(urllib2.HTTPRedirectHandler):
 def GetRedirectIfPresent(url):
     opener = urllib2.build_opener(GetRedirectLocation())
     request = urllib2.Request(url)
-    redirect = opener.open(request)
+    try:
+        redirect = opener.open(request)
+    except urllib2.HTTPError, ex:
+        Log.Debug('%s' % url)
+        Log.Debug('%s' % str(ex))
+        return url
     if isinstance(redirect, str):
         return redirect
     return url
