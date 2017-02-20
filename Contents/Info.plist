@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>CFBundleIdentifier</key>
-	<string>com.plexapp.plugins.iptv</string>
-	<key>PlexClientPlatforms</key>
-	<string>*</string>
-	<key>PlexFrameworkVersion</key>
-	<string>2</string>
-	<key>PlexFrameworkFlags</key>
-    <array>
-        <!-- Uncomment following line to play RTMP streams on newer clients, but be warned, plug-in will become incompatible with most older clients. Also enable Use Real RTMP in Preferences. -->
-        <!--<string>UseRealRTMP</string>-->
-    </array>
-</dict>
+    <dict>
+        <key>CFBundleIdentifier</key>
+        <string>com.plexapp.plugins.iptv</string>
+        <key>PlexFrameworkVersion</key>
+        <string>2</string>
+        <!--<key>PlexClientPlatforms</key>
+        <string>*</string>-->
+        <key>PlexFrameworkFlags</key>
+        <array>
+            <string>UseRealRTMP</string>
+        </array>
+        <key>PlexPluginTesterFlags</key>
+        <array>
+            <string>NoURLServices</string>
+        </array>
+    </dict>
 </plist>
