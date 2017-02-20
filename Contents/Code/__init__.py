@@ -25,8 +25,7 @@ def Start():
     DirectoryObject.art = R('art-default.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-    if not Dict['groups'] or not Dict['streams']:
-        LoadPlaylist()
+    LoadPlaylist()
     Thread.Create(PlaylistReloader)
     Thread.Create(GuideReloader)
 
