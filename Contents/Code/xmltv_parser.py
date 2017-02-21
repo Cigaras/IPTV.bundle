@@ -1,23 +1,11 @@
-# Copyright © 2013-2017 Valdas Vaitiekaitis
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
 from urllib2 import urlopen
 from io import BytesIO
 from gzip import GzipFile
 
-###########################################################################################################################################
+####################################################################################################
 def LoadGuide():
-    guide = {}
 
+    guide = {}
     xmltv_files = Prefs['xmltv'].split(';')
     for xmltv_file in xmltv_files:
         if xmltv_file:
@@ -57,7 +45,13 @@ def LoadGuide():
                         except:
                             desc = None
                         count = count + 1
-                        item = {'start': start, 'stop': stop, 'title': title, 'desc': desc, 'order': count}
+                        item = {
+                            'start': start,
+                            'stop': stop,
+                            'title': title,
+                            'desc': desc,
+                            'order': count
+                        }
                         guide.setdefault(channel, {})[count] = item
     
     Dict['guide'] = guide
@@ -65,7 +59,7 @@ def LoadGuide():
     Dict['last_guide_load_datetime'] = Datetime.Now()
     return None
 
-###########################################################################################################################################
+####################################################################################################
 def StringToLocalDatetime(arg_string):
 
     arg_string_split = arg_string.split(' ')
@@ -82,27 +76,7 @@ def StringToLocalDatetime(arg_string):
     loc_datetime = utc_datetime + Datetime.Delta(seconds = loc_offset_seconds)
     return loc_datetime
 
-###########################################################################################################################################
-def GetGuide(channel):
-
-    summary = ''
-    guide = Dict['guide']
-    if guide:
-        if channel in guide.keys():
-            try:
-                guide_hours = int(Prefs['guide_hours'])
-            except:
-                guide_hours = 8
-            items_list = guide[channel].values()
-            current_time = Datetime.Now()
-            for item in items_list:
-                if item['start'] <= current_time + Datetime.Delta(hours = guide_hours) and item['stop'] > current_time:
-                    summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
-                    if item['desc']:
-                        summary = summary + ' - ' + item['desc']
-    return summary
-
-###########################################################################################################################################
+####################################################################################################
 def GuideReloader():
 
     while True:

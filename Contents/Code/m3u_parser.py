@@ -1,21 +1,8 @@
-# Copyright © 2013-2017 Valdas Vaitiekaitis
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-###########################################################################################################################################
+####################################################################################################
 def LoadPlaylist():
 
     groups = {}
     streams = {}
-
     m3u_files = Prefs['playlist'].split(';')
     for m3u_file in m3u_files:
         if m3u_file:
@@ -34,7 +21,7 @@ def LoadPlaylist():
                     if line.startswith('#EXTINF'):
                         url = lines[i + 1].strip()
                         if url.startswith('#EXTVLCOPT') and i + 1 < len(lines):
-                            # skip VLC specific run-time options (http://forum.kodi.tv/showthread.php?tid=248849)
+                            # skip VLC specific run-time options
                             i = i + 1
                             url = lines[i + 1].strip()
                         if url != '' and not url.startswith('#'):
@@ -86,7 +73,7 @@ def LoadPlaylist():
 
     return None
 
-###########################################################################################################################################
+####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
 
     x = text.find(attribute)
@@ -99,7 +86,7 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default =
     else:
         return default
 
-###########################################################################################################################################
+####################################################################################################
 def PlaylistReloader():
 
     while True:
@@ -113,7 +100,7 @@ def PlaylistReloader():
                     LoadPlaylist()
         Thread.Sleep(60)
 
-###########################################################################################################################################
+####################################################################################################
 try:
     any
 except NameError:
