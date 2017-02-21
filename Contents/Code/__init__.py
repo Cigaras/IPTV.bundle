@@ -87,14 +87,10 @@ def ListItems(group, page = 1):
     items_list_range = items_list[page * items_per_page - items_per_page : page * items_per_page]
 
     # Custom User-Agent
-    try:
-        user_agent = Prefs['user_agent']
-    except:
-        user_agent = None
-    if user_agent:
-        oc = ObjectContainer(title1 = group, user_agent = user_agent)
-    else:
-        oc = ObjectContainer(title1 = group)
+    if Prefs['user_agent']:
+        HTTP.SetHeader('User-Agent', Prefs['user_agent'])
+
+    oc = ObjectContainer(title1 = group)
 
     for item in items_list_range:
         oc.add(
@@ -203,3 +199,7 @@ def GetSummary(id, name, title, default = ''):
         return summary
     else:
         return default
+
+####################################################################################################
+def ValidatePrefs():
+    pass
