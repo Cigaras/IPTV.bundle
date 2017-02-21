@@ -14,6 +14,7 @@ from urllib2 import urlopen
 from io import BytesIO
 from gzip import GzipFile
 
+###########################################################################################################################################
 def LoadGuide():
     guide = {}
 
@@ -64,7 +65,9 @@ def LoadGuide():
     Dict['last_guide_load_datetime'] = Datetime.Now()
     return None
 
+###########################################################################################################################################
 def StringToLocalDatetime(arg_string):
+
     arg_string_split = arg_string.split(' ')
     arg_datetime = Datetime.ParseDate(arg_string_split[0])
     if len(arg_string_split) > 1:
@@ -79,7 +82,9 @@ def StringToLocalDatetime(arg_string):
     loc_datetime = utc_datetime + Datetime.Delta(seconds = loc_offset_seconds)
     return loc_datetime
 
+###########################################################################################################################################
 def GetGuide(channel):
+
     summary = ''
     guide = Dict['guide']
     if guide:
@@ -97,7 +102,9 @@ def GetGuide(channel):
                         summary = summary + ' - ' + item['desc']
     return summary
 
+###########################################################################################################################################
 def GuideReloader():
+
     while True:
         if Prefs['xmltv']:
             if Prefs['xmltv'] != Dict['last_guide_load_prefs'] or not Dict['last_guide_load_datetime']:

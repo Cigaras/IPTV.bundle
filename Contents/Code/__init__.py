@@ -18,7 +18,9 @@ from xmltv_parser import GuideReloader, GetGuide
 TITLE = 'IPTV'
 PREFIX = '/video/iptv'
 
+###########################################################################################################################################
 def Start():
+
     ObjectContainer.title1 = TITLE
     ObjectContainer.art = R('art-default.jpg')
     DirectoryObject.thumb = R('icon-folder.png')
@@ -26,19 +28,14 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-    try:
-        user_agent = Prefs['user_agent']
-    except:
-        user_agent = None
-    if user_agent:
-        HTTP.Headers['User-Agent'] = Prefs['user_agent']
-
     LoadPlaylist()
     Thread.Create(PlaylistReloader)
     Thread.Create(GuideReloader)
 
+###########################################################################################################################################
 @handler(PREFIX, TITLE)
 def MainMenu():
+
     groups = Dict['groups']
     groups_list = groups.values()
     use_groups = False
@@ -46,6 +43,7 @@ def MainMenu():
         if group['title'] not in [unicode(L('All')), unicode(L('No Category'))]:
             use_groups = True
             break
+
     if use_groups:
         if Prefs['sort_groups']:
             groups_list.sort(key = lambda dict: dict['title'].lower())
@@ -69,11 +67,22 @@ def MainMenu():
     else:
         return ListItems(unicode(L('All')))
 
+###########################################################################################################################################
 @route(PREFIX + '/groups/{group}', page = int)
 def ListItems(group, page = 1):
-    oc = ObjectContainer(title1 = group)
+
+    try:
+        user_agent = Prefs['user_agent']
+    except:
+        user_agent = None
+    if user_agent:
+        oc = ObjectContainer(title1 = group, user_agent = user_agent)
+    else:
+        oc = ObjectContainer(title1 = group)
+
     streams = Dict['streams']
     items_list = streams[group].values()
+
     try:
         items_per_page = int(Prefs['items_per_page'])
     except:
@@ -82,7 +91,9 @@ def ListItems(group, page = 1):
         items_list.sort(key = lambda dict: dict['title'].lower())
     else:
         items_list.sort(key = lambda dict: dict['order'])
+
     for item in items_list[page * items_per_page - items_per_page : page * items_per_page]:
+
         # Get the program guide for the channel
         if item['id'] != '':
             summary = GetGuide(channel = item['id'])
@@ -95,30 +106,35 @@ def ListItems(group, page = 1):
         # Some clients fail if summary is left empty
         if not summary:
             summary = item['title']
-        # Simply adding VideoClipObject usualy does not work because key requires a callback (PlexPlug-inFramework.pdf page 54)
-        oc.add(CreateVideoClipObject(
-            url = item['url'],
-            title = item['title'],
-            thumb = item['thumb'],
-            art = item['art'],
-            summary = summary
-        ))
+
+        oc.add(
+            CreateVideoClipObject(
+                url = item['url'],
+                title = item['title'],
+                thumb = item['thumb'],
+                art = item['art'],
+                summary = summary
+            )
+        )
+
     if len(items_list) > page * items_per_page:
         oc.add(NextPageObject(
             key = Callback(ListItems, group = group, page = page + 1),
             thumb = R('icon-next.png')
         ))
+
     if len(oc) < 1:
         return ObjectContainer(header = "Empty", message = "There are no more items available") # this should not ever happen
     else:
         return oc
 
+###########################################################################################################################################
 @route(PREFIX + '/createvideoclipobject')
-def CreateVideoClipObject(url, title, thumb, art, summary = None, container = False, includeExtras = 0, includeRelated = 0, includeRelatedCount = 0, includeReviews = 0):
+def CreateVideoClipObject(url, title, thumb, art, summary = None, include_container = False, **kwargs):
+
     vco = VideoClipObject(
-        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, container = True, includeExtras = includeExtras, includeRelated = includeRelated, includeRelatedCount = includeRelatedCount, includeReviews = includeReviews),
+        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, include_container = True),
         rating_key = title,
-        #url = url, # url attribute invokes URL services check which are not used here
         title = title,
         thumb = GetThumb(thumb, default = 'icon-tv.png'),
         art = GetThumb(art, default = 'art-default.jpg'),
@@ -127,36 +143,35 @@ def CreateVideoClipObject(url, title, thumb, art, summary = None, container = Fa
             MediaObject(
                 parts = [
                     PartObject(
-                        # WebKit players and functions WebVideoURL, RTMPVideoURL and WindowsMediaVideoURL are no longer supported by Plex,
-                        # HTTPLiveStreamURL sets wrong attributes for non HTTP streams, and redirects are handled by Plex easily when supplying an absolute URL
-                        key = url,
-                        # iOS client shows permanent loading screen in the foreground if no duration is provided (https://forums.plex.tv/discussion/comment/1293745/#Comment_1293745),
-                        # smarter clients understand that it is a live stream and ignore this attribute
-                        duration = 86400000 # 24 hours
+                        key = Callback(PlayVideo, url = url)
                     )
                 ],
-                optimized_for_streaming = Prefs['optimized_for_streaming'] # https://forums.plex.tv/discussion/comment/828497/#Comment_828497
+                optimized_for_streaming = Prefs['optimized_for_streaming']
             )
         ]
     )
-    if container:
+
+    if include_container:
         return ObjectContainer(objects = [vco])
     else:
         return vco
-    return vco
 
-@route(PREFIX + '/validateprefs')
-def ValidatePrefs():
-    return True
+###########################################################################################################################################
+@route(PREFIX + '/playvideo')
+@indirect
+def PlayVideo(url):
 
+    # WebKit players and functions WebVideoURL, RTMPVideoURL and WindowsMediaVideoURL are no longer supported by Plex,
+    # HTTPLiveStreamURL sets wrong attributes for non HTTP streams,
+    # and redirects are handled by Plex easily when supplying an absolute URL
+	return IndirectResponse(VideoClipObject, key = url)
+
+###########################################################################################################################################
 def GetThumb(thumb, default = 'icon-tv.png'):
+
     if thumb:
         if thumb.startswith('http'):
-            try:
-                HTTP.Request(url = thumb, immediate = True)
-                return thumb
-            except:
-                pass
+            return Resource.ContentsOfURLWithFallback(thumb, fallback = R(default))
         else:
             r = R(thumb)
             if r:

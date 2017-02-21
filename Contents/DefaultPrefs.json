@@ -54,5 +54,11 @@
         "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Streaming options are unavailable",
         "type":     "bool",
         "default":  "true"
+    },
+    {
+        "id":       "user_agent",
+        "label":    "User-Agent header string if needed",
+        "type":     "text",
+        "default":  ""
     }
 ]

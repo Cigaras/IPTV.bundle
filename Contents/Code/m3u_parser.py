@@ -10,7 +10,9 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
+###########################################################################################################################################
 def LoadPlaylist():
+
     groups = {}
     streams = {}
 
@@ -44,7 +46,15 @@ def LoadPlaylist():
                                 thumb = GetAttribute(line, 'logo')
                             art = GetAttribute(line, 'art')
                             streams_count = streams_count + 1
-                            stream = {'url': url, 'title': title, 'id': id, 'name': name, 'thumb': thumb, 'art': art, 'order': streams_count}
+                            stream = {
+                                'url': url,
+                                'title': title,
+                                'id': id,
+                                'name': name,
+                                'thumb': thumb,
+                                'art': art,
+                                'order': streams_count
+                            }
                             if not streams:
                                 streams.setdefault(unicode(L('All')), {})[streams_count] = stream
                             if streams:
@@ -55,7 +65,12 @@ def LoadPlaylist():
                                     group_thumb = GetAttribute(line, 'group-logo')
                                     group_art = GetAttribute(line, 'group-art')
                                     groups_count = groups_count + 1
-                                    group = {'title': group_title, 'thumb': group_thumb, 'art': group_art, 'order': groups_count}
+                                    group = {
+                                        'title': group_title,
+                                        'thumb': group_thumb,
+                                        'art': group_art,
+                                        'order': groups_count
+                                    }
                                     groups[group_title] = group
                                 if group_title in streams.keys():
                                     if not any(item['url'] == stream['url'] for item in streams[group_title].values()):
@@ -68,9 +83,12 @@ def LoadPlaylist():
     Dict['streams'] = streams
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_datetime'] = Datetime.Now()
+
     return None
 
+###########################################################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
+
     x = text.find(attribute)
     if x > -1:
         y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
@@ -81,7 +99,9 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default =
     else:
         return default
 
+###########################################################################################################################################
 def PlaylistReloader():
+
     while True:
         if Prefs['playlist']:
             if Prefs['playlist'] != Dict['last_playlist_load_prefs'] or not Dict['last_playlist_load_datetime']:
@@ -93,6 +113,7 @@ def PlaylistReloader():
                     LoadPlaylist()
         Thread.Sleep(60)
 
+###########################################################################################################################################
 try:
     any
 except NameError:
