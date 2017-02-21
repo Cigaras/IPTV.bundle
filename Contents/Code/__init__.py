@@ -10,7 +10,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0
+# Version 2.0.0 beta
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader, GetGuide
@@ -23,7 +23,15 @@ def Start():
     ObjectContainer.art = R('art-default.jpg')
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
+    VideoClipObject.thumb = R('icon-tv.jpg')
     VideoClipObject.art = R('art-default.jpg')
+
+    try:
+        user_agent = Prefs['user_agent']
+    except:
+        user_agent = None
+    if user_agent:
+        HTTP.Headers['User-Agent'] = Prefs['user_agent']
 
     LoadPlaylist()
     Thread.Create(PlaylistReloader)
@@ -142,9 +150,15 @@ def ValidatePrefs():
     return True
 
 def GetThumb(thumb, default = 'icon-tv.png'):
-    if thumb and thumb.startswith('http'):
-        return thumb
-    elif thumb and thumb != '':
-        return R(thumb)
-    else:
-        return R(default)
+    if thumb:
+        if thumb.startswith('http'):
+            try:
+                HTTP.Request(url = thumb, immediate = True)
+                return thumb
+            except:
+                pass
+        else:
+            r = R(thumb)
+            if r:
+                return r
+    return R(default)
