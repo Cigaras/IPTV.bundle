@@ -1,4 +1,4 @@
-# Plex plug-in that plays live streams (like IPTV) from a M3U playlist
+# Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
 
 # Copyright © 2013-2017 Valdas Vaitiekaitis
 
@@ -102,10 +102,6 @@ def ListItems(group, page = 1):
         items_per_page = 40
     items_list_range = items_list[page * items_per_page - items_per_page : page * items_per_page]
 
-    # Custom User-Agent
-    if Prefs['user_agent']:
-        HTTP.SetHeader('User-Agent', Prefs['user_agent'])
-
     oc = ObjectContainer(title1 = group)
 
     for item in items_list_range:
@@ -115,7 +111,7 @@ def ListItems(group, page = 1):
                 title = item['title'],
                 thumb = GetImage(item['thumb'], 'icon-tv.png'),
                 art = GetImage(item['art'], 'art-default.jpg'),
-                summary = GetSummary(item['id'], item['name'], item['title'])
+                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available")))
             )
         )
 
@@ -165,10 +161,14 @@ def CreateVideoClipObject(url, title, thumb, art, summary, include_container = F
 @indirect
 def PlayVideo(url):
 
+    # Custom User-Agent
+    if Prefs['user_agent']:
+        HTTP.SetHeader('User-Agent', Prefs['user_agent'])
+
     # WebKit players and functions WebVideoURL, RTMPVideoURL and WindowsMediaVideoURL are no longer
     # supported by Plex, HTTPLiveStreamURL sets wrong attributes for non HTTP streams, and
     # redirects are handled by Plex easily when supplying an absolute URL
-	return IndirectResponse(VideoClipObject, key = url)
+    return IndirectResponse(VideoClipObject, key = url)
 
 ####################################################################################################
 def GetImage(file_name, default):
@@ -189,24 +189,34 @@ def GetSummary(id, name, title, default = ''):
     guide = Dict['guide']
 
     if guide:
-        if id and id in guide.keys():
-            key = id
-        elif name and name in guide.keys():
-            key = name
-        elif title in guide.keys():
-            key = title
-        else:
-            key = None
+        key = None
+        if id:
+            if id in guide.keys():
+                key = id
+        if not key:
+            channels = Dict['channels']
+            if channels:
+                if name:
+                    if name in channels.keys():
+                        id = channels[name]
+                        if id in guide.keys():
+                            key = id
+                if not key:
+                    if title:
+                        if title in channels.keys():
+                            id = channels[title]
+                            if id in guide.keys():
+                                key = id
         if key:
             items_list = guide[key].values()
             if items_list:
-                current_time = Datetime.Now()
+                current_datetime = Datetime.Now()
                 try:
                     guide_hours = int(Prefs['guide_hours'])
                 except:
                     guide_hours = 8
                 for item in items_list:
-                    if item['start'] <= current_time + Datetime.Delta(hours = guide_hours) and item['stop'] > current_time:
+                    if item['start'] <= current_datetime + Datetime.Delta(hours = guide_hours) and item['stop'] > current_datetime:
                         summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
                         if item['desc']:
                             summary = summary + ' - ' + item['desc']

@@ -1,4 +1,4 @@
-# XMLTV files parser for Plex plug-in that plays live streams (like IPTV) from a M3U playlist
+# XMLTV files parser for Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
 
 # Copyright © 2013-2017 Valdas Vaitiekaitis
 
@@ -16,14 +16,17 @@ from urllib2 import urlopen
 from io import BytesIO
 from gzip import GzipFile
 
+import xml.etree.ElementTree # Plex XML API fails with big files
+
 ####################################################################################################
 def LoadGuide():
 
+    channels = {}
     guide = {}
     xmltv_files = Prefs['xmltv'].split(';')
+
     for xmltv_file in xmltv_files:
         if xmltv_file:
-
             if xmltv_file.startswith('http://') or xmltv_file.startswith('https://'):
                 # Plex can't handle compressed files, using standart Python methods instead
                 if xmltv_file.endswith('.gz') or xmltv_file.endswith('.gz?raw=1'):
@@ -42,32 +45,43 @@ def LoadGuide():
 
             if xmltv:
                 try:
-                    root = XML.ElementFromString(xmltv)
+                    #root = XML.ElementFromString(xmltv, encoding = None)
+                    root = xml.etree.ElementTree.fromstring(xmltv)
                 except:
                     Log.Error('Provided file %s is not a valid XML file' % xmltv_file)
                     root = None
                 if root:
+                    for channel in root.findall('./channel'):
+                        id = channel.get('id')
+                        if id:
+                            for name in channel.findall('display-name'):
+                                key = unicode(name.text)
+                                if key:
+                                    channels[key] = id
                     count = 0
+                    current_datetime = Datetime.Now()
                     for programme in root.findall('./programme'):
-                        channel = programme.get('channel')
+                        channel = unicode(programme.get('channel'))
                         start = StringToLocalDatetime(programme.get('start'))
                         stop = StringToLocalDatetime(programme.get('stop'))
-                        title = programme.find('title').text
-                        desc_node = programme.find('desc')
-                        try:
-                            desc = programme.find('desc').text
-                        except:
-                            desc = None
-                        count = count + 1
-                        item = {
-                            'start': start,
-                            'stop': stop,
-                            'title': title,
-                            'desc': desc,
-                            'order': count
-                        }
-                        guide.setdefault(channel, {})[count] = item
-    
+                        if stop >= current_datetime:
+                            title = programme.find('title').text
+                            desc_node = programme.find('desc')
+                            try:
+                                desc = unicode(programme.find('desc').text)
+                            except:
+                                desc = None
+                            count = count + 1
+                            item = {
+                                'start': start,
+                                'stop': stop,
+                                'title': title,
+                                'desc': desc,
+                                'order': count
+                            }
+                            guide.setdefault(channel, {})[count] = item
+
+    Dict['channels'] = channels
     Dict['guide'] = guide
     Dict['last_guide_load_prefs'] = Prefs['xmltv']
     Dict['last_guide_load_datetime'] = Datetime.Now()
@@ -102,4 +116,4 @@ def GuideReloader():
                 next_load_datetime = Datetime.ParseDate(str(current_datetime.date()) + ' ' + Prefs['xmltv_reload_time'] + ':00')
                 if current_datetime > next_load_datetime and next_load_datetime > Dict['last_guide_load_datetime']:
                     LoadGuide()
-        Thread.Sleep(60)
+        Thread.Sleep(10)

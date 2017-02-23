@@ -1,4 +1,4 @@
-# M3U files parser for Plex plug-in that plays live streams (like IPTV) from a M3U playlist
+# M3U files parser for Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
 
 # Copyright © 2013-2017 Valdas Vaitiekaitis
 
@@ -39,7 +39,7 @@ def LoadPlaylist():
                             i = i + 1
                             url = lines[i + 1].strip()
                         if url != '' and not url.startswith('#'):
-                            title = line[line.rfind(',') + 1:len(line)].strip()
+                            title = unicode(line[line.rfind(',') + 1:len(line)].strip())
                             id = GetAttribute(line, 'tvg-id')
                             name = GetAttribute(line, 'tvg-name')
                             thumb = GetAttribute(line, 'tvg-logo')
@@ -98,7 +98,7 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default =
             z = len(text)
         return unicode(text[y:z].strip())
     else:
-        return default
+        return unicode(default)
 
 ####################################################################################################
 def PlaylistReloader():
@@ -112,7 +112,7 @@ def PlaylistReloader():
                 next_load_datetime = Datetime.ParseDate(str(current_datetime.date()) + ' ' + Prefs['m3u_reload_time'] + ':00')
                 if current_datetime > next_load_datetime and next_load_datetime > Dict['last_playlist_load_datetime']:
                     LoadPlaylist()
-        Thread.Sleep(60)
+        Thread.Sleep(10)
 
 ####################################################################################################
 try:
