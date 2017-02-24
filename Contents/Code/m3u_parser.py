@@ -1,76 +1,3 @@
-# M3U files parser for Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
-
-# Copyright © 2013-2017 Valdas Vaitiekaitis
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-import os
-import urllib2
-
-####################################################################################################
-def decodeURIComponent(uri):
-
-    while True:
-        dec = urllib2.unquote(uri)
-        if dec == uri:
-            break
-        uri = dec
-    return uri.decode('utf8')
-
-####################################################################################################
-def LoadPlaylist():
-
-    groups = {}
-    streams = {}
-    m3u_files = Prefs['playlist'].split(';')
-    for m3u_file in m3u_files:
-        LoadPlaylistOnce(m3u_file, groups, streams)
-    Dict['groups'] = groups
-    Dict['streams'] = streams
-    Dict['last_playlist_load_prefs'] = Prefs['playlist']
-    Dict['last_playlist_load_datetime'] = Datetime.Now()
-    return None
-
-####################################################################################################
-def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}, m3u_name = None):
-
-    if m3u_file:
-        if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
-            m3u_base = os.path.basename(decodeURIComponent(m3u_file))
-            m3u_name = m3u_name if m3u_name else os.path.splitext(m3u_base)[0]
-            playlist = HTTP.Request(m3u_file).content
-        else:
-            playlist = Resource.Load(m3u_file, binary = True)
-
-        if playlist:
-            lines = playlist.splitlines()
-            groups_count = 0
-            streams_count = 0
-            for i in range(len(lines)):
-                line = lines[i].strip()
-                if line.startswith('#EXTINF'):
-                    url = lines[i + 1].strip()
-                    if url.startswith('#EXTVLCOPT') and i + 1 < len(lines):
-                        # skip VLC specific run-time options
-                        i = i + 1
-                        url = lines[i + 1].strip()
-                    if url != '' and not url.startswith('#'):
-                        title = unicode(line[line.rfind(',') + 1:len(line)].strip())
-                        id = GetAttribute(line, 'tvg-id')
-                        name = GetAttribute(line, 'tvg-name')
-                        thumb = GetAttribute(line, 'tvg-logo')
-                        if thumb == '':
-                            thumb = GetAttribute(line, 'logo')
-                        art = GetAttribute(line, 'art')
-                        audio_codec = GetAttribute(line, 'audio_codec')
                         video_codec = GetAttribute(line, 'video_codec')
                         container = GetAttribute(line, 'container')
                         protocol = GetAttribute(line, 'protocol')
@@ -99,12 +26,11 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}, m3u_name = None):
                             if group_title not in groups.keys():
                                 group_thumb = GetAttribute(line, 'group-logo')
                                 group_art = GetAttribute(line, 'group-art')
-                                groups_count = groups_count + 1
                                 group = {
                                     'title': group_title,
                                     'thumb': group_thumb,
                                     'art': group_art,
-                                    'order': groups_count
+                                    'order': len(groups) + 1
                                 }
                                 groups[group_title] = group
                             if group_title in streams.keys():
@@ -122,12 +48,23 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}, m3u_name = None):
     return None
 
 ####################################################################################################
+def DecodeURIComponent(uri):
+
+    while True:
+        dec = urllib2.unquote(uri)
+        if dec == uri:
+            break
+        uri = dec
+    return uri.decode('utf8')
+>>>>>>> beta
+
+####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
 
     x = text.find(attribute)
     if x > -1:
         y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
-        z = text.find(delimiter2, y)
+        z = text.find(delimiter2, y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)
         return unicode(text[y:z].strip())
@@ -139,7 +76,7 @@ def PlaylistReloader():
 
     while True:
         if Prefs['playlist']:
-            if Prefs['playlist'] != Dict['last_playlist_load_prefs'] or not Dict['last_playlist_load_datetime']:
+            if Dict['last_playlist_load_prefs'] != Prefs['playlist'] or Dict['last_playlist_load_filename_groups'] != Prefs['filename_groups'] or not Dict['last_playlist_load_datetime']:
                 LoadPlaylist()
             elif Prefs['m3u_reload_time'] != 'never':
                 current_datetime = Datetime.Now()
