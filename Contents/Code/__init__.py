@@ -107,34 +107,18 @@ def ListItems(group, page = 1):
     oc = ObjectContainer(title1 = group)
 
     for item in items_list_range:
-
-        ls_url = item['url']
-        ls_title = item['title']
-        lo_thumb = GetImage(item['thumb'], 'icon-tv.png')
-        lo_art = GetImage(item['art'], 'art-default.jpg')
-        ls_summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available")))
-        ls_protocol = item['protocol'] if item['protocol'] else None
-        ls_audio_codec = item['audio_codec'] if item['audio_codec'] else None
-        ls_video_codec = item['video_codec'] if item['video_codec'] else None
-        ls_container = item['container'] if item['container'] else None
-        #if item['optimized_for_streaming']:
-        #    lb_optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1']
-        #else:
-        #    lb_optimized_for_streaming = Prefs['optimized_for_streaming']
-        lb_optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming']
-
         oc.add(
             CreateVideoClipObject(
-                as_url = item['url'],
-                as_title = item['title'],
-                ao_thumb = GetImage(item['thumb'], 'icon-tv.png'),
-                ao_art = GetImage(item['art'], 'art-default.jpg'),
-                as_summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available"))),
-                as_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
-                as_video_codec = item['video_codec'] if item['video_codec'] else None,
-                as_container = item['container'] if item['container'] else None,
-                as_protocol = item['protocol'] if item['protocol'] else None,
-                ab_optimized_for_streaming = lb_optimized_for_streaming,
+                url = item['url'],
+                title = item['title'],
+                thumb = GetImage(item['thumb'], 'icon-tv.png'),
+                art = GetImage(item['art'], 'art-default.jpg'),
+                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available"))),
+                c_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
+                c_video_codec = item['video_codec'] if item['video_codec'] else None,
+                c_container = item['container'] if item['container'] else None,
+                c_protocol = item['protocol'] if item['protocol'] else None,
+                optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming'],
                 include_container = False
             )
         )
@@ -154,53 +138,36 @@ def ListItems(group, page = 1):
 
 ####################################################################################################
 @route(PREFIX + '/createvideoclipobject', include_container = bool)
-#def CreateVideoClipObject(url, title, thumb, art, summary, protocol, audio_codec, video_codec, optimized_for_streaming, include_container = False, **kwargs):
-def CreateVideoClipObject(
-    as_url,
-    as_title,
-    ao_thumb,
-    ao_art,
-    as_summary,
-    as_audio_codec = None,
-    as_video_codec = None,
-    as_container = None,
-    as_protocol = None,
-    ab_optimized_for_streaming = True,
-    include_container = False,
-    **kwargs):
+def CreateVideoClipObject(url, title, thumb, art, summary,
+                          c_audio_codec = None, c_video_codec = None,
+                          c_container = None, c_protocol = None,
+                          optimized_for_streaming = True,
+                          include_container = False, *args, **kwargs):
 
     vco = VideoClipObject(
-        #key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, optimized_for_streaming = optimized_for_streaming, include_container = True),
-        key = Callback(
-            CreateVideoClipObject,
-            as_url = as_url,
-            as_title = as_title,
-            ao_thumb = ao_thumb,
-            ao_art = ao_art,
-            as_summary = as_summary,
-            as_audio_codec = as_audio_codec,
-            as_video_codec = as_video_codec,
-            as_container = as_container,
-            as_protocol = as_protocol,
-            ab_optimized_for_streaming = ab_optimized_for_streaming,
-            include_container = True),
-        rating_key = as_url,
-        title = as_title,
-        thumb = ao_thumb,
-        art = ao_art,
-        summary = as_summary,
+        key = Callback(CreateVideoClipObject,
+                       url = url, title = title, thumb = thumb, art = art, summary = summary,
+                       c_audio_codec = c_audio_codec, c_video_codec = c_video_codec,
+                       c_container = c_container, c_protocol = c_protocol,
+                       optimized_for_streaming = optimized_for_streaming,
+                       include_container = True),
+        rating_key = url,
+        title = title,
+        thumb = thumb,
+        art = art,
+        summary = summary,
         items = [
             MediaObject(
                 parts = [
                     PartObject(
-                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = as_url))
+                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url))
                     )
                 ],
-                audio_codec = as_audio_codec,
-                video_codec = as_video_codec,
-                container = as_container,
-                protocol = as_protocol,
-                optimized_for_streaming = ab_optimized_for_streaming
+                audio_codec = c_audio_codec,
+                video_codec = c_video_codec,
+                container = c_container,
+                protocol = c_protocol,
+                optimized_for_streaming = optimized_for_streaming
             )
         ]
     )
