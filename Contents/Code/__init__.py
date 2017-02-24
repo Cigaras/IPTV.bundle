@@ -88,7 +88,7 @@ def MainMenu():
 def ListItems(group, page = 1):
 
     streams = Dict['streams']
-    items_list = streams[group].values()
+    items_list = streams.get(group, dict()).values()
 
     # Sort
     if Prefs['sort_lists']:
