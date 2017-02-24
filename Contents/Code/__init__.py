@@ -14,6 +14,7 @@
 
 # Version 2.0.0 beta
 
+import re
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
 
@@ -91,7 +92,8 @@ def ListItems(group, page = 1):
 
     # Sort
     if Prefs['sort_lists']:
-        items_list.sort(key = lambda dict: dict['title'].lower())
+        # This code supports natural sort. (http://stackoverflow.com/a/16090640)
+        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
     else:
         items_list.sort(key = lambda dict: dict['order'])
 
