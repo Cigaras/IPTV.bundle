@@ -12,10 +12,9 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-from urllib2 import urlopen
-from io import BytesIO
-from gzip import GzipFile
-
+import urllib2
+import io
+import gzip
 import xml.etree.ElementTree # Plex XML API fails with big files
 
 ####################################################################################################
@@ -30,9 +29,9 @@ def LoadGuide():
             if xmltv_file.startswith('http://') or xmltv_file.startswith('https://'):
                 # Plex can't handle compressed files, using standart Python methods instead
                 if xmltv_file.endswith('.gz') or xmltv_file.endswith('.gz?raw=1'):
-                    f = BytesIO(urlopen(xmltv_file).read())
+                    f = io.BytesIO(urllib2.urlopen(xmltv_file).read())
                     try:
-                        g = GzipFile(fileobj = f)
+                        g = gzip.GzipFile(fileobj = f)
                         xmltv = g.read()
                     except:
                         Log.Error('Provided file %s is not a valid GZIP file' % xmltv_file)
@@ -83,9 +82,8 @@ def LoadGuide():
 
     Dict['channels'] = channels
     Dict['guide'] = guide
-    Dict['last_guide_load_prefs'] = Prefs['xmltv']
     Dict['last_guide_load_datetime'] = Datetime.Now()
-    return None
+    Dict['last_guide_load_prefs'] = Prefs['xmltv']
 
 ####################################################################################################
 def StringToLocalDatetime(arg_string):

@@ -16,7 +16,7 @@
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
-from re import split
+import re
 
 NAME = 'IPTV'
 PREFIX = '/video/iptv'
@@ -31,7 +31,9 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-    # LoadPlaylist()
+    if Prefs['m3u_reload_time'] == 'never' or not Dict['groups']:
+        LoadPlaylist()
+
     Thread.Create(PlaylistReloader)
     Thread.Create(GuideReloader)
 
@@ -39,9 +41,6 @@ def Start():
 @handler(PREFIX, NAME)
 def MainMenu():
 
-    if not Dict['groups']:
-        LoadPlaylist()
-        
     groups = Dict['groups']
     groups_list = groups.values()
 
@@ -53,7 +52,8 @@ def MainMenu():
 
     if use_groups:
         if Prefs['sort_groups']:
-            groups_list.sort(key = lambda dict: dict['title'].lower())
+            # Natural sort (http://stackoverflow.com/a/16090640)
+            groups_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
         else:
             groups_list.sort(key = lambda dict: dict['order'])
         oc = ObjectContainer()
@@ -96,7 +96,7 @@ def ListItems(group, page = 1):
     # Sort
     if Prefs['sort_lists']:
         # Natural sort (http://stackoverflow.com/a/16090640)
-        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in split('(\d+)', dict['title'].lower())])
+        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
     else:
         items_list.sort(key = lambda dict: dict['order'])
 
