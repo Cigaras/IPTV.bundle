@@ -20,7 +20,6 @@ def LoadPlaylist():
 
     groups = {}
     streams = {}
-
     m3u_files = Prefs['playlist'].split(';')
 
     for m3u_file in m3u_files:
@@ -31,8 +30,6 @@ def LoadPlaylist():
     Dict['last_playlist_load_datetime'] = Datetime.Now()
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
-
-    return None
 
 ####################################################################################################
 def LoadM3UFile(m3u_file, groups = {}, streams = {}):
@@ -115,7 +112,6 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}):
                     url = line[len('#EXTIMPORT') + 1:len(line)].strip()
                     if url:
                         LoadM3UFile(url, groups, streams)
-    return None
 
 ####################################################################################################
 def DecodeURIComponent(uri):
@@ -133,7 +129,7 @@ def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default =
     x = text.find(attribute)
     if x > -1:
         y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
-        z = text.find(delimiter2, y)
+        z = text.find(delimiter2, y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)
         return unicode(text[y:z].strip())
