@@ -8,6 +8,10 @@
         <string>2</string>
         <!--<key>PlexClientPlatforms</key>
         <string>*</string>-->
+        <key>PlexPluginCodePolicy</key>
+        <string>Elevated</string>
+        <key>PlexPluginMode</key>
+        <string>Daemon</string>
         <key>PlexFrameworkFlags</key>
         <array>
             <string>UseRealRTMP</string>

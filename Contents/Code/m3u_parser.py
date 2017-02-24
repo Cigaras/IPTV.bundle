@@ -15,12 +15,17 @@
 import os
 import urllib2
 
+from os import walk
+
 ####################################################################################################
 def LoadPlaylist():
 
     groups = {}
     streams = {}
     m3u_files = Prefs['playlist'].split(';')
+    
+    for (dirpath, dirnames, filenames) in walk(Core.storage.join_path(Core.bundle_path, 'Contents', 'Resources', 'playlists')):
+        m3u_files.extend([Core.storage.join_path('playlists', filename) for filename in filenames if filename[:1] != '.'])
 
     for m3u_file in m3u_files:
         LoadM3UFile(m3u_file, groups, streams)
