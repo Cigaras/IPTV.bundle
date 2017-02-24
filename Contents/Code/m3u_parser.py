@@ -40,14 +40,12 @@ def LoadPlaylist():
     return None
 
 ####################################################################################################
-def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
-
-    m3u_name = None
+def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}, m3u_name = None):
 
     if m3u_file:
         if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             m3u_base = os.path.basename(decodeURIComponent(m3u_file))
-            m3u_name = os.path.splitext(m3u_base)[0]
+            m3u_name = m3u_name if m3u_name else os.path.splitext(m3u_base)[0]
             playlist = HTTP.Request(m3u_file).content
         else:
             playlist = Resource.Load(m3u_file, binary = True)
@@ -116,9 +114,12 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                                 streams.setdefault(group_title, {})[streams_count] = stream
                         i = i + 1 # skip the url line for the next cycle
                 elif line.startswith('#EXTIMPORT'):
-                    url = line[len('#EXTIMPORT') + 1:len(line)].strip()
+                    url = lines[i + 1].strip()
                     if url != '' and not url.startswith('#'):
-                        LoadPlaylistOnce(url, groups, streams)
+                        title = unicode(line[line.rfind(',') + 1:len(line)].strip())
+                        title = DEFAULT_GROUP if line.rfind(',') == -1 else title
+                        LoadPlaylistOnce(url, groups, streams, title)
+                        i = i + 1 # skip the url line for the next cycle
     return None
 
 ####################################################################################################
