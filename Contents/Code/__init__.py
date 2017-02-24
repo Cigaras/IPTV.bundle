@@ -14,9 +14,9 @@
 
 # Version 2.0.0 beta
 
-import re
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
+from re import split
 
 NAME = 'IPTV'
 PREFIX = '/video/iptv'
@@ -95,8 +95,8 @@ def ListItems(group, page = 1):
 
     # Sort
     if Prefs['sort_lists']:
-        # This code supports natural sort. (http://stackoverflow.com/a/16090640)
-        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
+        # Natural sort (http://stackoverflow.com/a/16090640)
+        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in split('(\d+)', dict['title'].lower())])
     else:
         items_list.sort(key = lambda dict: dict['order'])
 
@@ -116,7 +116,13 @@ def ListItems(group, page = 1):
                 title = item['title'],
                 thumb = GetImage(item['thumb'], 'icon-tv.png'),
                 art = GetImage(item['art'], 'art-default.jpg'),
-                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available")))
+                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available"))),
+                c_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
+                c_video_codec = item['video_codec'] if item['video_codec'] else None,
+                c_container = item['container'] if item['container'] else None,
+                c_protocol = item['protocol'] if item['protocol'] else None,
+                optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming'],
+                include_container = False
             )
         )
 
@@ -135,11 +141,20 @@ def ListItems(group, page = 1):
 
 ####################################################################################################
 @route(PREFIX + '/createvideoclipobject', include_container = bool)
-def CreateVideoClipObject(url, title, thumb, art, summary, include_container = False, **kwargs):
+def CreateVideoClipObject(url, title, thumb, art, summary,
+                          c_audio_codec = None, c_video_codec = None,
+                          c_container = None, c_protocol = None,
+                          optimized_for_streaming = True,
+                          include_container = False, *args, **kwargs):
 
     vco = VideoClipObject(
-        key = Callback(CreateVideoClipObject, url = url, title = title, thumb = thumb, art = art, summary = summary, include_container = True),
-        rating_key = title,
+        key = Callback(CreateVideoClipObject,
+                       url = url, title = title, thumb = thumb, art = art, summary = summary,
+                       c_audio_codec = c_audio_codec, c_video_codec = c_video_codec,
+                       c_container = c_container, c_protocol = c_protocol,
+                       optimized_for_streaming = optimized_for_streaming,
+                       include_container = True),
+        rating_key = url,
         title = title,
         thumb = thumb,
         art = art,
@@ -148,10 +163,14 @@ def CreateVideoClipObject(url, title, thumb, art, summary, include_container = F
             MediaObject(
                 parts = [
                     PartObject(
-                        key = Callback(PlayVideo, url = url)
+                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url))
                     )
                 ],
-                optimized_for_streaming = Prefs['optimized_for_streaming']
+                audio_codec = c_audio_codec,
+                video_codec = c_video_codec,
+                container = c_container,
+                protocol = c_protocol,
+                optimized_for_streaming = optimized_for_streaming
             )
         ]
     )
@@ -162,17 +181,14 @@ def CreateVideoClipObject(url, title, thumb, art, summary, include_container = F
         return vco
 
 ####################################################################################################
-@route(PREFIX + '/playvideo')
 @indirect
+@route(PREFIX + '/playvideo.m3u8')
 def PlayVideo(url):
 
-    # Custom User-Agent
+    # Custom User-Agent string
     if Prefs['user_agent']:
         HTTP.SetHeader('User-Agent', Prefs['user_agent'])
 
-    # WebKit players and functions WebVideoURL, RTMPVideoURL and WindowsMediaVideoURL are no longer
-    # supported by Plex, HTTPLiveStreamURL sets wrong attributes for non HTTP streams, and
-    # redirects are handled by Plex easily when supplying an absolute URL
     return IndirectResponse(VideoClipObject, key = url)
 
 ####################################################################################################
@@ -222,7 +238,10 @@ def GetSummary(id, name, title, default = ''):
                     guide_hours = 8
                 for item in items_list:
                     if item['start'] <= current_datetime + Datetime.Delta(hours = guide_hours) and item['stop'] > current_datetime:
-                        summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
+                        if summary:
+                            summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
+                        else:
+                            summary = item['start'].strftime('%H:%M') + ' ' + item['title']
                         if item['desc']:
                             summary = summary + ' - ' + item['desc']
 

@@ -51,13 +51,13 @@
     },
     {
         "id":       "user_agent",
-        "label":    "Custom User-Agent header string if needed",
+        "label":    "Custom User-Agent string",
         "type":     "text",
         "default":  ""
     },
     {
         "id":       "optimized_for_streaming",
-        "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Streaming options are unavailable",
+        "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Stream options are unavailable",
         "type":     "bool",
         "default":  "true"
     }

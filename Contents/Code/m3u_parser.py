@@ -17,12 +17,12 @@ import urllib2
 
 ####################################################################################################
 def decodeURIComponent(uri):
+
     while True:
         dec = urllib2.unquote(uri)
         if dec == uri:
             break
         uri = dec
-
     return uri.decode('utf8')
 
 ####################################################################################################
@@ -33,19 +33,17 @@ def LoadPlaylist():
     m3u_files = Prefs['playlist'].split(';')
     for m3u_file in m3u_files:
         LoadPlaylistOnce(m3u_file, groups, streams)
-
     Dict['groups'] = groups
     Dict['streams'] = streams
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_datetime'] = Datetime.Now()
-
     return None
 
 ####################################################################################################
 def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
 
     m3u_name = None
-    
+
     if m3u_file:
         if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             m3u_base = os.path.basename(decodeURIComponent(m3u_file))
@@ -74,6 +72,11 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                         if thumb == '':
                             thumb = GetAttribute(line, 'logo')
                         art = GetAttribute(line, 'art')
+                        audio_codec = GetAttribute(line, 'audio_codec')
+                        video_codec = GetAttribute(line, 'video_codec')
+                        container = GetAttribute(line, 'container')
+                        protocol = GetAttribute(line, 'protocol')
+                        optimized_for_streaming = GetAttribute(line, 'optimized_for_streaming').lower()
                         streams_count = streams_count + 1
                         stream = {
                             'url': url,
@@ -82,6 +85,11 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                             'name': name,
                             'thumb': thumb,
                             'art': art,
+                            'audio_codec': audio_codec,
+                            'video_codec': video_codec,
+                            'container': container,
+                            'protocol': protocol,
+                            'optimized_for_streaming': optimized_for_streaming,
                             'order': streams_count
                         }
                         if not streams:
