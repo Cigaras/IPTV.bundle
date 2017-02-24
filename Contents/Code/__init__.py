@@ -31,7 +31,7 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-    LoadPlaylist()
+    # LoadPlaylist()
     Thread.Create(PlaylistReloader)
     Thread.Create(GuideReloader)
 
@@ -39,6 +39,9 @@ def Start():
 @handler(PREFIX, NAME)
 def MainMenu():
 
+    if not Dict['groups']:
+        LoadPlaylist()
+        
     groups = Dict['groups']
     groups_list = groups.values()
 
