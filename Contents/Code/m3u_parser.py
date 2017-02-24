@@ -38,7 +38,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, m3u_name = None):
 
         if Prefs['filename_groups']:
             m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
-            m3u_name = m3u_name if m3u_name else os.path.splitext(m3u_base)[0]
+            m3u_name = os.path.splitext(m3u_base)[0]
 
         if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             playlist = HTTP.Request(m3u_file).content
