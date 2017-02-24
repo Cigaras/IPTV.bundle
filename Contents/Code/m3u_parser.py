@@ -90,7 +90,6 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                             if not any(item['url'] == stream['url'] for item in streams[unicode(L('All'))].values()):
                                 streams.setdefault(unicode(L('All')), {})[streams_count] = stream
                             group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category') if not m3u_name else m3u_name))
-                            Log.Debug('**** %s' % group_title)
                             if group_title not in groups.keys():
                                 group_thumb = GetAttribute(line, 'group-logo')
                                 group_art = GetAttribute(line, 'group-art')
