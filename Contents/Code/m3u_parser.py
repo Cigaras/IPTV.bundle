@@ -46,6 +46,11 @@ def LoadPlaylist():
                             if thumb == '':
                                 thumb = GetAttribute(line, 'logo')
                             art = GetAttribute(line, 'art')
+                            audio_codec = GetAttribute(line, 'audio_codec')
+                            video_codec = GetAttribute(line, 'video_codec')
+                            container = GetAttribute(line, 'container')
+                            protocol = GetAttribute(line, 'protocol')
+                            optimized_for_streaming = GetAttribute(line, 'optimized_for_streaming').lower()
                             streams_count = streams_count + 1
                             stream = {
                                 'url': url,
@@ -54,6 +59,11 @@ def LoadPlaylist():
                                 'name': name,
                                 'thumb': thumb,
                                 'art': art,
+                                'audio_codec': audio_codec,
+                                'video_codec': video_codec,
+                                'container': container,
+                                'protocol': protocol,
+                                'optimized_for_streaming': optimized_for_streaming,
                                 'order': streams_count
                             }
                             if not streams:
@@ -84,7 +94,7 @@ def LoadPlaylist():
     Dict['streams'] = streams
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_datetime'] = Datetime.Now()
-
+    
     return None
 
 ####################################################################################################
