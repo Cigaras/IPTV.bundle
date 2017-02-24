@@ -1,3 +1,70 @@
+# M3U files parser for Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
+
+# Copyright © 2013-2017 Valdas Vaitiekaitis
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+import os
+import urllib2
+
+####################################################################################################
+def LoadPlaylist():
+
+    groups = {}
+    streams = {}
+    m3u_files = Prefs['playlist'].split(';')
+
+    for m3u_file in m3u_files:
+        LoadM3UFile(m3u_file, groups, streams)
+
+    Dict['groups'] = groups
+    Dict['streams'] = streams
+    Dict['last_playlist_load_datetime'] = Datetime.Now()
+    Dict['last_playlist_load_prefs'] = Prefs['playlist']
+    Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
+
+####################################################################################################
+def LoadM3UFile(m3u_file, groups = {}, streams = {}, m3u_name = None):
+
+    if m3u_file:
+
+        if Prefs['filename_groups']:
+            m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
+            m3u_name = m3u_name if m3u_name else os.path.splitext(m3u_base)[0]
+
+        if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
+            playlist = HTTP.Request(m3u_file).content
+        else:
+            playlist = Resource.Load(m3u_file, binary = True)
+
+        if playlist:
+            lines = playlist.splitlines()
+            streams_count = 0
+            for i in range(len(lines)):
+                line = lines[i].strip()
+                if line.startswith('#EXTINF'):
+                    url = lines[i + 1].strip()
+                    if url.startswith('#EXTVLCOPT') and i + 1 < len(lines):
+                        # skip VLC specific run-time options
+                        i = i + 1
+                        url = lines[i + 1].strip()
+                    if url and not url.startswith('#'):
+                        title = unicode(line[line.rfind(',') + 1:len(line)].strip())
+                        id = GetAttribute(line, 'tvg-id')
+                        name = GetAttribute(line, 'tvg-name')
+                        thumb = GetAttribute(line, 'tvg-logo')
+                        if thumb == '':
+                            thumb = GetAttribute(line, 'logo')
+                        art = GetAttribute(line, 'art')
+                        audio_codec = GetAttribute(line, 'audio_codec')
                         video_codec = GetAttribute(line, 'video_codec')
                         container = GetAttribute(line, 'container')
                         protocol = GetAttribute(line, 'protocol')
@@ -56,7 +123,6 @@ def DecodeURIComponent(uri):
             break
         uri = dec
     return uri.decode('utf8')
->>>>>>> beta
 
 ####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
