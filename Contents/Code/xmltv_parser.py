@@ -83,8 +83,8 @@ def LoadGuide():
 
     Dict['channels'] = channels
     Dict['guide'] = guide
-    Dict['last_guide_load_prefs'] = Prefs['xmltv']
     Dict['last_guide_load_datetime'] = Datetime.Now()
+    Dict['last_guide_load_prefs'] = Prefs['xmltv']
     return None
 
 ####################################################################################################

@@ -16,45 +16,42 @@ import os
 import urllib2
 
 ####################################################################################################
-def decodeURIComponent(uri):
-
-    while True:
-        dec = urllib2.unquote(uri)
-        if dec == uri:
-            break
-        uri = dec
-    return uri.decode('utf8')
-
-####################################################################################################
 def LoadPlaylist():
 
     groups = {}
     streams = {}
+
     m3u_files = Prefs['playlist'].split(';')
+
     for m3u_file in m3u_files:
-        LoadPlaylistOnce(m3u_file, groups, streams)
+        LoadM3UFile(m3u_file, groups, streams)
+
     Dict['groups'] = groups
     Dict['streams'] = streams
-    Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_datetime'] = Datetime.Now()
+    Dict['last_playlist_load_prefs'] = Prefs['playlist']
+    Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
+
     return None
 
 ####################################################################################################
-def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
+def LoadM3UFile(m3u_file, groups = {}, streams = {}):
 
     m3u_name = None
 
     if m3u_file:
-        if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
-            m3u_base = os.path.basename(decodeURIComponent(m3u_file))
+
+        if Prefs['filename_groups']:
+            m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
             m3u_name = os.path.splitext(m3u_base)[0]
+
+        if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             playlist = HTTP.Request(m3u_file).content
         else:
             playlist = Resource.Load(m3u_file, binary = True)
 
         if playlist:
             lines = playlist.splitlines()
-            groups_count = 0
             streams_count = 0
             for i in range(len(lines)):
                 line = lines[i].strip()
@@ -64,7 +61,7 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                         # skip VLC specific run-time options
                         i = i + 1
                         url = lines[i + 1].strip()
-                    if url != '' and not url.startswith('#'):
+                    if url and not url.startswith('#'):
                         title = unicode(line[line.rfind(',') + 1:len(line)].strip())
                         id = GetAttribute(line, 'tvg-id')
                         name = GetAttribute(line, 'tvg-name')
@@ -101,12 +98,11 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                             if group_title not in groups.keys():
                                 group_thumb = GetAttribute(line, 'group-logo')
                                 group_art = GetAttribute(line, 'group-art')
-                                groups_count = groups_count + 1
                                 group = {
                                     'title': group_title,
                                     'thumb': group_thumb,
                                     'art': group_art,
-                                    'order': groups_count
+                                    'order': len(groups) + 1
                                 }
                                 groups[group_title] = group
                             if group_title in streams.keys():
@@ -117,9 +113,19 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}):
                         i = i + 1 # skip the url line for the next cycle
                 elif line.startswith('#EXTIMPORT'):
                     url = line[len('#EXTIMPORT') + 1:len(line)].strip()
-                    if url != '' and not url.startswith('#'):
-                        LoadPlaylistOnce(url, groups, streams)
+                    if url:
+                        LoadM3UFile(url, groups, streams)
     return None
+
+####################################################################################################
+def DecodeURIComponent(uri):
+
+    while True:
+        dec = urllib2.unquote(uri)
+        if dec == uri:
+            break
+        uri = dec
+    return uri.decode('utf8')
 
 ####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
@@ -139,7 +145,7 @@ def PlaylistReloader():
 
     while True:
         if Prefs['playlist']:
-            if Prefs['playlist'] != Dict['last_playlist_load_prefs'] or not Dict['last_playlist_load_datetime']:
+            if Dict['last_playlist_load_prefs'] != Prefs['playlist'] or Dict['last_playlist_load_filename_groups'] != Prefs['filename_groups'] or not Dict['last_playlist_load_datetime']:
                 LoadPlaylist()
             elif Prefs['m3u_reload_time'] != 'never':
                 current_datetime = Datetime.Now()
