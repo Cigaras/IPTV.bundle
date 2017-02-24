@@ -32,15 +32,13 @@ def LoadPlaylist():
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
 
 ####################################################################################################
-def LoadM3UFile(m3u_file, groups = {}, streams = {}):
-
-    m3u_name = None
+def LoadM3UFile(m3u_file, groups = {}, streams = {}, m3u_name = None):
 
     if m3u_file:
 
         if Prefs['filename_groups']:
             m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
-            m3u_name = os.path.splitext(m3u_base)[0]
+            m3u_name = m3u_name if m3u_name else os.path.splitext(m3u_base)[0]
 
         if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             playlist = HTTP.Request(m3u_file).content
@@ -109,9 +107,12 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}):
                                 streams.setdefault(group_title, {})[streams_count] = stream
                         i = i + 1 # skip the url line for the next cycle
                 elif line.startswith('#EXTIMPORT'):
-                    url = line[len('#EXTIMPORT') + 1:len(line)].strip()
-                    if url:
-                        LoadM3UFile(url, groups, streams)
+                    url = lines[i + 1].strip()
+                    if url != '' and not url.startswith('#'):
+                        title = unicode(line[line.rfind(',') + 1:len(line)].strip()) if line.rfind(',') > -1 else None
+                        LoadM3UFile(url, groups, streams, title)
+                        i = i + 1 # skip the url line for the next cycle
+    return None
 
 ####################################################################################################
 def DecodeURIComponent(uri):
