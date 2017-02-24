@@ -116,8 +116,7 @@ def LoadPlaylistOnce(m3u_file, groups = {}, streams = {}, m3u_name = None):
                 elif line.startswith('#EXTIMPORT'):
                     url = lines[i + 1].strip()
                     if url != '' and not url.startswith('#'):
-                        title = unicode(line[line.rfind(',') + 1:len(line)].strip())
-                        title = DEFAULT_GROUP if line.rfind(',') == -1 else title
+                        title = unicode(line[line.rfind(',') + 1:len(line)].strip()) if line.rfind(',') > -1 else None
                         LoadPlaylistOnce(url, groups, streams, title)
                         i = i + 1 # skip the url line for the next cycle
     return None
