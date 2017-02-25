@@ -31,7 +31,7 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.jpg')
     VideoClipObject.art = R('art-default.jpg')
 
-    if Prefs['m3u_reload_time'] == 'never' or not Dict['groups']:
+    if Prefs['m3u_reload_time'] == 'never' or not Dict['groups'] or not Dict['streams']:
         LoadPlaylist()
 
     Thread.Create(PlaylistReloader)
@@ -40,6 +40,11 @@ def Start():
 ####################################################################################################
 @handler(PREFIX, NAME)
 def MainMenu():
+
+    if not Dict['groups']:
+        LoadPlaylist()
+        if not Dict['groups']:
+            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or epmty, check the log file for more information")
 
     groups = Dict['groups']
     groups_list = groups.values()
@@ -89,6 +94,11 @@ def MainMenu():
 ####################################################################################################
 @route(PREFIX + '/listitems/{group}', page = int)
 def ListItems(group, page = 1):
+
+    if not Dict['streams']:
+        LoadPlaylist()
+        if not Dict['streams']:
+            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or epmty, check the log file for more information")
 
     streams = Dict['streams']
     items_list = streams.get(group, dict()).values()
