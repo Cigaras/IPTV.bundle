@@ -15,3 +15,829 @@ http://bglive-a.bitgravity.com/ndtv/247hi/live/native
 http://ndtv.live.cdn.bitgravity.com/ndtv/live/ndtv247live512
 #EXTINF:0 tvg-id="Dummy" tvg-name="Sky TG24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/9/91/SKY_TG24.png" group-title="Italian",Sky TG24 (rtmp)
 rtmp://cp49989.live.edgefcs.net:1935/live/streamRM1@2564
+#EXTINF‬:-1,Sky Sports 1
+http://82.4.221.188:8001/1:0:1:107D:...11A0000:0:0:0:
+ #EXTINF:-1,Sky Sports 2
+http://82.4.221.188:8001/1:0:1:1070:...11A0000:0:0:0:
+ #EXTINF:-1,Sky Spts Darts
+http://82.4.221.188:8001/1:0:1:107B:...11A0000:0:0:0:
+ #EXTINF:-1,Sky Sports 4
+http://82.4.221.188:8001/1:0:1:1519:...11A0000:0:0:0:
+ #EXTINF:-1,Sky Sports 5
+http://82.4.221.188:8001/1:0:1:517:7DB:2:11A0000:0:0:0:
+ #EXTINF:-1,Sky Sports F1
+http://82.4.221.188:8001/1:0:1:51A:7E5:2:11A0000:0:0:0:
+ #EXTINF:-1,Sky Sp NewsHQ
+http://82.4.221.188:8001/1:0:1:132B:...11A0000:0:0:0:
+ #EXTINF:-1,BT Sport 1
+http://82.4.221.188:8001/1:0:1:C4BD:...11A0000:0:0:0:
+ #EXTINF:-1,BT Sport 2
+http://82.4.221.188:8001/1:0:1:C4C7:...11A0000:0:0:0:
+ #EXTINF:-1,ESPN
+http://82.4.221.188:8001/1:0:1:C4CC:...11A0000:0:0:0:
+ #EXTINF:-1,Eurosport
+http://82.4.221.188:8001/1:0:1:1797:...11A0000:0:0:0:
+ #EXTINF:-1,Eurosport 2
+http://82.4.221.188:8001/1:0:1:1391:...11A0000:0:0:0:
+ #EXTINF:-1,BoxNation
+http://82.4.221.188:8001/1:0:1:D368:...11A0000:0:0:0:
+ #EXTINF:-1,MOTORS TV UK
+http://82.4.221.188:8001/1:0:1:C495:...11A0000:0:0:0:
+ #EXTINF:-1,Racing UK
+http://82.4.221.188:8001/1:0:1:C4C2:...11A0000:0:0:0:
+ #EXTINF:-1,At The Races
+http://82.4.221.188:8001/1:0:1:12C4:...11A0000:0:0:0:
+ #EXTINF:-1,Extreme Sports
+http://82.4.221.188:8001/1:0:1:CB70:...11A0000:0:0:0:
+ #EXTINF:-1,MUTV
+http://82.4.221.188:8001/1:0:1:C4A9:...11A0000:0:0:0:
+ #EXTINF:-1,Chelsea TV
+http://82.4.221.188:8001/1:0:1:179A:...11A0000:0:0:0:
+ #EXTINF:-1,LFCTV
+http://82.4.221.188:8001/1:0:1:CC01:...11A0000:0:0:0:
+ #EXTINF:-1,Setanta Ireland
+http://82.4.221.188:8001/1:0:1:C7A7:...11A0000:0:0:0:
+ #EXTINF:-1,Setanta Sports1
+http://82.4.221.188:8001/1:0:1:C7A8:...11A0000:0:0:0:
+ #EXTINF:-1,Premier Sports
+http://82.4.221.188:8001/1:0:1:C7A9:...11A0000:0:0:0:
+#EXTM3U
+#EXTINF:-1,[COLOR green]--- UK IPTV CHANNELS ---[/COLOR]
+http://0.0.6.0:1234
+#EXTINF:-1,[COLOR yellow]By tutorial-iptv-xbmc.blogspot.com[/B][/I][/COLOR]
+http://0.1.5.0:12248
+
+
+#EXTINF:-1,UK Sky Premiere Sports
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/128.m3u8
+#EXTINF:-1,UK Sky One
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/129.m3u8
+#EXTINF:-1,UK Sky Two
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/120.m3u8
+#EXTINF:-1,UK Sky Movies Scifi / Horror
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/130.m3u8
+#EXTINF:-1,UK Sky Arts 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/131.m3u8
+#EXTINF:-1,UK RTE 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/133.m3u8
+#EXTINF:-1,UK RTE 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/132.m3u8
+#EXTINF:-1,UK Quest
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/134.m3u8
+#EXTINF:-1,UK Nicktoons
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/135.m3u8
+#EXTINF:-1,UK Nickelodeon
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/136.m3u8
+#EXTINF:-1,UK National Geographic Wild
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/137.m3u8
+#EXTINF:-1,UK National Geographic
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/138.m3u8
+#EXTINF:-1,UK More 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/139.m3u8
+#EXTINF:-1,UK ITV 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/143.m3u8
+#EXTINF:-1,UK ITV 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/142.m3u8
+#EXTINF:-1,UK ITV 3
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/141.m3u8
+#EXTINF:-1,UK ITV 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/140.m3u8
+#EXTINF:-1,UK Investigation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/144.m3u8
+#EXTINF:-1,UK History Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/145.m3u8
+#EXTINF:-1,UK Gold
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/146.m3u8
+#EXTINF:-1,UK Food Network
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/147.m3u8
+#EXTINF:-1,UK Flava
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/148.m3u8
+#EXTINF:-1,UK Eurosport 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/90.m3u8
+#EXTINF:-1,UK Eurosport 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/91.m3u8
+#EXTINF:-1,UK ESPN
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/92.m3u8
+#EXTINF:-1,UK Drama
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/94.m3u8
+#EXTINF:-1,UK Dmax
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/95.m3u8
+#EXTINF:-1,UK Disney Junior
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/96.m3u8
+#EXTINF:-1,UK Disney Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/97.m3u8
+#EXTINF:-1,UK Discovery Science
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/98.m3u8
+#EXTINF:-1,UK Discovery Investigation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/99.m3u8
+#EXTINF:-1,UK Discovery History
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/100.m3u8
+#EXTINF:-1,UK Dave
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/101.m3u8
+#EXTINF:-1,UK Channel 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/102.m3u8
+#EXTINF:-1,UK BT Sports 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/103.m3u8
+#EXTINF:-1,UK BT Sports 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/104.m3u8
+#EXTINF:-1,UK Boxnation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/105.m3u8
+#EXTINF:-1,K BBC 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/109.m3u8
+#EXTINF:-1,UK BBC 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/108.m3u8
+#EXTINF:-1,UK BBC 3
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/107.m3u8
+#EXTINF:-1,UK BBC 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/106.m3u8
+#EXTINF:-1,UK At The Races
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/110.m3u8
+#EXTINF:-1,UK Animal Planet
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/111.m3u8
+#EXTINF:-1,UK Alibi
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/112.m3u8
+#EXTINF:-1,UK 5 Star
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/113.m3u8
+#EXTINF:-1,UK 3e
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/114.m3u8
+#EXTINF:-1,UK Travel Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/115.m3u8
+#EXTINF:-1,----UK Test
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/803.m3u8
+#EXTINF:-1,UK: MTV Classic
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/757.m3u8
+#EXTINF:-1,UK : Yesterday
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/802.m3u8
+#EXTINF:-1,UK : TrueMovies2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/801.m3u8
+#EXTINF:-1,UK : TrueEnt
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/800.m3u8
+#EXTINF:-1,UK : TrueDrama
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/799.m3u8
+#EXTINF:-1,UK : TrueChristmas
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/798.m3u8
+#EXTINF:-1,UK : TCMuk
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/797.m3u8
+#EXTINF:-1,UK : spike
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/796.m3u8
+#EXTINF:-1,UK : SkyThriller
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/795.m3u8
+#EXTM3U
+#EXTINF:-1,[COLOR green]--- UK IPTV CHANNELS ---[/COLOR]
+http://0.0.6.0:1234
+#EXTINF:-1,[COLOR yellow]By tutorial-iptv-xbmc.blogspot.com[/B][/I][/COLOR]
+http://0.1.5.0:12248
+
+
+#EXTINF:-1,UK Sky Premiere Sports
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/128.m3u8
+#EXTINF:-1,UK Sky One
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/129.m3u8
+#EXTINF:-1,UK Sky Two
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/120.m3u8
+#EXTINF:-1,UK Sky Movies Scifi / Horror
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/130.m3u8
+#EXTINF:-1,UK Sky Arts 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/131.m3u8
+#EXTINF:-1,UK RTE 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/133.m3u8
+#EXTINF:-1,UK RTE 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/132.m3u8
+#EXTINF:-1,UK Quest
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/134.m3u8
+#EXTINF:-1,UK Nicktoons
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/135.m3u8
+#EXTINF:-1,UK Nickelodeon
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/136.m3u8
+#EXTINF:-1,UK National Geographic Wild
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/137.m3u8
+#EXTINF:-1,UK National Geographic
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/138.m3u8
+#EXTINF:-1,UK More 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/139.m3u8
+#EXTINF:-1,UK ITV 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/143.m3u8
+#EXTINF:-1,UK ITV 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/142.m3u8
+#EXTINF:-1,UK ITV 3
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/141.m3u8
+#EXTINF:-1,UK ITV 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/140.m3u8
+#EXTINF:-1,UK Investigation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/144.m3u8
+#EXTINF:-1,UK History Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/145.m3u8
+#EXTINF:-1,UK Gold
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/146.m3u8
+#EXTINF:-1,UK Food Network
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/147.m3u8
+#EXTINF:-1,UK Flava
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/148.m3u8
+#EXTINF:-1,UK Eurosport 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/90.m3u8
+#EXTINF:-1,UK Eurosport 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/91.m3u8
+#EXTINF:-1,UK ESPN
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/92.m3u8
+#EXTINF:-1,UK Drama
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/94.m3u8
+#EXTINF:-1,UK Dmax
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/95.m3u8
+#EXTINF:-1,UK Disney Junior
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/96.m3u8
+#EXTINF:-1,UK Disney Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/97.m3u8
+#EXTINF:-1,UK Discovery Science
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/98.m3u8
+#EXTINF:-1,UK Discovery Investigation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/99.m3u8
+#EXTINF:-1,UK Discovery History
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/100.m3u8
+#EXTINF:-1,UK Dave
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/101.m3u8
+#EXTINF:-1,UK Channel 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/102.m3u8
+#EXTINF:-1,UK BT Sports 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/103.m3u8
+#EXTINF:-1,UK BT Sports 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/104.m3u8
+#EXTINF:-1,UK Boxnation
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/105.m3u8
+#EXTINF:-1,K BBC 1
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/109.m3u8
+#EXTINF:-1,UK BBC 2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/108.m3u8
+#EXTINF:-1,UK BBC 3
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/107.m3u8
+#EXTINF:-1,UK BBC 4
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/106.m3u8
+#EXTINF:-1,UK At The Races
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/110.m3u8
+#EXTINF:-1,UK Animal Planet
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/111.m3u8
+#EXTINF:-1,UK Alibi
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/112.m3u8
+#EXTINF:-1,UK 5 Star
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/113.m3u8
+#EXTINF:-1,UK 3e
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/114.m3u8
+#EXTINF:-1,UK Travel Channel
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/115.m3u8
+#EXTINF:-1,----UK Test
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/803.m3u8
+#EXTINF:-1,UK: MTV Classic
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/757.m3u8
+#EXTINF:-1,UK : Yesterday
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/802.m3u8
+#EXTINF:-1,UK : TrueMovies2
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/801.m3u8
+#EXTINF:-1,UK : TrueEnt
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/800.m3u8
+#EXTINF:-1,UK : TrueDrama
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/799.m3u8
+#EXTINF:-1,UK : TrueChristmas
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/798.m3u8
+#EXTINF:-1,UK : TCMuk
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/797.m3u8
+#EXTINF:-1,UK : spike
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/796.m3u8
+#EXTINF:-1,UK : SkyThriller
+
+http://skyiptv.ddns.net:8000/live/unit1535/84859788/795.m3u8
+#EXTM3U
+#EXTINF:-1,[COLOR green]--- WORLD IPTV CHANNELS ---[/COLOR]
+http://0.0.6.0:1234
+#EXTINF:-1,[COLOR yellow]By tutorial-iptv-xbmc.blogspot.com[/B][/I][/COLOR]
+http://0.1.5.0:1224
+  
+#EXTINF:-1,UK: Sky News HD
+http://ipsatpro.com:8000/live/martin1/martin1/550.ts
+#EXTINF:-1,UK: Sky Sports News HD
+http://ipsatpro.com:8000/live/martin1/martin1/549.ts
+#EXTINF:-1,UK: Sky Sports 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/548.ts
+#EXTINF:-1,UK: Sky Sports 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/547.ts
+#EXTINF:-1,UK: Sky Sports 3 HD
+http://ipsatpro.com:8000/live/martin1/martin1/546.ts
+#EXTINF:-1,UK: Sky Sports 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/545.ts
+#EXTINF:-1,UK: Sky Sports 5 HD
+http://ipsatpro.com:8000/live/martin1/martin1/544.ts
+#EXTINF:-1,UK: Sky Sport 1 SD
+http://ipsatpro.com:8000/live/martin1/martin1/533.ts
+#EXTINF:-1,UK: Sky Sport 2 SD
+http://ipsatpro.com:8000/live/martin1/martin1/532.ts
+#EXTINF:-1,UK: Sky Sport 3 SD
+http://ipsatpro.com:8000/live/martin1/martin1/531.ts
+#EXTINF:-1,UK: Sky Sport 5 SD
+http://ipsatpro.com:8000/live/martin1/martin1/529.ts
+#EXTINF:-1,UK: Sky Sport 4 SD
+http://ipsatpro.com:8000/live/martin1/martin1/530.ts
+#EXTINF:-1,UK: Sky Sports F1
+http://ipsatpro.com:8000/live/martin1/martin1/539.ts
+#EXTINF:-1,UK: Sky Premier Sports HD
+http://ipsatpro.com:8000/live/martin1/martin1/513.ts
+#EXTINF:-1,UK: Sky Setanta Sports
+http://ipsatpro.com:8000/live/martin1/martin1/484.ts
+#EXTINF:-1,UK: Sky Eurosport 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/541.ts
+#EXTINF:-1,UK: Sky Eurosport 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/540.ts
+#EXTINF:-1,UK: Sky BT Sport 1
+http://ipsatpro.com:8000/live/martin1/martin1/543.ts
+#EXTINF:-1,UK: Sky BT Sport 2
+http://ipsatpro.com:8000/live/martin1/martin1/542.ts
+#EXTINF:-1,UK: Sky BT Sport 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/528.ts
+#EXTINF:-1,UK: Sky BT Sport 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/527.ts
+#EXTINF:-1,UK: Sky BT Sport Europe
+http://ipsatpro.com:8000/live/martin1/martin1/453.ts
+#EXTINF:-1,UK: Sky Liverpool FC TV HD
+http://ipsatpro.com:8000/live/martin1/martin1/536.ts
+#EXTINF:-1,UK: Sky Chelsea TV HD
+http://ipsatpro.com:8000/live/martin1/martin1/537.ts
+#EXTINF:-1,UK: Sky MUTV
+http://ipsatpro.com:8000/live/martin1/martin1/535.ts
+#EXTINF:-1,UK: Sky Movies Premiere HD
+http://ipsatpro.com:8000/live/martin1/martin1/519.ts
+#EXTINF:-1,UK: Sky Movies Disney
+http://ipsatpro.com:8000/live/martin1/martin1/516.ts
+#EXTINF:-1,UK: Sky Movies Select HD
+http://ipsatpro.com:8000/live/martin1/martin1/517.ts
+#EXTINF:-1,UK: Sky Movies Action HD
+http://ipsatpro.com:8000/live/martin1/martin1/511.ts
+#EXTINF:-1,UK: Sky Movies Greats
+http://ipsatpro.com:8000/live/martin1/martin1/518.ts
+#EXTINF:-1,UK: Sky Movies Family HD
+http://ipsatpro.com:8000/live/martin1/martin1/520.ts
+#EXTINF:-1,UK: Sky Movies Drama HD
+http://ipsatpro.com:8000/live/martin1/martin1/521.ts
+#EXTINF:-1,UK: Sky Movies Comedy HD
+http://ipsatpro.com:8000/live/martin1/martin1/524.ts
+#EXTINF:-1,UK: Sky Movies Crime
+http://ipsatpro.com:8000/live/martin1/martin1/512.ts
+#EXTINF:-1,UK: Sky Movies Sci-Fi+
+http://ipsatpro.com:8000/live/martin1/martin1/515.ts
+#EXTINF:-1,UK: Sky Movies 24
+http://ipsatpro.com:8000/live/martin1/martin1/523.ts
+#EXTINF:-1,UK: Sky True Movies1
+http://ipsatpro.com:8000/live/martin1/martin1/472.ts
+#EXTINF:-1,UK: Sky True Movies 2
+http://ipsatpro.com:8000/live/martin1/martin1/534.ts
+#EXTINF:-1,UK: Sky More 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/504.ts
+#EXTINF:-1,UK: Sky Film 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/505.ts
+#EXTINF:-1,UK: Sky ITV 1
+http://ipsatpro.com:8000/live/martin1/martin1/471.ts
+#EXTINF:-1,UK: Sky ITV 2
+http://ipsatpro.com:8000/live/martin1/martin1/470.ts
+#EXTINF:-1,UK: Sky ITV 3
+http://ipsatpro.com:8000/live/martin1/martin1/469.ts
+#EXTINF:-1,UK: Sky ITV 4
+http://ipsatpro.com:8000/live/martin1/martin1/468.ts
+#EXTINF:-1,UK: Sky ITV Encore
+http://ipsatpro.com:8000/live/martin1/martin1/467.ts
+#EXTINF:-1,UK: Sky Cbs Drama
+http://ipsatpro.com:8000/live/martin1/martin1/482.ts
+#EXTINF:-1,UK: Sky Cbs Action
+http://ipsatpro.com:8000/live/martin1/martin1/481.ts
+#EXTINF:-1,UK: Sky CBS Reality
+http://ipsatpro.com:8000/live/martin1/martin1/510.ts
+#EXTINF:-1,UK: Sky BBC One HD
+http://ipsatpro.com:8000/live/martin1/martin1/488.ts
+#EXTINF:-1,UK: Sky BBC Two HD
+http://ipsatpro.com:8000/live/martin1/martin1/487.ts
+#EXTINF:-1,UK: Sky BBC Three HD
+http://ipsatpro.com:8000/live/martin1/martin1/486.ts
+#EXTINF:-1,UK: Sky BBC Four HD
+http://ipsatpro.com:8000/live/martin1/martin1/485.ts
+#EXTINF:-1,UK: Sky BT Sport Extra
+http://ipsatpro.com:8000/live/martin1/martin1/479.ts
+#EXTINF:-1,UK: Sky Comedy Central
+http://ipsatpro.com:8000/live/martin1/martin1/463.ts
+#EXTINF:-1,UK: Sky Comedy Central Ex
+http://ipsatpro.com:8000/live/martin1/martin1/462.ts
+#EXTINF:-1,UK: Sky History 2
+http://ipsatpro.com:8000/live/martin1/martin1/452.ts
+#EXTINF:-1,UK: Sky Nickelodeon
+http://ipsatpro.com:8000/live/martin1/martin1/503.ts
+#EXTINF:-1,UK: Sky Disney XD HD
+http://ipsatpro.com:8000/live/martin1/martin1/493.ts
+#EXTINF:-1,UK: Sky Disney Junior HD
+http://ipsatpro.com:8000/live/martin1/martin1/494.ts
+#EXTINF:-1,UK: Sky Food Network
+http://ipsatpro.com:8000/live/martin1/martin1/495.ts
+#EXTINF:-1,UK: Sky Discovery
+http://ipsatpro.com:8000/live/martin1/martin1/464.ts
+#EXTINF:-1,UK: Sky Disney Chaneel HD
+http://ipsatpro.com:8000/live/martin1/martin1/492.ts
+#EXTINF:-1,UK: Sky Cartoon Network
+http://ipsatpro.com:8000/live/martin1/martin1/522.ts
+#EXTINF:-1,K: Sky Discovery Science
+http://ipsatpro.com:8000/live/martin1/martin1/526.ts
+#EXTINF:-1,UK: Sky Discovery History
+http://ipsatpro.com:8000/live/martin1/martin1/491.ts
+#EXTINF:-1,UK: Sky Discovery Turbo
+http://ipsatpro.com:8000/live/martin1/martin1/465.ts
+#EXTINF:-1,UK: Sky Ci
+http://ipsatpro.com:8000/live/martin1/martin1/514.ts
+#EXTINF:-1,UK: Sky Animal Planet HD
+http://ipsatpro.com:8000/live/martin1/martin1/497.ts
+#EXTINF:-1,UK: Sky National Geographic HD
+http://ipsatpro.com:8000/live/martin1/martin1/499.ts
+#EXTINF:-1,UK: Sky Nat Geo Wild HD
+http://ipsatpro.com:8000/live/martin1/martin1/498.ts
+#EXTINF:-1,UK: Sky History HD
+http://ipsatpro.com:8000/live/martin1/martin1/496.ts
+#EXTINF:-1,UK: Sky 1
+http://ipsatpro.com:8000/live/martin1/martin1/475.ts
+#EXTINF:-1,UK: Sky 2
+http://ipsatpro.com:8000/live/martin1/martin1/507.ts
+#EXTINF:-1,UK: Sky Atlantic
+http://ipsatpro.com:8000/live/martin1/martin1/483.ts
+#EXTINF:-1,UK: Sky VH1
+http://ipsatpro.com:8000/live/martin1/martin1/449.ts
+#EXTINF:-1US: Sky E4
+http://ipsatpro.com:8000/live/martin1/martin1/451.ts
+#EXTINF:-1,UK: Sky Syfy
+http://ipsatpro.com:8000/live/martin1/martin1/538.ts
+#EXTINF:-1,UK: Sky MTV Hits
+http://ipsatpro.com:8000/live/martin1/martin1/500.ts
+#EXTINF:-1,UK: Sky CNBC
+http://ipsatpro.com:8000/live/martin1/martin1/466.ts
+#EXTINF:-1,UK: Sky Dave HD
+http://ipsatpro.com:8000/live/martin1/martin1/506.ts
+#EXTINF:-1,UK: Sky RTE One
+http://ipsatpro.com:8000/live/martin1/martin1/474.ts
+#EXTINF:-1,UK: Sky RTE Two
+http://ipsatpro.com:8000/live/martin1/martin1/478.ts
+#EXTINF:-1,UK: Sky 4Seven
+http://ipsatpro.com:8000/live/martin1/martin1/473.ts
+#EXTINF:-1,UK: Sky Arts 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/489.ts
+#EXTINF:-1,UK: Sky Alibi
+http://ipsatpro.com:8000/live/martin1/martin1/509.ts
+#EXTINF:-1,UK: Sky Living HD
+http://ipsatpro.com:8000/live/martin1/martin1/502.ts
+#EXTINF:-1,UK: Sky BoxNation
+http://ipsatpro.com:8000/live/martin1/martin1/490.ts
+#EXTINF:-1,UK: Sky Channel 5 USA
+http://ipsatpro.com:8000/live/martin1/martin1/458.ts
+#EXTINF:-1,UK: Sky Gold
+http://ipsatpro.com:8000/live/martin1/martin1/508.ts
+#EXTINF:-1,UK: Sky 5 USA
+http://ipsatpro.com:8000/live/martin1/martin1/480.ts
+#EXTINF:-1,UK: Sky 5 star
+http://ipsatpro.com:8000/live/martin1/martin1/477.ts
+#EXTINF:-1,UK: Sky life Time
+http://ipsatpro.com:8000/live/martin1/martin1/476.ts
+#EXTINF:-1,UK: Sky E4+1
+http://ipsatpro.com:8000/live/martin1/martin1/525.ts
+#EXTINF:-1,UK: Sky Good Food HD
+http://ipsatpro.com:8000/live/martin1/martin1/501.ts
+#EXTINF:-1,Uk: Sky At the Races
+http://ipsatpro.com:8000/live/martin1/martin1/461.ts
+#EXTINF:-1,UK: SKY STV
+http://ipsatpro.com:8000/live/martin1/martin1/460.ts
+#EXTINF:-1,UK: Sky TCM
+http://ipsatpro.com:8000/live/martin1/martin1/459.ts
+#EXTINF:-1,UK: Five
+http://ipsatpro.com:8000/live/martin1/martin1/450.ts
+#EXTINF:-1,UK: CNN
+http://ipsatpro.com:8000/live/martin1/martin1/454.ts
+#EXTINF:-1,UK: Dmax
+http://ipsatpro.com:8000/live/martin1/martin1/456.ts
+#EXTINF:-1,UK: Sky Bloomberg HD
+http://ipsatpro.com:8000/live/martin1/martin1/457.ts
+#EXTINF:-1,UK: Sky TLC
+http://ipsatpro.com:8000/live/martin1/martin1/455.ts
+#EXTINF:-1,UK: Sky Magic
+http://ipsatpro.com:8000/live/martin1/martin1/448.ts
+#EXTM3U
+#EXTINF:-1,[COLOR green]--- WORLD IPTV CHANNELS ---[/COLOR]
+http://0.0.6.0:1234
+#EXTINF:-1,[COLOR yellow]By tutorial-iptv-xbmc.blogspot.com[/B][/I][/COLOR]
+http://0.1.5.0:1224
+  
+#EXTINF:-1,UK: Sky News HD
+http://ipsatpro.com:8000/live/martin1/martin1/550.ts
+#EXTINF:-1,UK: Sky Sports News HD
+http://ipsatpro.com:8000/live/martin1/martin1/549.ts
+#EXTINF:-1,UK: Sky Sports 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/548.ts
+#EXTINF:-1,UK: Sky Sports 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/547.ts
+#EXTINF:-1,UK: Sky Sports 3 HD
+http://ipsatpro.com:8000/live/martin1/martin1/546.ts
+#EXTINF:-1,UK: Sky Sports 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/545.ts
+#EXTINF:-1,UK: Sky Sports 5 HD
+http://ipsatpro.com:8000/live/martin1/martin1/544.ts
+#EXTINF:-1,UK: Sky Sport 1 SD
+http://ipsatpro.com:8000/live/martin1/martin1/533.ts
+#EXTINF:-1,UK: Sky Sport 2 SD
+http://ipsatpro.com:8000/live/martin1/martin1/532.ts
+#EXTINF:-1,UK: Sky Sport 3 SD
+http://ipsatpro.com:8000/live/martin1/martin1/531.ts
+#EXTINF:-1,UK: Sky Sport 5 SD
+http://ipsatpro.com:8000/live/martin1/martin1/529.ts
+#EXTINF:-1,UK: Sky Sport 4 SD
+http://ipsatpro.com:8000/live/martin1/martin1/530.ts
+#EXTINF:-1,UK: Sky Sports F1
+http://ipsatpro.com:8000/live/martin1/martin1/539.ts
+#EXTINF:-1,UK: Sky Premier Sports HD
+http://ipsatpro.com:8000/live/martin1/martin1/513.ts
+#EXTINF:-1,UK: Sky Setanta Sports
+http://ipsatpro.com:8000/live/martin1/martin1/484.ts
+#EXTINF:-1,UK: Sky Eurosport 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/541.ts
+#EXTINF:-1,UK: Sky Eurosport 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/540.ts
+#EXTINF:-1,UK: Sky BT Sport 1
+http://ipsatpro.com:8000/live/martin1/martin1/543.ts
+#EXTINF:-1,UK: Sky BT Sport 2
+http://ipsatpro.com:8000/live/martin1/martin1/542.ts
+#EXTINF:-1,UK: Sky BT Sport 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/528.ts
+#EXTINF:-1,UK: Sky BT Sport 2 HD
+http://ipsatpro.com:8000/live/martin1/martin1/527.ts
+#EXTINF:-1,UK: Sky BT Sport Europe
+http://ipsatpro.com:8000/live/martin1/martin1/453.ts
+#EXTINF:-1,UK: Sky Liverpool FC TV HD
+http://ipsatpro.com:8000/live/martin1/martin1/536.ts
+#EXTINF:-1,UK: Sky Chelsea TV HD
+http://ipsatpro.com:8000/live/martin1/martin1/537.ts
+#EXTINF:-1,UK: Sky MUTV
+http://ipsatpro.com:8000/live/martin1/martin1/535.ts
+#EXTINF:-1,UK: Sky Movies Premiere HD
+http://ipsatpro.com:8000/live/martin1/martin1/519.ts
+#EXTINF:-1,UK: Sky Movies Disney
+http://ipsatpro.com:8000/live/martin1/martin1/516.ts
+#EXTINF:-1,UK: Sky Movies Select HD
+http://ipsatpro.com:8000/live/martin1/martin1/517.ts
+#EXTINF:-1,UK: Sky Movies Action HD
+http://ipsatpro.com:8000/live/martin1/martin1/511.ts
+#EXTINF:-1,UK: Sky Movies Greats
+http://ipsatpro.com:8000/live/martin1/martin1/518.ts
+#EXTINF:-1,UK: Sky Movies Family HD
+http://ipsatpro.com:8000/live/martin1/martin1/520.ts
+#EXTINF:-1,UK: Sky Movies Drama HD
+http://ipsatpro.com:8000/live/martin1/martin1/521.ts
+#EXTINF:-1,UK: Sky Movies Comedy HD
+http://ipsatpro.com:8000/live/martin1/martin1/524.ts
+#EXTINF:-1,UK: Sky Movies Crime
+http://ipsatpro.com:8000/live/martin1/martin1/512.ts
+#EXTINF:-1,UK: Sky Movies Sci-Fi+
+http://ipsatpro.com:8000/live/martin1/martin1/515.ts
+#EXTINF:-1,UK: Sky Movies 24
+http://ipsatpro.com:8000/live/martin1/martin1/523.ts
+#EXTINF:-1,UK: Sky True Movies1
+http://ipsatpro.com:8000/live/martin1/martin1/472.ts
+#EXTINF:-1,UK: Sky True Movies 2
+http://ipsatpro.com:8000/live/martin1/martin1/534.ts
+#EXTINF:-1,UK: Sky More 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/504.ts
+#EXTINF:-1,UK: Sky Film 4 HD
+http://ipsatpro.com:8000/live/martin1/martin1/505.ts
+#EXTINF:-1,UK: Sky ITV 1
+http://ipsatpro.com:8000/live/martin1/martin1/471.ts
+#EXTINF:-1,UK: Sky ITV 2
+http://ipsatpro.com:8000/live/martin1/martin1/470.ts
+#EXTINF:-1,UK: Sky ITV 3
+http://ipsatpro.com:8000/live/martin1/martin1/469.ts
+#EXTINF:-1,UK: Sky ITV 4
+http://ipsatpro.com:8000/live/martin1/martin1/468.ts
+#EXTINF:-1,UK: Sky ITV Encore
+http://ipsatpro.com:8000/live/martin1/martin1/467.ts
+#EXTINF:-1,UK: Sky Cbs Drama
+http://ipsatpro.com:8000/live/martin1/martin1/482.ts
+#EXTINF:-1,UK: Sky Cbs Action
+http://ipsatpro.com:8000/live/martin1/martin1/481.ts
+#EXTINF:-1,UK: Sky CBS Reality
+http://ipsatpro.com:8000/live/martin1/martin1/510.ts
+#EXTINF:-1,UK: Sky BBC One HD
+http://ipsatpro.com:8000/live/martin1/martin1/488.ts
+#EXTINF:-1,UK: Sky BBC Two HD
+http://ipsatpro.com:8000/live/martin1/martin1/487.ts
+#EXTINF:-1,UK: Sky BBC Three HD
+http://ipsatpro.com:8000/live/martin1/martin1/486.ts
+#EXTINF:-1,UK: Sky BBC Four HD
+http://ipsatpro.com:8000/live/martin1/martin1/485.ts
+#EXTINF:-1,UK: Sky BT Sport Extra
+http://ipsatpro.com:8000/live/martin1/martin1/479.ts
+#EXTINF:-1,UK: Sky Comedy Central
+http://ipsatpro.com:8000/live/martin1/martin1/463.ts
+#EXTINF:-1,UK: Sky Comedy Central Ex
+http://ipsatpro.com:8000/live/martin1/martin1/462.ts
+#EXTINF:-1,UK: Sky History 2
+http://ipsatpro.com:8000/live/martin1/martin1/452.ts
+#EXTINF:-1,UK: Sky Nickelodeon
+http://ipsatpro.com:8000/live/martin1/martin1/503.ts
+#EXTINF:-1,UK: Sky Disney XD HD
+http://ipsatpro.com:8000/live/martin1/martin1/493.ts
+#EXTINF:-1,UK: Sky Disney Junior HD
+http://ipsatpro.com:8000/live/martin1/martin1/494.ts
+#EXTINF:-1,UK: Sky Food Network
+http://ipsatpro.com:8000/live/martin1/martin1/495.ts
+#EXTINF:-1,UK: Sky Discovery
+http://ipsatpro.com:8000/live/martin1/martin1/464.ts
+#EXTINF:-1,UK: Sky Disney Chaneel HD
+http://ipsatpro.com:8000/live/martin1/martin1/492.ts
+#EXTINF:-1,UK: Sky Cartoon Network
+http://ipsatpro.com:8000/live/martin1/martin1/522.ts
+#EXTINF:-1,K: Sky Discovery Science
+http://ipsatpro.com:8000/live/martin1/martin1/526.ts
+#EXTINF:-1,UK: Sky Discovery History
+http://ipsatpro.com:8000/live/martin1/martin1/491.ts
+#EXTINF:-1,UK: Sky Discovery Turbo
+http://ipsatpro.com:8000/live/martin1/martin1/465.ts
+#EXTINF:-1,UK: Sky Ci
+http://ipsatpro.com:8000/live/martin1/martin1/514.ts
+#EXTINF:-1,UK: Sky Animal Planet HD
+http://ipsatpro.com:8000/live/martin1/martin1/497.ts
+#EXTINF:-1,UK: Sky National Geographic HD
+http://ipsatpro.com:8000/live/martin1/martin1/499.ts
+#EXTINF:-1,UK: Sky Nat Geo Wild HD
+http://ipsatpro.com:8000/live/martin1/martin1/498.ts
+#EXTINF:-1,UK: Sky History HD
+http://ipsatpro.com:8000/live/martin1/martin1/496.ts
+#EXTINF:-1,UK: Sky 1
+http://ipsatpro.com:8000/live/martin1/martin1/475.ts
+#EXTINF:-1,UK: Sky 2
+http://ipsatpro.com:8000/live/martin1/martin1/507.ts
+#EXTINF:-1,UK: Sky Atlantic
+http://ipsatpro.com:8000/live/martin1/martin1/483.ts
+#EXTINF:-1,UK: Sky VH1
+http://ipsatpro.com:8000/live/martin1/martin1/449.ts
+#EXTINF:-1US: Sky E4
+http://ipsatpro.com:8000/live/martin1/martin1/451.ts
+#EXTINF:-1,UK: Sky Syfy
+http://ipsatpro.com:8000/live/martin1/martin1/538.ts
+#EXTINF:-1,UK: Sky MTV Hits
+http://ipsatpro.com:8000/live/martin1/martin1/500.ts
+#EXTINF:-1,UK: Sky CNBC
+http://ipsatpro.com:8000/live/martin1/martin1/466.ts
+#EXTINF:-1,UK: Sky Dave HD
+http://ipsatpro.com:8000/live/martin1/martin1/506.ts
+#EXTINF:-1,UK: Sky RTE One
+http://ipsatpro.com:8000/live/martin1/martin1/474.ts
+#EXTINF:-1,UK: Sky RTE Two
+http://ipsatpro.com:8000/live/martin1/martin1/478.ts
+#EXTINF:-1,UK: Sky 4Seven
+http://ipsatpro.com:8000/live/martin1/martin1/473.ts
+#EXTINF:-1,UK: Sky Arts 1 HD
+http://ipsatpro.com:8000/live/martin1/martin1/489.ts
+#EXTINF:-1,UK: Sky Alibi
+http://ipsatpro.com:8000/live/martin1/martin1/509.ts
+#EXTINF:-1,UK: Sky Living HD
+http://ipsatpro.com:8000/live/martin1/martin1/502.ts
+#EXTINF:-1,UK: Sky BoxNation
+http://ipsatpro.com:8000/live/martin1/martin1/490.ts
+#EXTINF:-1,UK: Sky Channel 5 USA
+http://ipsatpro.com:8000/live/martin1/martin1/458.ts
+#EXTINF:-1,UK: Sky Gold
+http://ipsatpro.com:8000/live/martin1/martin1/508.ts
+#EXTINF:-1,UK: Sky 5 USA
+http://ipsatpro.com:8000/live/martin1/martin1/480.ts
+#EXTINF:-1,UK: Sky 5 star
+http://ipsatpro.com:8000/live/martin1/martin1/477.ts
+#EXTINF:-1,UK: Sky life Time
+http://ipsatpro.com:8000/live/martin1/martin1/476.ts
+#EXTINF:-1,UK: Sky E4+1
+http://ipsatpro.com:8000/live/martin1/martin1/525.ts
+#EXTINF:-1,UK: Sky Good Food HD
+http://ipsatpro.com:8000/live/martin1/martin1/501.ts
+#EXTINF:-1,Uk: Sky At the Races
+http://ipsatpro.com:8000/live/martin1/martin1/461.ts
+#EXTINF:-1,UK: SKY STV
+http://ipsatpro.com:8000/live/martin1/martin1/460.ts
+#EXTINF:-1,UK: Sky TCM
+http://ipsatpro.com:8000/live/martin1/martin1/459.ts
+#EXTINF:-1,UK: Five
+http://ipsatpro.com:8000/live/martin1/martin1/450.ts
+#EXTINF:-1,UK: CNN
+http://ipsatpro.com:8000/live/martin1/martin1/454.ts
+#EXTINF:-1,UK: Dmax
+http://ipsatpro.com:8000/live/martin1/martin1/456.ts
+#EXTINF:-1,UK: Sky Bloomberg HD
+http://ipsatpro.com:8000/live/martin1/martin1/457.ts
+#EXTINF:-1,UK: Sky TLC
+http://ipsatpro.com:8000/live/martin1/martin1/455.ts
+#EXTINF:-1,UK: Sky Magic
+http://ipsatpro.com:8000/live/martin1/martin1/448.ts
