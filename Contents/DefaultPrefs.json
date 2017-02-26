@@ -1,56 +1,72 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name or URL",
+        "label":    "Playlist file name or URL, multiple entries can be entered separated with semicolon",
         "type":     "text",
         "default":  "playlist.m3u"
+    },
+    {
+        "id":       "xmltv",
+        "label":    "XMLTV file name or URL, multiple entries can be entered separated with semicolon",
+        "type":     "text",
+        "default":  ""
+    },
+    {
+        "id":       "filename_groups",
+        "label":    "Use file name as group name if group-title attribute is absent",
+        "type":     "bool",
+        "default":  "false"
     },
     {
         "id":       "sort_groups",
         "label":    "Sort groups by name",
         "type":     "bool",
-        "default":  "true"
+        "default":  "false"
     },
     {
         "id":       "sort_lists",
         "label":    "Sort streams by name",
         "type":     "bool",
-        "default":  "true"
+        "default":  "false"
     },
     {
         "id":       "items_per_page",
-        "label":    "Streams per page",
-        "type":     "text",
-        "default":  "100"
-    },
-    {
-        "id":       "optimized_for_streaming",
-        "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Streaming options are unavailable",
-        "type":     "bool",
-        "default":  "true"
-    },
-    {
-        "id":       "rtmp",
-        "label":    "Use Real RTMP (need to edit file Info.plist manually)",
-        "type":     "bool",
-        "default":  "false"
-    },
-    {
-        "id":       "xmltv",
-        "label":    "XMLTV file name or URL",
-        "type":     "text",
-        "default":  "guide.xml"
+        "label":    "Number of streams to show per page (high number might break the plug-in)",
+        "type":     "enum",
+        "values":   ["10", "20", "50", "100", "200", "500"],
+        "default":  "40"
     },
     {
         "id":       "guide_hours",
-        "label":    "Amount of hours to look forward when fetching program guide (default 8)",
-        "type":     "text",
+        "label":    "Number of hours to look forward when displaying program guide (high number might break the plug-in)",
+        "type":     "enum",
+        "values":   ["2", "4", "8", "16", "24", "48"],
         "default":  "8"
     },
-	{
-        "id":       "player_prefs",
-        "label":    "Show preferences in players (in most players plug-ins preferences are inaccessible either way)",
+    {
+        "id":       "m3u_reload_time",
+        "label":    "At what hour should plug-in reload the M3U files?",
+        "type":     "enum",
+        "values":   ["never", "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+        "default":  "never"
+    },
+    {
+        "id":       "xmltv_reload_time",
+        "label":    "At what hour should plug-in reload the XMLTV files?",
+        "type":     "enum",
+        "values":   ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+        "default":  "04:00"
+    },
+    {
+        "id":       "user_agent",
+        "label":    "Custom User-Agent string",
+        "type":     "text",
+        "default":  ""
+    },
+    {
+        "id":       "optimized_for_streaming",
+        "label":    "Optimized for streaming - switching this off might force PMS to transcode everything even when Direct Play and Direct Stream options are unavailable",
         "type":     "bool",
-        "default":  "false"
+        "default":  "true"
     }
 ]
