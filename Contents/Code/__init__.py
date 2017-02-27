@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0.0
+# Version 2.0.1
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
@@ -197,7 +197,7 @@ def PlayVideo(url):
 
     # Custom User-Agent string
     if Prefs['user_agent']:
-        HTTP.SetHeader('User-Agent', Prefs['user_agent'])
+        HTTP.Headers['User-Agent'] = Prefs['user_agent']
 
     return IndirectResponse(VideoClipObject, key = url)
 

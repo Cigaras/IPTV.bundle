@@ -32,15 +32,17 @@ def LoadPlaylist():
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
 
 ####################################################################################################
-def LoadM3UFile(m3u_file, groups = {}, streams = {}):
-
-    m3u_name = None
+def LoadM3UFile(m3u_file, groups = {}, streams = {}, title = None):
 
     if m3u_file:
 
+        m3u_name = None
         if Prefs['filename_groups']:
-            m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
-            m3u_name = os.path.splitext(m3u_base)[0]
+            if title:
+                m3u_name = title
+            else:
+                m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
+                m3u_name = os.path.splitext(m3u_base)[0]
 
         if m3u_file.startswith('http://') or m3u_file.startswith('https://'):
             try:
@@ -49,12 +51,11 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}):
                 playlist = None
         else:
             playlist = Resource.Load(m3u_file, binary = True)
-            Log.Debug('---- %s' % playlist)
 
         if playlist:
             lines = playlist.splitlines()
             streams_count = 0
-            for i in range(len(lines)):
+            for i in range(len(lines) - 1):
                 line = lines[i].strip()
                 if line.startswith('#EXTINF'):
                     url = lines[i + 1].strip()
@@ -113,9 +114,11 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}):
                                 streams.setdefault(group_title, {})[streams_count] = stream
                         i = i + 1 # skip the url line for the next cycle
                 elif line.startswith('#EXTIMPORT'):
-                    url = line[len('#EXTIMPORT') + 1:len(line)].strip()
-                    if url:
-                        LoadM3UFile(url, groups, streams)
+                    url = lines[i + 1].strip()
+                    if url and not url.startswith('#'):
+                        title = unicode(line[line.rfind(',') + 1:len(line)].strip()) if line.rfind(',') > -1 else None
+                        LoadM3UFile(url, groups, streams, title)
+                        i = i + 1 # skip the url line for the next cycle
 
 ####################################################################################################
 def DecodeURIComponent(uri):
