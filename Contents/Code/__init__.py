@@ -44,7 +44,7 @@ def MainMenu():
     if not Dict['groups']:
         LoadPlaylist()
         if not Dict['groups']:
-            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or epmty, check the log file for more information")
+            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or empty, check the log file for more information")
 
     groups = Dict['groups']
     groups_list = groups.values()
@@ -98,7 +98,7 @@ def ListItems(group, page = 1):
     if not Dict['streams']:
         LoadPlaylist()
         if not Dict['streams']:
-            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or epmty, check the log file for more information")
+            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or empty, check the log file for more information")
 
     streams = Dict['streams']
     items_list = streams.get(group, dict()).values()
