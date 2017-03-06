@@ -32,14 +32,14 @@ def LoadPlaylist():
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
 
 ####################################################################################################
-def LoadM3UFile(m3u_file, groups = {}, streams = {}, title = None):
+def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
 
     if m3u_file:
 
         m3u_name = None
         if Prefs['filename_groups']:
-            if title:
-                m3u_name = title
+            if cust_m3u_name:
+                m3u_name = cust_m3u_name
             else:
                 m3u_base = os.path.basename(DecodeURIComponent(m3u_file))
                 m3u_name = os.path.splitext(m3u_base)[0]
@@ -53,30 +53,37 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, title = None):
             playlist = Resource.Load(m3u_file, binary = True)
 
         if playlist:
+            stream_count = len(streams)
             lines = playlist.splitlines()
-            streams_count = 0
-            for i in range(len(lines) - 1):
-                line = lines[i].strip()
-                if line.startswith('#EXTINF'):
-                    url = lines[i + 1].strip()
-                    if url.startswith('#EXTVLCOPT') and i + 1 < len(lines):
-                        # skip VLC specific run-time options
-                        i = i + 1
-                        url = lines[i + 1].strip()
-                    if url and not url.startswith('#'):
-                        title = unicode(line[line.rfind(',') + 1:len(line)].strip())
-                        id = GetAttribute(line, 'tvg-id')
-                        name = GetAttribute(line, 'tvg-name')
-                        thumb = GetAttribute(line, 'tvg-logo')
-                        if thumb == '':
-                            thumb = GetAttribute(line, 'logo')
-                        art = GetAttribute(line, 'art')
-                        audio_codec = GetAttribute(line, 'audio_codec')
-                        video_codec = GetAttribute(line, 'video_codec')
-                        container = GetAttribute(line, 'container')
-                        protocol = GetAttribute(line, 'protocol')
-                        optimized_for_streaming = GetAttribute(line, 'optimized_for_streaming').lower()
-                        streams_count = streams_count + 1
+            line_count = len(lines)
+            for i in range(line_count - 1):
+                line_1 = lines[i].strip()
+                if line_1.startswith('#EXTINF'):
+                    title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip())
+                    id = GetAttribute(line_1, 'tvg-id')
+                    name = GetAttribute(line_1, 'tvg-name')
+                    thumb = GetAttribute(line_1, 'tvg-logo')
+                    if not thumb:
+                        thumb = GetAttribute(line_1, 'logo')
+                    art = GetAttribute(line_1, 'art')
+                    audio_codec = GetAttribute(line_1, 'audio_codec').lower()
+                    video_codec = GetAttribute(line_1, 'video_codec').lower()
+                    container = GetAttribute(line_1, 'container').lower()
+                    protocol = GetAttribute(line_1, 'protocol').lower()
+                    optimized_for_streaming = GetAttribute(line_1, 'optimized_for_streaming').lower()
+                    group_title = GetAttribute(line_1, 'group-title')
+                    url = None
+                    for j in range(i + 1, line_count):
+                        line_2 = lines[j].strip()
+                        if line_2:
+                            if line_2.startswith('#EXTGRP:') and not group_title:
+                                group_title = GetAttribute(line_2, '#EXTGRP', ':', '')
+                            elif not line_2.startswith('#'):
+                                url = line_2
+                                i = j + 1
+                                break
+                    if url:
+                        stream_count = stream_count + 1
                         stream = {
                             'url': url,
                             'title': title,
@@ -89,17 +96,18 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, title = None):
                             'container': container,
                             'protocol': protocol,
                             'optimized_for_streaming': optimized_for_streaming,
-                            'order': streams_count
+                            'order': stream_count
                         }
                         if not streams:
-                            streams.setdefault(unicode(L('All')), {})[streams_count] = stream
+                            streams.setdefault(unicode(L('All')), {})[stream_count] = stream
                         if streams:
                             if not any(item['url'] == stream['url'] for item in streams[unicode(L('All'))].values()):
-                                streams.setdefault(unicode(L('All')), {})[streams_count] = stream
-                            group_title = GetAttribute(line, 'group-title', default = unicode(L('No Category') if not m3u_name else m3u_name))
+                                streams.setdefault(unicode(L('All')), {})[stream_count] = stream
+                            if not group_title:
+                                group_title = unicode(L('No Category') if not m3u_name else m3u_name)
                             if group_title not in groups.keys():
-                                group_thumb = GetAttribute(line, 'group-logo')
-                                group_art = GetAttribute(line, 'group-art')
+                                group_thumb = GetAttribute(line_1, 'group-logo')
+                                group_art = GetAttribute(line_1, 'group-art')
                                 group = {
                                     'title': group_title,
                                     'thumb': group_thumb,
@@ -109,16 +117,23 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, title = None):
                                 groups[group_title] = group
                             if group_title in streams.keys():
                                 if not any(item['url'] == stream['url'] for item in streams[group_title].values()):
-                                    streams.setdefault(group_title, {})[streams_count] = stream
+                                    streams.setdefault(group_title, {})[stream_count] = stream
                             else:
-                                streams.setdefault(group_title, {})[streams_count] = stream
-                        i = i + 1 # skip the url line for the next cycle
-                elif line.startswith('#EXTIMPORT'):
-                    url = lines[i + 1].strip()
-                    if url and not url.startswith('#'):
-                        title = unicode(line[line.rfind(',') + 1:len(line)].strip()) if line.rfind(',') > -1 else None
-                        LoadM3UFile(url, groups, streams, title)
-                        i = i + 1 # skip the url line for the next cycle
+                                streams.setdefault(group_title, {})[stream_count] = stream
+                elif line_1.startswith('#EXTIMPORT'):
+                    group_title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip()) if line_1.rfind(',') > -1 else None
+                    url = None
+                    for j in range(i + 1, line_count):
+                        line_2 = lines[j].strip()
+                        if line_2:
+                            if line_2.startswith('#EXTGRP:') and not group_title:
+                                group_title = GetAttribute(line_2, '#EXTGRP', ':', '')
+                            elif not line_2.startswith('#'):
+                                url = line_2
+                                i = j + 1
+                                break
+                    if url:
+                        LoadM3UFile(m3u_file = url, groups = groups, streams = streams, cust_m3u_name = group_title)
 
 ####################################################################################################
 def DecodeURIComponent(uri):
