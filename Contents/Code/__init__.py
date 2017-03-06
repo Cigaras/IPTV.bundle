@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0.1
+# Version 2.0.2
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
@@ -92,7 +92,7 @@ def MainMenu():
         return ListItems(unicode(L('All')))
 
 ####################################################################################################
-@route(PREFIX + '/listitems/{group}', page = int)
+@route(PREFIX + '/listitems', page = int)
 def ListItems(group, page = 1):
 
     if not Dict['streams']:

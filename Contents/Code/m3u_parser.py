@@ -133,10 +133,10 @@ def DecodeURIComponent(uri):
 ####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
 
-    x = text.find(attribute)
+    x = text.lower().find(attribute.lower())
     if x > -1:
-        y = text.find(delimiter1, x + len(attribute)) + len(delimiter1)
-        z = text.find(delimiter2, y) if delimiter2 else len(text)
+        y = text.lower().find(delimiter1.lower(), x + len(attribute)) + len(delimiter1)
+        z = text.lower().find(delimiter2.lower(), y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)
         return unicode(text[y:z].strip())
