@@ -92,13 +92,15 @@ def MainMenu():
         return ListItems(unicode(L('All')))
 
 ####################################################################################################
-@route(PREFIX + '/listitems/{group}', page = int)
+@route(PREFIX + '/listitems', page = int)
 def ListItems(group, page = 1):
 
     if not Dict['streams']:
         LoadPlaylist()
         if not Dict['streams']:
             return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or empty, check the log file for more information")
+
+    group = unicode(group) # Plex loses unicode formating when passing string between @route procedures if string is not a part of a @route
 
     streams = Dict['streams']
     items_list = streams.get(group, dict()).values()
