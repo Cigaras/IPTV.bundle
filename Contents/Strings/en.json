@@ -1,5 +1,7 @@
 {
     "All": "All",
     "No Category": "No Category",
-    "No description available": "No description available"
+    "No description available": "No description available",
+    "Error": "Error",
+    "Provided playlist files are invalid, missing or empty, check the log file for more information": "Provided playlist files are invalid, missing or empty, check the log file for more information"
 }

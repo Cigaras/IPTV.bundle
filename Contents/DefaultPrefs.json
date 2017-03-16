@@ -12,6 +12,12 @@
         "default":  ""
     },
     {
+        "id":       "images_url",
+        "label":    "URL path where images are located, if left empty images will be loaded from Resources folder",
+        "type":     "text",
+        "default":  ""
+    },
+    {
         "id":       "filename_groups",
         "label":    "Use file name as group name if group-title attribute is absent",
         "type":     "bool",

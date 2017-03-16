@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0.3
+# Version 2.0.4
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
@@ -28,7 +28,7 @@ def Start():
     ObjectContainer.art = R('art-default.jpg')
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
-    VideoClipObject.thumb = R('icon-tv.jpg')
+    VideoClipObject.thumb = R('icon-tv.png')
     VideoClipObject.art = R('art-default.jpg')
 
     if Prefs['m3u_reload_time'] == 'never' or not Dict['groups'] or not Dict['streams']:
@@ -44,7 +44,7 @@ def MainMenu():
     if not Dict['groups']:
         LoadPlaylist()
         if not Dict['groups']:
-            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or empty, check the log file for more information")
+            return ObjectContainer(header = unicode(L("Error")), message = unicode(L("Provided playlist files are invalid, missing or empty, check the log file for more information")))
 
     groups = Dict['groups']
     groups_list = groups.values()
@@ -98,7 +98,7 @@ def ListItems(group, page = 1):
     if not Dict['streams']:
         LoadPlaylist()
         if not Dict['streams']:
-            return ObjectContainer(header = "Error", message = "Provided playlist files are invalid, missing or empty, check the log file for more information")
+            return ObjectContainer(header = unicode(L("Error")), message = unicode(L("Provided playlist files are invalid, missing or empty, check the log file for more information")))
 
     group = unicode(group) # Plex loses unicode formating when passing string between @route procedures if string is not a part of a @route
 
@@ -209,6 +209,9 @@ def GetImage(file_name, default):
     if file_name:
         if file_name.startswith('http'):
             return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
+        elif Prefs['images_url'].startswith('http'):
+            file_name = Prefs['images_url'] + file_name if Prefs['images_url'].endswith('/') else Prefs['images_url'] + '/' + file_name
+            return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
         else:
             r = R(file_name)
             if r:
@@ -264,4 +267,5 @@ def GetSummary(id, name, title, default = ''):
 
 ####################################################################################################
 def ValidatePrefs():
+
     pass
