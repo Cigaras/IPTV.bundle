@@ -12,8 +12,8 @@
         "default":  ""
     },
     {
-        "id":       "images_url",
-        "label":    "URL path where images are located, if left empty images will be loaded from Resources folder",
+        "id":       "images_path",
+        "label":    "Local path (experimental) or URL where images are located, if left empty images will be loaded from Resources folder",
         "type":     "text",
         "default":  ""
     },

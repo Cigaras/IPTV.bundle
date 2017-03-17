@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0.4
+# Version 2.0.5
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import GuideReloader
@@ -209,13 +209,20 @@ def GetImage(file_name, default):
     if file_name:
         if file_name.startswith('http'):
             return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
-        elif Prefs['images_url'].startswith('http'):
-            file_name = Prefs['images_url'] + file_name if Prefs['images_url'].endswith('/') else Prefs['images_url'] + '/' + file_name
-            return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
-        else:
-            r = R(file_name)
-            if r:
-                return r
+        if Prefs['images_path']:
+            path = Prefs['images_path']
+            if path.startswith('http'):
+                file_name = path + file_name if path.endswith('/') else path + '/' + file_name
+                return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
+            else:
+                if '/' in path and not '\\' in path:
+                    # must be unix system, might not work
+                    file_name = path + file_name if path.endswith('/') else path + '/' + file_name
+                elif '\\' in path and not '/' in path:
+                    file_name = path + file_name if path.endswith('\\') else path + '\\' + file_name
+        r = R(file_name)
+        if r:
+            return r
     return R(default)
 
 ####################################################################################################
