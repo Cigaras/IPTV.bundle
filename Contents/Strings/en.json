@@ -1,7 +1,20 @@
 {
     "All": "All",
-    "No Category": "No Category",
-    "No description available": "No description available",
     "Error": "Error",
-    "Provided playlist files are invalid, missing or empty, check the log file for more information": "Provided playlist files are invalid, missing or empty, check the log file for more information"
+    "No category": "No category",
+    "No description available": "No description available",
+	"No items were found": "No items were found",
+	"Playlist is reloading in the background, please wait": "Playlist is reloading in the background, please wait",
+	"Playlist reloaded successfully": "Playlist reloaded successfully",
+	"Preferences": "Preferences",
+	"Program guide is reloading in the background, please wait": "Program guide is reloading in the background, please wait",
+	"Program guide reloaded successfully": "Program guide reloaded successfully",
+    "Provided playlist files are invalid, missing or empty, check the log file for more information": "Provided playlist files are invalid, missing or empty, check the log file for more information",
+	"Provided program guide files are invalid, missing or empty, check the log file for more information": "Provided program guide files are invalid, missing or empty, check the log file for more information",
+	"Reload playlist": "Reload playlist",
+	"Reload program guide": "Reload program guide",
+	"Search": "Search",
+	"Success": "Success",
+	"View playlist": "View playlist",
+	"Warning": "Warning"
 }

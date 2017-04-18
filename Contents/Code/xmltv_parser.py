@@ -20,6 +20,11 @@ import xml.etree.ElementTree # Plex XML API fails with big files
 ####################################################################################################
 def LoadGuide():
 
+    if Dict['guide_loading_in_progress']:
+        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Program guide is reloading in the background, please wait')))
+
+    Dict['guide_loading_in_progress'] = True
+
     channels = {}
     guide = {}
     xmltv_files = Prefs['xmltv'].split(';')
@@ -27,7 +32,7 @@ def LoadGuide():
     for xmltv_file in xmltv_files:
         if xmltv_file:
             if xmltv_file.startswith('http://') or xmltv_file.startswith('https://'):
-                # Plex can't handle compressed files, using standart Python methods instead
+                # Plex can't handle compressed files, using standard Python methods instead
                 if xmltv_file.endswith('.gz') or xmltv_file.endswith('.gz?raw=1'):
                     f = io.BytesIO(urllib2.urlopen(xmltv_file).read())
                     try:
@@ -84,6 +89,20 @@ def LoadGuide():
     Dict['guide'] = guide
     Dict['last_guide_load_datetime'] = Datetime.Now()
     Dict['last_guide_load_prefs'] = Prefs['xmltv']
+    Dict['guide_loading_in_progress'] = False
+
+    if Dict['guide']:
+        return ObjectContainer(
+                    title1 = unicode(L('Success')),
+                    header = unicode(L('Success')),
+                    message = unicode(L('Program guide reloaded successfully'))
+                )
+    else:
+        return ObjectContainer(
+                    title1 = unicode(L('Error')),
+                    header = unicode(L('Error')),
+                    message = unicode(L('Provided program guide files are invalid, missing or empty, check the log file for more information'))
+                )
 
 ####################################################################################################
 def StringToLocalDatetime(arg_string):

@@ -1,9 +1,44 @@
 #EXTM3U
-#EXTINF:0 tvg-id="1" tvg-name="ABC News" tvg-logo="http://upload.wikimedia.org/wikipedia/en/f/fa/ABCNewsLogo.png" group-title="News",ABC News (http)
-http://abclive.abcnews.com/i/abc_live4@136330/index_1200_av-b.m3u8
-#EXTINF:0 tvg-id="2" tvg-name="NDTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/2000px-NDTV_logo.svg.png" group-title="News",NDTV (http)
-http://bglive-a.bitgravity.com/ndtv/247hi/live/native
-#EXTINF:0 tvg-id="2" tvg-name="NDTV" tvg-logo="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/2000px-NDTV_logo.svg.png" group-title="News",NDTV alternative link (http)
+
+#EXTINF:0 tvg-id="1" group-title="Music",DnBTV (rtmp)
+rtmp://fms1.drumandbasslines.com/DnBTV/ch1
+
+#EXTINF:0 tvg-id="2" tvg-name="Euronews" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/39/Euronews._2016_alternative_logo.png" group-title="News",Euronews (rtsp)
+rtsp://ewns-hls-b-stream.hexaglobe.net/rtpeuronewslive/en_vidan750_rtp.sdp
+
+#EXTINF:0 tvg-id="3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Eurosport_Logo_2015.svg/1280px-Eurosport_Logo_2015.svg.png",Eurosport showcase (http)
+http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1000.m3u8
+
+#EXTINF:0 tvg-id="4",Planeta (rtmp)
+rtmp://planetaonline.cdnvideo.ru/rr/channel_2
+
+#EXTINF:0 tvg-id="5" tvg-name="HSN" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HSN_logo.svg/1038px-HSN_logo.svg.png" group-title="Shopping",Home Shopping Network (rtsp)
+rtsp://hsn.mpl.miisolutions.net:1935/hsn-live01/_definst_/mp4:420p500kB31
+
+#EXTINF:0 tvg-id="6" tvg-name="NDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/1280px-NDTV_logo.svg.png" group-title="News",NDTV 480p (http://bitgravity.com)
 http://ndtv.live.cdn.bitgravity.com/ndtv/live/ndtv247live512
-#EXTINF:0 tvg-id="3" tvg-name="Sky TG24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/9/91/SKY_TG24.png" group-title="News",Sky TG24 (rtmp)
+#EXTINF:0 tvg-id="6" tvg-name="NDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/1280px-NDTV_logo.svg.png" group-title="News",NDTV 240p (http://bitgravity.com)
+http://bglive-a.bitgravity.com/ndtv/247hi/live/native
+#EXTINF:0 tvg-id="6" tvg-name="NDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/NDTV_logo.svg/1280px-NDTV_logo.svg.png" group-title="News",NDTV 240p (http://indostan.epac.to)
+http://ndtv.indostan.epac.to/ndtv/247lo/live/native
+
+#EXTINF:0 tvg-id="7" tvg-logo="https://upload.wikimedia.org/wikipedia/en/b/b0/Peace_TV_logo_2015.jpeg",Peace TV Asia (rtmp)
+rtmp://peace.fms.visionip.tv/live/b2b-peace_asia-live-25f-4x3-sdh_1
+
+#EXTINF:0 tvg-id="8" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/1024px-Russia-today-logo.svg.png" group-title="News",Russia Today HD (http)
+http://rt.ashttp14.visionip.tv/live/rt-global-live-HD/playlist.m3u8
+#EXTINF:0 tvg-id="8" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/1024px-Russia-today-logo.svg.png" group-title="News",Russia Today 480p (http)
+http://rt-eng-live.hls.adaptive.level3.net/rt/eng/index1600.m3u8
+#EXTINF:0 tvg-id="8" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/1024px-Russia-today-logo.svg.png" group-title="News",Russia Today 240p (http)
+http://rt-eng-live.hls.adaptive.level3.net/rt/eng/index400.m3u8
+#EXTINF:0 tvg-id="8" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/ae/RTD-TV-logo.png" group-title="Documentary",Russia Today Documentary HD
+http://rt.ashttp14.visionip.tv/live/rt-doc-live-HD/playlist.m3u8
+
+#EXTINF:0 tvg-id="9" tvg-name="Sky TG24" tvg-logo="http://upload.wikimedia.org/wikipedia/en/9/91/SKY_TG24.png" group-title="News",Sky TG24 (rtmp)
 rtmp://cp49989.live.edgefcs.net:1935/live/streamRM1@2564
+
+#EXTINF:0 tvg-id="10" tvg-logo="https://upload.wikimedia.org/wikipedia/en/3/3c/FloridaChannel.png",The Florida Channel (rtmp)
+rtmp://webcasting.thefloridachannel.org/live/tvweb1
+
+#EXTINF:0 tvg-id="11" tvg-logo="https://upload.wikimedia.org/wikipedia/en/4/4d/UCTV.PNG",University of California Television (rtmp)
+rtmp://ucsdtv-wowza.ucsd.edu:1935/live/live_800

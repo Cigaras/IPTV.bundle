@@ -18,6 +18,11 @@ import urllib2
 ####################################################################################################
 def LoadPlaylist():
 
+    if Dict['playlist_loading_in_progress']:
+        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Playlist is reloading in the background, please wait')))
+
+    Dict['playlist_loading_in_progress'] = True
+
     groups = {}
     streams = {}
     m3u_files = Prefs['playlist'].split(';')
@@ -30,6 +35,20 @@ def LoadPlaylist():
     Dict['last_playlist_load_datetime'] = Datetime.Now()
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
+    Dict['playlist_loading_in_progress'] = False
+
+    if Dict['groups']:
+        return ObjectContainer(
+                    title1 = unicode(L('Success')),
+                    header = unicode(L('Success')),
+                    message = unicode(L('Playlist reloaded successfully'))
+                )
+    else:
+        return ObjectContainer(
+                    title1 = unicode(L('Error')),
+                    header = unicode(L('Error')),
+                    message = unicode(L('Provided playlist files are invalid, missing or empty, check the log file for more information'))
+                )
 
 ####################################################################################################
 def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
@@ -104,7 +123,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             if not any(item['url'] == stream['url'] for item in streams[unicode(L('All'))].values()):
                                 streams.setdefault(unicode(L('All')), {})[stream_count] = stream
                             if not group_title:
-                                group_title = unicode(L('No Category') if not m3u_name else m3u_name)
+                                group_title = unicode(L('No category') if not m3u_name else m3u_name)
                             if group_title not in groups.keys():
                                 group_thumb = GetAttribute(line_1, 'group-logo')
                                 group_art = GetAttribute(line_1, 'group-art')
@@ -146,11 +165,11 @@ def DecodeURIComponent(uri):
     return uri.decode('utf8')
 
 ####################################################################################################
-def GetAttribute(text, attribute, delimiter1 = '="', delimiter2 = '"', default = ''):
+def GetAttribute(text, attribute, delimiter1 = '=', delimiter2 = '"', default = ''):
 
-    x = text.lower().find(attribute.lower())
+    x = text.lower().find(attribute.lower() + delimiter1 + delimiter2)
     if x > -1:
-        y = text.lower().find(delimiter1.lower(), x + len(attribute)) + len(delimiter1)
+        y = x + len(attribute) + len(delimiter1) + len(delimiter2)
         z = text.lower().find(delimiter2.lower(), y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)

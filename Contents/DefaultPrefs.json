@@ -1,7 +1,7 @@
 [
     {
         "id":       "playlist",
-        "label":    "Playlist file name or URL, multiple entries can be entered separated with semicolon",
+        "label":    "Playlist file name or URL, multiple entries can be entered separated with semicolon (please keep in mind that default file playlist.m3u will be overwritten on update)",
         "type":     "text",
         "default":  "playlist.m3u"
     },
@@ -19,7 +19,13 @@
     },
     {
         "id":       "filename_groups",
-        "label":    "Use file name as group name if group-title attribute is absent",
+        "label":    "Use filename as group name if group-title attribute is not available",
+        "type":     "bool",
+        "default":  "false"
+    },
+    {
+        "id":       "title_filename",
+        "label":    "Try to use group or stream title as a .png file filename if logo attributes are not available",
         "type":     "bool",
         "default":  "false"
     },
@@ -37,7 +43,7 @@
     },
     {
         "id":       "items_per_page",
-        "label":    "Number of streams to show per page (high number might break the plug-in)",
+        "label":    "Number of items to show per page (high number might break the plug-in)",
         "type":     "enum",
         "values":   ["10", "20", "50", "100", "200", "500"],
         "default":  "40"
@@ -50,15 +56,39 @@
         "default":  "8"
     },
     {
+        "id":       "search",
+        "label":    "Enable search (will not work on some devices)",
+        "type":     "bool",
+        "default":  "false"
+    },
+    {
+        "id":       "m3u_manual_reload",
+        "label":    "Enable manual playlist reload",
+        "type":     "bool",
+        "default":  "false"
+    },
+    {
+        "id":       "xmltv_manual_reload",
+        "label":    "Enable manual program guide reload",
+        "type":     "bool",
+        "default":  "false"
+    },
+	{
+        "id":       "preferences",
+        "label":    "Enable preferences on other devices than Plex Web (will not work on some devices)",
+        "type":     "bool",
+        "default":  "false"
+    },
+    {
         "id":       "m3u_reload_time",
-        "label":    "At what hour should plug-in reload the M3U files?",
+        "label":    "At what hour should plug-in automatically reload the M3U files?",
         "type":     "enum",
         "values":   ["never", "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
         "default":  "never"
     },
     {
         "id":       "xmltv_reload_time",
-        "label":    "At what hour should plug-in reload the XMLTV files?",
+        "label":    "At what hour should plug-in automatically reload the XMLTV files?",
         "type":     "enum",
         "values":   ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
         "default":  "04:00"

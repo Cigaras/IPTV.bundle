@@ -12,14 +12,14 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.0.5
+# Version 2.1.0
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
-from xmltv_parser import GuideReloader
+from xmltv_parser import LoadGuide, GuideReloader
 import re
 
 NAME = 'IPTV'
-PREFIX = '/video/iptv'
+PREFIX = '/video/' + NAME.lower()
 
 ####################################################################################################
 def Start():
@@ -28,6 +28,8 @@ def Start():
     ObjectContainer.art = R('art-default.jpg')
     DirectoryObject.thumb = R('icon-folder.png')
     DirectoryObject.art = R('art-default.jpg')
+    InputDirectoryObject.thumb = R('icon-search.png')
+    InputDirectoryObject.art = R('art-default.jpg')
     VideoClipObject.thumb = R('icon-tv.png')
     VideoClipObject.art = R('art-default.jpg')
 
@@ -41,27 +43,80 @@ def Start():
 @handler(PREFIX, NAME)
 def MainMenu():
 
+    if Prefs['search'] or Prefs['m3u_manual_reload'] or Prefs['xmltv_manual_reload'] or Prefs['preferences']:
+        oc = ObjectContainer()
+        oc.add(
+            DirectoryObject(
+                key = Callback(ListGroups),
+                title = unicode(L('View playlist')),
+                thumb = R('icon-list.png')
+            )
+        )
+        if Prefs['search']:
+            oc.add(
+                InputDirectoryObject(
+                    key = Callback(ListItems),
+                    title = unicode(L('Search')), 
+                    #prompt = unicode(L('Search')),
+                    thumb = R('icon-search.png')
+                )
+            )
+        if Prefs['m3u_manual_reload']:
+        	oc.add(
+                DirectoryObject(
+                    key = Callback(LoadPlaylist),
+                    title = unicode(L('Reload playlist')),
+                    thumb = R('icon-reload.png')
+                )
+            )
+        if Prefs['xmltv'] and Prefs['xmltv_manual_reload']:
+            oc.add(
+                DirectoryObject(
+                    key = Callback(LoadGuide),
+                    title = unicode(L('Reload program guide')),
+                    thumb = R('icon-reload.png')
+                )
+            )
+        if Prefs['preferences']:
+            oc.add(
+                PrefsObject(
+                    title = unicode(L('Preferences')),
+                    thumb = R('icon-prefs.png')
+                )
+            )
+        return oc
+    else:
+        return ListGroups()
+
+####################################################################################################
+@route(PREFIX + '/listgroups', page = int)
+def ListGroups(page = 1):
+
     if not Dict['groups']:
         LoadPlaylist()
         if not Dict['groups']:
-            return ObjectContainer(header = unicode(L("Error")), message = unicode(L("Provided playlist files are invalid, missing or empty, check the log file for more information")))
+            return ObjectContainer(
+                        title1 = unicode(L('Error')),
+                        header = unicode(L('Error')),
+                        message = unicode(L('Provided playlist files are invalid, missing or empty, check the log file for more information'))
+                    )
 
     groups = Dict['groups']
     groups_list = groups.values()
 
     use_groups = False
     for group in groups_list:
-        if group['title'] not in [unicode(L('All')), unicode(L('No Category'))]:
+        if group['title'] not in [unicode(L('All')), unicode(L('No category'))]:
             use_groups = True
             break
 
     if use_groups:
         if Prefs['sort_groups']:
             # Natural sort (http://stackoverflow.com/a/16090640)
-            groups_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
+            groups_list.sort(key = lambda d: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', d['title'].lower())])
         else:
-            groups_list.sort(key = lambda dict: dict['order'])
-        oc = ObjectContainer()
+            groups_list.sort(key = lambda d: d['order'])
+        oc = ObjectContainer(title1 = unicode(L('View playlist')))
         oc.add(
             DirectoryObject(
                 key = Callback(ListItems, group = unicode(L('All'))),
@@ -69,8 +124,8 @@ def MainMenu():
             )
         )
         for group in groups_list:
-            if group['title'] not in [unicode(L('All')), unicode(L('No Category'))]:
-                thumb = GetImage(group['thumb'], default = 'icon-folder.png')
+            if group['title'] not in [unicode(L('All')), unicode(L('No category'))]:
+                thumb = GetImage(group['thumb'], default = 'icon-folder.png', title = group['title'])
                 art = GetImage(group['art'], default = 'art-default.png')
                 oc.add(
                     DirectoryObject(
@@ -80,37 +135,45 @@ def MainMenu():
                         art = art
                     )
                 )
-        if unicode(L('No Category')) in groups.keys():
+        if unicode(L('No category')) in groups.keys():
             oc.add(
                 DirectoryObject(
-                    key = Callback(ListItems, group = unicode(L('No Category'))),
-                    title = unicode(L('No Category'))
+                    key = Callback(ListItems, group = unicode(L('No category'))),
+                    title = unicode(L('No category'))
                 )
             )
         return oc
     else:
-        return ListItems(unicode(L('All')))
+        return ListItems()
 
 ####################################################################################################
 @route(PREFIX + '/listitems', page = int)
-def ListItems(group, page = 1):
+def ListItems(group = unicode(L('All')), query = '', page = 1):
 
     if not Dict['streams']:
         LoadPlaylist()
         if not Dict['streams']:
-            return ObjectContainer(header = unicode(L("Error")), message = unicode(L("Provided playlist files are invalid, missing or empty, check the log file for more information")))
+            return ObjectContainer(
+                        title1 = unicode(L('Error')),
+                        header = unicode(L('Error')),
+                        message = unicode(L('Provided playlist files are invalid, missing or empty, check the log file for more information'))
+                    )
 
     group = unicode(group) # Plex loses unicode formating when passing string between @route procedures if string is not a part of a @route
 
     streams = Dict['streams']
     items_list = streams.get(group, dict()).values()
 
+    # Filter
+    if query:
+        items_list = filter(lambda d: query.lower() in d['title'].lower(), items_list)
+
     # Sort
     if Prefs['sort_lists']:
         # Natural sort (http://stackoverflow.com/a/16090640)
-        items_list.sort(key = lambda dict: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', dict['title'].lower())])
+        items_list.sort(key = lambda d: [int(t) if t.isdigit() else t.lower() for t in re.split('(\d+)', d['title'].lower())])
     else:
-        items_list.sort(key = lambda dict: dict['order'])
+        items_list.sort(key = lambda d: d['order'])
 
     # Number of items per page
     try:
@@ -119,16 +182,16 @@ def ListItems(group, page = 1):
         items_per_page = 40
     items_list_range = items_list[page * items_per_page - items_per_page : page * items_per_page]
 
-    oc = ObjectContainer(title1 = group)
+    oc = ObjectContainer(title1 = unicode(L('Search')) if query else group)
 
     for item in items_list_range:
         oc.add(
             CreateVideoClipObject(
                 url = item['url'],
                 title = item['title'],
-                thumb = GetImage(item['thumb'], 'icon-tv.png'),
-                art = GetImage(item['art'], 'art-default.jpg'),
-                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L("No description available"))),
+                thumb = GetImage(item['thumb'], default = 'icon-tv.png', title = item['title']),
+                art = GetImage(item['art'], default = 'art-default.jpg'),
+                summary = GetSummary(item['id'], item['name'], item['title'], unicode(L('No description available'))),
                 c_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
                 c_video_codec = item['video_codec'] if item['video_codec'] else None,
                 c_container = item['container'] if item['container'] else None,
@@ -141,7 +204,7 @@ def ListItems(group, page = 1):
     if len(items_list) > page * items_per_page:
         oc.add(
             NextPageObject(
-                key = Callback(ListItems, group = group, page = page + 1),
+                key = Callback(ListItems, group = group, query = query, page = page + 1),
                 thumb = R('icon-next.png')
             )
         )
@@ -149,7 +212,11 @@ def ListItems(group, page = 1):
     if len(oc) > 0:
         return oc
     else:
-        return ObjectContainer(header = "Empty", message = "There are no more items available")
+        return ObjectContainer(
+                    header = unicode(L('Search')),
+                    header = unicode(L('Search')),
+                    message = unicode(L('No items were found'))
+                )
 
 ####################################################################################################
 @route(PREFIX + '/createvideoclipobject', include_container = bool)
@@ -204,7 +271,10 @@ def PlayVideo(url):
     return IndirectResponse(VideoClipObject, key = url)
 
 ####################################################################################################
-def GetImage(file_name, default):
+def GetImage(file_name, default, title = ''):
+
+    if Prefs['title_filename'] and not file_name and title:
+        file_name = title + '.png'
 
     if file_name:
         if file_name.startswith('http'):
@@ -223,6 +293,7 @@ def GetImage(file_name, default):
         r = R(file_name)
         if r:
             return r
+
     return R(default)
 
 ####################################################################################################
