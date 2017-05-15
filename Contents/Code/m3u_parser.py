@@ -18,9 +18,6 @@ import urllib2
 ####################################################################################################
 def LoadPlaylist():
 
-    if Dict['playlist_loading_in_progress']:
-        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Playlist is reloading in the background, please wait')))
-
     Dict['playlist_loading_in_progress'] = True
 
     groups = {}
@@ -36,19 +33,6 @@ def LoadPlaylist():
     Dict['last_playlist_load_prefs'] = Prefs['playlist']
     Dict['last_playlist_load_filename_groups'] = Prefs['filename_groups']
     Dict['playlist_loading_in_progress'] = False
-
-    if Dict['groups']:
-        return ObjectContainer(
-                    title1 = unicode(L('Success')),
-                    header = unicode(L('Success')),
-                    message = unicode(L('Playlist reloaded successfully'))
-                )
-    else:
-        return ObjectContainer(
-                    title1 = unicode(L('Error')),
-                    header = unicode(L('Error')),
-                    message = unicode(L('Provided playlist files are invalid, missing or empty, check the log file for more information'))
-                )
 
 ####################################################################################################
 def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):

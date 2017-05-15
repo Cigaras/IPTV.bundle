@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.0
+# Version 2.1.1
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -64,7 +64,7 @@ def MainMenu():
         if Prefs['m3u_manual_reload']:
         	oc.add(
                 DirectoryObject(
-                    key = Callback(LoadPlaylist),
+                    key = Callback(ReloadPlaylist),
                     title = unicode(L('Reload playlist')),
                     thumb = R('icon-reload.png')
                 )
@@ -72,7 +72,7 @@ def MainMenu():
         if Prefs['xmltv'] and Prefs['xmltv_manual_reload']:
             oc.add(
                 DirectoryObject(
-                    key = Callback(LoadGuide),
+                    key = Callback(ReloadGuide),
                     title = unicode(L('Reload program guide')),
                     thumb = R('icon-reload.png')
                 )
@@ -269,6 +269,50 @@ def PlayVideo(url):
         HTTP.Headers['User-Agent'] = Prefs['user_agent']
 
     return IndirectResponse(VideoClipObject, key = url)
+
+####################################################################################################
+@route(PREFIX + '/reloadplaylist')
+def ReloadPlaylist():
+
+    if Dict['playlist_loading_in_progress']:
+        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Playlist is reloading in the background, please wait')))
+
+    LoadPlaylist()
+
+    if Dict['groups']:
+        return ObjectContainer(
+                    title1 = unicode(L('Success')),
+                    header = unicode(L('Success')),
+                    message = unicode(L('Playlist reloaded successfully'))
+                )
+    else:
+        return ObjectContainer(
+                    title1 = unicode(L('Error')),
+                    header = unicode(L('Error')),
+                    message = unicode(L('Provided playlist files are invalid, missing or empty, check the log file for more information'))
+                )
+
+####################################################################################################
+@route(PREFIX + '/reloadguide')
+def ReloadGuide():
+
+    if Dict['guide_loading_in_progress']:
+        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Program guide is reloading in the background, please wait')))
+
+    LoadGuide()
+
+    if Dict['guide']:
+        return ObjectContainer(
+                    title1 = unicode(L('Success')),
+                    header = unicode(L('Success')),
+                    message = unicode(L('Program guide reloaded successfully'))
+                )
+    else:
+        return ObjectContainer(
+                    title1 = unicode(L('Error')),
+                    header = unicode(L('Error')),
+                    message = unicode(L('Provided program guide files are invalid, missing or empty, check the log file for more information'))
+                )
 
 ####################################################################################################
 def GetImage(file_name, default, title = ''):

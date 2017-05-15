@@ -20,9 +20,6 @@ import xml.etree.ElementTree # Plex XML API fails with big files
 ####################################################################################################
 def LoadGuide():
 
-    if Dict['guide_loading_in_progress']:
-        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Program guide is reloading in the background, please wait')))
-
     Dict['guide_loading_in_progress'] = True
 
     channels = {}
@@ -90,19 +87,6 @@ def LoadGuide():
     Dict['last_guide_load_datetime'] = Datetime.Now()
     Dict['last_guide_load_prefs'] = Prefs['xmltv']
     Dict['guide_loading_in_progress'] = False
-
-    if Dict['guide']:
-        return ObjectContainer(
-                    title1 = unicode(L('Success')),
-                    header = unicode(L('Success')),
-                    message = unicode(L('Program guide reloaded successfully'))
-                )
-    else:
-        return ObjectContainer(
-                    title1 = unicode(L('Error')),
-                    header = unicode(L('Error')),
-                    message = unicode(L('Provided program guide files are invalid, missing or empty, check the log file for more information'))
-                )
 
 ####################################################################################################
 def StringToLocalDatetime(arg_string):
