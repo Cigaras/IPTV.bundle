@@ -112,7 +112,7 @@ def GuideReloader():
         if Prefs['xmltv']:
             if Prefs['xmltv'] != Dict['last_guide_load_prefs'] or not Dict['last_guide_load_datetime']:
                 LoadGuide()
-            elif Prefs['xmltv_reload_time'] != 'never':
+            elif Prefs['xmltv_reload_time'] != 'on start' and Prefs['xmltv_reload_time'] != 'never':
                 current_datetime = Datetime.Now()
                 next_load_datetime = Datetime.ParseDate(str(current_datetime.date()) + ' ' + Prefs['xmltv_reload_time'] + ':00')
                 if current_datetime > next_load_datetime and next_load_datetime > Dict['last_guide_load_datetime']:

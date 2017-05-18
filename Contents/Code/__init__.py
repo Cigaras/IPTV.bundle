@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.1
+# Version 2.1.2
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -33,7 +33,11 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.png')
     VideoClipObject.art = R('art-default.jpg')
 
-    if Prefs['m3u_reload_time'] == 'never' or not Dict['groups'] or not Dict['streams']:
+    # in case something went wrong last run (#122)
+    Dict['playlist_loading_in_progress'] = False
+    Dict['guide_loading_in_progress'] = False
+
+    if Prefs['m3u_reload_time'] == 'on start' or not Dict['groups'] or not Dict['streams']:
         LoadPlaylist()
 
     Thread.Create(PlaylistReloader)

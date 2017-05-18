@@ -151,15 +151,21 @@ def DecodeURIComponent(uri):
 ####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '=', delimiter2 = '"', default = ''):
 
+    try:
+        value = unicode(default)
+    except:
+        value = unicode(L('Unicode decode error'))
     x = text.lower().find(attribute.lower() + delimiter1 + delimiter2)
     if x > -1:
         y = x + len(attribute) + len(delimiter1) + len(delimiter2)
         z = text.lower().find(delimiter2.lower(), y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)
-        return unicode(text[y:z].strip())
-    else:
-        return unicode(default)
+        try:
+            value = unicode(text[y:z].strip())
+        except:
+            value = unicode(L('Unicode decode error'))
+    return value
 
 ####################################################################################################
 def PlaylistReloader():
@@ -168,7 +174,7 @@ def PlaylistReloader():
         if Prefs['playlist']:
             if Dict['last_playlist_load_prefs'] != Prefs['playlist'] or Dict['last_playlist_load_filename_groups'] != Prefs['filename_groups'] or not Dict['last_playlist_load_datetime']:
                 LoadPlaylist()
-            elif Prefs['m3u_reload_time'] != 'never':
+            elif Prefs['m3u_reload_time'] != 'on start' and Prefs['m3u_reload_time'] != 'never':
                 current_datetime = Datetime.Now()
                 next_load_datetime = Datetime.ParseDate(str(current_datetime.date()) + ' ' + Prefs['m3u_reload_time'] + ':00')
                 if current_datetime > next_load_datetime and next_load_datetime > Dict['last_playlist_load_datetime']:
