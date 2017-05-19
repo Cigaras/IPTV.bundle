@@ -1,0 +1,21 @@
+{
+    "All": "Все",
+    "Error": "Ошибка",
+    "No category": "Без категории",
+    "No description available": "Программа отсутсвует",
+    "No items were found": "Ничего не найдено",
+    "Playlist is reloading in the background, please wait": "Подождите, плейлист обновляется",
+    "Playlist reloaded successfully": "Плейлист успешно обновлен",
+    "Preferences": "Настройки",
+    "Program guide is reloading in the background, please wait": "Подождите, программа передач обновляется",
+    "Program guide reloaded successfully": "Программа передач успешно обновлена",
+    "Provided playlist files are invalid, missing or empty, check the log file for more information": "Плейлист не корректен, отсутствует или пустой, см. журнал для подробной информации",
+    "Provided program guide files are invalid, missing or empty, check the log file for more information": "Файл программы передач не корректен, отсутствует или пустой, см. журнал для подробной информации",
+    "Reload playlist": "Обновить плейлист",
+    "Reload program guide": "Обновить программу передач",
+    "Search": "Поиск",
+    "Success": "Готово",
+    "Unicode decode error": "Unicode decode error",
+    "View playlist": "Показать плейлист",
+    "Warning": "Внимание"
+}
