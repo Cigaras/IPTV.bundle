@@ -221,7 +221,6 @@ def ListItems(group = unicode(L('All')), query = '', page = 1):
     else:
         return ObjectContainer(
                     header = unicode(L('Search')),
-                    header = unicode(L('Search')),
                     message = unicode(L('No items were found'))
                 )
 
