@@ -62,7 +62,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
             for i in range(line_count - 1):
                 line_1 = lines[i].strip()
                 if line_1.startswith('#EXTINF'):
-                    title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip())
+                    title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip(), errors = 'replace')
                     id = GetAttribute(line_1, 'tvg-id')
                     name = GetAttribute(line_1, 'tvg-name')
                     thumb = GetAttribute(line_1, 'tvg-logo')
@@ -102,12 +102,12 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             'order': stream_count
                         }
                         if not streams:
-                            streams.setdefault(unicode(L('All')), {})[stream_count] = stream
+                            streams.setdefault(unicode('All'), {})[stream_count] = stream
                         if streams:
-                            if not any(item['url'] == stream['url'] for item in streams[unicode(L('All'))].values()):
-                                streams.setdefault(unicode(L('All')), {})[stream_count] = stream
+                            if not any(item['url'] == stream['url'] for item in streams[unicode('All')].values()):
+                                streams.setdefault(unicode('All'), {})[stream_count] = stream
                             if not group_title:
-                                group_title = unicode(L('No category') if not m3u_name else m3u_name)
+                                group_title = unicode('No category' if not m3u_name else m3u_name)
                             if group_title not in groups.keys():
                                 group_thumb = GetAttribute(line_1, 'group-logo')
                                 group_art = GetAttribute(line_1, 'group-art')
@@ -124,7 +124,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             else:
                                 streams.setdefault(group_title, {})[stream_count] = stream
                 elif line_1.startswith('#EXTIMPORT'):
-                    group_title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip()) if line_1.rfind(',') > -1 else None
+                    group_title = unicode(line_1[line_1.rfind(',') + 1:len(line_1)].strip(), errors = 'replace') if line_1.rfind(',') > -1 else None
                     url = None
                     for j in range(i + 1, line_count):
                         line_2 = lines[j].strip()
@@ -151,21 +151,15 @@ def DecodeURIComponent(uri):
 ####################################################################################################
 def GetAttribute(text, attribute, delimiter1 = '=', delimiter2 = '"', default = ''):
 
-    try:
-        value = unicode(default)
-    except:
-        value = unicode(L('Unicode decode error'))
     x = text.lower().find(attribute.lower() + delimiter1 + delimiter2)
     if x > -1:
         y = x + len(attribute) + len(delimiter1) + len(delimiter2)
         z = text.lower().find(delimiter2.lower(), y) if delimiter2 else len(text)
         if z == -1:
             z = len(text)
-        try:
-            value = unicode(text[y:z].strip())
-        except:
-            value = unicode(L('Unicode decode error'))
-    return value
+        return unicode(text[y:z].strip(), errors = 'replace')
+    else:
+        return unicode(default, errors = 'replace')
 
 ####################################################################################################
 def PlaylistReloader():

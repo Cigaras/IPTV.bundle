@@ -56,20 +56,20 @@ def LoadGuide():
                         id = channel.get('id')
                         if id:
                             for name in channel.findall('display-name'):
-                                key = unicode(name.text)
+                                key = unicode(name.text, errors = 'replace')
                                 if key:
                                     channels[key] = id
                     count = 0
                     current_datetime = Datetime.Now()
                     for programme in root.findall('./programme'):
-                        channel = unicode(programme.get('channel'))
+                        channel = unicode(programme.get('channel'), errors = 'replace')
                         start = StringToLocalDatetime(programme.get('start'))
                         stop = StringToLocalDatetime(programme.get('stop'))
                         if stop >= current_datetime:
                             title = programme.find('title').text
                             desc_node = programme.find('desc')
                             try:
-                                desc = unicode(programme.find('desc').text)
+                                desc = unicode(programme.find('desc').text, errors = 'replace')
                             except:
                                 desc = None
                             count = count + 1

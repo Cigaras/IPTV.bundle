@@ -113,7 +113,7 @@ def ListGroups(page = 1):
 
     use_groups = False
     for group in groups_list:
-        if group['title'] not in [unicode(L('All')), unicode(L('No category'))]:
+        if group['title'] not in [unicode('All'), unicode('No category')]:
             use_groups = True
             break
 
@@ -126,12 +126,12 @@ def ListGroups(page = 1):
         oc = ObjectContainer(title1 = unicode(L('View playlist')))
         oc.add(
             DirectoryObject(
-                key = Callback(ListItems, group = unicode(L('All'))),
+                key = Callback(ListItems, group = unicode('All')),
                 title = unicode(L('All'))
             )
         )
         for group in groups_list:
-            if group['title'] not in [unicode(L('All')), unicode(L('No category'))]:
+            if group['title'] not in [unicode('All'), unicode('No category')]:
                 thumb = GetImage(group['thumb'], default = 'icon-folder.png', title = group['title'])
                 art = GetImage(group['art'], default = 'art-default.png')
                 oc.add(
@@ -142,10 +142,10 @@ def ListGroups(page = 1):
                         art = art
                     )
                 )
-        if unicode(L('No category')) in groups.keys():
+        if unicode('No category') in groups.keys():
             oc.add(
                 DirectoryObject(
-                    key = Callback(ListItems, group = unicode(L('No category'))),
+                    key = Callback(ListItems, group = unicode('No category')),
                     title = unicode(L('No category'))
                 )
             )
@@ -155,7 +155,7 @@ def ListGroups(page = 1):
 
 ####################################################################################################
 @route(PREFIX + '/listitems', page = int)
-def ListItems(group = unicode(L('All')), query = '', page = 1):
+def ListItems(group = unicode('All'), query = '', page = 1):
 
     if not Dict['streams']:
         LoadPlaylist()
@@ -220,6 +220,7 @@ def ListItems(group = unicode(L('All')), query = '', page = 1):
         return oc
     else:
         return ObjectContainer(
+                    title1 = unicode(L('Search')),
                     header = unicode(L('Search')),
                     message = unicode(L('No items were found'))
                 )
@@ -281,7 +282,11 @@ def PlayVideo(url):
 def ReloadPlaylist():
 
     if Dict['playlist_loading_in_progress']:
-        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Playlist is reloading in the background, please wait')))
+        return ObjectContainer(
+                    title1 = unicode(L('Warning')),
+                    header = unicode(L('Warning')),
+                    message = unicode(L('Playlist is reloading in the background, please wait'))
+                )
 
     LoadPlaylist()
 
@@ -303,7 +308,11 @@ def ReloadPlaylist():
 def ReloadGuide():
 
     if Dict['guide_loading_in_progress']:
-        return ObjectContainer(header = unicode(L('Warning')), message = unicode(L('Program guide is reloading in the background, please wait')))
+        return ObjectContainer(
+                    title1 = unicode(L('Warning')),
+                    header = unicode(L('Warning')),
+                    message = unicode(L('Program guide is reloading in the background, please wait'))
+                )
 
     LoadGuide()
 
