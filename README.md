@@ -13,9 +13,9 @@ _Important note:_ Playback is handled by Plex itself, not the plug-in, and many 
 
 ### Credits and contacts ###
 * Author: [Valdas Vaitiekaitis](http://valdas.ax.lt), also known as [Cigaras](http://forums.plex.tv/profile/Cigaras);
-* New icons (used in version [2.x](https://github.com/Cigaras/IPTV.bundle/releases)) made using [Font Awesome](http://fontawesome.io) by Dave Gandy, licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL);
-* Old [icons](http://www.iconarchive.com/show/ultrabuuf-icons-by-mattahan.html) (used in version [1.x](https://github.com/Cigaras/IPTV.bundle/releases/tag/v1.2.10)) by artist Paul Davey, also known as [Mattahan](http://mattahan.deviantart.com/), licensed under [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0);
+* Icons made using [Font Awesome](http://fontawesome.io) by Dave Gandy, licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL);
 * [Artwork](http://www.flickr.com/photos/purplesherbet/10579021143) by photographer D. Sharon Pruitt, owner of [Purple Sherbet Photography](http://www.flickr.com/photos/purplesherbet/), licensed under [CC BY 2.0](http://creativecommons.org/licenses/by/2.0);
+* [Locale patch](https://bitbucket.org/czukowski/plex-locale-patch) by [Korney Czukowski](https://forums.plex.tv/discussion/comment/871197/#Comment_871197), licensed under [MIT](https://bitbucket.org/czukowski/plex-locale-patch/src/67ecc8d62978044c0482171cac13ab2919bfe781/LICENSE.md);
 * Contributors: [listed on GiHub](https://github.com/Cigaras/IPTV.bundle/graphs/contributors);
 * Advisers: [Shopgirl284](https://github.com/https://forums.plex.tv/profile/discussions/shopgirl284), [Mikedm139](https://forums.plex.tv/profile/discussions/mikedm139), [Sander1](https://forums.plex.tv/profile/discussions/sander1).
 

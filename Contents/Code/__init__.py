@@ -12,10 +12,11 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.2
+# Version 2.1.3
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
+from locale_patch import L, SetAvailableLanguages
 import re
 
 NAME = 'IPTV'
@@ -33,6 +34,8 @@ def Start():
     VideoClipObject.thumb = R('icon-tv.png')
     VideoClipObject.art = R('art-default.jpg')
 
+    SetAvailableLanguages({'en', 'fr', 'ru'})
+    
     # in case something went wrong last run (#122)
     Dict['playlist_loading_in_progress'] = False
     Dict['guide_loading_in_progress'] = False
