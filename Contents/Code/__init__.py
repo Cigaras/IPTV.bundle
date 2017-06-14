@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.3
+# Version 2.1.4
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -69,7 +69,7 @@ def MainMenu():
                 )
             )
         if Prefs['m3u_manual_reload']:
-        	oc.add(
+            oc.add(
                 DirectoryObject(
                     key = Callback(ReloadPlaylist),
                     title = unicode(L('Reload playlist')),
@@ -196,7 +196,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
             CreateVideoClipObject(
                 url = item['url'],
                 title = item['title'],
-                thumb = GetImage(item['thumb'], default = 'icon-tv.png', title = item['title']),
+                thumb = GetImage(item['thumb'], default = 'icon-tv.png', id = item['id'], name = item['name'], title = item['title']),
                 art = GetImage(item['art'], default = 'art-default.jpg'),
                 summary = GetSummary(item['id'], item['name'], item['title'], unicode(L('No description available'))),
                 c_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
@@ -330,7 +330,7 @@ def ReloadGuide():
                 )
 
 ####################################################################################################
-def GetImage(file_name, default, title = ''):
+def GetImage(file_name, default, id = '', name = '', title = ''):
 
     if Prefs['title_filename'] and not file_name and title:
         file_name = title + '.png'
@@ -338,7 +338,7 @@ def GetImage(file_name, default, title = ''):
     if file_name:
         if file_name.startswith('http'):
             return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
-        if Prefs['images_path']:
+        elif Prefs['images_path']:
             path = Prefs['images_path']
             if path.startswith('http'):
                 file_name = path + file_name if path.endswith('/') else path + '/' + file_name
@@ -352,6 +352,31 @@ def GetImage(file_name, default, title = ''):
         r = R(file_name)
         if r:
             return r
+
+    icons = Dict['icons']
+    if icons and (id or name or title):
+        key = None
+        if id:
+            if id in icons.keys():
+                key = id
+        if not key:
+            channels = Dict['channels']
+            if channels:
+                if name:
+                    if name in channels.keys():
+                        id = channels[name]
+                        if id in icons.keys():
+                            key = id
+                if not key:
+                    if title:
+                        if title in channels.keys():
+                            id = channels[title]
+                            if id in icons.keys():
+                                key = id
+        if key:
+            file_name = icons[key]
+            if file_name.startswith('http'):
+                return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
 
     return R(default)
 

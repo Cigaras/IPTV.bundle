@@ -23,6 +23,7 @@ def LoadGuide():
     Dict['guide_loading_in_progress'] = True
 
     channels = {}
+    icons = {}
     guide = {}
     xmltv_files = Prefs['xmltv'].split(';')
 
@@ -52,25 +53,39 @@ def LoadGuide():
                     Log.Error('Provided file %s is not a valid XML file' % xmltv_file)
                     root = None
                 if root:
-                    for channel in root.findall('./channel'):
-                        id = channel.get('id')
+                    for channel_elem in root.findall('./channel'):
+                        id = channel_elem.get('id')
                         if id:
-                            for name in channel.findall('display-name'):
-                                key = unicode(name.text, errors = 'replace')
+                            for name in channel_elem.findall('display-name'):
+                                try:
+                                    key = unicode(name.text, errors = 'replace')
+                                except TypeError:
+                                    key = name.text.decode('utf-8')
                                 if key:
                                     channels[key] = id
+                            icon_elem = channel_elem.find('icon')
+                            if icon_elem != None: # if icon_elem: does not work
+                                src_attr = icon_elem.get('src')
+                                if src_attr:
+                                    icons[key] = src_attr
                     count = 0
                     current_datetime = Datetime.Now()
-                    for programme in root.findall('./programme'):
-                        channel = unicode(programme.get('channel'), errors = 'replace')
-                        start = StringToLocalDatetime(programme.get('start'))
-                        stop = StringToLocalDatetime(programme.get('stop'))
+                    for programme_elem in root.findall('./programme'):
+                        channel_attr = programme_elem.get('channel')
+                        try:
+                            channel = unicode(channel_attr, errors = 'replace')
+                        except TypeError:
+                            channel = channel_attr.decode('utf-8')
+                        start = StringToLocalDatetime(programme_elem.get('start'))
+                        stop = StringToLocalDatetime(programme_elem.get('stop'))
                         if stop >= current_datetime:
-                            title = programme.find('title').text
-                            desc_node = programme.find('desc')
+                            title = programme_elem.find('title').text
+                            desc_attr = programme_elem.find('desc')
                             try:
-                                desc = unicode(programme.find('desc').text, errors = 'replace')
-                            except:
+                                desc = unicode(desc_attr.text, errors = 'replace')
+                            except TypeError:
+                                desc = desc_attr.text.decode('utf-8')
+                            except AttributeError:
                                 desc = None
                             count = count + 1
                             item = {
@@ -83,6 +98,7 @@ def LoadGuide():
                             guide.setdefault(channel, {})[count] = item
 
     Dict['channels'] = channels
+    Dict['icons'] = icons
     Dict['guide'] = guide
     Dict['last_guide_load_datetime'] = Datetime.Now()
     Dict['last_guide_load_prefs'] = Prefs['xmltv']
