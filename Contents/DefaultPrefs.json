@@ -25,7 +25,7 @@
     },
     {
         "id":       "title_filename",
-        "label":    "Try to use group or stream title with a .png extension for a filename if logo attributes are not provided, if disabled will try to use program guides icons if logo attributes are not provided",
+        "label":    "Try to use group or stream title with a .png extension for a filename if logo attributes are not provided, if disabled will try to use program guide icons if logo attributes are not provided",
         "type":     "bool",
         "default":  "false"
     },
