@@ -79,13 +79,21 @@ def LoadGuide():
                         start = StringToLocalDatetime(programme_elem.get('start'))
                         stop = StringToLocalDatetime(programme_elem.get('stop'))
                         if stop >= current_datetime:
-                            title = programme_elem.find('title').text
-                            desc_attr = programme_elem.find('desc')
-                            try:
-                                desc = unicode(desc_attr.text, errors = 'replace')
-                            except TypeError:
-                                desc = desc_attr.text.decode('utf-8')
-                            except AttributeError:
+                            title_text = programme_elem.find('title').text
+                            if title_text:
+                                try:
+                                    title = unicode(title_text, errors = 'replace')
+                                except TypeError:
+                                    title = title_text.decode('utf-8')
+                            else:
+                                title = None
+                            desc_text = programme_elem.find('desc').text
+                            if desc_text:
+                                try:
+                                    desc = unicode(desc_text, errors = 'replace')
+                                except TypeError:
+                                    desc = desc_text.decode('utf-8')
+                            else:
                                 desc = None
                             count = count + 1
                             item = {
