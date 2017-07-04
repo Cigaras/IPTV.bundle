@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.5
+# Version 2.1.6
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -337,12 +337,12 @@ def GetImage(file_name, default, id = '', name = '', title = ''):
 
     if file_name:
         if file_name.startswith('http'):
-            return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
+            return Resource.ContentsOfURLWithFallback(file_name.replace(' ', '%20'), fallback = R(default))
         elif Prefs['images_path']:
             path = Prefs['images_path']
             if path.startswith('http'):
                 file_name = path + file_name if path.endswith('/') else path + '/' + file_name
-                return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
+                return Resource.ContentsOfURLWithFallback(file_name.replace(' ', '%20'), fallback = R(default))
             else:
                 if '/' in path and not '\\' in path:
                     # must be unix system, might not work
@@ -376,7 +376,7 @@ def GetImage(file_name, default, id = '', name = '', title = ''):
         if key:
             file_name = icons[key]
             if file_name.startswith('http'):
-                return Resource.ContentsOfURLWithFallback(file_name, fallback = R(default))
+                return Resource.ContentsOfURLWithFallback(file_name.replace(' ', '%20'), fallback = R(default))
 
     return R(default)
 
