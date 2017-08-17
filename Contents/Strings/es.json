@@ -1,0 +1,20 @@
+{
+    "All": "Todo",
+    "Error": "Error",
+    "No category": "No hay categoria",
+    "No description available": "Descripcion no disponible",
+    "No items were found": "No se han encontrado objetos",
+    "Playlist is reloading in the background, please wait": "Playlist esta cargando en segundo plano, por favor espere",
+    "Playlist reloaded successfully": "Playlist recargada correctamente",
+    "Preferences": "Preferencias",
+    "Program guide is reloading in the background, please wait": "La guia is esta cargando en segundo plano, por favor espere",
+    "Program guide reloaded successfully": "Guia de programas recargada correctamente",
+    "Provided playlist files are invalid, missing or empty, check the log file for more information": "Los archivos de la playlist no son validos, vacio o perdidos, mira el log para mas informacion",
+    "Provided program guide files are invalid, missing or empty, check the log file for more information": "La guia de programas no es valida, vacia o perdida, mira el log para mas informacion",
+    "Reload playlist": "Recargar playlist",
+    "Reload program guide": "Recargar guia de programas",
+    "Search": "Buscar",
+    "Success": "Exito",
+    "View playlist": "Ver playlist",
+    "Warning": "Atencion"
+}
