@@ -87,12 +87,15 @@ def LoadGuide():
                                     title = title_text.decode('utf-8')
                             else:
                                 title = None
-                            desc_text = programme_elem.find('desc').text
-                            if desc_text:
-                                try:
-                                    desc = unicode(desc_text, errors = 'replace')
-                                except TypeError:
-                                    desc = desc_text.decode('utf-8')
+                            if programme_elem.find('desc'):
+								desc_text = programme_elem.find('desc').text
+								if dest_text:
+									try:
+										desc = unicode(desc_text, errors = 'replace')
+									except TypeError:
+										desc = desc_text.decode('utf-8')
+								else:
+									desc = None
                             else:
                                 desc = None
                             count = count + 1
