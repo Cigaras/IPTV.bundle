@@ -73,6 +73,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                     video_codec = GetAttribute(line_1, 'video_codec').lower()
                     container = GetAttribute(line_1, 'container').lower()
                     protocol = GetAttribute(line_1, 'protocol').lower()
+                    user_agent = GetAttribute(line_1, 'user_agent').lower()
                     optimized_for_streaming = GetAttribute(line_1, 'optimized_for_streaming').lower()
                     group_title = GetAttribute(line_1, 'group-title')
                     url = None
@@ -81,6 +82,8 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                         if line_2:
                             if line_2.startswith('#EXTGRP:') and not group_title:
                                 group_title = GetAttribute(line_2, '#EXTGRP', ':', '')
+                            elif line_2.startswith('#EXTVLCOPT:') and not user_agent:
+                                user_agent = GetAttribute(line_2, 'http-user-agent', '=', '')
                             elif not line_2.startswith('#'):
                                 url = line_2
                                 i = j + 1
@@ -98,6 +101,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             'video_codec': video_codec,
                             'container': container,
                             'protocol': protocol,
+                            'user_agent': user_agent,
                             'optimized_for_streaming': optimized_for_streaming,
                             'order': stream_count
                         }

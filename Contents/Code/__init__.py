@@ -1,6 +1,6 @@
 # Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
 
-# Copyright © 2013-2017 Valdas Vaitiekaitis
+# Copyright © 2013-2018 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.6
+# Version 2.1.7
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -203,6 +203,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
                 c_video_codec = item['video_codec'] if item['video_codec'] else None,
                 c_container = item['container'] if item['container'] else None,
                 c_protocol = item['protocol'] if item['protocol'] else None,
+                c_user_agent = item.get('user_agent') if item.get('user_agent') else Prefs['user_agent'],
                 optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming'],
                 include_container = False
             )
@@ -230,7 +231,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
 def CreateVideoClipObject(url, title, thumb, art, summary,
                           c_audio_codec = None, c_video_codec = None,
                           c_container = None, c_protocol = None,
-                          optimized_for_streaming = True,
+                          c_user_agent = None, optimized_for_streaming = True,
                           include_container = False, *args, **kwargs):
 
     vco = VideoClipObject(
@@ -238,7 +239,7 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
                        url = url, title = title, thumb = thumb, art = art, summary = summary,
                        c_audio_codec = c_audio_codec, c_video_codec = c_video_codec,
                        c_container = c_container, c_protocol = c_protocol,
-                       optimized_for_streaming = optimized_for_streaming,
+                       c_user_agent = c_user_agent, optimized_for_streaming = optimized_for_streaming,
                        include_container = True),
         rating_key = url,
         title = title,
@@ -249,7 +250,7 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
             MediaObject(
                 parts = [
                     PartObject(
-                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url))
+                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, user_agent = c_user_agent))
                     )
                 ],
                 audio_codec = c_audio_codec,
@@ -262,18 +263,18 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
     )
 
     if include_container:
-        return ObjectContainer(objects = [vco])
+        return ObjectContainer(objects = [vco], user_agent = c_user_agent)
     else:
         return vco
 
 ####################################################################################################
 @indirect
 @route(PREFIX + '/playvideo.m3u8')
-def PlayVideo(url):
+def PlayVideo(url, c_user_agent = None):
 
     # Custom User-Agent string
-    if Prefs['user_agent']:
-        HTTP.Headers['User-Agent'] = Prefs['user_agent']
+    if c_user_agent:
+        HTTP.Headers['User-Agent'] = c_user_agent
 
     return IndirectResponse(VideoClipObject, key = url)
 

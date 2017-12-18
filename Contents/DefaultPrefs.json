@@ -95,7 +95,7 @@
     },
     {
         "id":       "user_agent",
-        "label":    "Custom User-Agent string",
+        "label":    "Custom User-Agent string (might require playlist reaload for changes to take effect)",
         "type":     "text",
         "default":  ""
     },

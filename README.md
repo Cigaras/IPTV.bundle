@@ -22,7 +22,7 @@ _Important note:_ Playback is handled by Plex itself, not the plug-in, and many 
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](https://forums.plex.tv/discussion/83083), or visit my personal blog at [valdasv.blogspot.lt](http://valdasv.blogspot.lt), but please keep in mind that I did this plug-in voluntary in my spare time and I have other priorities to do so do not expect a quick response. However if You find my work useful, please consider making a small [donation](https://paypal.me/valdasvaitiekaitis) as a sign of gratitude and support. Also accepting [bitcoins](https://valdasv.lt/bitcoin).
 
 ### License ###
-Copyright © 2013-2017 Valdas Vaitiekaitis
+Copyright © 2013-2018 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
