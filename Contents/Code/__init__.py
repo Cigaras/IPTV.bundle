@@ -250,7 +250,7 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
             MediaObject(
                 parts = [
                     PartObject(
-                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, user_agent = c_user_agent))
+                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent))
                     )
                 ],
                 audio_codec = c_audio_codec,
