@@ -1,6 +1,6 @@
 # XMLTV files parser for Plex IPTV plug-in that plays live streams (like IPTV) from a M3U playlist
 
-# Copyright © 2013-2017 Valdas Vaitiekaitis
+# Copyright © 2013-2018 Valdas Vaitiekaitis
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

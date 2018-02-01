@@ -93,6 +93,30 @@
         "values":   ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
         "default":  "04:00"
     },
+	{
+        "id":       "protocol",
+        "label":    "Custom transport protocol (dash, http, hls, rtmp)",
+        "type":     "text",
+        "default":  ""
+    },
+	{
+        "id":       "audio_codec",
+        "label":    "Custom audio codec (aac, dca, mp3, wma, wmap, vorbis, flac)",
+        "type":     "text",
+        "default":  ""
+    },
+	{
+        "id":       "video_codec",
+        "label":    "Custom video codec (h263, h264, vp6, wvc1, divx, div4, xvid, theora)",
+        "type":     "text",
+        "default":  ""
+    },
+	{
+        "id":       "container",
+        "label":    "Custom multimedia container (mkv, mp4, mprgts, mov, avi, mp3, ogg, flac, flv)",
+        "type":     "text",
+        "default":  ""
+    },
     {
         "id":       "user_agent",
         "label":    "Custom User-Agent string (might require playlist reaload for changes to take effect)",

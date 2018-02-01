@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.7
+# Version 2.1.8
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -199,11 +199,11 @@ def ListItems(group = unicode('All'), query = '', page = 1):
                 thumb = GetImage(item['thumb'], default = 'icon-tv.png', id = item['id'], name = item['name'], title = item['title']),
                 art = GetImage(item['art'], default = 'art-default.jpg'),
                 summary = GetSummary(item['id'], item['name'], item['title'], unicode(L('No description available'))),
-                c_audio_codec = item['audio_codec'] if item['audio_codec'] else None,
-                c_video_codec = item['video_codec'] if item['video_codec'] else None,
-                c_container = item['container'] if item['container'] else None,
-                c_protocol = item['protocol'] if item['protocol'] else None,
-                c_user_agent = item.get('user_agent') if item.get('user_agent') else Prefs['user_agent'],
+                c_audio_codec = item['audio_codec'] if item['audio_codec'] else Prefs['audio_codec'] if Prefs['audio_codec'] else None,
+                c_video_codec = item['video_codec'] if item['video_codec'] else Prefs['video_codec'] if Prefs['video_codec'] else None,
+                c_container = item['container'] if item['container'] else Prefs['container'] if Prefs['container'] else None,
+                c_protocol = item['protocol'] if item['protocol'] else Prefs['protocol'] if Prefs['protocol'] else None,
+                c_user_agent = item.get('user_agent') if item.get('user_agent') else Prefs['user_agent'] if Prefs['user_agent'] else None,
                 optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming'],
                 include_container = False
             )
@@ -253,17 +253,17 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
                         key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent))
                     )
                 ],
-                audio_codec = c_audio_codec,
-                video_codec = c_video_codec,
-                container = c_container,
-                protocol = c_protocol,
+                audio_codec = c_audio_codec if c_audio_codec else None,
+                video_codec = c_video_codec if c_video_codec else None,
+                container = c_container if c_container else None,
+                protocol = c_protocol if c_protocol else None,
                 optimized_for_streaming = optimized_for_streaming
             )
         ]
     )
 
     if include_container:
-        return ObjectContainer(objects = [vco], user_agent = c_user_agent)
+        return ObjectContainer(objects = [vco], user_agent = c_user_agent if c_user_agent else None)
     else:
         return vco
 
