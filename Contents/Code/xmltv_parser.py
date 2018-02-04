@@ -104,6 +104,7 @@ def LoadGuide():
                                 'stop': stop,
                                 'title': title,
                                 'desc': desc,
+                                'channel_id': channel,
                                 'order': count
                             }
                             guide.setdefault(channel, {})[count] = item
