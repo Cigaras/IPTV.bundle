@@ -416,10 +416,21 @@ def GetSummary(id, name, title, default = ''):
                     guide_hours = 8
                 for item in items_list:
                     if item['start'] <= current_datetime + Datetime.Delta(hours = guide_hours) and item['stop'] > current_datetime:
+                        try:
+                            guide_offset_seconds = int(Prefs['guide_offset_seconds'])
+                        except:
+                            guide_offset_seconds = 0
+
+                        try:
+                            guide_format_string = Prefs['guide_format_string']
+                        except:
+                            guide_format_string = '%H:%M'
+
+                        start = (item['start'] + Datetime.Delta(seconds = guide_offset_seconds)).strftime(guide_format_string)
                         if summary:
-                            summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
+                            summary = summary + '\n' + start + ': ' + item['title']
                         else:
-                            summary = item['start'].strftime('%H:%M') + ' ' + item['title']
+                            summary = start + ': ' + item['title']
                         if item['desc']:
                             summary = summary + ' - ' + item['desc']
 
