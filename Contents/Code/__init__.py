@@ -173,7 +173,25 @@ def ListItems(group = unicode('All'), query = '', page = 1):
 
     # Filter
     if query:
-        items_list = filter(lambda d: query.lower() in d['title'].lower(), items_list)
+        raw_items_list = items_list
+        ql = query.lower()
+        items_list = filter(lambda d: ql in d['title'].lower(), items_list)
+
+        guide = Dict['guide']
+        if guide:
+            current_datetime = Datetime.Now()
+            try:
+                guide_hours = int(Prefs['guide_hours'])
+            except:
+                guide_hours = 8
+            crop_time = current_datetime + Datetime.Delta(hours = guide_hours)
+            for key in guide.keys():
+                # crop anything outside of our window first to limit the second search
+                shows = filter(lambda d: d['start'] <= crop_time and d['stop'] > current_datetime, guide[key].values())
+                # now look for matches in the result set
+                shows = filter(lambda d: ql in d['title'].lower(), shows)
+                for show in shows:
+                    items_list = items_list + filter(lambda d: show['channel_id'] == d['id'], raw_items_list)
 
     # Sort
     if Prefs['sort_lists']:
@@ -416,10 +434,21 @@ def GetSummary(id, name, title, default = ''):
                     guide_hours = 8
                 for item in items_list:
                     if item['start'] <= current_datetime + Datetime.Delta(hours = guide_hours) and item['stop'] > current_datetime:
+                        try:
+                            guide_offset_seconds = int(Prefs['guide_offset_seconds'])
+                        except:
+                            guide_offset_seconds = 0
+
+                        try:
+                            guide_format_string = Prefs['guide_format_string']
+                        except:
+                            guide_format_string = '%H:%M'
+
+                        start = (item['start'] + Datetime.Delta(seconds = guide_offset_seconds)).strftime(guide_format_string)
                         if summary:
-                            summary = summary + '\n' + item['start'].strftime('%H:%M') + ' ' + item['title']
+                            summary = summary + '\n' + start + ' ' + item['title']
                         else:
-                            summary = item['start'].strftime('%H:%M') + ' ' + item['title']
+                            summary = start + ' ' + item['title']
                         if item['desc']:
                             summary = summary + ' - ' + item['desc']
 
