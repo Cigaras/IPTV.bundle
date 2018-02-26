@@ -79,31 +79,43 @@ def LoadGuide():
                         start = StringToLocalDatetime(programme_elem.get('start'))
                         stop = StringToLocalDatetime(programme_elem.get('stop'))
                         if stop >= current_datetime:
-                            title_text = programme_elem.find('title').text
-                            if title_text:
+                            title_text = programme_elem.findtext("title", default="")
+                            try:
+                                title = unicode(title_text, errors = 'replace')
+                            except TypeError:
+                                title = title_text.decode('utf-8')
+
+                            desc_text = programme_elem.findtext("desc", default="")
+                            try:
+                                desc = unicode(desc_text, errors = 'replace')
+                            except TypeError:
+                                desc = desc_text.decode('utf-8')
+
+                            ep = programme_elem.find('episode-num')
+                            if ep != None:
+                                if ep.get('system') == 'xmltv_ns':
+                                    fields = ep.text.split('.')
+                                    episode_text = "%s%s%s" % (
+                                        'S' + fields[0] if len(fields) >= 1 and len(fields[0]) > 0 else '',
+                                        'E' + fields[1] if len(fields) >= 2 and len(fields[1]) > 0 else '',
+                                        'P' + fields[2] if len(fields) >= 3 and len(fields[2]) > 0 else '')
+                                else:
+                                    episode_text = ep.text
+
                                 try:
-                                    title = unicode(title_text, errors = 'replace')
+                                    episode = unicode(episode_text, errors = 'replace')
                                 except TypeError:
-                                    title = title_text.decode('utf-8')
+                                    episode = episode_text.decode('utf-8')
                             else:
-                                title = None
-                            if programme_elem.find('desc'):
-								desc_text = programme_elem.find('desc').text
-								if dest_text:
-									try:
-										desc = unicode(desc_text, errors = 'replace')
-									except TypeError:
-										desc = desc_text.decode('utf-8')
-								else:
-									desc = None
-                            else:
-                                desc = None
+                                episode = None
+
                             count = count + 1
                             item = {
                                 'start': start,
                                 'stop': stop,
                                 'title': title,
                                 'desc': desc,
+                                'episode': episode,
                                 'channel_id': channel,
                                 'order': count
                             }

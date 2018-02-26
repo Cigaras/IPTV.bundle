@@ -446,9 +446,13 @@ def GetSummary(id, name, title, default = ''):
 
                         start = (item['start'] + Datetime.Delta(seconds = guide_offset_seconds)).strftime(guide_format_string)
                         if summary:
-                            summary = summary + '\n' + start + ' ' + item['title']
+                            summary = summary + '\n' + start
                         else:
-                            summary = start + ' ' + item['title']
+                            summary = start
+                        if item['title']:
+                            summary = summary + ' ' + item['title']
+                            if item['episode']:
+                                summary = summary + ' (' + item['episode'] + ')'
                         if item['desc']:
                             summary = summary + ' - ' + item['desc']
 
