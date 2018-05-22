@@ -293,8 +293,7 @@ def PlayVideo(url, c_user_agent = None):
     # Custom User-Agent string
     if c_user_agent:
         HTTP.Headers['User-Agent'] = c_user_agent
-		
-	HTTP.Headers['Referer'] = 'some text'	
+
     return IndirectResponse(VideoClipObject, key = url)
 
 ####################################################################################################
