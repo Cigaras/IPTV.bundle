@@ -222,6 +222,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
                 c_container = item['container'] if item['container'] else Prefs['container'] if Prefs['container'] else None,
                 c_protocol = item['protocol'] if item['protocol'] else Prefs['protocol'] if Prefs['protocol'] else None,
                 c_user_agent = item.get('user_agent') if item.get('user_agent') else Prefs['user_agent'] if Prefs['user_agent'] else None,
+                c_referer = item.get('referer') if item.get('referer') else Prefs['referer'] if Prefs['referer'] else None,
                 optimized_for_streaming = item['optimized_for_streaming'] in ['y', 'yes', 't', 'true', 'on', '1'] if item['optimized_for_streaming'] else Prefs['optimized_for_streaming'],
                 include_container = False
             )
@@ -249,16 +250,16 @@ def ListItems(group = unicode('All'), query = '', page = 1):
 def CreateVideoClipObject(url, title, thumb, art, summary,
                           c_audio_codec = None, c_video_codec = None,
                           c_container = None, c_protocol = None,
-                          c_user_agent = None, optimized_for_streaming = True,
-                          include_container = False, *args, **kwargs):
+                          c_user_agent = None, c_referer = None,
+                          optimized_for_streaming = True, include_container = False, *args, **kwargs):
 
     vco = VideoClipObject(
         key = Callback(CreateVideoClipObject,
                        url = url, title = title, thumb = thumb, art = art, summary = summary,
                        c_audio_codec = c_audio_codec, c_video_codec = c_video_codec,
                        c_container = c_container, c_protocol = c_protocol,
-                       c_user_agent = c_user_agent, optimized_for_streaming = optimized_for_streaming,
-                       include_container = True),
+                       c_user_agent = c_user_agent, c_referer = c_referer,
+                       optimized_for_streaming = optimized_for_streaming, include_container = True),
         rating_key = url,
         title = title,
         thumb = thumb,
@@ -268,7 +269,7 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
             MediaObject(
                 parts = [
                     PartObject(
-                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent))
+                        key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent, c_referer = c_referer))
                     )
                 ],
                 audio_codec = c_audio_codec if c_audio_codec else None,
@@ -288,14 +289,16 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
 ####################################################################################################
 @indirect
 @route(PREFIX + '/playvideo.m3u8')
-def PlayVideo(url, c_user_agent = None):
+def PlayVideo(url, c_user_agent = None, c_referer = None):
 
     # Custom User-Agent string
     if c_user_agent:
         HTTP.Headers['User-Agent'] = c_user_agent
 
-    HTTP.Headers['Referer'] = 'http://player.livesports.pw/la2/'
-    HTTP.Headers['Referrer'] = 'http://player.livesports.pw/la2/'
+    # Custom HTTP referer
+    if c_referer:
+        HTTP.Headers['Referer'] = c_referer
+        HTTP.Headers['Referrer'] = c_referer
 
     return IndirectResponse(VideoClipObject, key = url)
 
