@@ -74,6 +74,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                     container = GetAttribute(line_1, 'container').lower()
                     protocol = GetAttribute(line_1, 'protocol').lower()
                     user_agent = GetAttribute(line_1, 'user_agent').lower()
+                    referer = GetAttribute(line_1, 'referer').lower()
                     optimized_for_streaming = GetAttribute(line_1, 'optimized_for_streaming').lower()
                     group_title = GetAttribute(line_1, 'group-title')
                     url = None
@@ -82,8 +83,12 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                         if line_2:
                             if line_2.startswith('#EXTGRP:') and not group_title:
                                 group_title = GetAttribute(line_2, '#EXTGRP', ':', '')
-                            elif line_2.startswith('#EXTVLCOPT:') and not user_agent:
+                            elif line_2.startswith('#EXTVLCOPT:http-user-agent') and not user_agent:
                                 user_agent = GetAttribute(line_2, 'http-user-agent', '=', '')
+                            elif line_2.startswith('#EXTVLCOPT:http-referer') and not referer:
+                                referer = GetAttribute(line_2, 'http-referer', '=', '')
+                            elif line_2.startswith('#EXTVLCOPT:http-referrer') and not referer:
+                                referer = GetAttribute(line_2, 'http-referrer', '=', '')
                             elif not line_2.startswith('#'):
                                 url = line_2
                                 i = j + 1
@@ -102,6 +107,7 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             'container': container,
                             'protocol': protocol,
                             'user_agent': user_agent,
+                            'referer': referer,
                             'optimized_for_streaming': optimized_for_streaming,
                             'order': stream_count
                         }
