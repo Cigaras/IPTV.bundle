@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# Version 2.1.9
+# Version 2.1.10
 
 from m3u_parser import LoadPlaylist, PlaylistReloader
 from xmltv_parser import LoadGuide, GuideReloader
@@ -209,6 +209,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
 
     oc = ObjectContainer(title1 = unicode(L('Search')) if query else group)
 
+    # Loop through items
     for item in items_list_range:
         oc.add(
             CreateVideoClipObject(
@@ -217,9 +218,14 @@ def ListItems(group = unicode('All'), query = '', page = 1):
                 thumb = GetImage(item['thumb'], default = 'icon-tv.png', id = item['id'], name = item['name'], title = item['title']),
                 art = GetImage(item['art'], default = 'art-default.jpg'),
                 summary = GetSummary(item['id'], item['name'], item['title'], unicode(L('No description available'))),
+                c_audio_channels = item.get('audio_channels') if item.get('audio_channels') else None,
                 c_audio_codec = item['audio_codec'] if item['audio_codec'] else Prefs['audio_codec'] if Prefs['audio_codec'] else None,
                 c_video_codec = item['video_codec'] if item['video_codec'] else Prefs['video_codec'] if Prefs['video_codec'] else None,
+                c_video_resolution = item.get('video_resolution') if item.get('video_resolution') else None,
                 c_container = item['container'] if item['container'] else Prefs['container'] if Prefs['container'] else None,
+                c_duration = item.get('duration') if item.get('duration') else None,
+                c_width = item.get('width') if item.get('width') else None,
+                c_height = item.get('height') if item.get('height') else None,
                 c_protocol = item['protocol'] if item['protocol'] else Prefs['protocol'] if Prefs['protocol'] else None,
                 c_user_agent = item.get('user_agent') if item.get('user_agent') else Prefs['user_agent'] if Prefs['user_agent'] else None,
                 c_referer = item.get('referer') if item.get('referer') else Prefs['referer'] if Prefs['referer'] else None,
@@ -228,6 +234,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
             )
         )
 
+    # Next Page
     if len(items_list) > page * items_per_page:
         oc.add(
             NextPageObject(
@@ -236,6 +243,7 @@ def ListItems(group = unicode('All'), query = '', page = 1):
             )
         )
 
+    # Result
     if len(oc) > 0:
         return oc
     else:
@@ -248,17 +256,33 @@ def ListItems(group = unicode('All'), query = '', page = 1):
 ####################################################################################################
 @route(PREFIX + '/createvideoclipobject', include_container = bool)
 def CreateVideoClipObject(url, title, thumb, art, summary,
-                          c_audio_codec = None, c_video_codec = None,
-                          c_container = None, c_protocol = None,
-                          c_user_agent = None, c_referer = None,
+                          c_audio_channels = None,
+                          c_audio_codec = None,
+                          c_video_codec = None,
+                          c_video_resolution = None,
+                          c_container = None,
+                          c_duration = None,
+                          c_width = None,
+                          c_height = None,
+                          c_protocol = None,
+                          c_user_agent = None,
+                          c_referer = None,
                           optimized_for_streaming = True, include_container = False, *args, **kwargs):
 
     vco = VideoClipObject(
         key = Callback(CreateVideoClipObject,
                        url = url, title = title, thumb = thumb, art = art, summary = summary,
-                       c_audio_codec = c_audio_codec, c_video_codec = c_video_codec,
-                       c_container = c_container, c_protocol = c_protocol,
-                       c_user_agent = c_user_agent, c_referer = c_referer,
+                       c_audio_channels = c_audio_channels,
+                       c_audio_codec = c_audio_codec,
+                       c_video_codec = c_video_codec,
+                       c_video_resolution = c_video_resolution,
+                       c_container = c_container,
+                       c_duration = c_duration,
+                       c_width = c_width,
+                       c_height = c_height,
+                       c_protocol = c_protocol,
+                       c_user_agent = c_user_agent,
+                       c_referer = c_referer,
                        optimized_for_streaming = optimized_for_streaming, include_container = True),
         rating_key = url,
         title = title,
@@ -272,9 +296,20 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
                         key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent, c_referer = c_referer))
                     )
                 ],
+                # full attributes list can found in C:\Program Files (x86)\Plex\Plex Media Server\Resources\Plug-ins-10d48da0d\Framework.bundle\Contents\Resources\Versions\2\Python\Framework\api\objectkit.py
+                #protocols
+                #platforms
+                #bitrate
+                #aspect_ratio
+                audio_channels = c_audio_channels if c_audio_channels else None,
                 audio_codec = c_audio_codec if c_audio_codec else None,
                 video_codec = c_video_codec if c_video_codec else None,
+                video_resolution = c_video_resolution if c_video_resolution else None,
                 container = c_container if c_container else None,
+                #video_frame_rate
+                duration = c_duration if c_duration else None,
+                width = c_width if c_width else None,
+                height = c_height if c_height else None,
                 protocol = c_protocol if c_protocol else None,
                 optimized_for_streaming = optimized_for_streaming
             )

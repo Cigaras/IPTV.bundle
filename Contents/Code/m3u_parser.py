@@ -69,9 +69,14 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                     if not thumb:
                         thumb = GetAttribute(line_1, 'logo')
                     art = GetAttribute(line_1, 'art')
+                    audio_channels = GetAttribute(line_1, 'audio_channels').lower()
                     audio_codec = GetAttribute(line_1, 'audio_codec').lower()
                     video_codec = GetAttribute(line_1, 'video_codec').lower()
+                    video_resolution = GetAttribute(line_1, 'video_resolution').lower()
                     container = GetAttribute(line_1, 'container').lower()
+                    duration = GetAttribute(line_1, 'duration').lower()
+                    width = GetAttribute(line_1, 'width').lower()
+                    height = GetAttribute(line_1, 'height').lower()
                     protocol = GetAttribute(line_1, 'protocol').lower()
                     user_agent = GetAttribute(line_1, 'user_agent').lower()
                     referer = GetAttribute(line_1, 'referer').lower()
@@ -102,9 +107,14 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                             'name': name,
                             'thumb': thumb,
                             'art': art,
+                            'audio_channels': audio_channels,
                             'audio_codec': audio_codec,
                             'video_codec': video_codec,
+                            'video_resolution': video_resolution,
                             'container': container,
+                            'duration': duration,
+                            'width': width,
+                            'height': height,
                             'protocol': protocol,
                             'user_agent': user_agent,
                             'referer': referer,
