@@ -296,7 +296,7 @@ def CreateVideoClipObject(url, title, thumb, art, summary,
                         key = HTTPLiveStreamURL(Callback(PlayVideo, url = url, c_user_agent = c_user_agent, c_referer = c_referer))
                     )
                 ],
-                # full attributes list can found in C:\Program Files (x86)\Plex\Plex Media Server\Resources\Plug-ins-10d48da0d\Framework.bundle\Contents\Resources\Versions\2\Python\Framework\api\objectkit.py
+                # full attributes list can be found in C:\Program Files (x86)\Plex\Plex Media Server\Resources\Plug-ins-10d48da0d\Framework.bundle\Contents\Resources\Versions\2\Python\Framework\api\objectkit.py
                 #protocols
                 #platforms
                 #bitrate
