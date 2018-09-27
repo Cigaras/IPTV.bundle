@@ -75,6 +75,12 @@ def LoadM3UFile(m3u_file, groups = {}, streams = {}, cust_m3u_name = None):
                     video_resolution = GetAttribute(line_1, 'video_resolution').lower()
                     container = GetAttribute(line_1, 'container').lower()
                     duration = GetAttribute(line_1, 'duration').lower()
+                    if not duration:
+                        duration = line_1[8:line_1.find(' ', 8) if line_1.find(' ', 8) > 0 and line_1.find(',', 8) > line_1.find(' ', 8) else line_1.find(',', 8)].strip()
+                        if duration.isdigit():
+                            duration = duration if int(duration) > 0 else None
+                        else:
+                            duration = None
                     width = GetAttribute(line_1, 'width').lower()
                     height = GetAttribute(line_1, 'height').lower()
                     protocol = GetAttribute(line_1, 'protocol').lower()
