@@ -2,6 +2,9 @@
 [![Current Release](https://img.shields.io/github/release/Cigaras/IPTV.bundle.svg "Current Release")](https://github.com/Cigaras/IPTV.bundle/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Cigaras/IPTV.bundle/total.svg "Downloads")](https://github.com/Cigaras/IPTV.bundle/releases) [![PayPal](https://img.shields.io/badge/donate-PayPal-green.svg)](https://paypal.me/valdasvaitiekaitis) [![BitCoin](https://img.shields.io/badge/donate-BitCoin-green.svg)](https://valdasv.lt/bitcoin)
 
+### Attention! ###
+[**Plex has retired plug-ins functionality!**](https://www.plex.tv/blog/subtitles-and-sunsets-big-improvements-little-housekeeping/) This plug-in still works, however most Plex clients and apps do not show any plug-ins at all, including this one. So this is the end. It was a fun project despite a bit deserted by me for last year, because some time ago I switched to [Kodi](https://kodi.tv/) as a frontend and [Emby](https://emby.media/) as a backend for my multimedia needs, including [IPTV](https://kodi.wiki/view/Add-on:IPTV_Simple_Client). You can read my [blog post](https://valdasv.blogspot.com/2016/03/iptv-m3u-players.html) for more IPTV alternatives if you want. Good luck and take care.
+
 ### Introduction ###
 A simple [Plex Media Servers](https://www.plex.tv/downloads) plug-in that reads live streams (like [IPTV](http://en.wikipedia.org/wiki/IPTV)) urls from a [m3u](https://en.wikipedia.org/wiki/M3U) file and passes 'em to Plex in format understandable to Plex so it could try to play them.
 
@@ -22,7 +25,7 @@ _Important note:_ Playback is handled by Plex itself, not the plug-in, and many 
 If You have any questions or suggestions, please feel free to contact me via [GitHub](https://github.com/Cigaras) or [Plex forum](https://forums.plex.tv/discussion/83083), or visit my personal blog at [valdasv.blogspot.lt](http://valdasv.blogspot.lt), but please keep in mind that I did this plug-in voluntary in my spare time and I have other priorities to do so do not expect a quick response. However if You find my work useful, please consider making a small [donation](https://paypal.me/valdasvaitiekaitis) as a sign of gratitude and support. Also accepting [bitcoins](https://valdasv.lt/bitcoin).
 
 ### License ###
-Copyright © 2013-2018 Valdas Vaitiekaitis
+Copyright © 2013-2020 Valdas Vaitiekaitis
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
